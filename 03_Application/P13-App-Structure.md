@@ -84,7 +84,7 @@ Sepuluh modul mengikuti Functional Decomposition (laporan §3.3.2) dan diagram `
 |---|---|---|---|---|---|
 | 1 | Identity | Registrasi, login lewat Keycloak, profil, peran | `users` | `Auth` | prasyarat |
 | 2 | Verification | Unggah KTM, antrean verifikasi, keputusan admin | `student_verifications` | `Verification` | kontrol alur |
-| 3 | Catalog | Barang, kategori, foto, harga, deposit, kalender ketersediaan | `items`, `item_categories`, `item_photos`, `item_availability` | `Catalog` | M1, M2 |
+| 3 | Catalog | Barang, kategori, foto, harga, deposit, kalender ketersediaan | `items`, `item_categories`, `item_photos`, `item_availabilities` | `Catalog` | M1, M2 |
 | 4 | Search | Filter kategori, tanggal, lokasi; urutan hasil | — (baca Catalog) | `Search` | M2 |
 | 5 | Booking | Pengajuan, persetujuan, penolakan, pembatalan, riwayat status | `bookings`, `booking_status_histories` | `Booking` | M3 |
 | 6 | Deposit | Deposit simulasi, tahan, refund, potong | `deposits` | `Deposit` | Should (menopang M3) |

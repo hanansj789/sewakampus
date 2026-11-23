@@ -16,7 +16,7 @@ Wireframe desktop terpisah ada di `P13-06-Wireframe.md` dan `SewaKampus-Wirefram
 | `03_Application/ux/DESIGN.md` | Sistem desain mewah-minimalis |
 | `03_Application/ux/assets/` | Tiga foto berlisensi + `credits.json` |
 | `03_Application/ux/exports/L-00-components.png` | Page komponen |
-| `03_Application/ux/exports/L-01-katalog.png` sampai `L-06-rating.png` | Enam layar alur |
+| `03_Application/ux/exports/L-01-buat-listing.png` sampai `L-07-rating.png` | Tujuh layar alur |
 | `03_Application/ux/exports/SewaKampus-Prototype-Flow.pdf` | PDF alur |
 
 ## 2. Alur tujuh layar
@@ -41,7 +41,7 @@ Tujuh layar 1440 × 900 disusun satu baris pada page Desktop dengan nomor langka
 
 1. Buka `SewaKampus-High-Fidelity.figcraft` di FigCraft.
 2. Buka panel Prototype.
-3. Mulai dari frame `01 Katalog` pada page Desktop, lalu klik tombol utama untuk menyusuri alur sampai rating.
+3. Mulai dari frame `01 Buat listing` pada page Desktop, lalu klik tombol utama untuk menyusuri alur sampai rating. `02 Katalog` adalah halaman pertama yang dilihat pengunjung; `01 Buat listing` adalah titik masuk pemilik yang sudah masuk.
 
 ## 5. Aksesibilitas
 

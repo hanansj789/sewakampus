@@ -1,7 +1,8 @@
+**Status:** Ada. Audit bukti lokal per 23 November 2026; belum mapping final, keputusan scope, atau Gate 1 freeze.
+
 # Audit Aset SewaKampus P13–P16 — Session 1
 
 **Tanggal pemeriksaan:** 23 November 2026  
-**Status dokumen:** audit bukti lokal; **belum** mapping final, keputusan scope, atau Gate 1 freeze.  
 **Sumber aturan tertinggi:** `PROYEK/GROWPATH/Skenario_Project ASP R001.txt`, terutama halaman 1–12, 15–17, 20, 24, 27, 32, 34, dan 36.  
 **Daftar 35 butir yang diuji:** `PROYEK/SEWAKAMPUS/HANDOFF-PROMPT-P13-P16.md`, bagian 4.  
 **Batas pemeriksaan:** aset lokal dan bagian relevan DOCX dibaca; PDF lama tidak dijadikan bukti; repo daring, persetujuan mitra, serta tanda tangan tidak diverifikasi.

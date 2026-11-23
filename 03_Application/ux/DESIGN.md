@@ -3,7 +3,7 @@
 # Sistem Desain Prototipe SewaKampus
 
 **Tanggal:** 23 November 2026  
-**Cakupan:** desktop 1440 × 900, satu page Desktop berisi enam layar alur dan satu page Components  
+**Cakupan:** desktop 1440 × 900, satu page Desktop berisi tujuh layar alur dan satu page Components  
 **Mode permukaan:** Operate, diformat seperti etalase mewah  
 **Arah:** mewah minimalis, gading dan perunggu
 
@@ -47,7 +47,7 @@ Kontras terukur: tinta 16,47:1 di kanvas; muted 4,81:1; perunggu 5,26:1 di kanva
 - Header seragam: wordmark di kiri, nav huruf kecil huruf besar, satu CTA pill di kanan.
 - Kartu gambar radius 10–16 px, tanpa bayangan pada kartu diam.
 - Satu CTA pill per layar: isi tinta `#141414`, teks putih; sekunder outline.
-- Sanity: bukan tumpukan frame, tetapi enam layar berurutan dengan nomor langkah dan panah penghubung pada kanvas.
+- Sanity: bukan tumpukan frame, tetapi tujuh layar berurutan dengan nomor langkah dan panah penghubung pada kanvas.
 
 ## 6. Alur lima Must
 

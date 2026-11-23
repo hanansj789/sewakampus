@@ -184,7 +184,7 @@
 
 | Use case | Tabel utama | Layar yang direncanakan |
 |---|---|---|
-| UC-01 | `Item`, `ItemCategory`, `ItemPhoto` | S-01 Form listing, S-02 Daftar listing saya |
+| UC-01 | `Item`, `ItemCategory`, `ItemPhoto` | S-01 Form listing, S-02 Katalog (state "Milik saya" memuat daftar listing sendiri) |
 | UC-02 | `ItemAvailability`, `Booking` | S-03 Detail barang dan kalender |
 | UC-03 | `Booking`, `BookingStatusHistory` | S-04 Pengajuan sewa, S-05 Persetujuan pemilik |
 | UC-04 | `Handover`, `Booking` | S-06 Serah terima dan foto kondisi |
@@ -192,4 +192,4 @@
 | UC-06 | `StudentVerification`, `User` | S-08 Antrean verifikasi admin |
 | UC-07 | `Dispute`, `Deposit` | S-09 Sengketa admin |
 
-Nama layar di atas adalah rencana penamaan untuk traceability. Wireframe-nya dibuat di Session 3, sehingga kolom layar di traceability belum bisa disebut final.
+Nama layar di atas adalah rencana penamaan untuk traceability. Wireframe dan prototipe dibuat pada Session 3; S-02 dipakai untuk Katalog dengan state "Milik saya", sesuai CR-001. Kolom layar di traceability mengikuti pemetaan ini.

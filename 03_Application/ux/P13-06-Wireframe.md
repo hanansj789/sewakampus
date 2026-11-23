@@ -11,10 +11,10 @@
 | Berkas | Isi |
 |---|---|
 | `03_Application/ux/SewaKampus-Wireframe.figcraft` | Sumber wireframe |
-| `03_Application/ux/exports/WF-01-katalog.png` sampai `WF-06-rating.png` | Enam layar wireframe |
+| `03_Application/ux/exports/WF-01-buat-listing.png` sampai `WF-07-rating.png` | Tujuh layar wireframe |
 | `03_Application/ux/exports/WF-states.png` | Halaman States |
 | `03_Application/ux/exports/WF-flow.png` | Halaman Flow |
-| `03_Application/ux/exports/SewaKampus-Wireframe.pdf` | PDF enam layar |
+| `03_Application/ux/exports/SewaKampus-Wireframe.pdf` | PDF tujuh layar |
 
 ## 2. Gaya
 

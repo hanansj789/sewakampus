@@ -1,3 +1,5 @@
+**Status:** Ada. Handoff historis Session 1; posisi terkini ada di `SEWAKAMPUS/P13-STATUS.md`.
+
 # Handoff Session 1 — P13 SewaKampus
 
 > **Catatan:** dokumen ini adalah handoff historis Session 1. Posisi pekerjaan terbaru ada di `SEWAKAMPUS/P13-STATUS.md`. Baca file itu lebih dulu.

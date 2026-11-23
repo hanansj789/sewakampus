@@ -2,7 +2,7 @@
 
 **Status:** Ada. Dokumen kerja analisis.
 **Tanggal:** 23 November 2026 (diperbarui setelah langkah 1–4 Session 2)
-**Keputusan resmi:** `SEWAKAMPUS/DECISIONS.md` (SK-001 sampai SK-018). File itu yang menang jika berbeda dengan catatan di sini.
+**Keputusan resmi:** `SEWAKAMPUS/DECISIONS.md` (SK-001 sampai SK-019). File itu yang menang jika berbeda dengan catatan di sini.
 
 File ini menjawab tiga hal: apa yang belum tertutup, di mana dokumen saling bertentangan, dan keputusan mana yang mengubah pekerjaan.
 
@@ -41,6 +41,9 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-08 | Team Charter belum ditandatangani | `P13-Team-Charter.md` kolom tanda tangan kosong | Hanan | Butir internal nomor 11 belum siap |
 | G-09 | Tidak ada commit per anggota | commit memakai identitas tim | semua | Butir "kartu atau commit" baru terpenuhi lewat kartu |
 | G-10 | Kontrak API belum punya endpoint bagi pengguna untuk membuka sengketa | `03_Application/openapi.yaml` hanya memuat `/admin/disputes` | Fazha | UC-07 langkah 1 belum bisa dijalankan lewat API |
+| G-16 | Form listing di wireframe dan hi-fi tidak memuat **kondisi** dan **deposit**, dan kategori masih teks bebas | `ux/exports/WF-01-buat-listing.png`, `ux/exports/L-01-buat-listing.png`; bandingkan US-01 dan `ItemCreateRequest.required` | Fharel | Listing tidak bisa dibuat lewat UI sesuai kontrak; US-01 tidak terpenuhi di layar |
+| G-17 | Layar verifikasi KTM (S-08) dan sengketa (S-09) belum digambar; "Masuk" muncul di Flow tanpa layar | `ux/exports/WF-flow.png`, `ux/P13-06-Wireframe.md` | Fharel | UC-06 dan UC-07 tidak punya bukti tampilan |
+| G-18 | Seed tidak bisa memperagakan aturan status: satu riwayat per booking, `disputes` dan `audit_logs` kosong | `08_Source/database/sql/seed.sql` | Fazha | Demo P14 tidak bisa menunjukkan transisi status dan alur sengketa |
 
 **Gap yang sudah tertutup:**
 
@@ -71,6 +74,9 @@ G-02 dan G-11 ditutup pada 23 November 2026 melalui commit `55e9fca`. G-06 tetap
 | Jumlah lane BPMN to-be | `P13-STATUS.md` §5 langkah 1: "dua lane (penyewa, pemilik)" | `DESAIN/REFERENSI VISUAL.md`: tiga lane (penyewa, pemilik, admin/sistem) | Dua lane dipakai untuk kedua diagram proses baru, karena UC-03 dan UC-04 hanya melibatkan penyewa dan pemilik. Admin masuk lewat cabang sengketa ke UC-07, bukan sebagai lane. Perbedaan gaya ini disengaja dan dicatat, bukan keputusan resmi baru. |
 | Nomor ADR | `P13-STATUS.md` §5 menetapkan path `ADR-002-application-structure.md` | Belum ada ADR-001 (tech stack, bagian P14-01) | Path diikuti apa adanya; ADR-002 menyatakan bahwa ADR-001 menyusul pada P14 agar nomor tidak bertabrakan. ADR-001 tidak dibuat palsu untuk mengisi nomor. |
 | Ikon task BPMN | `DESAIN/REFERENSI VISUAL.md`: user task dengan ikon orang, service task dengan roda gigi | Bentuk BPMN bawaan draw.io merender ikon itu membesar dan keluar kotak pada ukuran task 150×64 | Ikon dihilangkan; jenis task dijelaskan lewat label teks. Skema warna task/start/end/gateway tetap mengikuti REFERENSI VISUAL. |
+| Definisi S-02 | `01_Business/P13-Use-Cases.md`: S-02 "Daftar listing saya" | `03_Application/ux/P13-06-Wireframe.md` dan prototipe: layar kedua adalah Katalog, tanpa layar daftar listing | S-02 ditetapkan sebagai **Katalog** dengan state "Milik saya" lewat CR-001; tiga dokumen diselaraskan. SK-017 tidak berubah karena rentang ID tetap S-01–S-09. |
+| Penomoran layar di artefak desain | Anotasi `WF-02` sampai `WF-07` bertulis 01 sampai 06; `L-06` bertulis "LANGKAH 3" | Flow, `DESIGN.md`, dan traceability memakai urutan 01 sampai 07 dengan serah terima di langkah 6 | Artefak desain yang salah, bukan Flow. Perbaikan dijadwalkan di session desain; sampai itu terjadi, urutan resmi mengikuti `DESIGN.md` §6. |
+| Grid kalender November 2026 | `WF-03` menampilkan 1–30 mulai hari Minggu | `L-03` menampilkan 2–30 mulai hari Minggu | 1 November 2026 jatuh hari Minggu, jadi `WF-03` benar dan grid hi-fi kehilangan tanggal 1. Diperbaiki di session desain. |
 
 ## Catatan
 

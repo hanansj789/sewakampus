@@ -11,7 +11,7 @@ Setiap test case menautkan satu user story dan satu layar. Hasil yang diharapkan
 | ID | Story | Layar | Prasyarat | Langkah | Data uji | Hasil yang diharapkan |
 |---|---|---|---|---|---|---|
 | TC-01 | US-01 | S-01 | Akun terverifikasi | Buka form listing, kosongkan judul, pilih Simpan | Judul kosong | Sistem menolak dan menandai judul dengan pesan galat |
-| TC-02 | US-01 | S-02 | Akun terverifikasi | Simpan listing tanpa foto, buka daftar listing saya | Tanpa foto | Listing tampil dengan status Draf dan tidak muncul di katalog |
+| TC-02 | US-01 | S-02 | Akun terverifikasi | Simpan listing tanpa foto, lalu buka Katalog dengan filter "Milik saya" | Tanpa foto | Listing tampil dengan status Draf dan tidak muncul di katalog publik |
 | TC-03 | US-02 | S-01 | Listing draf | Unggah berkas bukan gambar | `nota.pdf` | Sistem menolak dengan pesan yang jelas |
 | TC-04 | US-03 | S-03 | Listing aktif | Buka kalender dan amati tanggal yang sudah dibooking | Tanggal terisi | Tanggal terisi ditandai dan tidak dapat dipilih |
 | TC-05 | US-03 | S-03 | Listing aktif | Pilih rentang yang bertabrakan dengan booking aktif | Rentang bentrok | Sistem menolak sebelum pengajuan dan meminta rentang lain |
