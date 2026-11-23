@@ -46,6 +46,8 @@ tags:
     description: Verifikasi, sengketa, analitik, dan audit. Semua endpoint admin membutuhkan role ADMIN dan MFA (AAL2).
   - name: Notification
     description: Notifikasi in-app dan email.
+  - name: Dispute
+    description: Pengguna membuka sengketa. Penanganan oleh admin ada di tag Admin.
 
 paths:
   /auth/register:
@@ -920,6 +922,44 @@ paths:
           $ref: '#/components/responses/NotFound'
         '429':
           $ref: '#/components/responses/TooManyRequests'
+
+  /bookings/{bookingId}/disputes:
+    post:
+      tags: [Dispute]
+      summary: Buka sengketa untuk booking
+      description: |
+        Dipakai penyewa atau pemilik saat kondisi barang tidak sesuai, terlambat,
+        atau tidak sesuai deskripsi (UC-07 langkah 1). Status booking berubah
+        menjadi `DISPUTED` dan deposit ditahan sampai admin memutuskan.
+      operationId: openDispute
+      x-owasp-api-top10: [API1, API3, API6]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DisputeCreateRequest'
+      responses:
+        '201':
+          description: Sengketa dibuat dan booking berubah menjadi DISPUTED.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dispute'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Booking bukan milik pengguna, atau sudah punya sengketa aktif.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '422':
+          $ref: '#/components/responses/ValidationError'
 
   /admin/disputes:
     get:
@@ -1907,6 +1947,22 @@ components:
         created_at:
           type: string
           format: date-time
+
+    DisputeCreateRequest:
+      type: object
+      description: Dikirim sebagai multipart karena bukti sengketa berupa berkas.
+      required: [category, description]
+      properties:
+        category:
+          type: string
+          enum: [DAMAGE, LATE_RETURN, NOT_AS_DESCRIBED, NO_SHOW, OTHER]
+        description:
+          type: string
+          maxLength: 2000
+        evidence:
+          type: string
+          format: binary
+          description: Bukti tambahan (foto atau dokumen). Opsional. Disimpan privat dan dikembalikan sebagai evidence_url.
 
     DisputeList:
       type: object

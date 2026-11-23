@@ -144,7 +144,7 @@
 
 **Aktor:** admin.
 **Prakondisi:** mahasiswa mengunggah KTM.
-**Pascakondisi:** akun `ACTIVE` atau `REJECTED` dengan alasan.
+**Pascakondisi:** pengajuan verifikasi berstatus `APPROVED` (akun menjadi `ACTIVE`) atau `REJECTED` dengan alasan wajib (akun tetap `PENDING_VERIFICATION` dan boleh mengajukan ulang).
 
 **Alur utama:**
 1. Mahasiswa mendaftar dan mengunggah foto KTM.
@@ -176,7 +176,7 @@
 
 **Endpoint:** `GET /admin/disputes`, `GET /admin/disputes/{disputeId}`, `POST /admin/disputes/{disputeId}/resolve`.
 
-**Catatan:** kontrak API belum punya endpoint bagi pengguna untuk membuka sengketa. Saat ini hanya sisi admin yang tersedia, sehingga UC-07 langkah 1 belum bisa dijalankan lewat API. Dicatat sebagai gap G-10.
+**Catatan:** langkah 1 dijalankan lewat `POST /bookings/{bookingId}/disputes` (multipart, kategori dan kronologi wajib). Penanganan admin memakai `/admin/disputes`. Endpoint pengguna ini ditambahkan pada 24 November 2026 dan menutup gap G-10.
 
 ---
 

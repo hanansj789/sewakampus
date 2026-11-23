@@ -38,11 +38,6 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-07 | Mitra UAT dan jadwalnya belum dikonfirmasi | belum ada balasan | Hanan | PR14-01 belum |
 | G-08 | Team Charter belum ditandatangani | `P13-Team-Charter.md` kolom tanda tangan kosong | Hanan | Butir internal nomor 11 belum siap |
 | G-09 | Tidak ada commit per anggota | commit memakai identitas tim | semua | Butir "kartu atau commit" baru terpenuhi lewat kartu |
-| G-10 | Kontrak API belum punya endpoint bagi pengguna untuk membuka sengketa | `03_Application/openapi.yaml` hanya memuat `/admin/disputes` | Fazha | UC-07 langkah 1 belum bisa dijalankan lewat API |
-| G-18 | Seed tidak bisa memperagakan aturan status: satu riwayat per booking, `disputes` dan `audit_logs` kosong | `08_Source/database/sql/seed.sql` | Fazha | Demo P14 tidak bisa menunjukkan transisi status dan alur sengketa |
-| G-20 | UC-06 menulis akun `REJECTED`, sedangkan `users.account_status` hanya `PENDING_VERIFICATION`/`ACTIVE`/`SUSPENDED` | `01_Business/P13-Use-Cases.md` UC-06 vs `001_init.sql` | Fharel, Fazha | Teks use case dan skema berbeda saat ditanya dosen data |
-| G-21 | `v_item_rating` mengembalikan `NULL` untuk barang tanpa ulasan, sedangkan `items.average_rating` default `0.00` | `001_init.sql` view dan kolom `items` | Fazha | Dua sumber angka rating bisa berbeda di katalog |
-| G-22 | DDL memakai `utf8mb4_0900_ai_ci` sehingga tidak jalan di MariaDB, padahal matriks menulis "MySQL/PostgreSQL" | `08_Source/database/sql/001_init.sql` baris 8 | Fazha | Klaim dukungan PostgreSQL tidak terbukti |
 
 **Gap yang sudah tertutup:**
 
@@ -55,6 +50,11 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-03 | Wireframe dan prototipe belum ada | Wireframe dan prototipe hi-fi tujuh layar dibuat di FigCraft, diekspor PNG/PDF, dan direview ulang 24 November 2026 | `03_Application/ux/`, `03_Application/ux/exports/` |
 | G-16 | Form listing tidak memuat kondisi, deposit, dan kategori terstruktur | Session desain menambahkan dropdown Kategori, dropdown Kondisi, dan field Deposit pada wireframe dan hi-fi; ekspor ulang 24 November 2026 | `03_Application/ux/exports/WF-01-buat-listing.png`, `03_Application/ux/exports/L-01-buat-listing.png` |
 | G-17 | Layar verifikasi KTM (S-08) dan sengketa (S-09) belum digambar | Wireframe S-08 dan S-09 dibuat di FigCraft, diekspor dan diperiksa 24 November 2026; Flow diperbarui | `03_Application/ux/exports/WF-08-antrean-verifikasi.png`, `03_Application/ux/exports/WF-09-sengketa.png` |
+| G-10 | Kontrak API belum punya endpoint bagi pengguna untuk membuka sengketa | Endpoint `POST /bookings/{bookingId}/disputes` ditambahkan lewat CR-002 | `03_Application/openapi.yaml` |
+| G-18 | Seed tidak memperagakan aturan status dan alur sengketa | Seed diperkaya: 10 booking, 23 riwayat status tanpa lompatan, 2 sengketa, 3 audit log; diuji ulang | `08_Source/database/sql/seed.sql`, `07_Evidence/PR14-04-DDL-Run-Log.md` |
+| G-20 | UC-06 menulis akun `REJECTED`, skema tidak punya status itu | Teks UC-06 diselaraskan: verifikasi `APPROVED`/`REJECTED`, akun tetap `PENDING_VERIFICATION` bila ditolak | `01_Business/P13-Use-Cases.md` |
+| G-21 | `v_item_rating` mengembalikan NULL untuk barang tanpa ulasan | View memakai `COALESCE(..., 0.00)`; diuji, item tanpa ulasan kini 0.00 | `08_Source/database/sql/001_init.sql` |
+| G-22 | Klaim "MySQL/PostgreSQL" tidak akurat | Matriks diubah menjadi "DDL MySQL 8.0 (PostgreSQL tidak dipakai)"; alasan dicatat di ADR-001 | `P13-DELIVERABLE-MATRIX.md`, `06_Governance/ADR-001-tech-stack.md` |
 | G-04 | DDL dan seed belum dijalankan di database kosong | Dijalankan pada MySQL 8.0.43 dengan data dir kosong: 14 tabel, 1 view, constraint menolak data salah. Sekaligus memperbaiki kolom `condition` yang bentrok dengan reserved word | `07_Evidence/PR14-04-DDL-Run-Log.md`, `08_Source/database/sql/001_init.sql` |
 | G-12 | Tiga angka rekap berbeda: audit 0 Ada/13 Sebagian/21 Belum/1 Belum diverifikasi, `CONTEXT-PACK` 0/18/17, matriks 3/17/15 | Audit ditandai snapshot dan diberi tabel delta; `CONTEXT-PACK` dan `P13-STATUS` menunjuk matriks; P15-01 dikoreksi menjadi Belum sehingga rekap 3/16/16 | `06_Governance/P13-ASSET-AUDIT.md` §Status dokumen, `SEWAKAMPUS/CONTEXT-PACK.md` §6 |
 | G-13 | `main` dan `dev` tidak berada di commit yang sama | `dev` di-fast-forward ke `main` secara lokal | `SEWAKAMPUS/P13-STATUS.md` §3 dan `07_Evidence/P13-Work-Board.md` catatan |

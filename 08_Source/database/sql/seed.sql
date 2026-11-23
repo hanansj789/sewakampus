@@ -171,18 +171,35 @@ INSERT INTO bookings (public_id, item_id, renter_id, owner_id, start_date, end_d
   ('01J00000000000000000000035', 16, 9, 16, '2026-12-12', '2026-12-13', 85000, 170000, 170000, 340000, 'HANDED_OVER', 'Gedung FST Lantai 1', '2026-11-24 09:00:00'),
   ('01J00000000000000000000036', 19, 10, 19, '2026-12-14', '2026-12-15', 25000, 50000, 50000, 100000, 'APPROVED', 'Gedung FST Lantai 2', '2026-11-24 09:00:00'),
   ('01J00000000000000000000037', 22, 11, 22, '2026-12-16', '2026-12-17', 60000, 120000, 120000, 240000, 'PENDING', 'Lapangan Kampus', NULL),
-  ('01J00000000000000000000038', 24, 12, 24, '2026-12-18', '2026-12-19', 70000, 140000, 140000, 280000, 'REJECTED', 'Gedung FST Lantai 1', NULL);
+  ('01J00000000000000000000038', 24, 12, 24, '2026-12-18', '2026-12-19', 70000, 140000, 140000, 280000, 'REJECTED', 'Gedung FST Lantai 1', NULL),
+  ('01J00000000000000000000039', 1, 13, 1, '2026-12-20', '2026-12-22', 75000, 225000, 150000, 375000, 'DISPUTED', 'Gedung FST Lantai 1', '2026-11-24 10:00:00'),
+  ('01J0000000000000000000003A', 3, 14, 3, '2026-12-23', '2026-12-24', 125000, 125000, 250000, 375000, 'CANCELLED', 'Aula Gedung B', '2026-11-24 10:00:00');
 
--- Riwayat status booking (satu baris awal per booking)
+-- Riwayat status booking: setiap baris hanya satu langkah, tanpa lompatan
 INSERT INTO booking_status_histories (booking_id, from_status, to_status, changed_by, reason, created_at) VALUES
-  (1, 'PENDING', 'COMPLETED', 5, 'Data uji seed', '2026-11-24 08:00:00'),
-  (2, 'PENDING', 'COMPLETED', 6, 'Data uji seed', '2026-11-24 08:00:00'),
-  (3, 'PENDING', 'COMPLETED', 7, 'Data uji seed', '2026-11-24 08:00:00'),
-  (4, 'PENDING', 'RETURNED', 8, 'Data uji seed', '2026-11-24 08:00:00'),
-  (5, 'PENDING', 'HANDED_OVER', 9, 'Data uji seed', '2026-11-24 08:00:00'),
-  (6, 'PENDING', 'APPROVED', 10, 'Data uji seed', '2026-11-24 08:00:00'),
-  (7, 'PENDING', 'PENDING', 11, 'Data uji seed', '2026-11-24 08:00:00'),
-  (8, 'PENDING', 'REJECTED', 12, 'Data uji seed', '2026-11-24 08:00:00');
+  (1, 'PENDING',  'APPROVED',    1,  'Disetujui pemilik', '2026-11-24 09:05:00'),
+  (1, 'APPROVED', 'HANDED_OVER', 5,  'Serah terima OUT', '2026-12-01 14:00:00'),
+  (1, 'HANDED_OVER', 'RETURNED', 5,  'Pengembalian RETURN', '2026-12-03 17:00:00'),
+  (1, 'RETURNED', 'COMPLETED',   5,  'Transaksi selesai', '2026-12-03 17:30:00'),
+  (2, 'PENDING',  'APPROVED',    3,  'Disetujui pemilik', '2026-11-24 09:06:00'),
+  (2, 'APPROVED', 'HANDED_OVER', 3,  'Serah terima OUT', '2026-12-04 13:00:00'),
+  (2, 'HANDED_OVER', 'RETURNED', 6,  'Pengembalian RETURN', '2026-12-05 16:00:00'),
+  (2, 'RETURNED', 'COMPLETED',   6,  'Transaksi selesai', '2026-12-05 16:30:00'),
+  (3, 'PENDING',  'APPROVED',    5,  'Disetujui pemilik', '2026-11-24 09:07:00'),
+  (3, 'APPROVED', 'HANDED_OVER', 5,  'Serah terima OUT', '2026-12-06 13:00:00'),
+  (3, 'HANDED_OVER', 'RETURNED', 7,  'Pengembalian RETURN', '2026-12-07 18:00:00'),
+  (3, 'RETURNED', 'COMPLETED',   7,  'Transaksi selesai', '2026-12-07 18:20:00'),
+  (4, 'PENDING',  'APPROVED',    7,  'Disetujui pemilik', '2026-11-24 09:08:00'),
+  (4, 'APPROVED', 'HANDED_OVER', 7,  'Serah terima OUT', '2026-12-09 13:00:00'),
+  (4, 'HANDED_OVER', 'RETURNED', 8,  'Pengembalian RETURN', '2026-12-11 17:00:00'),
+  (5, 'PENDING',  'APPROVED',    16, 'Disetujui pemilik', '2026-11-24 09:09:00'),
+  (5, 'APPROVED', 'HANDED_OVER', 16, 'Serah terima OUT', '2026-12-12 13:00:00'),
+  (6, 'PENDING',  'APPROVED',    19, 'Disetujui pemilik', '2026-11-24 09:10:00'),
+  (8, 'PENDING',  'REJECTED',    22, 'Barang sedang dipakai pemilik', '2026-11-24 09:11:00'),
+  (9, 'PENDING',  'APPROVED',    1,  'Disetujui pemilik', '2026-11-24 10:05:00'),
+  (9, 'APPROVED', 'HANDED_OVER', 1,  'Serah terima OUT', '2026-12-20 13:00:00'),
+  (9, 'HANDED_OVER', 'DISPUTED', 13, 'Barang kembali rusak', '2026-12-22 17:00:00'),
+  (10, 'PENDING', 'CANCELLED',   14, 'Penyewa membatalkan sebelum diputuskan', '2026-11-24 10:06:00');
 
 -- Deposit simulasi (booking 1 sampai 6)
 INSERT INTO deposits (public_id, booking_id, amount, status, method, paid_at) VALUES
@@ -206,6 +223,17 @@ INSERT INTO reviews (public_id, booking_id, reviewer_id, reviewee_id, reviewer_r
   ('01J0000000000000000000003M', 2, 6, 3, 'RENTER', 4, 'Proyektor bagus, kabel agak pendek.', 'PUBLISHED'),
   ('01J0000000000000000000003N', 3, 7, 5, 'RENTER', 5, 'Speaker kencang, cocok untuk acara 50 orang.', 'PUBLISHED');
 
+-- Sengketa (2 baris: satu terbuka, satu selesai)
+INSERT INTO disputes (public_id, booking_id, opened_by, against_user_id, category, description, evidence_path, status, resolution, resolved_by, resolved_at) VALUES
+  ('01J00000000000000000000041', 9, 13, 1, 'DAMAGE', 'Lensa tergores dan tutup body hilang saat dikembalikan.', 'handovers/booking-9-return.jpg', 'OPEN', NULL, NULL, NULL),
+  ('01J00000000000000000000042', 3, 7, 5, 'LATE_RETURN', 'Pengembalian lewat satu hari dari tenggat.', NULL, 'RESOLVED', 'Deposit dipotong 25 persen untuk keterlambatan.', 29, '2026-12-08 10:00:00');
+
+-- Audit log (3 baris: verifikasi, sengketa dibuka, sengketa diputuskan)
+INSERT INTO audit_logs (actor_id, action, entity_type, entity_id, metadata) VALUES
+  (29, 'VERIFICATION_APPROVED', 'student_verifications', 1, '{"catatan":"data uji seed"}'),
+  (13, 'DISPUTE_OPENED', 'disputes', 1, '{"booking_id":9}'),
+  (29, 'DISPUTE_RESOLVED', 'disputes', 2, '{"keputusan":"potong 25 persen"}');
+
 -- Sinkronkan cache rating dari view kanonik
 UPDATE items i
 JOIN v_item_rating v ON v.item_id = i.id
@@ -218,4 +246,4 @@ INSERT INTO notifications (public_id, user_id, type, title, body, channel, statu
   ('01J0000000000000000000003R', 7, 'HANDOVER_REMINDER', 'Ingat serah terima', 'Serah terima dijadwalkan besok.', 'IN_APP', 'QUEUED', 'BOOKING', '01J000000000000000000000B', NULL),
   ('01J0000000000000000000003S', 3, 'REVIEW_RECEIVED', 'Ulasan baru', 'Penyewa memberi ulasan untuk proyektor Anda.', 'IN_APP', 'READ', 'REVIEW', '01J000000000000000000000C', '2026-11-25 10:00:00');
 
--- Selesai: 8 kategori, 30 pengguna, 28 verifikasi, 30 barang, 30 foto, 10 blokir, 8 booking, 6 deposit, 3 handover, 4 review, 4 notifikasi.
+-- Selesai: 8 kategori, 30 pengguna, 28 verifikasi, 30 barang, 30 foto, 10 blokir, 10 booking, 6 deposit, 3 handover, 4 review, 4 notifikasi, 23 riwayat status, 2 sengketa, 3 audit log.

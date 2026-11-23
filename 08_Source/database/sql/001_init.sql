@@ -313,7 +313,7 @@ CREATE TABLE audit_logs (
 -- Nilai rating kanonik. Cache di items dihitung ulang dari view ini.
 CREATE OR REPLACE VIEW v_item_rating AS
 SELECT i.id AS item_id,
-       ROUND(AVG(r.rating), 2) AS average_rating,
+       COALESCE(ROUND(AVG(r.rating), 2), 0.00) AS average_rating,
        COUNT(r.id) AS review_count
 FROM items i
 LEFT JOIN bookings b ON b.item_id = i.id

@@ -15,7 +15,7 @@ ADR ini bernomor **002** karena path-nya sudah ditetapkan di `P13-STATUS.md` §5
 
 - Stack sudah dikunci pada `DECISIONS.md` dan `P13-STATUS.md` §4: Laravel 11, MySQL 8, Redis 7, MinIO, Keycloak 26, Nginx, satu VPS Docker Compose, Cloudflare.
 - Tim empat orang, satu di antaranya programmer utama; waktu efektif P13–P16 lima pertemuan.
-- Kontrak API sudah kanonik di `03_Application/openapi.yaml` (33 path, 38 operasi, sepuluh tag).
+- Kontrak API sudah kanonik di `03_Application/openapi.yaml` (34 path, 39 operasi, sebelas tag).
 - Dua Must pertama (P14) adalah listing dan kalender ketersediaan, lalu booking, handover, dan review.
 - Laporan lama sudah memakai istilah "modular monolith" pada §3.4.2 dan `TRD.md`, tetapi belum ada aturan batas modul yang bisa diperiksa.
 

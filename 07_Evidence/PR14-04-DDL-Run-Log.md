@@ -19,12 +19,13 @@
 | Baris `users` | 30 |
 | Baris `items` | 30 |
 | Baris `item_categories` | 8 |
-| Baris `bookings` | 8 |
+| Baris `bookings` | 10 |
 | Baris `handovers` | 3 |
 | Baris `reviews` | 4 |
-| Baris `disputes` | 0 |
-| Baris `audit_logs` | 0 |
-| `v_item_rating` | mengembalikan nilai, contoh `item 1 = 5.00 / 2 review`, `item 3 = 4.00 / 1 review` |
+| Baris `disputes` | 2 |
+| Baris `audit_logs` | 3 |
+| `v_item_rating` | `item 1 = 5.00 / 2`, `item 2 = 0.00 / 0`, `item 3 = 4.00 / 1` (barang tanpa ulasan kini 0.00, bukan NULL) |
+| Riwayat status | 23 baris, 0 lompatan status, 1 booking berstatus PENDING tanpa riwayat (benar) |
 
 Perintah yang dipakai:
 
@@ -75,10 +76,11 @@ Artinya `CHECK`, foreign key, dan unique key benar-benar aktif, bukan hanya tert
 
 ## 4. Yang masih kurang (tidak ditutup oleh uji ini)
 
-1. **Data demo belum memperagakan aturan status.** `bookings` 8 baris dan `booking_status_histories` 8 baris, jadi satu riwayat per booking. Aturan "status tidak boleh melompat" belum bisa diperagakan. Ini G-18.
-2. `disputes` dan `audit_logs` kosong, sehingga layar sengketa belum punya data contoh. Ini G-18.
-3. `v_item_rating` mengembalikan `NULL` untuk barang tanpa ulasan, sedangkan `items.average_rating` default `0.00`. Dua sumber angka ini bisa berbeda di tampilan; perlu satu aturan (G-21).
+1. ~~Data demo belum memperagakan aturan status~~ **sudah diperbaiki 24 November 2026**: 10 booking dengan rantai status bertingkat, 23 baris riwayat, nol lompatan, dan status akhir tiap booking cocok dengan baris terakhir riwayatnya. Ada booking `DISPUTED` dan `CANCELLED` sebagai contoh.
+2. ~~`disputes` dan `audit_logs` kosong~~ **sudah diisi**: 2 sengketa (satu `OPEN`, satu `RESOLVED`) dan 3 baris audit log.
+3. ~~`v_item_rating` mengembalikan `NULL`~~ **sudah diperbaiki**: view memakai `COALESCE(..., 0.00)` sehingga barang tanpa ulasan bernilai 0.00, sama dengan default kolom `items.average_rating`.
 4. Uji ini memakai MySQL 8.0.43 di Windows. Versi final di VPS (P14) tetap harus diulang pada container Docker yang dipakai deploy.
+5. `notifications` belum memuat notifikasi sengketa; belum wajib, tetapi akan terasa saat demo alur sengketa.
 
 ## 5. Kesimpulan
 
