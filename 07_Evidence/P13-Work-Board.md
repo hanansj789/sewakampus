@@ -37,8 +37,8 @@ Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggo
 | Use case tujuh alur | P13-05 | Ada, menunggu review | `01_Business/P13-Use-Cases.md` |
 | Delapan user story dan acceptance criteria | P13-05 | Ada, menunggu review | `01_Business/P13-User-Stories.md` |
 | Pisahkan BPMN to-be: booking dan handover–return | P13-04 | Ada, menunggu review | `01_Business/P13-BPMN-To-Be-Booking.drawio` + `.png`, `01_Business/P13-BPMN-To-Be-Handover.drawio` + `.png` |
-| Wireframe lima Must | P13-06 | Ada, menunggu review | `03_Application/ux/SewaKampus-High-Fidelity.figcraft`, `03_Application/ux/DESIGN.md` |
-| Prototipe clickable | PR14-03 | Ada, menunggu review | `03_Application/ux/SewaKampus-High-Fidelity.figcraft`, `03_Application/ux/PR14-03-Prototype-FigCraft.md`, `03_Application/ux/exports/` |
+| Wireframe lima Must | P13-06 | Ada, menunggu review | `03_Application/ux/SewaKampus-Wireframe.figcraft`, `03_Application/ux/P13-06-Wireframe.md`, `03_Application/ux/exports/WF-*.png` |
+| Prototipe clickable | PR14-03 | Ada, menunggu review | `03_Application/ux/SewaKampus-High-Fidelity.figcraft`, `03_Application/ux/PR14-03-Prototype-FigCraft.md`, `03_Application/ux/exports/L-*.png` |
 
 ## K-03 — Fazha: data, kontrak, dan kode
 
@@ -65,7 +65,8 @@ Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggo
 ## Catatan
 
 - Pekerjaan Session 1 dan 2 dikerjakan sebagai kerja tim, bukan kartu pribadi, sehingga tidak ada kartu yang diklaim selesai.
-- Session 3 menambah `03_Application/ux/DESIGN.md`, prototipe FigCraft, dokumentasi, test case, dan rencana UAT. Kartu P13-06 dan PR14-03 naik ke **Ada, menunggu review**.
+- Session 3 menambah `03_Application/ux/DESIGN.md,` prototipe hi-fi mewah-minimalis desktop enam layar (satu alur terhubung), wireframe desktop terpisah dengan anotasi/States/Flow, dokumentasi, test case, dan rencana UAT. Kartu P13-06 dan PR14-03 naik ke **Ada, menunggu review**.
+- Arah desain berubah dari hangat-hijau Growlio menjadi mewah-minimalis (gading-perunggu, Playfair Display), mengacu ke Inspirato, Turo, dan Hygglo yang dibuka dan diukur langsung. Tiga foto berlisensi Wikimedia Commons dipakai dengan kredit. Versi sebelumnya tetap ada di riwayat git.
 - Berkas pengetahuan bersama ada di `SEWAKAMPUS/AGENTS.md`, `DECISIONS.md`, dan `CONTEXT-PACK.md`. Branch `main` dan `dev` sejalan; `CODEOWNERS` masih berupa komentar karena username GitHub belum ditetapkan (SK-005).
 - Yang paling menghambat Gate 1 sekarang: uji DDL di database kosong, tanda tangan charter, dan review silang seluruh artefak.
 - Tiga baris kartu naik ke **Ada, menunggu review** pada 23 November 2026 lewat commit `55e9fca`. Dua baris kartu Session 3 naik pada commit `8f7d620`. Semuanya belum direview anggota lain.
