@@ -11,6 +11,19 @@ Singkatan:
 - **R** = `SEWAKAMPUS/LAPORAN/Ringkasan Proyek SewaKampus - Kelompok 1.docx`
 - **D** = folder `SEWAKAMPUS/DESAIN/`
 
+## Aset lama yang sudah digantikan
+
+Folder `D/` tidak dihapus karena gambar di laporan Bab III dibangun dari berkas itu, dan `AGENTS.md` menahan perubahan pada baseline sejarah. Yang perlu diperhatikan saat bekerja:
+
+| Aset lama | Digantikan oleh | Catatan |
+|---|---|---|
+| `D/ERD - SewaKampus.drawio` (15 relasi) | `02_Data/P13-ERD.drawio` (14 entitas, 17 relasi) | ERD lama kurang 2 relasi ke `User`; jangan dipakai untuk Gate 1 |
+| `D/Logical Data Model - SewaKampus.drawio` | `02_Data/P13-ERD.drawio` + `02_Data/P13-Data-Dictionary.md` | Model logis ringkas, atribut lengkap ada di kamus |
+| `D/BPMN To-Be - SewaKampus.png` (satu alur) | `01_Business/P13-BPMN-To-Be-Booking.drawio`, `P13-BPMN-To-Be-Handover.drawio` | Alur lama digabung, tidak memuat foto kondisi |
+| `D/Modul Aplikasi - SewaKampus.drawio` | `03_Application/P13-App-Structure.md` + `ADR-002` | 10 modul lama menjadi 11 modul dengan batas Contract |
+| `D/openapi.yaml` | `03_Application/openapi.yaml` | Dibekukan oleh SK-015; jangan disunting |
+| `D/Infrastruktur`, `D/Deployment` | `04_Technology/P13-Hosting-Options.md`; diagram deployment final menyusul di P14 | Harga dan opsi hosting belum ada di gambar lama |
+
 ## A. P13
 
 | ID | Aset lama | Bagian / catatan | Tindakan | Target di repo |
@@ -20,8 +33,8 @@ Singkatan:
 | P13-03 | tidak ada | — | Susun baru, lalu minta tanda tangan | `06_Governance/P13-Definition-of-Done.md`, `P13-Team-Charter.md` (draf ada, belum ditandatangani) |
 | P13-04 | `D/BPMN To-Be - SewaKampus.png`, `D/BPMN As-Is - SewaKampus.png` | Satu alur gabungan | Pisah menjadi proses booking dan handover–return, tambah foto kondisi | `01_Business/P13-BPMN-To-Be-Booking.png`, `P13-BPMN-To-Be-Handover.png` |
 | P13-05 | `D/Functional Decomposition - SewaKampus.png` | Dekomposisi fungsi, bukan use case | Turunkan use case, 5–8 user story, acceptance criteria | `01_Business/P13-Use-Cases.md`, `P13-User-Stories.md` |
-| P13-06 | tidak ada | — | Gambar wireframe lima Must setelah DESIGN.md | `03_Application/ux/P13-Wireframes.png` |
-| P13-07 | `D/ERD - SewaKampus.drawio`, `D/Logical Data Model - SewaKampus.drawio` | 14 entitas | Periksa PK, FK, unique, check; buktikan 3NF | `02_Data/P13-ERD-3NF.drawio` |
+| P13-06 | tidak ada | — | Gambar wireframe lima Must setelah DESIGN.md | `03_Application/ux/exports/WF-01-buat-listing.png` sampai `WF-09-sengketa.png` (tujuh layar, ditambah S-08/S-09) |
+| P13-07 | `D/ERD - SewaKampus.drawio`, `D/Logical Data Model - SewaKampus.drawio` | 14 entitas | Periksa PK, FK, unique, check; buktikan 3NF | `02_Data/P13-ERD.drawio` (14 entitas, 17 relasi), `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md` |
 | P13-08 | L tabel 3.6–3.8, §3.4.1.5 | Kamus dan uraian normalisasi | Lengkapi tipe, constraint, bukti 3NF per entitas | `02_Data/P13-Data-Dictionary.md`, `P13-3NF-Proof.md` |
 | P13-09 | `D/Modul Aplikasi - SewaKampus.drawio`, L §3.4.2 | Modular monolith Laravel | Tetapkan struktur folder dan strategi branch | `03_Application/P13-App-Structure.md` |
 | P13-10 | tidak ada | Repo lokal baru dibuat | Aktifkan branch dan kartu; remote GitHub ditunda | `README.md`, `CONTRIBUTING.md` |
