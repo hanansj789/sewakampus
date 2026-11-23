@@ -13,10 +13,10 @@ Dihitung per baris tugas, bukan per deliverable; satu deliverable bisa muncul di
 |---|---|---|---|---|---|
 | Hanan | CEO/PO + Analyst formal | K-01 | 2 | 3 | 2 |
 | Fharel | Analyst/UI/UX pelaksana | K-02 | 5 | 0 | 0 |
-| Fazha | Programmer + Database Architect | K-03 | 4 | 1 | 2 |
+| Fazha | Programmer + Database Architect | K-03 | 6 | 0 | 1 |
 | Mahesa | Network/DevOps + QA/notulis | K-04 | 1 | 3 | 1 |
 
-Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggota lain. Belum ada kartu yang berstatus **Selesai** karena belum ada review silang. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Ada di sini dua belas, sedangkan deliverable Ada di matriks sebelas.
+Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggota lain. Belum ada kartu yang berstatus **Selesai** karena belum ada review silang. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Ada di sini empat belas, sedangkan deliverable Ada di matriks tiga belas.
 
 ## K-01 — Hanan: visi, prioritas, dan keputusan
 
@@ -47,8 +47,8 @@ Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggo
 | Perbaiki kontrak foto kondisi | P13-13 | Ada, menunggu review | `03_Application/openapi.yaml` (SK-014) |
 | Kamus data 14 entitas | P13-08 | Ada, menunggu review | `02_Data/P13-Data-Dictionary.md` |
 | Bukti 3NF dan kecocokan ERD | P13-07 | Ada, menunggu review | `02_Data/P13-ERD.drawio` (17 relasi), `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md` |
-| DDL dan seed | PR14-04, PR14-05 | Sebagian | `08_Source/database/sql/001_init.sql`, `seed.sql` |
-| Jalankan DDL di database kosong | PR14-04 | Belum | belum ada MySQL |
+| DDL dan seed | PR14-04, PR14-05 | Ada, menunggu review | `08_Source/database/sql/001_init.sql`, `seed.sql`, `07_Evidence/PR14-04-DDL-Run-Log.md` |
+| Jalankan DDL di database kosong | PR14-04 | Ada, menunggu review | `07_Evidence/PR14-04-DDL-Run-Log.md` (MySQL 8.0.43) |
 | Struktur aplikasi dan ADR | P13-09 | Ada, menunggu review | `03_Application/P13-App-Structure.md`, `06_Governance/ADR-002-application-structure.md` |
 | Login lokal dan README aplikasi | PR14-06, PR14-07 | Belum | belum ada |
 

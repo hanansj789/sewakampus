@@ -84,7 +84,7 @@ INSERT INTO student_verifications (public_id, user_id, nim, name_on_card, study_
   ('01J00000000000000000000022', 28, 'F1E124068', 'Kartika Dewanti', 'Matematika', 'Sains dan Teknologi', 'ktm/2026/F1E124068.jpg', 'APPROVED', 29, '2026-11-20 10:00:00');
 
 -- Barang (tabel master, 30 baris)
-INSERT INTO items (public_id, owner_id, category_id, title, description, condition, daily_rate, deposit_amount, pickup_point, status, average_rating, review_count) VALUES
+INSERT INTO items (public_id, owner_id, category_id, title, description, `condition`, daily_rate, deposit_amount, pickup_point, status, average_rating, review_count) VALUES
   ('01J00000000000000000000023', 1, 1, 'Canon EOS M50 + Kit 15-45mm', 'Kamera mirrorless ringan, cocok untuk foto acara kampus. Termasuk baterai cadangan dan tas.', 'GOOD', 75000, 150000, 'Gedung FST Lantai 1', 'ACTIVE', 0.00, 0),
   ('01J00000000000000000000024', 2, 1, 'Lensa Canon 50mm f/1.8', 'Lensa fixed untuk potret. Bokeh halus, kondisi mulus, tanpa jamur.', 'NEW', 50000, 100000, 'Gedung FST Lantai 1', 'ACTIVE', 0.00, 0),
   ('01J00000000000000000000025', 3, 2, 'Proyektor Epson EB-X06', 'Proyektor 3600 lumens untuk presentasi kelas dan acara organisasi. Termasuk kabel HDMI 5 meter.', 'GOOD', 125000, 250000, 'Aula Gedung B', 'ACTIVE', 0.00, 0),

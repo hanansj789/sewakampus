@@ -33,7 +33,6 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 
 | # | Gap | Bukti | Pemilik | Akibat jika dibiarkan |
 |---|---|---|---|---|
-| G-04 | Bukti 3NF sudah ditulis, tetapi DDL dan seed belum dijalankan di database kosong | `02_Data/P13-3NF-Proof.md`, `08_Source/database/sql/` | Fazha | Skema belum terbukti bisa dibuat; PR14-04 belum selesai |
 | G-05 | Topologi as-is lokasi mitra belum ada; NFR dan security baseline sudah ditulis | `04_Technology/P13-NFR.md`, `04_Technology/P13-Security-Baseline.md` | Mahesa | P13-11 tetap sebagian |
 | G-06 | Notulen stand-up P13 belum ada | tidak ada file | Mahesa | P13-12 belum |
 | G-07 | Mitra UAT dan jadwalnya belum dikonfirmasi | belum ada balasan | Hanan | PR14-01 belum |
@@ -43,6 +42,8 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-17 | Layar verifikasi KTM (S-08) dan sengketa (S-09) belum digambar; "Masuk" muncul di Flow tanpa layar | `ux/exports/WF-flow.png`, `ux/P13-06-Wireframe.md` | Fharel | UC-06 dan UC-07 tidak punya bukti tampilan |
 | G-18 | Seed tidak bisa memperagakan aturan status: satu riwayat per booking, `disputes` dan `audit_logs` kosong | `08_Source/database/sql/seed.sql` | Fazha | Demo P14 tidak bisa menunjukkan transisi status dan alur sengketa |
 | G-20 | UC-06 menulis akun `REJECTED`, sedangkan `users.account_status` hanya `PENDING_VERIFICATION`/`ACTIVE`/`SUSPENDED` | `01_Business/P13-Use-Cases.md` UC-06 vs `001_init.sql` | Fharel, Fazha | Teks use case dan skema berbeda saat ditanya dosen data |
+| G-21 | `v_item_rating` mengembalikan `NULL` untuk barang tanpa ulasan, sedangkan `items.average_rating` default `0.00` | `001_init.sql` view dan kolom `items` | Fazha | Dua sumber angka rating bisa berbeda di katalog |
+| G-22 | DDL memakai `utf8mb4_0900_ai_ci` sehingga tidak jalan di MariaDB, padahal matriks menulis "MySQL/PostgreSQL" | `08_Source/database/sql/001_init.sql` baris 8 | Fazha | Klaim dukungan PostgreSQL tidak terbukti |
 
 **Gap yang sudah tertutup:**
 
@@ -54,6 +55,7 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-19 | ERD tidak menggambar relasi `BookingStatusHistory → User` dan `Dispute → User` yang ada di DDL | ERD baru digambar di dalam repo dengan 17 relasi, lengkap dengan pemeriksaan per use case | `02_Data/P13-ERD.drawio` + `.png`, `02_Data/P13-ERD-Use-Case-Check.md` |
 | G-03 | Wireframe dan prototipe belum ada | Wireframe dan prototipe hi-fi tujuh layar dibuat di FigCraft, diekspor PNG/PDF, dan direview ulang 24 November 2026 | `03_Application/ux/`, `03_Application/ux/exports/` |
 | G-16 | Form listing tidak memuat kondisi, deposit, dan kategori terstruktur | Session desain menambahkan dropdown Kategori, dropdown Kondisi, dan field Deposit pada wireframe dan hi-fi; ekspor ulang 24 November 2026 | `03_Application/ux/exports/WF-01-buat-listing.png`, `03_Application/ux/exports/L-01-buat-listing.png` |
+| G-04 | DDL dan seed belum dijalankan di database kosong | Dijalankan pada MySQL 8.0.43 dengan data dir kosong: 14 tabel, 1 view, constraint menolak data salah. Sekaligus memperbaiki kolom `condition` yang bentrok dengan reserved word | `07_Evidence/PR14-04-DDL-Run-Log.md`, `08_Source/database/sql/001_init.sql` |
 | G-12 | Tiga angka rekap berbeda: audit 0 Ada/13 Sebagian/21 Belum/1 Belum diverifikasi, `CONTEXT-PACK` 0/18/17, matriks 3/17/15 | Audit ditandai snapshot dan diberi tabel delta; `CONTEXT-PACK` dan `P13-STATUS` menunjuk matriks; P15-01 dikoreksi menjadi Belum sehingga rekap 3/16/16 | `06_Governance/P13-ASSET-AUDIT.md` §Status dokumen, `SEWAKAMPUS/CONTEXT-PACK.md` §6 |
 | G-13 | `main` dan `dev` tidak berada di commit yang sama | `dev` di-fast-forward ke `main` secara lokal | `SEWAKAMPUS/P13-STATUS.md` §3 dan `07_Evidence/P13-Work-Board.md` catatan |
 | G-14 | Checklist Gate 1 menyebut use case dan NFR "belum ada" padahal file sudah ada | Baris 3, 7, 9, dan 10 diperbarui; status tetap Bersyarat | `06_Governance/P13-Gate-1-Checklist.md` |
