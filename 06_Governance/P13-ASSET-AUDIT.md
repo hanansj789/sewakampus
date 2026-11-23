@@ -8,7 +8,7 @@
 
 ## Status dokumen ini
 
-Dokumen ini adalah **snapshot awal Session 1**, diambil sebelum artefak Session 1 dibuat, bukan status hari ini. Angka di bawah merekam keadaan saat audit dilakukan. Sumber status per butir yang berlaku adalah `SEWAKAMPUS/P13-DELIVERABLE-MATRIX.md`; rekap terkini di sana **3 Ada menunggu review, 16 Sebagian, 16 Belum**.
+Dokumen ini adalah **snapshot awal Session 1**, diambil sebelum artefak Session 1 dibuat, bukan status hari ini. Angka di bawah merekam keadaan saat audit dilakukan. Sumber status per butir yang berlaku adalah `SEWAKAMPUS/P13-DELIVERABLE-MATRIX.md`; rekap terkini di sana **6 Ada menunggu review, 13 Sebagian, 16 Belum**.
 
 Perubahan setelah audit dicatat di tabel delta berikut. Baris historis di bagian A–C tidak ditimpa, supaya jejak audit tetap bisa diperiksa.
 
@@ -17,14 +17,17 @@ Perubahan setelah audit dicatat di tabel delta berikut. Baris historis di bagian
 | ID | Status saat audit | Status terkini | Alasan perubahan |
 |---|---|---|---|
 | P13-03 | Belum | Sebagian | `06_Governance/P13-Definition-of-Done.md` dan `P13-Team-Charter.md` sudah ditulis; charter belum ditandatangani |
+| P13-04 | Sebagian | Ada, menunggu review | BPMN booking dan handover–return sudah dipisah, masing-masing `.drawio` dan `.png` |
 | P13-05 | Sebagian | Ada, menunggu review | `01_Business/P13-Use-Cases.md` dan `P13-User-Stories.md` (8 story) sudah ada |
 | P13-08 | Sebagian | Ada, menunggu review | `02_Data/P13-Data-Dictionary.md` (118 atribut) dan `P13-3NF-Proof.md` sudah ada |
+| P13-09 | Sebagian | Ada, menunggu review | `03_Application/P13-App-Structure.md` dan `06_Governance/ADR-002-application-structure.md` sudah ada |
 | P13-10 | Belum diverifikasi | Sebagian | Repo Git lokal aktif dengan branch `main` dan `dev`, tanpa remote; `feature/*` belum ada dan CODEOWNERS belum berisi aturan |
 | P13-13 | Sebagian | Ada, menunggu review | Handover memakai `multipart/form-data` dengan `photo` wajib (SK-014) |
 | P13-14 | Belum | Sebagian | `06_Governance/P13-Traceability-Matrix.md` berisi lima baris; kolom layar masih rencana |
 | P13-15 | Belum | Sebagian | `07_Evidence/P13-Work-Board.md` (empat kartu) dan `P13-Gate-1-Checklist.md` sudah ada |
 | PR14-04 | Belum | Sebagian | `08_Source/database/sql/001_init.sql` (14 tabel) sudah ada; belum dijalankan di database kosong |
 | PR14-05 | Belum | Sebagian | `08_Source/database/sql/seed.sql` (30 pengguna, 30 barang, 8 kategori) sudah ada; belum dijalankan |
+| PR14-08 | Sebagian | Ada, menunggu review | `04_Technology/P13-Hosting-Options.md` memuat dua opsi, harga publik bertanggal, dan butir yang masih belum diverifikasi |
 
 ## Cara membaca status
 
