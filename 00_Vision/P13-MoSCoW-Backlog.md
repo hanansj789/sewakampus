@@ -10,12 +10,12 @@
 | M1 | Listing barang | Pemilik membuat listing dengan foto, kategori, harga harian, deskripsi, lokasi | `POST /items`, `PATCH /items/{itemId}`, `POST /items/{itemId}/photos` |
 | M2 | Kalender ketersediaan | Penyewa melihat tanggal terisi dan tanggal kosong sebelum mengajukan | `GET /items/{itemId}/availability` |
 | M3 | Persetujuan sewa | Pemilik menyetujui atau menolak pengajuan; status berubah berurutan | `POST /bookings`, `POST /bookings/{bookingId}/approve`, `POST /bookings/{bookingId}/reject` |
-| M4 | Foto kondisi | Foto wajib saat serah terima (OUT) dan pengembalian (RETURN) | `POST /bookings/{bookingId}/handovers` — **belum menerima foto**, lihat catatan |
+| M4 | Foto kondisi | Foto wajib saat serah terima (OUT) dan pengembalian (RETURN) | `POST /bookings/{bookingId}/handovers` (multipart, `photo` wajib sejak SK-014) |
 | M5 | Rating | Penyewa dan pemilik memberi rating setelah transaksi selesai | `POST /bookings/{bookingId}/reviews`, `GET /users/{userId}/reviews` |
 
 Tidak ada Must keenam. Permintaan menambah Must wajib lewat Change Request.
 
-**Cacat kontrak M4:** `HandoverCreateRequest` di `DESAIN/openapi.yaml` tidak memiliki field foto, sedangkan skema `Handover` punya `photo_url`. Kontrak harus diperbaiki sebelum M4 dianggap selesai.
+**Status kontrak M4:** sudah diperbaiki di `ARCHITECTURE_REPOSITORY/03_Application/openapi.yaml` (SK-014 dan SK-015). `DESAIN/openapi.yaml` hanya arsip. Validasi unggahan belum diuji karena kode belum ada.
 
 ## Should
 

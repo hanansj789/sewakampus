@@ -7,6 +7,8 @@ Aturan: satu kartu satu orang. Perpindahan status hanya boleh dilakukan setelah 
 
 ## Ringkasan
 
+Dihitung per baris tugas, bukan per deliverable; satu deliverable bisa muncul di dua baris. Status per deliverable ada di matriks.
+
 | Anggota | Peran | Kartu | Ada menunggu review | Sebagian | Belum |
 |---|---|---|---|---|---|
 | Hanan | CEO/PO + Analyst formal | K-01 | 0 | 4 | 3 |
@@ -14,7 +16,7 @@ Aturan: satu kartu satu orang. Perpindahan status hanya boleh dilakukan setelah 
 | Fazha | Programmer + Database Architect | K-03 | 2 | 3 | 2 |
 | Mahesa | Network/DevOps + QA/notulis | K-04 | 0 | 4 | 1 |
 
-Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggota lain. Belum ada kartu yang berstatus **Selesai** karena belum ada review silang.
+Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggota lain. Belum ada kartu yang berstatus **Selesai** karena belum ada review silang. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Ada di sini empat, sedangkan deliverable Ada di matriks tiga.
 
 ## K-01 — Hanan: visi, prioritas, dan keputusan
 

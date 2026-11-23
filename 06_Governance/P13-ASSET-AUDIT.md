@@ -8,7 +8,7 @@
 
 ## Status dokumen ini
 
-Dokumen ini adalah **snapshot akhir Session 1**, bukan status hari ini. Angka di bawah merekam keadaan saat audit dilakukan. Sumber status per butir yang berlaku adalah `SEWAKAMPUS/P13-DELIVERABLE-MATRIX.md`; rekap terkini di sana **3 Ada menunggu review, 17 Sebagian, 15 Belum**.
+Dokumen ini adalah **snapshot awal Session 1**, diambil sebelum artefak Session 1 dibuat, bukan status hari ini. Angka di bawah merekam keadaan saat audit dilakukan. Sumber status per butir yang berlaku adalah `SEWAKAMPUS/P13-DELIVERABLE-MATRIX.md`; rekap terkini di sana **3 Ada menunggu review, 16 Sebagian, 16 Belum**.
 
 Perubahan setelah audit dicatat di tabel delta berikut. Baris historis di bagian A–C tidak ditimpa, supaya jejak audit tetap bisa diperiksa.
 
@@ -25,7 +25,6 @@ Perubahan setelah audit dicatat di tabel delta berikut. Baris historis di bagian
 | P13-15 | Belum | Sebagian | `07_Evidence/P13-Work-Board.md` (empat kartu) dan `P13-Gate-1-Checklist.md` sudah ada |
 | PR14-04 | Belum | Sebagian | `08_Source/database/sql/001_init.sql` (14 tabel) sudah ada; belum dijalankan di database kosong |
 | PR14-05 | Belum | Sebagian | `08_Source/database/sql/seed.sql` (30 pengguna, 30 barang, 8 kategori) sudah ada; belum dijalankan |
-| P15-01 | Belum | Sebagian | Lima Must sudah dirancang di `00_Vision/P13-MoSCoW-Backlog.md`; belum ada fitur berjalan |
 
 ## Cara membaca status
 
