@@ -1,0 +1,13 @@
+# CODEOWNERS — SewaKampus
+#
+# File ini sengaja belum berisi aturan.
+# Handoff §6 mewajibkan username GitHub yang sebenarnya, bukan karangan.
+# Akun pemilik repo dan reviewer belum ditetapkan (lihat DECISIONS.md SK-005),
+# sehingga pengisian ditunda sampai remote GitHub pertama dibuat.
+#
+# Rencana saat diisi:
+#   *       @pemilik
+#   /00_Vision/   @hanan
+#   /02_Data/     @fazha
+#   /04_Technology/ @mahesa
+#   /01_Business/ @fharel
