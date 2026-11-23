@@ -33,7 +33,6 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 
 | # | Gap | Bukti | Pemilik | Akibat jika dibiarkan |
 |---|---|---|---|---|
-| G-03 | Wireframe dan prototipe belum ada; kolom layar di traceability masih rencana | tidak ada file | Fharel | Butir internal nomor 7 dan 8 belum siap |
 | G-04 | Bukti 3NF sudah ditulis, tetapi DDL dan seed belum dijalankan di database kosong | `02_Data/P13-3NF-Proof.md`, `08_Source/database/sql/` | Fazha | Skema belum terbukti bisa dibuat; PR14-04 belum selesai |
 | G-05 | Topologi as-is lokasi mitra belum ada; NFR dan security baseline sudah ditulis | `04_Technology/P13-NFR.md`, `04_Technology/P13-Security-Baseline.md` | Mahesa | P13-11 tetap sebagian |
 | G-06 | Notulen stand-up P13 belum ada | tidak ada file | Mahesa | P13-12 belum |
@@ -53,6 +52,7 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-02 | BPMN to-be masih satu alur gabungan; dua proses utama belum dipisah | Dua diagram dipisah dan diperiksa 23 November 2026 | `01_Business/P13-BPMN-To-Be-Booking.drawio` + `.png`, `01_Business/P13-BPMN-To-Be-Handover.drawio` + `.png` |
 | G-11 | Harga dua opsi hosting belum ada sumbernya | Harga publik diambil 23 November 2026 dengan URL dan tanggal; angka yang tidak bisa dipastikan ditandai belum diverifikasi | `04_Technology/P13-Hosting-Options.md` |
 | G-19 | ERD tidak menggambar relasi `BookingStatusHistory → User` dan `Dispute → User` yang ada di DDL | ERD baru digambar di dalam repo dengan 17 relasi, lengkap dengan pemeriksaan per use case | `02_Data/P13-ERD.drawio` + `.png`, `02_Data/P13-ERD-Use-Case-Check.md` |
+| G-03 | Wireframe dan prototipe belum ada | Wireframe dan prototipe hi-fi tujuh layar dibuat di FigCraft, diekspor PNG/PDF, dan direview ulang 24 November 2026 | `03_Application/ux/`, `03_Application/ux/exports/` |
 | G-16 | Form listing tidak memuat kondisi, deposit, dan kategori terstruktur | Session desain menambahkan dropdown Kategori, dropdown Kondisi, dan field Deposit pada wireframe dan hi-fi; ekspor ulang 24 November 2026 | `03_Application/ux/exports/WF-01-buat-listing.png`, `03_Application/ux/exports/L-01-buat-listing.png` |
 | G-12 | Tiga angka rekap berbeda: audit 0 Ada/13 Sebagian/21 Belum/1 Belum diverifikasi, `CONTEXT-PACK` 0/18/17, matriks 3/17/15 | Audit ditandai snapshot dan diberi tabel delta; `CONTEXT-PACK` dan `P13-STATUS` menunjuk matriks; P15-01 dikoreksi menjadi Belum sehingga rekap 3/16/16 | `06_Governance/P13-ASSET-AUDIT.md` §Status dokumen, `SEWAKAMPUS/CONTEXT-PACK.md` §6 |
 | G-13 | `main` dan `dev` tidak berada di commit yang sama | `dev` di-fast-forward ke `main` secara lokal | `SEWAKAMPUS/P13-STATUS.md` §3 dan `07_Evidence/P13-Work-Board.md` catatan |
@@ -60,7 +60,7 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-15 | Path bukti "Ada" ditulis singkat (`P13-User-Stories.md`) sehingga tidak bisa dibuka apa adanya | Path dilengkapi menjadi `ARCHITECTURE_REPOSITORY/...` | `SEWAKAMPUS/P13-DELIVERABLE-MATRIX.md` |
 
 G-12 sampai G-15 ditutup pada rekonsiliasi 23 November 2026 dengan bukti file atau commit, bukan dengan asumsi.
-G-02 dan G-11 ditutup pada 23 November 2026 melalui commit `55e9fca`. G-06 tetap terbuka: file `07_Evidence/P13-Standup-Minutes.md` baru menyiapkan format, dan belum ada rapat yang benar-benar terjadi.
+G-02 dan G-11 ditutup pada 23 November 2026 melalui commit `55e9fca`. G-03, G-16, dan G-19 ditutup pada 24 November 2026 setelah prototipe diverifikasi ulang, form listing diperbaiki, dan ERD 17 relasi digambar. G-06 tetap terbuka: file `07_Evidence/P13-Standup-Minutes.md` baru menyiapkan format, dan belum ada rapat yang benar-benar terjadi.
 
 ## Konflik dokumen
 
