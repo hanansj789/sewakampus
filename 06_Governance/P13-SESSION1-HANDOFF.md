@@ -1,5 +1,7 @@
 # Handoff Session 1 — P13 SewaKampus
 
+> **Catatan:** dokumen ini adalah handoff historis Session 1. Posisi pekerjaan terbaru ada di `SEWAKAMPUS/P13-STATUS.md`. Baca file itu lebih dulu.
+
 **Tanggal:** 23 November 2026
 **Commit fondasi:** `e2aa158` di branch `main`, tanpa remote
 **Status Gate 1:** belum dinilai dosen. Status internal: **bersyarat**, bukan hijau.
