@@ -42,7 +42,7 @@ Session 3 dan 3b membangun prototipe hi-fi dan wireframe SewaKampus di FigCraft 
 
 ## 4. Yang belum diverifikasi
 
-- Cek piksel akhir. Pemeriksa otomatis tidak dapat menilai gambar, sehingga pemilik produk harus melihat PNG atau preview.
+- Cek piksel akhir oleh pemilik produk. Pemeriksa sudah membaca render Buat listing (hi-fi dan wireframe) serta Detail & Kalender; layar lain belum dibaca ulang per piksel.
 - Preview FigCraft belum diklik manual oleh manusia.
 - Test case belum dijalankan karena aplikasi belum ada.
 - DDL dan seed belum dijalankan di database kosong.
