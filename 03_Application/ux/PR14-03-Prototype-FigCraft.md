@@ -1,6 +1,6 @@
 **Status:** Ada. Dokumentasi prototipe FigCraft SewaKampus versi mewah-minimalis (desktop). Bukan bukti kelulusan gate.
 
-# PR14-03 — Prototipe FigCraft SewaKampus (Mewah Minimalis, Desktop)
+# PR14-03 — Prototipe FigCraft SewaKampus (Desktop)
 
 **Tanggal:** 23 November 2026  
 **Alat:** FigCraft. Bukan Figma.  
@@ -17,7 +17,7 @@ Wireframe desktop terpisah ada di `P13-06-Wireframe.md` dan `SewaKampus-Wirefram
 | `03_Application/ux/assets/` | Tiga foto berlisensi + `credits.json` |
 | `03_Application/ux/exports/L-00-components.png` | Page komponen |
 | `03_Application/ux/exports/L-01-katalog.png` sampai `L-06-rating.png` | Enam layar alur |
-| `03_Application/ux/exports/SewaKampus-Luxury-Flow.pdf` | PDF alur |
+| `03_Application/ux/exports/SewaKampus-Prototype-Flow.pdf` | PDF alur |
 
 ## 2. Alur enam layar
 

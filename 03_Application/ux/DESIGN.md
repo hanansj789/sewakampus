@@ -1,6 +1,6 @@
 **Status:** Draf untuk persetujuan pemilik. Arah mewah-minimalis, desktop saja. Menggantikan arah Growlio sebelumnya.
 
-# Sistem Desain Prototipe SewaKampus (Mewah Minimalis)
+# Sistem Desain Prototipe SewaKampus
 
 **Tanggal:** 23 November 2026  
 **Cakupan:** desktop 1440 × 900, satu page Desktop berisi enam layar alur dan satu page Components  
