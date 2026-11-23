@@ -38,7 +38,7 @@ Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggo
 | Delapan user story dan acceptance criteria | P13-05 | Ada, menunggu review | `01_Business/P13-User-Stories.md` |
 | Pisahkan BPMN to-be: booking dan handover–return | P13-04 | Ada, menunggu review | `01_Business/P13-BPMN-To-Be-Booking.drawio` + `.png`, `01_Business/P13-BPMN-To-Be-Handover.drawio` + `.png` |
 | Wireframe lima Must | P13-06 | Belum | belum ada |
-| Prototipe clickable | PR14-03 | Belum | belum ada |
+| Prototipe clickable | PR14-03 | Belum | rencana: `DESIGN.md` lalu FigCraft (SK-019), bukan Figma |
 
 ## K-03 — Fazha: data, kontrak, dan kode
 
