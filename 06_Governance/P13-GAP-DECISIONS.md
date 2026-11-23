@@ -1,8 +1,8 @@
 # Gap, Konflik, dan Catatan Keputusan — SewaKampus P13
 
 **Status:** Ada. Dokumen kerja analisis.
-**Tanggal:** 23 November 2026 (diperbarui setelah langkah 1–4 Session 2)
-**Keputusan resmi:** `SEWAKAMPUS/DECISIONS.md` (SK-001 sampai SK-019). File itu yang menang jika berbeda dengan catatan di sini.
+**Tanggal:** 24 November 2026 (diperbarui setelah scaffold PR14-06/07)
+**Keputusan resmi:** `SEWAKAMPUS/DECISIONS.md` (SK-001 sampai SK-020). File itu yang menang jika berbeda dengan catatan di sini.
 
 File ini menjawab tiga hal: apa yang belum tertutup, di mana dokumen saling bertentangan, dan keputusan mana yang mengubah pekerjaan.
 
@@ -28,15 +28,13 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | SK-016 | Seed minimal 30 baris untuk `users` dan `items`, bukan untuk kategori |
 | SK-017 | Layar memakai ID S-01 sampai S-09; wireframe menyusul |
 | SK-018 | PRD dan TRD berstatus draf dan tidak membekukan keputusan sebelum Gate 1 dinilai |
+| SK-020 / CR-003 | Sebelum penilaian Gate 1 hanya scaffold login OIDC + role lokal dan README boleh dikerjakan; Must produk tetap terlarang |
 
 ## Gap yang belum tertutup
 
 | # | Gap | Bukti | Pemilik | Akibat jika dibiarkan |
 |---|---|---|---|---|
-| G-05 | Topologi as-is lokasi mitra belum ada; NFR dan security baseline sudah ditulis | `04_Technology/P13-NFR.md`, `04_Technology/P13-Security-Baseline.md` | Mahesa | P13-11 tetap sebagian |
-| G-06 | Notulen stand-up P13 belum ada | tidak ada file | Mahesa | P13-12 belum |
-| G-07 | Mitra UAT dan jadwalnya belum dikonfirmasi | belum ada balasan | Hanan | PR14-01 belum |
-| G-08 | Team Charter belum ditandatangani | `P13-Team-Charter.md` kolom tanda tangan kosong | Hanan | Butir internal nomor 11 belum siap |
+| G-07 | Nama dan tanggal peserta UAT belum dikonfirmasi; mitra sudah ditetapkan sebagai mahasiswa | `07_Evidence/PR14-01-UAT-Partner-Plan.md` | Hanan | PR14-01 tetap Sebagian |
 | G-09 | Tidak ada commit per anggota | commit memakai identitas tim | semua | Butir "kartu atau commit" baru terpenuhi lewat kartu |
 
 **Gap yang sudah tertutup:**
@@ -46,6 +44,9 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-01 | Request handover tidak menerima foto | SK-014 | `03_Application/openapi.yaml` memakai `multipart/form-data` dengan `photo` wajib |
 | G-02 | BPMN to-be masih satu alur gabungan; dua proses utama belum dipisah | Dua diagram dipisah dan diperiksa 23 November 2026 | `01_Business/P13-BPMN-To-Be-Booking.drawio` + `.png`, `01_Business/P13-BPMN-To-Be-Handover.drawio` + `.png` |
 | G-11 | Harga dua opsi hosting belum ada sumbernya | Harga publik diambil 23 November 2026 dengan URL dan tanggal; angka yang tidak bisa dipastikan ditandai belum diverifikasi | `04_Technology/P13-Hosting-Options.md` |
+| G-05 | Topologi as-is mitra belum ada | Ditulis 24 November 2026 sebagai topologi kualitatif lingkungan mahasiswa (perangkat pribadi, Wi-Fi kampus/data seluler, proses WhatsApp); angka jaringan tetap belum diukur dan menjadi bahan UAT | `04_Technology/P13-Topology-As-Is.md` |
+| G-06 | Notulen stand-up P13 belum ada | Diisi 24 November 2026 sebagai catatan progres asinkron per jobdesc, bukan risalah rapat | `07_Evidence/P13-Standup-Minutes.md` |
+| G-08 | Team Charter belum ditandatangani | Empat tanda tangan tercatat; tanggal 23 November 2026 ditetapkan pemilik, tidak tercetak pada gambar | `06_Governance/P13-Team-Charter.md`, `Tanda Tangan Kelompok/*.jpeg` |
 | G-19 | ERD tidak menggambar relasi `BookingStatusHistory → User` dan `Dispute → User` yang ada di DDL | ERD baru digambar di dalam repo dengan 17 relasi, lengkap dengan pemeriksaan per use case | `02_Data/P13-ERD.drawio` + `.png`, `02_Data/P13-ERD-Use-Case-Check.md` |
 | G-03 | Wireframe dan prototipe belum ada | Wireframe dan prototipe hi-fi tujuh layar dibuat di FigCraft, diekspor PNG/PDF, dan direview ulang 24 November 2026 | `03_Application/ux/`, `03_Application/ux/exports/` |
 | G-16 | Form listing tidak memuat kondisi, deposit, dan kategori terstruktur | Session desain menambahkan dropdown Kategori, dropdown Kondisi, dan field Deposit pada wireframe dan hi-fi; ekspor ulang 24 November 2026 | `03_Application/ux/exports/WF-01-buat-listing.png`, `03_Application/ux/exports/L-01-buat-listing.png` |
@@ -62,7 +63,9 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-15 | Path bukti "Ada" ditulis singkat (`P13-User-Stories.md`) sehingga tidak bisa dibuka apa adanya | Path dilengkapi menjadi `ARCHITECTURE_REPOSITORY/...` | `SEWAKAMPUS/P13-DELIVERABLE-MATRIX.md` |
 
 G-12 sampai G-15 ditutup pada rekonsiliasi 23 November 2026 dengan bukti file atau commit, bukan dengan asumsi.
-G-02 dan G-11 ditutup pada 23 November 2026 melalui commit `55e9fca`. G-03, G-16, dan G-19 ditutup pada 24 November 2026 setelah prototipe diverifikasi ulang, form listing diperbaiki, dan ERD 17 relasi digambar. G-06 tetap terbuka: file `07_Evidence/P13-Standup-Minutes.md` baru menyiapkan format, dan belum ada rapat yang benar-benar terjadi.
+G-02 dan G-11 ditutup pada 23 November 2026 melalui commit `55e9fca`. G-03, G-16, dan G-19 ditutup pada 24 November 2026 setelah prototipe diverifikasi ulang, form listing diperbaiki, dan ERD 17 relasi digambar. G-06 ditutup 24 November 2026 sebagai catatan progres asinkron, bukan notulen rapat. G-05 dan G-08 ditutup pada tanggal yang sama.
+
+Pada 24 November 2026 PR14-06/07 dibuat pada branch `feature/pr14-local-login-role` sesuai CR-003/SK-020. Feature test lokal 16/16 (69 assertion) dan smoke test browser nyata Keycloak 26 berhasil untuk STUDENT/ADMIN; role silang ditolak 403 dan logout STUDENT kembali ke halaman login. Belum ada review independen, belum merge, dan Gate 1 tetap belum dinilai. Implementasi Must tidak dimulai.
 
 ## Konflik dokumen
 

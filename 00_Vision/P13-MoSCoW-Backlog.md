@@ -1,7 +1,7 @@
 # MoSCoW Backlog — SewaKampus P13
 
-**Status:** Draf. Lima Must mengikuti `Skenario_Project ASP R001.txt` hlm. 7; sisanya usulan tim yang belum direview.
-**Tanggal:** 23 November 2026
+**Status:** Final (internal). Sudah direview tim dan diterima 24 November 2026; review silang formal dilewati lewat SK-021.
+**Tanggal:** 23 November 2026 (isi), ditutup 24 November 2026
 
 ## Must (maksimal lima, terkunci)
 
@@ -15,7 +15,7 @@
 
 Tidak ada Must keenam. Permintaan menambah Must wajib lewat Change Request.
 
-**Status kontrak M4:** sudah diperbaiki di `ARCHITECTURE_REPOSITORY/03_Application/openapi.yaml` (SK-014 dan SK-015). `DESAIN/openapi.yaml` hanya arsip. Validasi unggahan belum diuji karena kode belum ada.
+**Status kontrak M4:** sudah diperbaiki di `ARCHITECTURE_REPOSITORY/03_Application/openapi.yaml` (SK-014 dan SK-015). `DESAIN/openapi.yaml` hanya arsip. Validasi unggahan belum diuji karena fitur M4 belum dibangun.
 
 ## Should
 
@@ -53,3 +53,12 @@ Payment gateway asli, chat real-time, aplikasi mobile native, multi-kampus, reko
 | P16 | Rilis v1.0 dan pitch | Final |
 
 M1 dan M2 dipilih lebih dulu karena keduanya satu alur dan bisa diuji tanpa membangun seluruh transaksi sewa.
+
+## Catatan review
+
+| Butir | Hasil |
+|---|---|
+| Lima Must | Tetap M1–M5, tidak ada Must keenam |
+| Should, Could, Won't | Diterima tanpa perubahan isi |
+| Reviewer | Empat anggota, dinyatakan lewat instruksi pemilik proyek 24 November 2026 |
+| Batas | Tidak ada tanda tangan terpisah dan tidak ada review independen; status final bersifat internal (SK-021) |

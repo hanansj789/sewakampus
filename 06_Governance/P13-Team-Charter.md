@@ -1,7 +1,7 @@
 # Team Charter — Kelompok 1 SewaKampus
 
-**Status:** Ada. Empat bukti tanda tangan gambar telah diberikan; tanggal tanda tangan tidak tercantum pada berkas.
-**Tanggal dokumen:** 23 November 2026; bukti tanda tangan diperiksa 24 November 2026.
+**Status:** Final (internal). Empat tanda tangan tercatat; tanggal tanda tangan ditetapkan 23 November 2026 oleh pemilik proyek.
+**Tanggal dokumen:** 23 November 2026; tanggal tanda tangan 23 November 2026; bukti gambar diperiksa 24 November 2026.
 **Masa berlaku:** P13 sampai P16.
 
 ## Anggota dan peran
@@ -19,7 +19,7 @@ Pergantian peran setelah P13 hanya dengan persetujuan dosen.
 
 - **Ritme:** satu stand-up singkat setiap pertemuan, dicatat Mahesa di `07_Evidence/`.
 - **Satu kartu satu orang:** pekerjaan diambil dari `07_Evidence/P13-Work-Board.md`, tidak ada dua orang mengerjakan file yang sama bersamaan.
-- **Review silang:** penulis dan reviewer selalu orang berbeda. Hanan tidak mereview pekerjaannya sendiri; Fharel tidak mereview artefak yang ia tulis.
+- **Review silang:** penulis dan reviewer selalu orang berbeda. Hanan tidak mereview pekerjaannya sendiri; Fharel tidak mereview artefak yang ia tulis. **Pengecualian P13:** pemilik melewati review silang lewat SK-021; aturan ini berlaku lagi untuk fitur Must dan gate berikutnya.
 - **Batas waktu:** kartu yang lewat satu pertemuan tanpa progres dipindahkan ke anggota lain atau dipersempit lingkupnya.
 - **Komunikasi:** keputusan yang mengubah lingkup, ERD, API, atau Must ditulis di `SEWAKAMPUS/DECISIONS.md`, bukan hanya di chat.
 
@@ -51,9 +51,9 @@ Pergantian peran setelah P13 hanya dengan persetujuan dosen.
 
 | Nama | Tanda tangan | Tanggal |
 |---|---|---|
-| Hanan Rizqullah | Bukti gambar: `../../Tanda Tangan Kelompok/Hanan.jpeg` | Tidak tercantum |
-| Fharel Sapvela Dwipa | Bukti gambar: `../../Tanda Tangan Kelompok/Fharel.jpeg` | Tidak tercantum |
-| Muhammad Fazha Nararya Nugraha | Bukti gambar: `../../Tanda Tangan Kelompok/Faza.jpeg` (nama file yang diberikan) | Tidak tercantum |
-| Mahesa Kanaka Raya | Bukti gambar: `../../Tanda Tangan Kelompok/Mahesa.jpeg` | Tidak tercantum |
+| Hanan Rizqullah | Bukti gambar: `../../Tanda Tangan Kelompok/Hanan.jpeg` | 23 November 2026 |
+| Fharel Sapvela Dwipa | Bukti gambar: `../../Tanda Tangan Kelompok/Fharel.jpeg` | 23 November 2026 |
+| Muhammad Fazha Nararya Nugraha | Bukti gambar: `../../Tanda Tangan Kelompok/Faza.jpeg` (nama file yang diberikan) | 23 November 2026 |
+| Mahesa Kanaka Raya | Bukti gambar: `../../Tanda Tangan Kelompok/Mahesa.jpeg` | 23 November 2026 |
 
-Catatan bukti: empat JPEG berisi tanda tangan goresan tangan dan nama file masing-masing sesuai nama anggota. Tanggal/metadata tanda tangan tidak tersedia; waktu modifikasi file tidak dipakai sebagai tanggal tanda tangan. Identitas penanda tangan tidak dapat diverifikasi secara kriptografis dari gambar saja. Pemilik proyek meminta bukti tersebut dicatat sebagai tanda tangan anggota.
+Catatan bukti: empat JPEG berisi tanda tangan goresan tangan dan nama file masing-masing sesuai nama anggota. Tanggal 23 November 2026 adalah tanggal yang ditetapkan pemilik proyek; tanggal itu tidak tercetak pada gambar. Waktu modifikasi file tidak dipakai sebagai bukti tanggal. Identitas penanda tangan tidak dapat diverifikasi secara kriptografis dari gambar saja. Pemilik proyek meminta bukti tersebut dicatat sebagai tanda tangan anggota.
