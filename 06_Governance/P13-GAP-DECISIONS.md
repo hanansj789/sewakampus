@@ -23,20 +23,27 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | SK-011 | Roadmap lama tidak dipakai sebagai jadwal sprint |
 | SK-012 | Tiga KPI adalah target, bukan capaian |
 | SK-013 | Gate 1 belum boleh disebut hijau |
+| SK-014 | Foto kondisi wajib lewat multipart pada handover |
+| SK-015 | Kontrak API kanonik ada di repo, bukan di `DESAIN/` |
+| SK-016 | Seed minimal 30 baris untuk `users` dan `items`, bukan untuk kategori |
+| SK-017 | Layar memakai ID S-01 sampai S-09; wireframe menyusul |
 
 ## Gap yang belum tertutup
 
 | # | Gap | Bukti | Pemilik | Akibat jika dibiarkan |
 |---|---|---|---|---|
-| G-01 | `HandoverCreateRequest` tidak menerima foto, padahal M4 mewajibkan foto OUT dan RETURN | `DESAIN/openapi.yaml`, skema `Handover` dan `HandoverCreateRequest` | Fazha | M4 tidak bisa diuji end-to-end |
 | G-02 | BPMN to-be masih satu alur gabungan; dua proses utama belum dipisah | `DESAIN/BPMN To-Be - SewaKampus.png` | Fharel | Butir internal Gate 1 nomor 6 belum siap |
-| G-03 | Use case, user story, acceptance criteria, dan wireframe belum ada | tidak ada file | Fharel | Kolom use case dan layar di traceability kosong |
-| G-04 | Bukti 3NF per entitas belum ada | laporan §3.4.1.5 baru uraian | Fazha | Butir resmi Gate 1 nomor 3 gagal |
-| G-05 | Topologi as-is lokasi mitra, NFR, dan security baseline belum ada sebagai dokumen | laporan §3.5 berisi rancangan target | Mahesa | P13-11 tetap sebagian |
+| G-03 | Wireframe dan prototipe belum ada; kolom layar di traceability masih rencana | tidak ada file | Fharel | Butir internal nomor 7 dan 8 belum siap |
+| G-04 | Bukti 3NF sudah ditulis, tetapi DDL dan seed belum dijalankan di database kosong | `02_Data/P13-3NF-Proof.md`, `08_Source/database/sql/` | Fazha | Skema belum terbukti bisa dibuat; PR14-04 belum selesai |
+| G-05 | Topologi as-is lokasi mitra belum ada; NFR dan security baseline sudah ditulis | `04_Technology/P13-NFR.md`, `P13-Security-Baseline.md` | Mahesa | P13-11 tetap sebagian |
 | G-06 | Notulen stand-up P13 belum ada | tidak ada file | Mahesa | P13-12 belum |
 | G-07 | Mitra UAT dan jadwalnya belum dikonfirmasi | belum ada balasan | Hanan | PR14-01 belum |
 | G-08 | Team Charter belum ditandatangani | `P13-Team-Charter.md` kolom tanda tangan kosong | Hanan | Butir internal nomor 11 belum siap |
-| G-09 | Tidak ada commit per anggota | commit fondasi memakai identitas tim | semua | Butir "kartu atau commit" baru terpenuhi lewat kartu |
+| G-09 | Tidak ada commit per anggota | commit memakai identitas tim | semua | Butir "kartu atau commit" baru terpenuhi lewat kartu |
+| G-10 | Kontrak API belum punya endpoint bagi pengguna untuk membuka sengketa | `03_Application/openapi.yaml` hanya memuat `/admin/disputes` | Fazha | UC-07 langkah 1 belum bisa dijalankan lewat API |
+| G-11 | Harga dua opsi hosting belum ada sumbernya | belum ada file | Mahesa | PR14-08 belum selesai |
+
+**Gap yang sudah tertutup:** G-01 (request handover kini menerima foto lewat multipart, SK-014).
 
 ## Konflik dokumen
 
@@ -45,8 +52,9 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | Jumlah fitur MVP | Ringkasan lama menandai delapan fitur sebagai MVP | TXT hlm. 7: maksimal lima Must | SK-001 dan SK-002; ringkasan lama perlu diperbarui |
 | Satuan waktu roadmap | Laporan §4.2 menyebut lima minggu | Gambar roadmap memakai M1–M6 | SK-011 |
 | Pasangan Must untuk P14 | Handoff lama: "listing dan booking" | TXT: booking bukan nama Must | SK-003 |
-| Foto kondisi di API | TXT hlm. 26 menuntut foto saat serah terima dan pengembalian | Kontrak API belum punya field foto pada request handover | G-01, diperbaiki di Session 2 |
+| Foto kondisi di API | TXT hlm. 26 menuntut foto saat serah terima dan pengembalian | Kontrak lama tidak punya field foto | Selesai: handover memakai multipart dengan `photo` wajib (SK-014) |
 | Nama file peta aset | Handoff menulis `P13-Asset-Map.md` | Repo memakai `P13-ASSET-MAP.md` | Diikuti nama repo; tidak material |
+| Waktu pembuatan PRD/TRD | §6.1: "jangan membuat PRD atau TRD sebelum Gate 1" | §8 Session 2: PRD dan TRD adalah output Session 2, dan Gate 1 baru dinilai setelah Session 2 selesai | PRD dan TRD dibuat sebagai **draf** pada Session 2 sesuai §8; statusnya draf dan tidak dipakai membekukan keputusan sampai dosen menilai Gate 1. Dicatat sebagai SK-018 |
 
 ## Catatan
 

@@ -1,0 +1,2101 @@
+openapi: 3.1.0
+info:
+  title: SewaKampus API
+  version: 1.0.0
+  summary: API marketplace penyewaan barang antar-mahasiswa dalam satu kampus.
+  description: |
+    Kontrak REST untuk alur inti SewaKampus: registrasi dan login, verifikasi KTM,
+    katalog, pencarian, booking, deposit simulasi, serah terima, pengembalian,
+    review, dan administrasi.
+
+    Semua endpoint memakai JSON kecuali unggah file. Error memakai
+    `application/problem+json` sesuai RFC 9457. Kunci publik memakai ULID 26
+    karakter agar ID internal tidak terekspos.
+
+    Asumsi: satu kampus, deposit simulasi tanpa payment gateway, dan email
+    transaksional sebagai kanal notifikasi. Angka rate limit adalah asumsi
+    perencanaan.
+  contact:
+    name: Kelompok 1 SewaKampus
+    email: sewakampus@example.ac.id
+  license:
+    name: Proprietary
+servers:
+  - url: https://api.sewakampus.local/api/v1
+    description: Lingkungan pengembangan. Ganti dengan domain produksi saat deploy.
+security:
+  - bearerAuth: []
+tags:
+  - name: Auth
+    description: Registrasi, login, logout, dan profil pengguna.
+  - name: Verification
+    description: Unggah dan verifikasi KTM mahasiswa.
+  - name: Catalog
+    description: Kategori, barang, foto, dan kalender ketersediaan.
+  - name: Search
+    description: Pencarian dan filter barang berdasarkan tanggal.
+  - name: Booking
+    description: Pengajuan, persetujuan, penolakan, dan pembatalan booking.
+  - name: Deposit
+    description: Deposit simulasi tanpa payment gateway.
+  - name: Handover
+    description: Serah terima dan pengembalian barang.
+  - name: Review
+    description: Rating dan komentar setelah transaksi selesai.
+  - name: Admin
+    description: Verifikasi, sengketa, analitik, dan audit. Semua endpoint admin membutuhkan role ADMIN dan MFA (AAL2).
+  - name: Notification
+    description: Notifikasi in-app dan email.
+
+paths:
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Registrasi melalui facade BFF
+      description: Laravel meneruskan registrasi ke Keycloak. Password tidak disimpan di database SewaKampus.
+      operationId: register
+      security: []
+      x-owasp-api-top10: [API2, API4]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: Pengguna dibuat. Akun berstatus PENDING_VERIFICATION.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Login melalui OIDC
+      description: Endpoint facade BFF. Kredensial diproses Keycloak, bukan Laravel.
+      operationId: login
+      security: []
+      x-owasp-api-top10: [API2, API4]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login berhasil.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+  /auth/logout:
+    post:
+      tags: [Auth]
+      summary: Cabut sesi dan refresh token
+      operationId: logout
+      x-owasp-api-top10: [API2]
+      responses:
+        '204':
+          description: Token dicabut.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /auth/me:
+    get:
+      tags: [Auth]
+      summary: Profil pengguna saat ini
+      operationId: getCurrentUser
+      x-owasp-api-top10: [API1, API3]
+      responses:
+        '200':
+          description: Profil pengguna.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /verifications:
+    post:
+      tags: [Verification]
+      summary: Unggah KTM untuk verifikasi
+      operationId: createVerification
+      x-owasp-api-top10: [API1, API2, API4]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/VerificationCreateRequest'
+      responses:
+        '201':
+          description: Pengajuan verifikasi dibuat.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentVerification'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '409':
+          description: Masih ada pengajuan PENDING atau akun sudah APPROVED.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+  /verifications/me:
+    get:
+      tags: [Verification]
+      summary: Status verifikasi pengguna saat ini
+      operationId: getMyVerification
+      x-owasp-api-top10: [API1, API3]
+      responses:
+        '200':
+          description: Verifikasi terakhir milik pengguna.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentVerification'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /admin/verifications:
+    get:
+      tags: [Admin]
+      summary: Daftar pengajuan verifikasi
+      operationId: listVerifications
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API5, API9]
+      parameters:
+        - $ref: '#/components/parameters/StatusVerification'
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Daftar pengajuan verifikasi.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentVerificationList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /admin/verifications/{verificationId}:
+    get:
+      tags: [Admin]
+      summary: Detail pengajuan verifikasi dan file KTM
+      description: |
+        Akses ke file KTM dicatat di AuditLog dengan aksi VERIFICATION_VIEWED.
+        File diberikan melalui signed URL berumur pendek, bukan URL publik.
+      operationId: getVerification
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API3, API5]
+      parameters:
+        - $ref: '#/components/parameters/VerificationId'
+      responses:
+        '200':
+          description: Detail verifikasi beserta signed URL file KTM.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentVerificationDetail'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /admin/verifications/{verificationId}/approve:
+    post:
+      tags: [Admin]
+      summary: Setujui verifikasi KTM
+      operationId: approveVerification
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API5]
+      parameters:
+        - $ref: '#/components/parameters/VerificationId'
+      responses:
+        '200':
+          description: Verifikasi disetujui dan akun menjadi ACTIVE.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentVerification'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Verifikasi sudah diproses.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /admin/verifications/{verificationId}/reject:
+    post:
+      tags: [Admin]
+      summary: Tolak verifikasi KTM
+      operationId: rejectVerification
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API5]
+      parameters:
+        - $ref: '#/components/parameters/VerificationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [reason]
+              properties:
+                reason:
+                  type: string
+                  minLength: 10
+                  maxLength: 500
+      responses:
+        '200':
+          description: Verifikasi ditolak.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentVerification'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Verifikasi sudah diproses.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /categories:
+    get:
+      tags: [Catalog]
+      summary: Daftar kategori aktif
+      operationId: listCategories
+      security: []
+      x-owasp-api-top10: [API4]
+      responses:
+        '200':
+          description: Daftar kategori.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ItemCategory'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+  /items:
+    get:
+      tags: [Search]
+      summary: Cari barang berdasarkan kata kunci, kategori, dan tanggal
+      description: |
+        Filter tanggal mengecek bentrok dengan Booking berstatus PENDING,
+        APPROVED, atau HANDED_OVER. Barang yang bentrok tidak dikembalikan.
+      operationId: searchItems
+      security: []
+      x-owasp-api-top10: [API4]
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+            maxLength: 120
+        - name: category
+          in: query
+          schema:
+            type: string
+            description: Slug kategori.
+        - name: start_date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: sort
+          in: query
+          schema:
+            type: string
+            enum: [relevance, newest, price_asc, price_desc, rating]
+            default: relevance
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Hasil pencarian.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    post:
+      tags: [Catalog]
+      summary: Buat listing barang
+      operationId: createItem
+      x-owasp-api-top10: [API1, API2, API3, API6]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemCreateRequest'
+      responses:
+        '201':
+          description: Listing dibuat berstatus DRAFT.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          description: Akun belum terverifikasi atau bukan pemilik.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /items/{itemId}:
+    get:
+      tags: [Catalog]
+      summary: Detail barang
+      operationId: getItem
+      security: []
+      x-owasp-api-top10: [API1, API4]
+      parameters:
+        - $ref: '#/components/parameters/ItemId'
+      responses:
+        '200':
+          description: Detail barang beserta foto dan kalender.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+    patch:
+      tags: [Catalog]
+      summary: Ubah listing barang
+      operationId: updateItem
+      x-owasp-api-top10: [API1, API3, API5]
+      parameters:
+        - $ref: '#/components/parameters/ItemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemUpdateRequest'
+      responses:
+        '200':
+          description: Listing diperbarui.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+    delete:
+      tags: [Catalog]
+      summary: Arsipkan listing barang
+      operationId: deleteItem
+      x-owasp-api-top10: [API1, API5]
+      parameters:
+        - $ref: '#/components/parameters/ItemId'
+      responses:
+        '204':
+          description: Listing diarsipkan, bukan dihapus permanen.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Barang masih memiliki booking aktif.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /items/{itemId}/photos:
+    post:
+      tags: [Catalog]
+      summary: Unggah foto barang
+      operationId: uploadItemPhoto
+      x-owasp-api-top10: [API1, API3, API4]
+      parameters:
+        - $ref: '#/components/parameters/ItemId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [photo]
+              properties:
+                photo:
+                  type: string
+                  format: binary
+                alt_text:
+                  type: string
+                  maxLength: 150
+                is_primary:
+                  type: boolean
+                  default: false
+      responses:
+        '201':
+          description: Foto diunggah ke object storage privat.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemPhoto'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+  /items/{itemId}/availability:
+    put:
+      tags: [Catalog]
+      summary: Ganti kalender ketersediaan barang
+      operationId: replaceAvailability
+      x-owasp-api-top10: [API1, API3, API6]
+      parameters:
+        - $ref: '#/components/parameters/ItemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailabilityUpdateRequest'
+      responses:
+        '200':
+          description: Kalender ketersediaan diperbarui.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ItemAvailability'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Rentang bertumpuk dengan booking aktif.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /bookings:
+    get:
+      tags: [Booking]
+      summary: Daftar booking pengguna
+      operationId: listBookings
+      x-owasp-api-top10: [API1, API3]
+      parameters:
+        - name: role
+          in: query
+          schema:
+            type: string
+            enum: [renter, owner]
+            default: renter
+        - $ref: '#/components/parameters/StatusBooking'
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Daftar booking sesuai peran.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      tags: [Booking]
+      summary: Ajukan booking
+      operationId: createBooking
+      x-owasp-api-top10: [API1, API4, API6]
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookingCreateRequest'
+      responses:
+        '201':
+          description: Booking dibuat berstatus PENDING.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          description: Akun belum terverifikasi atau menyewa barang sendiri.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '409':
+          description: Tanggal bentrok dengan booking lain.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+  /bookings/{bookingId}:
+    get:
+      tags: [Booking]
+      summary: Detail booking
+      operationId: getBooking
+      x-owasp-api-top10: [API1, API3]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      responses:
+        '200':
+          description: Detail booking untuk penyewa, pemilik, atau admin.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /bookings/{bookingId}/approve:
+    post:
+      tags: [Booking]
+      summary: Setujui booking
+      operationId: approveBooking
+      x-owasp-api-top10: [API1, API5, API6]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      responses:
+        '200':
+          description: Booking disetujui dan menunggu deposit.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Status booking tidak memungkinkan persetujuan.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /bookings/{bookingId}/reject:
+    post:
+      tags: [Booking]
+      summary: Tolak booking
+      operationId: rejectBooking
+      x-owasp-api-top10: [API1, API5, API6]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [reason]
+              properties:
+                reason:
+                  type: string
+                  minLength: 5
+                  maxLength: 500
+      responses:
+        '200':
+          description: Booking ditolak.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Status booking tidak memungkinkan penolakan.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /bookings/{bookingId}/cancel:
+    post:
+      tags: [Booking]
+      summary: Batalkan booking
+      operationId: cancelBooking
+      x-owasp-api-top10: [API1, API5, API6]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [reason]
+              properties:
+                reason:
+                  type: string
+                  minLength: 5
+                  maxLength: 500
+      responses:
+        '200':
+          description: Booking dibatalkan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Status booking tidak memungkinkan pembatalan.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /bookings/{bookingId}/deposit:
+    get:
+      tags: [Deposit]
+      summary: Detail deposit booking
+      operationId: getDeposit
+      x-owasp-api-top10: [API1, API3]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      responses:
+        '200':
+          description: Deposit booking.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deposit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /bookings/{bookingId}/deposit/simulate:
+    post:
+      tags: [Deposit]
+      summary: Simulasikan pembayaran deposit
+      description: |
+        Tidak memanggil payment gateway. Status berubah dari PENDING menjadi
+        PAID_SIMULATED lalu HELD. Idempotency-Key mencegah double charge.
+      operationId: simulateDeposit
+      x-owasp-api-top10: [API1, API4, API6]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+        - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '200':
+          description: Deposit disimulasikan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deposit'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Deposit sudah dibayar atau booking belum disetujui.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+  /bookings/{bookingId}/handovers:
+    get:
+      tags: [Handover]
+      summary: Daftar serah terima booking
+      operationId: listHandovers
+      x-owasp-api-top10: [API1, API3]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      responses:
+        '200':
+          description: Daftar handover OUT dan RETURN.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Handover'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+    post:
+      tags: [Handover]
+      summary: Catat serah terima atau pengembalian
+      operationId: createHandover
+      x-owasp-api-top10: [API1, API3, API6]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/HandoverCreateRequest'
+      responses:
+        '201':
+          description: Handover dibuat dan menunggu konfirmasi pihak lain.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Handover'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Arah handover sudah ada atau status booking tidak sesuai.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /bookings/{bookingId}/handovers/{handoverId}/confirm:
+    post:
+      tags: [Handover]
+      summary: Konfirmasi handover dari pihak lain
+      operationId: confirmHandover
+      x-owasp-api-top10: [API1, API5, API6]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+        - $ref: '#/components/parameters/HandoverId'
+      responses:
+        '200':
+          description: Handover dikonfirmasi kedua pihak.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Handover'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Handover sudah dikonfirmasi atau bukan pihak terkait.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+
+  /bookings/{bookingId}/reviews:
+    post:
+      tags: [Review]
+      summary: Beri review setelah booking selesai
+      operationId: createReview
+      x-owasp-api-top10: [API1, API5, API6]
+      parameters:
+        - $ref: '#/components/parameters/BookingId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewCreateRequest'
+      responses:
+        '201':
+          description: Review dibuat.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Booking belum selesai atau review sudah ada.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /users/{userId}/reviews:
+    get:
+      tags: [Review]
+      summary: Daftar review publik pengguna
+      operationId: listUserReviews
+      security: []
+      x-owasp-api-top10: [API3, API4]
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Review yang berstatus PUBLISHED.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewList'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+
+  /admin/disputes:
+    get:
+      tags: [Admin]
+      summary: Daftar sengketa
+      operationId: listDisputes
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API5]
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [OPEN, IN_REVIEW, RESOLVED, REJECTED]
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Daftar sengketa.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisputeList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /admin/disputes/{disputeId}:
+    get:
+      tags: [Admin]
+      summary: Detail sengketa
+      operationId: getDispute
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API3, API5]
+      parameters:
+        - $ref: '#/components/parameters/DisputeId'
+      responses:
+        '200':
+          description: Detail sengketa dan bukti.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dispute'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /admin/disputes/{disputeId}/resolve:
+    post:
+      tags: [Admin]
+      summary: Selesaikan sengketa
+      operationId: resolveDispute
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API5, API6]
+      parameters:
+        - $ref: '#/components/parameters/DisputeId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [decision, resolution]
+              properties:
+                decision:
+                  type: string
+                  enum: [REFUND_FULL, REFUND_PARTIAL, FORFEIT, REJECT]
+                resolution:
+                  type: string
+                  minLength: 10
+                  maxLength: 500
+                forfeited_amount:
+                  type: number
+                  multipleOf: 0.01
+                  minimum: 0
+      responses:
+        '200':
+          description: Sengketa diselesaikan.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dispute'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Sengketa sudah selesai.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /admin/analytics/summary:
+    get:
+      tags: [Admin]
+      summary: Ringkasan analitik
+      operationId: getAnalyticsSummary
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API4, API5]
+      parameters:
+        - name: from
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: to
+          in: query
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Ringkasan transaksi dan pengguna.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalyticsSummary'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /admin/audit-logs:
+    get:
+      tags: [Admin]
+      summary: Cari audit log
+      operationId: listAuditLogs
+      x-required-role: ADMIN
+      x-owasp-api-top10: [API1, API3, API5, API9]
+      parameters:
+        - name: actor
+          in: query
+          schema:
+            type: string
+            description: Public ID pengguna.
+        - name: action
+          in: query
+          schema:
+            type: string
+        - name: entity_type
+          in: query
+          schema:
+            type: string
+        - name: from
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - name: to
+          in: query
+          schema:
+            type: string
+            format: date-time
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Daftar audit log.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuditLogList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /notifications:
+    get:
+      tags: [Notification]
+      summary: Daftar notifikasi pengguna
+      operationId: listNotifications
+      x-owasp-api-top10: [API1, API3]
+      parameters:
+        - name: unread_only
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Daftar notifikasi milik pengguna.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /notifications/{notificationId}/read:
+    patch:
+      tags: [Notification]
+      summary: Tandai notifikasi sudah dibaca
+      operationId: markNotificationRead
+      x-owasp-api-top10: [API1, API5]
+      parameters:
+        - $ref: '#/components/parameters/NotificationId'
+      responses:
+        '200':
+          description: Notifikasi ditandai dibaca.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        OIDC access token dari Keycloak. Gateway memvalidasi signature,
+        issuer, audience, expiry, dan scope melalui JWKS. Token tidak
+        disimpan di gateway. Access token berlaku 10 menit dan refresh
+        token 7 hari dengan rotasi.
+
+  parameters:
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    PerPage:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 50
+        default: 15
+    ItemId:
+      name: itemId
+      in: path
+      required: true
+      description: Public ID (ULID) barang.
+      schema:
+        $ref: '#/components/schemas/Ulid'
+    BookingId:
+      name: bookingId
+      in: path
+      required: true
+      description: Public ID (ULID) booking.
+      schema:
+        $ref: '#/components/schemas/Ulid'
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: Public ID (ULID) pengguna.
+      schema:
+        $ref: '#/components/schemas/Ulid'
+    VerificationId:
+      name: verificationId
+      in: path
+      required: true
+      description: Public ID (ULID) pengajuan verifikasi.
+      schema:
+        $ref: '#/components/schemas/Ulid'
+    HandoverId:
+      name: handoverId
+      in: path
+      required: true
+      description: Public ID (ULID) handover.
+      schema:
+        $ref: '#/components/schemas/Ulid'
+    DisputeId:
+      name: disputeId
+      in: path
+      required: true
+      description: Public ID (ULID) sengketa.
+      schema:
+        $ref: '#/components/schemas/Ulid'
+    NotificationId:
+      name: notificationId
+      in: path
+      required: true
+      description: Public ID (ULID) notifikasi.
+      schema:
+        $ref: '#/components/schemas/Ulid'
+    StatusVerification:
+      name: status
+      in: query
+      schema:
+        type: string
+        enum: [PENDING, APPROVED, REJECTED]
+    StatusBooking:
+      name: status
+      in: query
+      schema:
+        type: string
+        enum: [PENDING, APPROVED, REJECTED, CANCELLED, HANDED_OVER, RETURNED, COMPLETED, DISPUTED]
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: false
+      description: Kunci unik untuk mencegah duplikasi booking atau deposit.
+      schema:
+        type: string
+        minLength: 16
+        maxLength: 64
+
+  responses:
+    BadRequest:
+      description: Parameter permintaan tidak valid.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Unauthorized:
+      description: Token tidak ada, kedaluwarsa, atau tidak valid.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Forbidden:
+      description: Pengguna tidak memiliki izin pada objek atau fungsi ini.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: Objek tidak ditemukan.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    ValidationError:
+      description: Validasi field gagal.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    TooManyRequests:
+      description: Rate limit terlampaui.
+      headers:
+        Retry-After:
+          description: Detik sampai permintaan berikutnya boleh dicoba.
+          schema:
+            type: integer
+        X-RateLimit-Limit:
+          schema:
+            type: integer
+        X-RateLimit-Remaining:
+          schema:
+            type: integer
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+
+  schemas:
+    Ulid:
+      type: string
+      pattern: '^[0-9A-HJKMNP-TV-Z]{26}$'
+      example: 01J8Z5K3Q7X9M2N4P6R8T0V2W4
+
+    Problem:
+      type: object
+      required: [type, title, status, code]
+      properties:
+        type:
+          type: string
+          format: uri
+          example: urn:sewakampus:error:booking-date-conflict
+        title:
+          type: string
+          example: Jadwal tidak tersedia
+        status:
+          type: integer
+          example: 409
+        detail:
+          type: string
+          example: Barang sudah dibooking pada 12 sampai 14 November 2026.
+        instance:
+          type: string
+          example: /api/v1/bookings
+        code:
+          type: string
+          example: BOOKING_DATE_CONFLICT
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+
+    User:
+      type: object
+      required: [public_id, full_name, email, role, account_status]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        full_name:
+          type: string
+          maxLength: 100
+        email:
+          type: string
+          format: email
+        phone:
+          type: [string, 'null']
+          maxLength: 20
+        role:
+          type: string
+          enum: [STUDENT, ADMIN]
+        account_status:
+          type: string
+          enum: [PENDING_VERIFICATION, ACTIVE, SUSPENDED]
+        avatar_url:
+          type: [string, 'null']
+          format: uri
+        created_at:
+          type: string
+          format: date-time
+
+    AuthToken:
+      type: object
+      required: [token, token_type, expires_at, user]
+      properties:
+        token:
+          type: string
+        token_type:
+          type: string
+          const: Bearer
+        expires_at:
+          type: string
+          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
+
+    RegisterRequest:
+      type: object
+      required: [full_name, email, password]
+      properties:
+        full_name:
+          type: string
+          minLength: 3
+          maxLength: 100
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 8
+          maxLength: 72
+          description: Minimal 8 karakter, kombinasi huruf dan angka.
+        phone:
+          type: string
+          maxLength: 20
+
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+
+    StudentVerification:
+      type: object
+      required: [public_id, nim, name_on_card, study_program, status]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        nim:
+          type: string
+          maxLength: 20
+        name_on_card:
+          type: string
+          maxLength: 100
+        study_program:
+          type: string
+          maxLength: 100
+        faculty:
+          type: [string, 'null']
+          maxLength: 100
+        status:
+          type: string
+          enum: [PENDING, APPROVED, REJECTED]
+        rejection_reason:
+          type: [string, 'null']
+          maxLength: 500
+        reviewed_at:
+          type: [string, 'null']
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+
+    StudentVerificationDetail:
+      allOf:
+        - $ref: '#/components/schemas/StudentVerification'
+        - type: object
+          properties:
+            ktm_signed_url:
+              type: string
+              format: uri
+              description: Signed URL berumur pendek. Setiap akses dicatat di AuditLog.
+            ktm_expires_at:
+              type: string
+              format: date-time
+
+    StudentVerificationList:
+      type: object
+      required: [data, meta]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StudentVerification'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    VerificationCreateRequest:
+      type: object
+      required: [ktm_file, nim, name_on_card, study_program]
+      properties:
+        ktm_file:
+          type: string
+          format: binary
+          description: JPG, PNG, atau PDF maksimal 5 MB.
+        nim:
+          type: string
+          maxLength: 20
+        name_on_card:
+          type: string
+          maxLength: 100
+        study_program:
+          type: string
+          maxLength: 100
+        faculty:
+          type: string
+          maxLength: 100
+
+    ItemCategory:
+      type: object
+      required: [public_id, name, slug]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        name:
+          type: string
+          maxLength: 80
+        slug:
+          type: string
+          maxLength: 80
+        description:
+          type: [string, 'null']
+          maxLength: 255
+        is_active:
+          type: boolean
+
+    ItemPhoto:
+      type: object
+      required: [file_url, sort_order, is_primary]
+      properties:
+        file_url:
+          type: string
+          format: uri
+        alt_text:
+          type: [string, 'null']
+          maxLength: 150
+        sort_order:
+          type: integer
+          minimum: 0
+        is_primary:
+          type: boolean
+
+    ItemAvailability:
+      type: object
+      required: [start_date, end_date, status]
+      properties:
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        status:
+          type: string
+          enum: [AVAILABLE, BLOCKED]
+        note:
+          type: [string, 'null']
+          maxLength: 255
+
+    AvailabilityUpdateRequest:
+      type: object
+      required: [windows]
+      properties:
+        windows:
+          type: array
+          maxItems: 60
+          items:
+            $ref: '#/components/schemas/ItemAvailability'
+
+    Item:
+      type: object
+      required: [public_id, title, daily_rate, deposit_amount, status]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        owner:
+          $ref: '#/components/schemas/UserSummary'
+        category:
+          $ref: '#/components/schemas/ItemCategory'
+        title:
+          type: string
+          maxLength: 120
+        description:
+          type: string
+        condition:
+          type: string
+          enum: [NEW, GOOD, FAIR]
+        daily_rate:
+          type: number
+          multipleOf: 0.01
+          minimum: 0
+        deposit_amount:
+          type: number
+          multipleOf: 0.01
+          minimum: 0
+        pickup_point:
+          type: string
+          maxLength: 120
+        status:
+          type: string
+          enum: [DRAFT, ACTIVE, PAUSED, ARCHIVED]
+        average_rating:
+          type: number
+          minimum: 0
+          maximum: 5
+        review_count:
+          type: integer
+          minimum: 0
+        photos:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemPhoto'
+        availability:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItemAvailability'
+        created_at:
+          type: string
+          format: date-time
+
+    ItemCreateRequest:
+      type: object
+      required: [category_public_id, title, description, condition, daily_rate, deposit_amount, pickup_point]
+      properties:
+        category_public_id:
+          $ref: '#/components/schemas/Ulid'
+        title:
+          type: string
+          maxLength: 120
+        description:
+          type: string
+          maxLength: 2000
+        condition:
+          type: string
+          enum: [NEW, GOOD, FAIR]
+        daily_rate:
+          type: number
+          multipleOf: 0.01
+          minimum: 1000
+        deposit_amount:
+          type: number
+          multipleOf: 0.01
+          minimum: 0
+        pickup_point:
+          type: string
+          maxLength: 120
+
+    ItemUpdateRequest:
+      type: object
+      properties:
+        category_public_id:
+          $ref: '#/components/schemas/Ulid'
+        title:
+          type: string
+          maxLength: 120
+        description:
+          type: string
+          maxLength: 2000
+        condition:
+          type: string
+          enum: [NEW, GOOD, FAIR]
+        daily_rate:
+          type: number
+          multipleOf: 0.01
+          minimum: 1000
+        deposit_amount:
+          type: number
+          multipleOf: 0.01
+          minimum: 0
+        pickup_point:
+          type: string
+          maxLength: 120
+        status:
+          type: string
+          enum: [DRAFT, ACTIVE, PAUSED, ARCHIVED]
+
+    ItemList:
+      type: object
+      required: [data, meta]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    Booking:
+      type: object
+      required: [public_id, start_date, end_date, total_amount, status]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        item:
+          $ref: '#/components/schemas/ItemSummary'
+        renter:
+          $ref: '#/components/schemas/UserSummary'
+        owner:
+          $ref: '#/components/schemas/UserSummary'
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        days:
+          type: integer
+          minimum: 1
+        daily_rate_snapshot:
+          type: number
+          multipleOf: 0.01
+        subtotal:
+          type: number
+          multipleOf: 0.01
+        deposit_snapshot:
+          type: number
+          multipleOf: 0.01
+        total_amount:
+          type: number
+          multipleOf: 0.01
+        status:
+          type: string
+          enum: [PENDING, APPROVED, REJECTED, CANCELLED, HANDED_OVER, RETURNED, COMPLETED, DISPUTED]
+        pickup_point:
+          type: string
+        renter_note:
+          type: [string, 'null']
+          maxLength: 500
+        owner_note:
+          type: [string, 'null']
+          maxLength: 500
+        deposit:
+          $ref: '#/components/schemas/Deposit'
+        handovers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Handover'
+        created_at:
+          type: string
+          format: date-time
+
+    BookingCreateRequest:
+      type: object
+      required: [item_public_id, start_date, end_date]
+      properties:
+        item_public_id:
+          $ref: '#/components/schemas/Ulid'
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        renter_note:
+          type: string
+          maxLength: 500
+
+    BookingList:
+      type: object
+      required: [data, meta]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Booking'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    Deposit:
+      type: object
+      required: [public_id, amount, status, method]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        booking_public_id:
+          $ref: '#/components/schemas/Ulid'
+        amount:
+          type: number
+          multipleOf: 0.01
+          minimum: 0
+        status:
+          type: string
+          enum: [PENDING, PAID_SIMULATED, HELD, REFUNDED, FORFEITED]
+        method:
+          type: string
+          enum: [SIMULATED]
+        simulated_reference:
+          type: [string, 'null']
+          maxLength: 50
+        paid_at:
+          type: [string, 'null']
+          format: date-time
+        refunded_at:
+          type: [string, 'null']
+          format: date-time
+        forfeited_amount:
+          type: number
+          multipleOf: 0.01
+          minimum: 0
+
+    Handover:
+      type: object
+      required: [public_id, direction, location]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        booking_public_id:
+          $ref: '#/components/schemas/Ulid'
+        direction:
+          type: string
+          enum: [OUT, RETURN]
+        location:
+          type: string
+          maxLength: 120
+        condition_notes:
+          type: [string, 'null']
+          maxLength: 1000
+        photo_url:
+          type: [string, 'null']
+          format: uri
+        renter_confirmed_at:
+          type: [string, 'null']
+          format: date-time
+        owner_confirmed_at:
+          type: [string, 'null']
+          format: date-time
+        status:
+          type: string
+          enum: [PENDING_CONFIRMATION, CONFIRMED]
+        created_at:
+          type: string
+          format: date-time
+
+    HandoverCreateRequest:
+      type: object
+      description: Dikirim sebagai multipart karena foto kondisi wajib pada OUT dan RETURN.
+      required: [direction, location, photo]
+      properties:
+        direction:
+          type: string
+          enum: [OUT, RETURN]
+        location:
+          type: string
+          maxLength: 120
+        condition_notes:
+          type: [string, 'null']
+          maxLength: 1000
+        photo:
+          type: string
+          format: binary
+          description: Foto kondisi barang. Disimpan ke object storage privat, path dikembalikan sebagai photo_url.
+
+    Review:
+      type: object
+      required: [public_id, rating, reviewer_role]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        booking_public_id:
+          $ref: '#/components/schemas/Ulid'
+        reviewer:
+          $ref: '#/components/schemas/UserSummary'
+        reviewee:
+          $ref: '#/components/schemas/UserSummary'
+        reviewer_role:
+          type: string
+          enum: [RENTER, OWNER]
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        comment:
+          type: [string, 'null']
+          maxLength: 1000
+        status:
+          type: string
+          enum: [PUBLISHED, HIDDEN]
+        created_at:
+          type: string
+          format: date-time
+
+    ReviewCreateRequest:
+      type: object
+      required: [rating]
+      properties:
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        comment:
+          type: string
+          maxLength: 1000
+
+    ReviewList:
+      type: object
+      required: [data, meta]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Review'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    Dispute:
+      type: object
+      required: [public_id, category, description, status]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        booking_public_id:
+          $ref: '#/components/schemas/Ulid'
+        opened_by:
+          $ref: '#/components/schemas/UserSummary'
+        against_user:
+          $ref: '#/components/schemas/UserSummary'
+        category:
+          type: string
+          enum: [DAMAGE, LATE_RETURN, NOT_AS_DESCRIBED, NO_SHOW, OTHER]
+        description:
+          type: string
+          maxLength: 2000
+        evidence_url:
+          type: [string, 'null']
+          format: uri
+        status:
+          type: string
+          enum: [OPEN, IN_REVIEW, RESOLVED, REJECTED]
+        resolution:
+          type: [string, 'null']
+          maxLength: 500
+        resolved_at:
+          type: [string, 'null']
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+
+    DisputeList:
+      type: object
+      required: [data, meta]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dispute'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    Notification:
+      type: object
+      required: [public_id, type, title, channel, status]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        type:
+          type: string
+          maxLength: 40
+        title:
+          type: string
+          maxLength: 120
+        body:
+          type: string
+          maxLength: 500
+        channel:
+          type: string
+          enum: [IN_APP, EMAIL]
+        status:
+          type: string
+          enum: [QUEUED, SENT, FAILED, READ]
+        entity_type:
+          type: [string, 'null']
+          maxLength: 30
+        entity_public_id:
+          type: [string, 'null']
+          maxLength: 26
+        read_at:
+          type: [string, 'null']
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+
+    NotificationList:
+      type: object
+      required: [data, meta]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Notification'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    AuditLog:
+      type: object
+      required: [action, entity_type, created_at]
+      properties:
+        id:
+          type: integer
+        actor:
+          $ref: '#/components/schemas/UserSummary'
+        actor_role:
+          type: [string, 'null']
+        action:
+          type: string
+          maxLength: 60
+        entity_type:
+          type: string
+          maxLength: 40
+        entity_public_id:
+          type: [string, 'null']
+          maxLength: 26
+        ip_address:
+          type: [string, 'null']
+        metadata:
+          type: [object, 'null']
+        created_at:
+          type: string
+          format: date-time
+
+    AuditLogList:
+      type: object
+      required: [data, meta]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuditLog'
+        meta:
+          $ref: '#/components/schemas/PaginationMeta'
+
+    AnalyticsSummary:
+      type: object
+      properties:
+        period:
+          type: object
+          properties:
+            from:
+              type: string
+              format: date
+            to:
+              type: string
+              format: date
+        users:
+          type: object
+          properties:
+            total:
+              type: integer
+            active:
+              type: integer
+            pending_verification:
+              type: integer
+        items:
+          type: object
+          properties:
+            total:
+              type: integer
+            active:
+              type: integer
+        bookings:
+          type: object
+          properties:
+            total:
+              type: integer
+            completed:
+              type: integer
+            cancelled:
+              type: integer
+            disputed:
+              type: integer
+        gmv:
+          type: number
+          multipleOf: 0.01
+          description: Total nilai transaksi selesai pada periode.
+        deposit_held:
+          type: number
+          multipleOf: 0.01
+
+    UserSummary:
+      type: object
+      required: [public_id, full_name]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        full_name:
+          type: string
+        average_rating:
+          type: number
+          minimum: 0
+          maximum: 5
+        review_count:
+          type: integer
+          minimum: 0
+
+    ItemSummary:
+      type: object
+      required: [public_id, title]
+      properties:
+        public_id:
+          $ref: '#/components/schemas/Ulid'
+        title:
+          type: string
+        daily_rate:
+          type: number
+          multipleOf: 0.01
+        deposit_amount:
+          type: number
+          multipleOf: 0.01
+        primary_photo_url:
+          type: [string, 'null']
+          format: uri
+
+    PaginationMeta:
+      type: object
+      required: [current_page, per_page, total, last_page]
+      properties:
+        current_page:
+          type: integer
+          minimum: 1
+        per_page:
+          type: integer
+          minimum: 1
+        total:
+          type: integer
+          minimum: 0
+        last_page:
+          type: integer
+          minimum: 1
