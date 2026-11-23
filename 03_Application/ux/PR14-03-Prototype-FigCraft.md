@@ -1,6 +1,6 @@
-**Status:** Ada. Dokumentasi prototipe FigCraft SewaKampus. Bukan bukti kelulusan gate.
+**Status:** Ada. Dokumentasi prototipe FigCraft SewaKampus versi mewah-minimalis (desktop). Bukan bukti kelulusan gate.
 
-# PR14-03 — Prototipe FigCraft SewaKampus
+# PR14-03 — Prototipe FigCraft SewaKampus (Mewah Minimalis, Desktop)
 
 **Tanggal:** 23 November 2026  
 **Alat:** FigCraft. Bukan Figma.  
@@ -10,87 +10,51 @@
 
 | Berkas | Isi |
 |---|---|
-| `03_Application/ux/SewaKampus-High-Fidelity.figcraft` | Dokumen sumber prototipe |
-| `03_Application/ux/DESIGN.md` | Sistem desain yang menjadi acuan |
-| `03_Application/ux/exports/S-01-mobile.png` sampai `S-09-mobile.png` | PNG tiap layar mobile |
-| `03_Application/ux/exports/S-01-desktop.png` sampai `S-09-desktop.png` | PNG tiap layar desktop |
-| `03_Application/ux/exports/S-06-mobile-return.png` | Varian RETURN mobile |
-| `03_Application/ux/exports/S-06-desktop-return.png` | Varian RETURN desktop |
-| `03_Application/ux/exports/SewaKampus-Prototype-Flow.pdf` | PDF alur utama |
-| `03_Application/ux/exports/Flow-desktop.png` | Diagram halaman Flow |
+| `03_Application/ux/SewaKampus-High-Fidelity.figcraft` | Dokumen sumber (2 page: Desktop, Components) |
+| `03_Application/ux/DESIGN.md` | Sistem desain mewah-minimalis |
+| `03_Application/ux/assets/` | Tiga foto berlisensi + `credits.json` |
+| `03_Application/ux/exports/L-00-components.png` | Page komponen |
+| `03_Application/ux/exports/L-01-katalog.png` sampai `L-06-rating.png` | Enam layar alur |
+| `03_Application/ux/exports/SewaKampus-Luxury-Flow.pdf` | PDF alur |
 
-Dokumen FigCraft memiliki sebelas halaman: Foundations, empat alur mobile, empat alur desktop, States and Prototype, dan Flow. Halaman Flow memuat diagram urutan layar S-08, S-01 sampai S-07 beserta cabang verifikasi dan sengketa.
+## 2. Alur enam layar
 
-## 2. Daftar layar
+| Layar | Must | Isi |
+|---|---|---|
+| 01 Katalog | M1 | Header, hero serif, pencarian, tiga kartu barang |
+| 02 Detail & Kalender | M1, M2 | Galeri foto, harga, pemilik, deskripsi, kalender, CTA |
+| 03 Pengajuan sewa | M3 | Ringkasan barang, tanggal, rincian biaya, privasi, syarat |
+| 04 Persetujuan pemilik | M3 | Dua pengajuan, profil penyewa, Setujui/Tolak |
+| 05 Serah terima & foto kondisi | M4 | Foto OUT terunggah, RETURN kosong, konfirmasi dua pihak |
+| 06 Rating | M5 | Ringkasan, rating 1–5, aspek, komentar |
 
-| Layar | Nama | Use case | Must |
-|---|---|---|---|
-| S-01 | Form listing | UC-01 | M1 |
-| S-02 | Daftar listing saya | UC-01 | M1 |
-| S-03 | Detail barang dan kalender | UC-02 | M2 |
-| S-04 | Pengajuan sewa | UC-03 | M3 |
-| S-05 | Persetujuan pemilik | UC-03 | M3 |
-| S-06 | Serah terima dan foto kondisi | UC-04 | M4 |
-| S-07 | Rating setelah transaksi | UC-05 | M5 |
-| S-08 | Antrean verifikasi admin | UC-06 | M1, kontrol prasyarat |
-| S-09 | Sengketa admin | UC-07 | M4, cabang pengecualian |
+Keenam layar 1440 × 900 disusun satu baris pada page Desktop dengan nomor langkah dan panah penghubung, sehingga alur terbaca sekaligus.
 
-Setiap layar dibuat pada dua ukuran: mobile 390 × 844 dan desktop 1440 × 900. S-06 memiliki varian OUT dan RETURN pada kedua ukuran, sehingga total ada delapan belas frame utama ditambah dua varian RETURN.
+## 3. Interaksi
 
-Layar desktop dibuat padat, dengan 11 sampai 29 elemen per frame: ringkasan, kartu bukti, rincian biaya, kronologi, tabel verifikasi, dan konfirmasi dua pihak. Layar mobile menyusul lebih ringkas dan menjadi pekerjaan lanjutan bila diperlukan.
-
-## 3. Peta interaksi
-
-Alur utama mobile dan desktop sama. Panah berikut memakai tombol utama setiap layar.
-
-1. S-01 Simpan listing ke S-02.
-2. S-02 ke S-03 katalog.
-3. S-03 Pilih tanggal ke S-04.
-4. S-04 Ajukan sewa ke S-05.
-5. S-05 Setujui ke S-06 OUT.
-6. S-06 OUT kirim catatan ke S-06 RETURN.
-7. S-06 RETURN kirim catatan ke S-07.
-8. S-07 Kirim rating mengakhiri alur.
-9. S-08 setujui verifikasi ke S-01.
-10. S-05 Tolak ke state alasan penolakan, lalu kirim alasan ke state pengajuan ditolak.
-11. S-06 kondisi berbeda membuka sengketa ke state sengketa terbuka.
-
-Titik gagal lain diwakili state pada halaman `States and Prototype`: form invalid, tanggal bentrok, pengajuan ditolak, alasan penolakan, unggah gagal, unggah sedang berlangsung, akun belum terverifikasi, handover menunggu konfirmasi, sengketa terbuka, verifikasi ditolak, loading, dan empty state.
+01 Cari → 02; 02 Pilih tanggal → 03; 03 Ajukan sewa → 04; 04 Setujui → 05; 05 Kirim catatan kondisi → 06. Semua dengan transisi dissolve 180 ms.
 
 ## 4. Membuka preview
 
 1. Buka `SewaKampus-High-Fidelity.figcraft` di FigCraft.
 2. Buka panel Prototype.
-3. Pilih flow pada daftar berikut.
+3. Mulai dari frame `01 Katalog` pada page Desktop, lalu klik tombol utama untuk menyusuri alur sampai rating.
 
-| Flow | Mulai dari |
-|---|---|
-| SewaKampus / Mobile / Alur utama | S-03 |
-| SewaKampus / Desktop / Alur utama | S-03 |
-| SewaKampus / Mobile / Admin | S-08 |
-| SewaKampus / Desktop / Admin | S-08 |
+## 5. Aksesibilitas
 
-## 5. Hasil cek aksesibilitas
+Kontras terukur: tinta 16,47:1, muted 4,81:1, perunggu 5,26:1 di kanvas dan 4,73:1 di permukaan lembut. Target tombol 52 px. Status tidak hanya warna: sel kalender terisi memakai arsir, penolakan wajib alasan, NIM dimasking, KTM hanya admin, foto kondisi hanya pihak transaksi dan admin sengketa.
 
-Cek dilakukan secara struktural pada dokumen, bukan pada hasil raster.
+## 6. Gambar dan kredit
 
-- Semua frame utama tepat 390 × 844 atau 1440 × 900.
-- Teks utama memakai `#17211D` dengan kontras 14,99:1 pada krem dan 16,51:1 pada putih.
-- Teks sekunder memakai `#4D5B55` dengan kontras 6,48:1 pada krem dan 7,14:1 pada putih.
-- Tombol utama setinggi 48 px dan app bar 56 px, memenuhi target sentuh 44 px.
-- Status selalu memuat label teks, bukan hanya warna.
-- NIM dimasking, KTM dibatasi untuk admin, lokasi rinci ditahan sampai persetujuan, dan foto kondisi dibatasi untuk pihak transaksi serta admin sengketa.
-- Cek piksel akhir dilakukan oleh pemilik produk karena pemeriksa otomatis tidak dapat menilai gambar.
+- "Optima Projector" oleh Swethasakthivel, CC0, Wikimedia Commons.
+- "Nikon DSLR camera D850" oleh Wolfgang Moroder, CC BY-SA 3.0, Wikimedia Commons.
+- "JBL Flip 3 bluetooth speaker (DSCF2653)" oleh Trougnouf, CC BY 4.0, Wikimedia Commons.
 
-## 6. Batasan
+Kredit tampil di footer tiap layar dan tercatat di `assets/credits.json`.
 
-- FigCraft dipakai karena tidak ada akses Figma. Ekspor `.fig` eksperimental tidak dijadikan bukti utama.
-- Libre Baskerville dan Source Sans 3 tidak tersedia di mesin kerja. Font fallback Georgia dan Arial dipakai sesuai `DESIGN.md`.
-- Kalender digambar sebagai teks, bukan sel interaktif individual.
-- Interaksi S-08 memakai klik frame, bukan tombol, karena keputusan Setujui dan Tolak digambar sebagai teks inline.
-- S-02 memakai rantai maju ke S-03 sesuai rencana; label "Buat listing" secara semantik kembali ke S-01 dan terbuka untuk ditinjau pemilik.
-- Endpoint pengguna untuk membuka sengketa belum ada pada kontrak API. S-09 menampilkan sisi admin dan asal bukti tanpa mengklaim endpoint pengguna.
+## 7. Batasan
 
-## 7. Referensi dan batas pemakaian
-
-Referensi Growlio dipakai untuk lapisan brand. Contoh FigCraft Growpath dipakai untuk mempelajari organisasi page, komponen, state, dan flow. SewaKampus tidak menyalin komponen, token, isi, atau struktur visual keduanya.
+- Desktop saja. Mobile, dark mode, dan multi-bahasa ditunda.
+- Playfair Display dan Arial dipakai karena hanya itu serif/sans yang tersedia di mesin kerja.
+- Cek piksel akhir milik pemilik produk karena pemeriksa tidak menilai gambar.
+- Versi mobile dan desktop sebelumnya pada cabang ini digantikan versi mewah-minimalis ini.
