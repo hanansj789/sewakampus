@@ -2,7 +2,7 @@
 
 **Status:** Ada. Dokumen kerja analisis.
 **Tanggal:** 23 November 2026
-**Keputusan resmi:** `SEWAKAMPUS/DECISIONS.md` (SK-001 sampai SK-013). File itu yang menang jika berbeda dengan catatan di sini.
+**Keputusan resmi:** `SEWAKAMPUS/DECISIONS.md` (SK-001 sampai SK-018). File itu yang menang jika berbeda dengan catatan di sini.
 
 File ini menjawab tiga hal: apa yang belum tertutup, di mana dokumen saling bertentangan, dan keputusan mana yang mengubah pekerjaan.
 
@@ -27,6 +27,7 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | SK-015 | Kontrak API kanonik ada di repo, bukan di `DESAIN/` |
 | SK-016 | Seed minimal 30 baris untuk `users` dan `items`, bukan untuk kategori |
 | SK-017 | Layar memakai ID S-01 sampai S-09; wireframe menyusul |
+| SK-018 | PRD dan TRD berstatus draf dan tidak membekukan keputusan sebelum Gate 1 dinilai |
 
 ## Gap yang belum tertutup
 
@@ -43,7 +44,17 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-10 | Kontrak API belum punya endpoint bagi pengguna untuk membuka sengketa | `03_Application/openapi.yaml` hanya memuat `/admin/disputes` | Fazha | UC-07 langkah 1 belum bisa dijalankan lewat API |
 | G-11 | Harga dua opsi hosting belum ada sumbernya | belum ada file | Mahesa | PR14-08 belum selesai |
 
-**Gap yang sudah tertutup:** G-01 (request handover kini menerima foto lewat multipart, SK-014).
+**Gap yang sudah tertutup:**
+
+| # | Gap | Penutup | Bukti |
+|---|---|---|---|
+| G-01 | Request handover tidak menerima foto | SK-014 | `03_Application/openapi.yaml` memakai `multipart/form-data` dengan `photo` wajib |
+| G-12 | Tiga angka rekap berbeda: audit 0 Ada/13 Sebagian/21 Belum, `CONTEXT-PACK` 0/18/17, matriks 3/17/15 | Audit ditandai snapshot dan diberi tabel delta; `CONTEXT-PACK` dan `P13-STATUS` menunjuk matriks | `P13-ASSET-AUDIT.md` §Status dokumen, `CONTEXT-PACK.md` §6 |
+| G-13 | `main` dan `dev` tidak berada di commit yang sama | `dev` di-fast-forward ke `main` secara lokal | `git for-each-ref refs/heads` |
+| G-14 | Checklist Gate 1 menyebut use case dan NFR "belum ada" padahal file sudah ada | Baris 3, 7, 9, dan 10 diperbarui; status tetap Bersyarat | `P13-Gate-1-Checklist.md` |
+| G-15 | Path bukti "Ada" ditulis singkat (`P13-User-Stories.md`) sehingga tidak bisa dibuka apa adanya | Path dilengkapi menjadi `ARCHITECTURE_REPOSITORY/...` | `P13-DELIVERABLE-MATRIX.md` |
+
+G-12 sampai G-15 ditutup pada rekonsiliasi 23 November 2026 dengan bukti file, bukan dengan asumsi.
 
 ## Konflik dokumen
 
@@ -58,5 +69,5 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 
 ## Catatan
 
-- Gap G-01 sampai G-09 tidak boleh ditutup dengan asumsi. Setiap penutupan butuh file atau keputusan baru.
+- Gap G-02 sampai G-11 tidak boleh ditutup dengan asumsi. Setiap penutupan butuh file atau keputusan baru.
 - Konflik baru dicatat di sini lebih dulu, lalu keputusannya dipindahkan ke `DECISIONS.md`.

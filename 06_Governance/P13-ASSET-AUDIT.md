@@ -6,6 +6,27 @@
 **Daftar 35 butir yang diuji:** `PROYEK/SEWAKAMPUS/HANDOFF-PROMPT-P13-P16.md`, bagian 4.  
 **Batas pemeriksaan:** aset lokal dan bagian relevan DOCX dibaca; PDF lama tidak dijadikan bukti; repo daring, persetujuan mitra, serta tanda tangan tidak diverifikasi.
 
+## Status dokumen ini
+
+Dokumen ini adalah **snapshot akhir Session 1**, bukan status hari ini. Angka di bawah merekam keadaan saat audit dilakukan. Sumber status per butir yang berlaku adalah `SEWAKAMPUS/P13-DELIVERABLE-MATRIX.md`; rekap terkini di sana **3 Ada menunggu review, 17 Sebagian, 15 Belum**.
+
+Perubahan setelah audit dicatat di tabel delta berikut. Baris historis di bagian A–C tidak ditimpa, supaya jejak audit tetap bisa diperiksa.
+
+### Delta setelah audit
+
+| ID | Status saat audit | Status terkini | Alasan perubahan |
+|---|---|---|---|
+| P13-03 | Belum | Sebagian | `06_Governance/P13-Definition-of-Done.md` dan `P13-Team-Charter.md` sudah ditulis; charter belum ditandatangani |
+| P13-05 | Sebagian | Ada, menunggu review | `01_Business/P13-Use-Cases.md` dan `P13-User-Stories.md` (8 story) sudah ada |
+| P13-08 | Sebagian | Ada, menunggu review | `02_Data/P13-Data-Dictionary.md` (118 atribut) dan `P13-3NF-Proof.md` sudah ada |
+| P13-10 | Belum diverifikasi | Sebagian | Repo Git lokal aktif dengan branch `main` dan `dev`, tanpa remote; `feature/*` belum ada dan CODEOWNERS belum berisi aturan |
+| P13-13 | Sebagian | Ada, menunggu review | Handover memakai `multipart/form-data` dengan `photo` wajib (SK-014) |
+| P13-14 | Belum | Sebagian | `06_Governance/P13-Traceability-Matrix.md` berisi lima baris; kolom layar masih rencana |
+| P13-15 | Belum | Sebagian | `07_Evidence/P13-Work-Board.md` (empat kartu) dan `P13-Gate-1-Checklist.md` sudah ada |
+| PR14-04 | Belum | Sebagian | `08_Source/database/sql/001_init.sql` (14 tabel) sudah ada; belum dijalankan di database kosong |
+| PR14-05 | Belum | Sebagian | `08_Source/database/sql/seed.sql` (30 pengguna, 30 barang, 8 kategori) sudah ada; belum dijalankan |
+| P15-01 | Belum | Sebagian | Lima Must sudah dirancang di `00_Vision/P13-MoSCoW-Backlog.md`; belum ada fitur berjalan |
+
 ## Cara membaca status
 
 - **Ada:** artefak yang diminta tersedia dan bentuknya sesuai, dengan path yang bisa dibuka.
@@ -85,7 +106,7 @@ Semua path di kolom bukti relatif terhadap `PROYEK/SEWAKAMPUS/`. Singkatan berik
 | P16-02 | Rilis v1.0, changelog, panduan pengguna | Belum | Tidak ditemukan tag rilis, changelog, atau panduan. |
 | P16-03 | Repository final dan peer assessment | Belum | Repo final dan bukti penilaian belum ditemukan; status remote tetap belum diverifikasi. |
 
-**Rekap:** 13 Sebagian, 21 Belum, 1 Belum diverifikasi, 0 Ada dalam bentuk deliverable sprint yang lengkap. Ini **tidak** berarti bahan proyek tidak ada; diagram, dokumen lama, dan kontrak API memang ada, tetapi belum memenuhi bentuk/bukti yang diminta TXT.
+**Rekap saat audit:** 13 Sebagian, 21 Belum, 1 Belum diverifikasi, 0 Ada dalam bentuk deliverable sprint yang lengkap. Ini **tidak** berarti bahan proyek tidak ada; diagram, dokumen lama, dan kontrak API memang ada, tetapi belum memenuhi bentuk/bukti yang diminta TXT. Untuk status setelah pekerjaan Session 2, pakai tabel delta di atas dan `P13-DELIVERABLE-MATRIX.md`.
 
 ## Konflik dan celah wajib diputuskan sebelum mapping/freeze
 
