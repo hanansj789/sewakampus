@@ -43,11 +43,11 @@
 - Produces a Laravel 11 app root at `08_Source/` with `php artisan test`.
 - DB schema remains sourced from `database/sql/001_init.sql`; Laravel default users/session migrations are not run against this schema.
 
-- [ ] Generate the Laravel 11 skeleton into a temporary folder, then copy the generated files into `08_Source/`; leave `database/sql/001_init.sql` and `seed.sql` unchanged.
-- [ ] Write `guest_can_open_login_page_and_protected_pages_redirect_to_login` and `login_routes_exist` feature tests asserting GET `/login` is 200 and guest GET `/dashboard` redirects to `/login`.
-- [ ] Run `php artisan test --filter=IdentityRoutesTest`; expected: tests fail because local identity routes/views are not implemented.
-- [ ] Add Socialite and the generic OpenID Connect provider with Composer; configure MySQL from environment and file-backed local sessions. Do not add an auth starter kit.
-- [ ] Re-run the two route tests; expected: login page loads and guest is redirected.
+- [x] Generate the Laravel 11 skeleton into a temporary folder, then copy the generated files into `08_Source/`; leave `database/sql/001_init.sql` and `seed.sql` unchanged.
+- [x] Write `guest_can_open_login_page_and_protected_pages_redirect_to_login` and `login_routes_exist` feature tests asserting GET `/login` is 200 and guest GET `/dashboard` redirects to `/login`.
+- [x] Run `php artisan test --filter=IdentityRoutesTest`; expected: tests fail because local identity routes/views are not implemented.
+- [x] Add Socialite and the generic OpenID Connect provider with Composer; configure MySQL from environment and file-backed local sessions. Do not add an auth starter kit.
+- [x] Re-run the two route tests; expected: login page loads and guest is redirected.
 
 ### Task 2: Keycloak OIDC callback and role authorization
 
@@ -55,25 +55,25 @@
 - Create `08_Source/app/Http/Controllers/Auth/KeycloakAuthController.php`.
 - Create `08_Source/app/Http/Middleware/EnsureRole.php`.
 - Create `08_Source/app/Models/User.php`.
-- Create `08_Source/resources/views/auth/login.blade.php`, `dashboard.blade.php`, `admin/dashboard.blade.php`, `student/dashboard.blade.php`.
-- Modify `08_Source/routes/web.php`, `08_Source/bootstrap/app.php`, `08_Source/app/Providers/AppServiceProvider.php`, and `08_Source/config/services.php`.
+- Create `08_Source/resources/views/auth/login.blade.php`, `dashboard.blade.php`, and `08_Source/config/oidc.php`.
+- Modify `08_Source/routes/web.php` and `08_Source/bootstrap/app.php`.
 - Test: `08_Source/tests/Feature/KeycloakLoginTest.php`, `08_Source/tests/Feature/RoleAuthorizationTest.php`.
 
 **Interfaces:**
-- Routes: `GET /login`, `GET /auth/keycloak/callback`, `POST /logout`, `GET /dashboard`, `GET /admin/dashboard`, `GET /student/dashboard`.
+- Routes: `GET /login`, `GET /auth/keycloak/redirect`, `GET /auth/keycloak/callback`, `POST /logout`, `GET /logout/callback`, `GET /dashboard`, `GET /admin/dashboard`, `GET /student/dashboard`.
 - `KeycloakAuthController::redirect(): RedirectResponse`.
 - `KeycloakAuthController::callback(Request $request): RedirectResponse`.
 - `KeycloakAuthController::logout(Request $request): RedirectResponse`.
 - `EnsureRole::handle(Request $request, Closure $next, string $role): Response`.
 - Database role is canonical; only ACTIVE local users can sign in.
 
-- [ ] Write tests first: active user callback logs in and regenerates session; unknown user and non-ACTIVE user are rejected; missing verified email is rejected; STUDENT/ADMIN routes enforce role; logout invalidates session.
-- [ ] Run the two test files; expected: fail because callback and role middleware are not implemented.
-- [ ] Implement OIDC using `Socialite::driver('oidc_keycloak')`; use OIDC PKCE/state held in the server-side session. Never use password grant or store IdP tokens in browser-readable storage.
-- [ ] Map verified Keycloak email to existing `users.email`; reject if no row, `account_status !== ACTIVE`, or role is not `STUDENT`/`ADMIN`. Call `Auth::login($user)` and regenerate the session.
-- [ ] Register a `role` middleware alias in Laravel 11 `bootstrap/app.php`; return 403 on role mismatch.
-- [ ] Implement POST logout by invalidating the local session and regenerating the CSRF token.
-- [ ] Re-run targeted tests and then `php artisan test`; expected: all pass.
+- [x] Write tests first: active user callback logs in and regenerates session; unknown user and non-ACTIVE user are rejected; missing verified email is rejected; STUDENT/ADMIN routes enforce role; logout invalidates local session and initiates Keycloak RP-initiated logout; logout callback validates state.
+- [x] Run the two test files; expected: fail because callback and role middleware are not implemented.
+- [x] Implement OIDC using `Socialite::driver('oidc_keycloak')`; use OIDC PKCE/state held in the server-side session. Never use password grant or store IdP tokens in browser-readable storage.
+- [x] Map verified Keycloak email to existing `users.email`; reject if no row, `account_status !== ACTIVE`, or role is not `STUDENT`/`ADMIN`. Call `Auth::login($user)` and regenerate the session.
+- [x] Register a `role` middleware alias in Laravel 11 `bootstrap/app.php`; return 403 on role mismatch.
+- [x] Implement POST logout by revoking the refresh token best-effort when present, invalidating the local session, then redirecting to the Keycloak end-session endpoint with the saved ID token; implement a callback that validates OIDC logout state.
+- [x] Re-run targeted tests and then `php artisan test`; expected: all pass.
 
 ### Task 3: Local setup and run README
 
@@ -87,12 +87,12 @@
 - README documents local PHP/Composer, MySQL 8, Keycloak 26, database import, environment variables, user mapping, start/stop commands, and role URLs.
 - No passwords or generated client secrets are included in committed files.
 
-- [ ] Write a RED setup smoke checklist: clean database imports DDL/seed, Keycloak redirect returns to the callback, active seeded user reaches role-specific dashboard, inactive/unseeded identity is denied.
-- [ ] Verify it fails/not yet runnable before Keycloak configuration and Laravel routes exist; record precise blockers rather than success claims.
-- [ ] Document Keycloak 26 manual realm/client setup using OIDC Authorization Code + PKCE and exact redirect URI `http://127.0.0.1:8000/auth/keycloak/callback`; use environment variables for client secret.
-- [ ] Document import of `001_init.sql` and `seed.sql`, then `composer install`, `.env` creation, `php artisan key:generate`, and `php artisan serve`.
-- [ ] Complete a local end-to-end smoke run with MySQL 8.0.43 and Keycloak 26; record outputs and any platform prerequisite.
-- [ ] Re-run `php artisan test` after documentation/config updates; expected: suite remains green.
+- [x] Write a setup smoke checklist: database imports DDL/seed, Keycloak redirect returns to callback, seeded active users reach role-specific dashboards, and denied identities cannot get a session.
+- [x] Verify fail-closed behavior before OIDC config using a feature test; record remaining deployment limitations.
+- [x] Document Keycloak 26 manual realm/client setup using OIDC Authorization Code + PKCE and exact redirect URI `http://127.0.0.1:8000/auth/keycloak/callback`; use environment variables for client secret.
+- [x] Document import of `001_init.sql` and `seed.sql`, then `composer install`, `.env` creation, `php artisan key:generate`, and `php artisan serve`.
+- [x] Complete a local end-to-end smoke run with MySQL 8.0.43 and Keycloak 26; record outputs and platform prerequisites in `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md`.
+- [x] Re-run `php artisan test` after documentation/config updates; all 16 tests pass (69 assertions).
 
 ### Task 4: Evidence and deliverable status
 
@@ -100,6 +100,6 @@
 - Create `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md`.
 - Modify root `P13-STATUS.md`, `P13-DELIVERABLE-MATRIX.md`, `07_Evidence/P13-Work-Board.md`, and `06_Governance/P13-GAP-DECISIONS.md`.
 
-- [ ] Record exact local versions, commands, test counts, and login/role smoke-test results; do not claim Gate 1 was evaluated or passed.
-- [ ] Update PR14-06/07 only to the status supported by runnable evidence.
-- [ ] Keep P14/P15 deliverables out of scope.
+- [x] Record exact local versions, commands, test counts, and login/role smoke-test results; do not claim Gate 1 was evaluated or passed.
+- [x] Update PR14-06/07 only to the status supported by runnable evidence (Ada, menunggu review).
+- [x] Keep P14/P15 deliverables out of scope.

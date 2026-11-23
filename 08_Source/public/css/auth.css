@@ -1,0 +1,177 @@
+@font-face {
+    font-family: "Playfair Display";
+    src: url("/fonts/PlayfairDisplay-Variable.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+}
+
+:root {
+    color-scheme: light;
+    --color-bg-canvas: #F5F2EA;
+    --color-bg-surface: #FFFFFF;
+    --color-accent-soft: #EDE6D8;
+    --color-ink: #141414;
+    --color-muted: #6E6A63;
+    --color-accent: #7E5F33;
+    --color-border: #E4DFD4;
+    --color-error: #9F2D20;
+    --space-page: clamp(1.25rem, 5vw, 4.5rem);
+}
+
+* { box-sizing: border-box; }
+
+html {
+    min-inline-size: 320px;
+    background: var(--color-bg-canvas);
+}
+
+body {
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    margin: 0;
+    background: var(--color-bg-canvas);
+    color: var(--color-ink);
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+a { color: inherit; }
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: min(calc(100% - 2 * var(--space-page)), 1296px);
+    min-block-size: 5rem;
+    margin-inline: auto;
+    border-block-end: 1px solid var(--color-border);
+}
+
+.wordmark {
+    color: var(--color-ink);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 1.75rem;
+    line-height: 1.1;
+    text-decoration: none;
+}
+
+.page-main {
+    display: grid;
+    min-block-size: calc(100dvh - 5rem);
+    place-items: center;
+    padding: 3rem var(--space-page) 4rem;
+}
+
+.auth-panel {
+    width: min(100%, 38rem);
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-bg-surface);
+}
+
+h1 {
+    margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+.intro {
+    max-width: 42ch;
+    margin: 1rem 0 0;
+    color: var(--color-muted);
+    font-size: 1.0625rem;
+}
+
+.primary-action,
+.secondary-action {
+    display: inline-flex;
+    min-block-size: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-ink);
+    border-radius: 999px;
+    padding: 0.75rem 1.5rem;
+    font: inherit;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 120ms ease, color 120ms ease;
+}
+
+.primary-action {
+    width: 100%;
+    margin-block-start: 2rem;
+    background: var(--color-ink);
+    color: var(--color-bg-surface);
+}
+
+.primary-action:hover,
+.secondary-action:hover {
+    background: var(--color-accent-soft);
+    color: var(--color-ink);
+}
+
+.primary-action:active,
+.secondary-action:active {
+    background: var(--color-accent);
+    color: var(--color-bg-surface);
+}
+
+.privacy-note,
+.role-line {
+    margin: 1.25rem 0 0;
+    color: var(--color-muted);
+    font-size: 0.875rem;
+}
+
+.message {
+    margin-block-start: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 0.875rem 1rem;
+}
+
+.message-error {
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.message-status { background: var(--color-accent-soft); }
+.dashboard-panel .intro { color: var(--color-ink); }
+.secondary-action { background: transparent; color: var(--color-ink); }
+.site-header-actions form { margin: 0; }
+
+@media (max-width: 44rem) {
+    .site-header { min-block-size: 4.25rem; }
+    .page-main {
+        min-block-size: calc(100dvh - 4.25rem);
+        align-items: start;
+        padding-block: 2.5rem;
+    }
+    .auth-panel { padding: 1.5rem; }
+    .wordmark { font-size: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

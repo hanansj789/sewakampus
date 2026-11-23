@@ -1,15 +1,88 @@
-# 08_Source — Aplikasi SewaKampus
+**Status:** Draf. Login + role lokal tersedia; alur Must belum dibuat.
 
-**Status:** Belum ada kode. Folder ini masih kerangka dari struktur yang ditetapkan handoff.
+# Menjalankan SewaKampus secara lokal
 
-Kode aplikasi dimulai setelah Gate 1 dinilai dosen, mengikuti urutan di `07_Evidence/P13-Work-Board.md`.
+Panduan ini hanya menjalankan scaffold PR14-06: Laravel 11 sebagai BFF, Keycloak 26 untuk login OIDC, dan role STUDENT/ADMIN dari MySQL. Belum ada fitur listing, booking, handover, atau rating yang berjalan.
 
-Rencana isi:
+## Prasyarat
 
-- Laravel 11, PHP 8.3, MySQL 8.0, Redis 7, MinIO.
-- `docker/` berisi `docker-compose.yml` untuk Nginx, Keycloak, Laravel, worker, MySQL, Redis, dan MinIO.
-- `database/migrations/` mengikuti ERD 3NF di `02_Data/`.
-- `database/sql/` berisi DDL dan seed yang bisa dijalankan ulang.
-- `tests/` berisi test aturan status booking dan perhitungan deposit.
+- PHP 8.3 atau lebih baru, dengan ekstensi PDO MySQL, OpenSSL, cURL, Mbstring, XML, dan Fileinfo.
+- Composer 2.
+- MySQL 8.0.
+- Java 21 dan Keycloak 26 untuk login lokal.
 
-Jangan menaruh `.env`, token, atau berkas KTM asli di folder ini.
+Docker tidak diperlukan untuk langkah lokal ini. Untuk staging/deployment, stack tetap satu VPS Ubuntu dengan Docker Compose sesuai TRD.
+
+## 1. Siapkan database
+
+Buka Command Prompt pada folder `08_Source`, buat database bernama `sewakampus`, lalu impor schema dan data dummy:
+
+```cmd
+mysql -u root -p < database\sql\001_init.sql
+mysql -u root -p sewakampus < database\sql\seed.sql
+```
+
+Jika akun MySQL lokal tidak memakai kata sandi, hilangkan `-p`. Jangan jalankan migrasi Laravel default: schema kanonik adalah dua file SQL di atas.
+
+## 2. Siapkan Keycloak
+
+Jalankan Keycloak 26 dalam mode development. Mode ini hanya untuk laptop lokal, bukan production:
+
+```powershell
+$env:KC_BOOTSTRAP_ADMIN_USERNAME = "kcadmin"
+$env:KC_BOOTSTRAP_ADMIN_PASSWORD = "<kata-sandi-admin-lokal>"
+.\bin\kc.bat start-dev --http-port=8080 --hostname=http://127.0.0.1:8080
+```
+
+Di Admin Console Keycloak:
+
+1. Buat realm `sewakampus`.
+2. Buat client `sewakampus-local`, protocol OpenID Connect, Client authentication **On**, Standard flow **On**, Direct access grants **Off**.
+3. Set PKCE code challenge method ke `S256`.
+4. Tambahkan Valid redirect URI `http://127.0.0.1:8000/auth/keycloak/callback`.
+5. Tambahkan Valid post logout redirect URI `http://127.0.0.1:8000/logout/callback` dan Web origin `http://127.0.0.1:8000`.
+6. Salin client secret dari Keycloak ke `.env` lokal. Jangan masukkan secret ke Git.
+7. Buat user untuk demo dengan email yang sama seperti kolom `users.email` di seed, tandai email terverifikasi, lalu set kata sandi lokal sementara. Jangan pakai kata sandi kampus asli.
+
+Role aplikasi tidak diambil dari form atau parameter URL. Laravel mencocokkan email terverifikasi dari Keycloak dengan baris `users` yang `account_status=ACTIVE`, lalu membaca role dari kolom `users.role`.
+
+## 3. Konfigurasi Laravel
+
+Di PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+composer install
+php artisan key:generate
+```
+
+Edit `.env` lokal dan isi `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`, serta `KEYCLOAK_CLIENT_SECRET`. Contoh OIDC loopback tersedia di `.env.example`. File `.env` diabaikan Git.
+
+## 4. Jalankan aplikasi
+
+```powershell
+php artisan config:clear
+php artisan serve --host=127.0.0.1 --port=8000
+```
+
+Buka `http://127.0.0.1:8000/login`, lalu pilih **Masuk dengan akun kampus**. Akun yang tidak ditemukan, belum aktif, atau emailnya belum diverifikasi akan ditolak. `/admin/dashboard` hanya dapat diakses role ADMIN; `/student/dashboard` hanya role STUDENT. Tombol Keluar mengakhiri sesi Laravel dan meminta Keycloak mengakhiri sesi SSO.
+
+## 5. Uji otomatis
+
+Test feature memakai database MySQL yang sama dan transaksi yang di-rollback. Pastikan schema dan seed sudah diimpor sebelum menjalankan:
+
+```powershell
+# Opsional: hanya jika MySQL tidak memakai port default 3306.
+$env:DB_PORT = "3311"
+php artisan test
+```
+
+Ganti `3311` dengan port MySQL lokal, atau hilangkan baris `$env:DB_PORT` untuk port default 3306. Suite menguji redirect OIDC, pemetaan akun aktif, penolakan email tak terverifikasi/akun nonaktif, pembatasan role, dan logout-state.
+
+## Batasan scaffold
+
+- Login hanya lewat Keycloak. Laravel tidak menerima atau menyimpan kata sandi pengguna.
+- User Keycloak harus dibuat terpisah dan emailnya cocok dengan seed lokal. Pendaftaran otomatis belum dibuat.
+- Halaman dashboard hanya membuktikan login dan role. Fungsi Must belum dibangun.
+- Keycloak memakai H2/dev mode untuk laptop ini. Deployment production tetap memakai konfigurasi TRD, secret yang aman, HTTPS, dan database production.
+- Gate 1 belum dinilai dosen. Pekerjaan ini adalah pengecualian PR14-06/07 yang dicatat pada CR-003/SK-020; status gate tidak berubah.
