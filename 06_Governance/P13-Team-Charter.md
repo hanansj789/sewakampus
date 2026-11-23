@@ -21,7 +21,7 @@ Pergantian peran setelah P13 hanya dengan persetujuan dosen.
 - **Satu kartu satu orang:** pekerjaan diambil dari `07_Evidence/P13-Work-Board.md`, tidak ada dua orang mengerjakan file yang sama bersamaan.
 - **Review silang:** penulis dan reviewer selalu orang berbeda. Hanan tidak mereview pekerjaannya sendiri; Fharel tidak mereview artefak yang ia tulis.
 - **Batas waktu:** kartu yang lewat satu pertemuan tanpa progres dipindahkan ke anggota lain atau dipersempit lingkupnya.
-- **Komunikasi:** keputusan yang mengubah lingkup, ERD, API, atau Must ditulis di `06_Governance/P13-GAP-DECISIONS.md`, bukan hanya di chat.
+- **Komunikasi:** keputusan yang mengubah lingkup, ERD, API, atau Must ditulis di `SEWAKAMPUS/DECISIONS.md`, bukan hanya di chat.
 
 ## Aturan keputusan
 

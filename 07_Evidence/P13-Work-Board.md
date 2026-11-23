@@ -57,3 +57,4 @@ Aturan: satu kartu satu orang. Perpindahan status hanya boleh dilakukan setelah 
 
 - Fondasi repo, audit, dan dokumen keputusan dikerjakan sebagai kerja tim, bukan kartu pribadi. Karena itu tidak ada kartu yang diklaim selesai atas nama anggota.
 - Belum ada commit per anggota. Butir "tiap anggota punya kartu atau commit" baru terpenuhi lewat kartu.
+- Berkas pengetahuan bersama ada di `SEWAKAMPUS/AGENTS.md`, `DECISIONS.md`, dan `CONTEXT-PACK.md`. Branch `main` dan `dev` sudah aktif; `CODEOWNERS` masih kosong karena username GitHub belum ada.

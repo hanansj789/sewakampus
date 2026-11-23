@@ -14,7 +14,7 @@ Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat*
 | 2 | Matriks ketelusuran ≥5 baris: kebutuhan → use case → tabel → layar | `06_Governance/P13-Traceability-Matrix.md` | Bersyarat | Lima baris ada, tetapi kolom use case dan layar masih "Belum" |
 | 3 | ERD 3NF konsisten dengan use case | `DESAIN/ERD - SewaKampus.drawio`, `DESAIN/Logical Data Model - SewaKampus.drawio` | Belum siap | Bukti 3NF per entitas belum ada; ERD belum diuji terhadap use case yang belum dibuat |
 | 4 | Backlog MoSCoW, fitur Must maksimal 5 | `00_Vision/P13-MoSCoW-Backlog.md` | Bersyarat | Lima Must sudah dikunci, tetapi backlog belum direview anggota |
-| 5 | Repo dan papan kerja aktif; tiap anggota punya kartu atau commit | `README.md`, `07_Evidence/P13-Work-Board.md` | Bersyarat | Repo lokal aktif tanpa remote; kartu ada empat; commit per anggota belum ada |
+| 5 | Repo dan papan kerja aktif; tiap anggota punya kartu atau commit | `README.md`, `07_Evidence/P13-Work-Board.md` | Bersyarat | Repo lokal aktif dengan branch `main` dan `dev`, tanpa remote; kartu ada empat; commit per anggota belum ada |
 
 ## B. Tambahan internal sebelum P14
 
@@ -24,8 +24,9 @@ Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat*
 | 7 | Use case, user story, acceptance criteria | belum ada | Belum siap | Belum ditulis |
 | 8 | Wireframe dan prototipe clickable | belum ada | Belum siap | Belum dibuat |
 | 9 | API dan NFR konsisten dengan stack | `DESAIN/openapi.yaml` | Belum siap | Request handover belum menerima foto; NFR belum ada dokumen |
-| 10 | Branch, CODEOWNERS, dan kartu anggota aktif | repo lokal | Belum siap | `dev` dan `feature/*` belum dibuat; CODEOWNERS menunggu akun GitHub |
+| 10 | Branch, CODEOWNERS, dan kartu anggota aktif | repo lokal | Bersyarat | `main` dan `dev` ada; `CODEOWNERS` sengaja kosong; `feature/*` belum ada |
 | 11 | Team Charter ditandatangani | `06_Governance/P13-Team-Charter.md` | Belum siap | Kolom tanda tangan masih kosong |
+| 12 | Berkas pengetahuan bersama | `SEWAKAMPUS/AGENTS.md`, `DECISIONS.md`, `CONTEXT-PACK.md` | Siap diajukan | Isi lengkap; belum dibaca ulang empat anggota |
 
 ## C. Kesimpulan
 

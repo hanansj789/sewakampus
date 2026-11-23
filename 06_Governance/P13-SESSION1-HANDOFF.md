@@ -4,7 +4,7 @@
 **Commit fondasi:** `e2aa158` di branch `main`, tanpa remote
 **Status Gate 1:** belum dinilai dosen. Status internal: **bersyarat**, bukan hijau.
 
-Dokumen ini adalah titik masuk session berikutnya. Baca berurutan: file ini, `P13-GAP-DECISIONS.md`, `07_Evidence/P13-Work-Board.md`, lalu `Skenario_Project ASP R001.txt` hlm. 15–17.
+Dokumen ini adalah titik masuk session berikutnya. Baca berurutan: `SEWAKAMPUS/AGENTS.md`, `SEWAKAMPUS/DECISIONS.md`, `SEWAKAMPUS/CONTEXT-PACK.md`, file ini, `07_Evidence/P13-Work-Board.md`, lalu `Skenario_Project ASP R001.txt` hlm. 15–17.
 
 ## 1. Yang sudah dikerjakan
 
@@ -21,14 +21,27 @@ Dokumen ini adalah titik masuk session berikutnya. Baca berurutan: file ini, `P1
 | Checklist Gate 1 | `06_Governance/P13-Gate-1-Checklist.md` | Ada, bersyarat |
 | Papan kerja 4 kartu | `07_Evidence/P13-Work-Board.md` | Ada |
 | Matriks 35 butir | `../P13-DELIVERABLE-MATRIX.md` | Ada |
-| Fondasi repo | `README.md`, `CONTRIBUTING.md`, `.github/pull_request_template.md` | Ada |
+| Fondasi repo | `README.md`, `CONTRIBUTING.md`, `CODEOWNERS`, `.github/pull_request_template.md` | Ada |
 | Desain session | `docs/superpowers/specs/2026-11-23-p13-session1-design.md` | Ada |
 
-Struktur folder `00_Vision` sampai `09_Pitch` sudah dibuat. `08_Source/` masih kerangka kosong.
+Struktur folder `00_Vision` sampai `09_Pitch` sudah dibuat. `08_Source/` masih kerangka kosong. Branch `main` dan `dev` aktif; `CODEOWNERS` sengaja kosong karena username GitHub belum ditetapkan.
+
+### 1.1 Berkas pengetahuan bersama
+
+Session tidak berbagi ingatan, jadi konteks dibagi lewat file di `SEWAKAMPUS/`:
+
+| File | Isi | Status |
+|---|---|---|
+| `../AGENTS.md` | Urutan sumber, larangan, protokol update, aturan bukti | Ada |
+| `../DECISIONS.md` | Keputusan resmi SK-001 sampai SK-013 dan keputusan tertunda | Ada |
+| `../CONTEXT-PACK.md` | Ringkasan proyek, lima Must, stack, peran, status, peta file | Ada |
+| `../P13-DELIVERABLE-MATRIX.md` | Status 35 deliverable | Ada |
+
+`06_Governance/P13-GAP-DECISIONS.md` bukan sumber keputusan; isinya analisis gap dan konflik yang merujuk ke `DECISIONS.md`.
 
 ## 2. Keputusan yang terkunci
 
-SK-001 sampai SK-013 di `P13-GAP-DECISIONS.md`. Ringkasnya:
+SK-001 sampai SK-013 di `SEWAKAMPUS/DECISIONS.md`, dengan analisis di `06_Governance/P13-GAP-DECISIONS.md`. Ringkasnya:
 
 - Lima Must: listing, kalender ketersediaan, persetujuan sewa, foto kondisi, rating. Tidak ada Must keenam.
 - KTM, deposit simulasi, dan serah terima adalah kontrol alur, bukan Must.
@@ -71,6 +84,8 @@ Batas Session 2: berhenti sebelum menulis kode aplikasi. Kode dimulai setelah Ga
 ## 5. Peringatan untuk session berikutnya
 
 - Jangan membuat remote GitHub atau push.
+- Baca `SEWAKAMPUS/AGENTS.md` dan `SEWAKAMPUS/DECISIONS.md` lebih dulu; itu sumber aturan session.
+- Buka session di `PROYEK/SEWAKAMPUS`, bukan di root `PERT 9` yang memakai `AGENTS.md` Growpath.
 - Jangan mengubah `LAPORAN/`, `LAPORAN/VERSI/`, atau `ARSIP/`.
 - Jangan mengubah SK-001 sampai SK-013 tanpa Change Request.
 - Jangan menandai sesuatu "Ada" tanpa file yang bisa dibuka.
@@ -81,17 +96,19 @@ Batas Session 2: berhenti sebelum menulis kode aplikasi. Kode dimulai setelah Ga
 
 ```text
 Ini session baru untuk SewaKampus, sprint P13-P16, Session 2.
+Buka session di PROYEK/SEWAKAMPUS agar AGENTS.md SewaKampus terbaca.
 
 Baca berurutan sebelum menulis apa pun:
-1. PROYEK/SEWAKAMPUS/ARCHITECTURE_REPOSITORY/06_Governance/P13-SESSION1-HANDOFF.md
-2. PROYEK/SEWAKAMPUS/ARCHITECTURE_REPOSITORY/06_Governance/P13-GAP-DECISIONS.md
-3. PROYEK/SEWAKAMPUS/ARCHITECTURE_REPOSITORY/07_Evidence/P13-Work-Board.md
-4. PROYEK/SEWAKAMPUS/ARCHITECTURE_REPOSITORY/00_Vision/P13-Vision-v1.0.md
-5. PROYEK/GROWPATH/Skenario_Project ASP R001.txt halaman 15, 16, dan 17
+1. PROYEK/SEWAKAMPUS/AGENTS.md
+2. PROYEK/SEWAKAMPUS/DECISIONS.md
+3. PROYEK/SEWAKAMPUS/CONTEXT-PACK.md
+4. PROYEK/SEWAKAMPUS/ARCHITECTURE_REPOSITORY/06_Governance/P13-SESSION1-HANDOFF.md
+5. PROYEK/SEWAKAMPUS/ARCHITECTURE_REPOSITORY/07_Evidence/P13-Work-Board.md
+6. PROYEK/GROWPATH/Skenario_Project ASP R001.txt halaman 15, 16, dan 17
 
 Sumber aturan tertinggi adalah TXT. Jangan mengubah keputusan SK-001 sampai SK-013.
 Kerjakan sesuai urutan di bagian 4 handoff: perbaikan kontrak foto kondisi, BPMN dua proses,
 use case dan user story, ERD 3NF, wireframe, NFR dan topologi, lalu traceability.
 Jangan menulis kode aplikasi. Jangan membuat remote GitHub. Jangan mengklaim Gate 1 hijau.
-Perbarui papan kerja dan matriks deliverable setelah setiap artefak selesai, dan sebut path buktinya.
+Perbarui DECISIONS.md, papan kerja, dan matriks deliverable setelah setiap artefak selesai.
 ```
