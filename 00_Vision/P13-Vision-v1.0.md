@@ -52,12 +52,14 @@ Belum ada baseline. Ketiga angka baru bisa dinilai setelah ada data pilot, sehin
 
 ## Pemangku kepentingan
 
+Penyewa, pemilik, dan admin platform adalah mahasiswa. Admin adalah mahasiswa yang diberi role `ADMIN`, bukan staf kampus atau sistem eksternal.
+
 | Pemangku kepentingan | Kepentingan utama | Peran dalam MVP |
 |---|---|---|
 | Mahasiswa penyewa | Barang murah, tersedia, terpercaya | Pengguna utama |
 | Mahasiswa pemilik | Barang menghasilkan uang dan aman | Pengguna utama |
-| Admin platform | Transaksi aman, listing rapi, sengketa tertangani | Verifikasi, moderasi |
-| Pihak kampus | Mahasiswa terverifikasi, aktivitas terkendali | Verifikasi KTM, izin titik serah terima |
+| Admin platform (mahasiswa dengan role `ADMIN`) | Transaksi aman, listing rapi, sengketa tertangani | Verifikasi, moderasi |
+| Pihak kampus | Mahasiswa terverifikasi, aktivitas terkendali | Kebijakan verifikasi KTM dan izin titik serah terima |
 | Mitra pembayaran | Transaksi dan deposit berjalan | Fase lanjutan, belum ada |
 | Regulator | Perlindungan data dan konsumen | Kepatuhan, bukan aktor sistem |
 

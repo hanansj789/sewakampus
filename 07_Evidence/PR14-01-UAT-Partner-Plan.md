@@ -34,7 +34,7 @@ Nama dan tanggal tidak diisi sekarang karena belum ada konfirmasi. Mengisinya be
 |---|---|---|
 | Penyewa | Mahasiswa yang pernah menyewa barang lewat grup chat | 1 |
 | Pemilik | Mahasiswa yang pernah menyewakan barang | 1 |
-| Admin | Mahasiswa yang memahami verifikasi KTM | 1 |
+| Admin | Mahasiswa dengan role `ADMIN` yang memahami verifikasi KTM | 1 |
 
 Jika hanya dua mahasiswa yang tersedia, satu orang boleh berperan sebagai penyewa sekaligus pemilik, tetapi peran admin tetap orang lain. Jumlah minimal tetap tiga.
 

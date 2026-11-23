@@ -43,7 +43,7 @@ laptop / ponsel                       laptop / ponsel
 | Pembayaran | Transfer atau e-wallet pribadi; deposit tidak tercatat sistem | Deposit simulasi di MVP, payment gateway di luar MVP |
 | Serah terima | Tatap muka di kampus; tidak ada foto kondisi baku | Vision §Masalah |
 | Reputasi | Tidak ada rating atau riwayat transaksi | Vision §Masalah |
-| Admin | Belum ada admin platform; verifikasi KTM belum berjalan | UC-06 masih rancangan |
+| Admin | Mahasiswa dengan role `ADMIN`; verifikasi KTM dan moderasi belum berjalan | UC-06 dan UC-07 masih rancangan |
 
 ## 3. Yang belum diukur dan mengapa
 

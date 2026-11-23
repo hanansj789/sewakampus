@@ -50,7 +50,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 | DDL dan seed | PR14-04, PR14-05 | Selesai (internal) | `08_Source/database/sql/001_init.sql`, `seed.sql`, `07_Evidence/PR14-04-DDL-Run-Log.md` |
 | Jalankan DDL di database kosong | PR14-04 | Selesai (internal) | `07_Evidence/PR14-04-DDL-Run-Log.md` (MySQL 8.0.43) |
 | Struktur aplikasi dan ADR | P13-09 | Selesai (internal) | `03_Application/P13-App-Structure.md`, `06_Governance/ADR-002-application-structure.md` |
-| Login lokal dan role | PR14-06 | Selesai (internal) | `08_Source/` (Laravel + Keycloak OIDC/PKCE + middleware role); `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md` (16 test/69 assertion dan smoke test browser lokal STUDENT/ADMIN) |
+| Login lokal dan role | PR14-06 | Selesai (internal) | `08_Source/` (Laravel + Keycloak OIDC/PKCE + middleware role); `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md` (16 test/70 assertion dan smoke test browser lokal STUDENT/ADMIN) |
 | README aplikasi lokal | PR14-07 | Selesai (internal) | `08_Source/README.md`; bukti run di `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md` |
 
 ## K-04 — Mahesa: teknologi, risiko, dan catatan

@@ -65,7 +65,7 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 G-12 sampai G-15 ditutup pada rekonsiliasi 23 November 2026 dengan bukti file atau commit, bukan dengan asumsi.
 G-02 dan G-11 ditutup pada 23 November 2026 melalui commit `55e9fca`. G-03, G-16, dan G-19 ditutup pada 24 November 2026 setelah prototipe diverifikasi ulang, form listing diperbaiki, dan ERD 17 relasi digambar. G-06 ditutup 24 November 2026 sebagai catatan progres asinkron, bukan notulen rapat. G-05 dan G-08 ditutup pada tanggal yang sama.
 
-Pada 24 November 2026 PR14-06/07 dibuat pada branch `feature/pr14-local-login-role` sesuai CR-003/SK-020. Feature test lokal 16/16 (69 assertion) dan smoke test browser nyata Keycloak 26 berhasil untuk STUDENT/ADMIN; role silang ditolak 403 dan logout STUDENT kembali ke halaman login. Belum ada review independen, belum merge, dan Gate 1 tetap belum dinilai. Implementasi Must tidak dimulai.
+Pada 24 November 2026 PR14-06/07 dibuat pada branch `feature/pr14-local-login-role` sesuai CR-003/SK-020. Feature test lokal 16/16 (70 assertion) dan smoke test browser nyata Keycloak 26 berhasil untuk STUDENT/ADMIN; role silang ditolak 403 dan logout STUDENT kembali ke halaman login. Belum ada review independen, belum merge, dan Gate 1 tetap belum dinilai. Implementasi Must tidak dimulai.
 
 ## Konflik dokumen
 

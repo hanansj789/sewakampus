@@ -92,7 +92,7 @@
 - [x] Document Keycloak 26 manual realm/client setup using OIDC Authorization Code + PKCE and exact redirect URI `http://127.0.0.1:8000/auth/keycloak/callback`; use environment variables for client secret.
 - [x] Document import of `001_init.sql` and `seed.sql`, then `composer install`, `.env` creation, `php artisan key:generate`, and `php artisan serve`.
 - [x] Complete a local end-to-end smoke run with MySQL 8.0.43 and Keycloak 26; record outputs and platform prerequisites in `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md`.
-- [x] Re-run `php artisan test` after documentation/config updates; all 16 tests pass (69 assertions).
+- [x] Re-run `php artisan test` after documentation/config updates; all 16 tests pass (70 assertions).
 
 ### Task 4: Evidence and deliverable status
 

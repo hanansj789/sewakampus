@@ -1,6 +1,6 @@
 # Kebutuhan Non-Fungsional (NFR) — SewaKampus
 
-**Status:** Draf. Target perencanaan, belum ada pengukuran.
+**Status:** Final (internal). Target perencanaan, belum ada pengukuran.
 **Tanggal:** 23 November 2026
 **Dasar:** TXT hlm. 15 (kebutuhan non-fungsional) dan asumsi satu VPS pada laporan Phase D.
 

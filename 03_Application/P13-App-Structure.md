@@ -1,4 +1,4 @@
-**Status:** Draf — ditulis Session 2, belum direview anggota lain.
+**Status:** Selesai (internal) — ditulis Session 2; review silang dilewati (SK-021).
 
 # P13-09 — Struktur Aplikasi SewaKampus
 

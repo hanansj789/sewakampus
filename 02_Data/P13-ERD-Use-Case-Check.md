@@ -1,4 +1,4 @@
-**Status:** Draf — pemeriksaan selesai, satu temuan menunggu perbaikan diagram.
+**Status:** Ada — pemeriksaan selesai; G-19 tertutup 24 November 2026.
 
 # P13-07 — Pemeriksaan ERD terhadap Use Case
 
