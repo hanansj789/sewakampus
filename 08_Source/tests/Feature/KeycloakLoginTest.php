@@ -20,6 +20,7 @@ class KeycloakLoginTest extends TestCase
         config($this->oidcConfig());
         $provider = Mockery::mock(OidcProvider::class);
         $provider->shouldReceive('scopes')->once()->with(['openid', 'email', 'profile'])->andReturnSelf();
+        $provider->shouldReceive('with')->once()->with(['ui_locales' => 'id'])->andReturnSelf();
         $provider->shouldReceive('redirect')->once()->andReturn(redirect('https://id.test/authorize'));
         Socialite::shouldReceive('driver')->once()->with('oidc_keycloak')->andReturn($provider);
 

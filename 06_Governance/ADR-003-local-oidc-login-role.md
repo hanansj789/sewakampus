@@ -12,6 +12,7 @@ PR14-06 meminta aplikasi lokal berjalan dengan login dan role sebelum P14. CR-00
 ## Keputusan
 
 - Laravel menjadi BFF dan memakai Keycloak OpenID Connect Authorization Code dengan PKCE.
+- Halaman login dihosting Keycloak dan memakai tema `sewakampus` di `08_Source/keycloak/themes/`. Laravel tidak menampilkan form kata sandi. Ini mempertahankan OIDC/PKCE dan menghindari password grant.
 - Hanya user Keycloak dengan email terverifikasi yang cocok ke baris MySQL berstatus `ACTIVE` dapat login. Role otorisasi bersumber dari kolom role lokal (`STUDENT`/`ADMIN`), bukan klaim/form/request pengguna.
 - Middleware role melindungi dashboard mahasiswa dan admin secara terpisah. Sesi diregenerasi setelah login.
 - Logout mengakhiri sesi Laravel, mencabut refresh token bila ada, dan memakai endpoint logout Keycloak dengan validasi state callback.
@@ -22,5 +23,5 @@ PR14-06 meminta aplikasi lokal berjalan dengan login dan role sebelum P14. CR-00
 
 - User Keycloak lokal harus dibuat terpisah dan emailnya cocok dengan seed lokal.
 - Lingkungan lokal memakai Keycloak dev mode; bukan konfigurasi deployment production.
-- Verifikasi otomatis 16 test/69 assertion dan smoke test browser lokal STUDENT/ADMIN tercatat pada `P13-STATUS.md`; review silang tetap belum dilakukan.
+- Verifikasi otomatis 16 test/70 assertion dan smoke test browser lokal STUDENT/ADMIN tercatat pada `P13-STATUS.md`; review silang tetap belum dilakukan.
 - Gate 1 tetap belum dinilai. Perubahan ini hanya untuk PR14-06/07.

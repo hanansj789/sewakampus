@@ -1,4 +1,4 @@
-**Status:** Draf. Login + role lokal tersedia; alur Must belum dibuat.
+**Status:** Selesai (internal). Login + role lokal dan tema Keycloak tersedia; alur Must belum dibuat.
 
 # Menjalankan SewaKampus secara lokal
 
@@ -42,7 +42,13 @@ Di Admin Console Keycloak:
 4. Tambahkan Valid redirect URI `http://127.0.0.1:8000/auth/keycloak/callback`.
 5. Tambahkan Valid post logout redirect URI `http://127.0.0.1:8000/logout/callback` dan Web origin `http://127.0.0.1:8000`.
 6. Salin client secret dari Keycloak ke `.env` lokal. Jangan masukkan secret ke Git.
-7. Buat user untuk demo dengan email yang sama seperti kolom `users.email` di seed, tandai email terverifikasi, lalu set kata sandi lokal sementara. Jangan pakai kata sandi kampus asli.
+7. Buat user untuk demo dengan email yang sama seperti kolom `users.email` di seed, tandai email terverifikasi, lalu set kata sandi lokal sementara. Jangan pakai kata sandi kampus asli. Penyewa, pemilik, dan admin semuanya mahasiswa; admin cukup diberi `users.role=ADMIN`.
+8. Pasang tema login SewaKampus:
+   - salin folder `keycloak/themes/sewakampus` ke `<KEYCLOAK_HOME>/themes/`;
+   - di realm, set **Login theme** ke `sewakampus`, **Display name** ke `SewaKampus`, dan **Internationalization** ke `id` (default) serta `en`;
+   - restart Keycloak agar tema dimuat.
+
+Halaman login tetap dihosting Keycloak, tetapi tampil dengan tema SewaKampus: gading, perunggu, Playfair Display, dan teks Indonesia. Laravel tidak menerima kata sandi; setelah login, Keycloak mengembalikan kode OIDC ke callback Laravel.
 
 Role aplikasi tidak diambil dari form atau parameter URL. Laravel mencocokkan email terverifikasi dari Keycloak dengan baris `users` yang `account_status=ACTIVE`, lalu membaca role dari kolom `users.role`.
 
@@ -82,7 +88,9 @@ Ganti `3311` dengan port MySQL lokal, atau hilangkan baris `$env:DB_PORT` untuk 
 ## Batasan scaffold
 
 - Login hanya lewat Keycloak. Laravel tidak menerima atau menyimpan kata sandi pengguna.
+- Halaman login memakai tema `sewakampus` di Keycloak, bukan halaman SIAKAD dan bukan form kata sandi Laravel.
 - User Keycloak harus dibuat terpisah dan emailnya cocok dengan seed lokal. Pendaftaran otomatis belum dibuat.
+- Penyewa, pemilik, dan admin adalah mahasiswa; admin adalah mahasiswa dengan role `ADMIN`.
 - Halaman dashboard hanya membuktikan login dan role. Fungsi Must belum dibangun.
 - Keycloak memakai H2/dev mode untuk laptop ini. Deployment production tetap memakai konfigurasi TRD, secret yang aman, HTTPS, dan database production.
 - Gate 1 belum dinilai dosen. Pekerjaan ini adalah pengecualian PR14-06/07 yang dicatat pada CR-003/SK-020; status gate tidak berubah.

@@ -24,18 +24,19 @@ $env:DB_PORT = "3311"
 php artisan test
 ```
 
-Hasil: **16 tests passed, 69 assertions**, 1.09 detik pada run terakhir.
+Hasil: **16 tests passed, 70 assertions**, 1.09 detik pada run terakhir.
 
 Uji mencakup halaman login dan redirect guest, redirect OIDC, callback akun ACTIVE dengan email terverifikasi, penolakan email tidak dikenal/tidak terverifikasi dan akun nonaktif, state callback, konfigurasi OIDC kosong, logout, validasi state logout, otorisasi dashboard STUDENT/ADMIN, dan role dari database.
 
 ## Smoke test browser Keycloak nyata
 
 1. Discovery document realm lokal tersedia; issuer cocok dengan URL server Keycloak dan endpoint logout terpapar.
-2. Login dengan user demo STUDENT mencapai `/student/dashboard` dan menampilkan role Mahasiswa.
-3. POST logout kembali ke `/login`.
-4. Login dengan user demo ADMIN mencapai `/admin/dashboard`.
-5. Saat sesi ADMIN aktif, akses langsung ke `/student/dashboard` menghasilkan HTTP **403 Forbidden**.
-6. Authorization request memuat `code_challenge_method=S256` dan redirect URI yang didaftarkan.
+2. Halaman login Keycloak memakai tema `sewakampus`: latar gading, kartu putih, Playfair Display, teks Indonesia, dan tombol pill hitam.
+3. Login dengan user demo STUDENT mencapai `/student/dashboard` dan menampilkan role Mahasiswa.
+4. POST logout kembali ke `/login`.
+5. Login dengan user demo ADMIN mencapai `/admin/dashboard`.
+6. Saat sesi ADMIN aktif, akses langsung ke `/student/dashboard` menghasilkan HTTP **403 Forbidden**.
+7. Authorization request memuat `code_challenge_method=S256`, `ui_locales=id`, dan redirect URI yang didaftarkan.
 
 Test memakai akun demo lokal dari realm sementara. Jangan gunakan password kampus pribadi. Realm dan secret untuk smoke test tidak menjadi artefak repository.
 

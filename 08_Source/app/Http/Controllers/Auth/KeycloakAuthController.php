@@ -23,6 +23,7 @@ class KeycloakAuthController extends Controller
 
         return Socialite::driver('oidc_keycloak')
             ->scopes(['openid', 'email', 'profile'])
+            ->with(['ui_locales' => 'id'])
             ->redirect();
     }
 
