@@ -69,6 +69,7 @@ G-02 dan G-11 ditutup pada 23 November 2026 melalui commit `55e9fca`. G-06 tetap
 | Waktu pembuatan PRD/TRD | §6.1: "jangan membuat PRD atau TRD sebelum Gate 1" | §8 Session 2: PRD dan TRD adalah output Session 2, dan Gate 1 baru dinilai setelah Session 2 selesai | PRD dan TRD dibuat sebagai **draf** pada Session 2 sesuai §8; statusnya draf dan tidak dipakai membekukan keputusan sampai dosen menilai Gate 1. Dicatat sebagai SK-018 |
 | Jumlah lane BPMN to-be | `P13-STATUS.md` §5 langkah 1: "dua lane (penyewa, pemilik)" | `DESAIN/REFERENSI VISUAL.md`: tiga lane (penyewa, pemilik, admin/sistem) | Dua lane dipakai untuk kedua diagram proses baru, karena UC-03 dan UC-04 hanya melibatkan penyewa dan pemilik. Admin masuk lewat cabang sengketa ke UC-07, bukan sebagai lane. Perbedaan gaya ini disengaja dan dicatat, bukan keputusan resmi baru. |
 | Nomor ADR | `P13-STATUS.md` §5 menetapkan path `ADR-002-application-structure.md` | Belum ada ADR-001 (tech stack, bagian P14-01) | Path diikuti apa adanya; ADR-002 menyatakan bahwa ADR-001 menyusul pada P14 agar nomor tidak bertabrakan. ADR-001 tidak dibuat palsu untuk mengisi nomor. |
+| Ikon task BPMN | `DESAIN/REFERENSI VISUAL.md`: user task dengan ikon orang, service task dengan roda gigi | Bentuk BPMN bawaan draw.io merender ikon itu membesar dan keluar kotak pada ukuran task 150×64 | Ikon dihilangkan; jenis task dijelaskan lewat label teks. Skema warna task/start/end/gateway tetap mengikuti REFERENSI VISUAL. |
 
 ## Catatan
 
