@@ -20,7 +20,7 @@ Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat*
 
 | # | Butir | Bukti | Status | Yang kurang |
 |---|---|---|---|---|
-| 6 | BPMN to-be dua proses utama | belum ada | Belum siap | Proses booking dan handover–return belum dipisah |
+| 6 | BPMN to-be dua proses utama | `01_Business/P13-BPMN-To-Be-Booking.drawio` + `.png`, `01_Business/P13-BPMN-To-Be-Handover.drawio` + `.png` | Bersyarat | Dua proses sudah dipisah dan dicocokkan dengan UC-03 dan UC-04; belum direview anggota lain |
 | 7 | Use case, user story, acceptance criteria | `01_Business/P13-Use-Cases.md`, `01_Business/P13-User-Stories.md` | Bersyarat | Tujuh use case dan delapan story sudah ada dengan acceptance criteria; belum direview silang |
 | 8 | Wireframe dan prototipe clickable | belum ada | Belum siap | Belum dibuat |
 | 9 | API dan NFR konsisten dengan stack | `03_Application/openapi.yaml`, `04_Technology/P13-NFR.md` | Bersyarat | Kontrak sudah menerima foto kondisi (SK-014) dan NFR sudah ada; validasi foto belum diuji karena kode belum ada |
@@ -32,14 +32,14 @@ Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat*
 
 **Status resmi: belum ada keputusan dosen.**
 
-Yang bisa dikatakan jujur saat ini: fondasi dokumen dan repo lokal sudah berdiri, lima Must sudah terkunci, audit 35 butir sudah selesai, use case dan user story sudah ada, dan kontrak foto kondisi sudah diperbaiki. Yang belum: BPMN dua proses, wireframe dan prototipe, tanda tangan charter, serta DDL yang dijalankan di database kosong.
+Yang bisa dikatakan jujur saat ini: fondasi dokumen dan repo lokal sudah berdiri, lima Must sudah terkunci, audit 35 butir sudah selesai, use case dan user story sudah ada, kontrak foto kondisi sudah diperbaiki, BPMN dua proses sudah dipisah, struktur aplikasi dan ADR-002 sudah ditulis, serta dua opsi hosting sudah punya harga publik bertanggal. Yang belum: wireframe dan prototipe, tanda tangan charter, review silang, serta DDL yang dijalankan di database kosong.
 
-Gate 1 belum boleh disebut hijau. Jika dipresentasikan hari ini, butir 1, 2, 4, dan 5 bersifat bersyarat, sedangkan butir 3 berstatus Belum siap.
+Gate 1 belum boleh disebut hijau. Jika dipresentasikan hari ini, butir 1, 2, 4, 5, dan 6 bersifat bersyarat, sedangkan butir 3 berstatus Belum siap.
 
 ## D. Urutan penutupan yang disarankan
 
 1. Tanda tangan Team Charter dan persetujuan Vision oleh empat anggota.
-2. BPMN dua proses, wireframe, dan prototipe clickable.
+2. Wireframe lima Must dan prototipe clickable.
 3. Cocokkan ERD dengan use case, lalu jalankan DDL di database kosong.
 4. Isi kolom layar di traceability setelah wireframe ada.
 5. Review silang seluruh artefak, lalu ajukan Gate 1 ke dosen.
