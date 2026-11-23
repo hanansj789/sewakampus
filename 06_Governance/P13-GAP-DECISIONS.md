@@ -44,6 +44,8 @@ Ringkasan efek keputusan resmi. Isi lengkap, alasan, dan pemilik ada di `DECISIO
 | G-16 | Form listing di wireframe dan hi-fi tidak memuat **kondisi** dan **deposit**, dan kategori masih teks bebas | `ux/exports/WF-01-buat-listing.png`, `ux/exports/L-01-buat-listing.png`; bandingkan US-01 dan `ItemCreateRequest.required` | Fharel | Listing tidak bisa dibuat lewat UI sesuai kontrak; US-01 tidak terpenuhi di layar |
 | G-17 | Layar verifikasi KTM (S-08) dan sengketa (S-09) belum digambar; "Masuk" muncul di Flow tanpa layar | `ux/exports/WF-flow.png`, `ux/P13-06-Wireframe.md` | Fharel | UC-06 dan UC-07 tidak punya bukti tampilan |
 | G-18 | Seed tidak bisa memperagakan aturan status: satu riwayat per booking, `disputes` dan `audit_logs` kosong | `08_Source/database/sql/seed.sql` | Fazha | Demo P14 tidak bisa menunjukkan transisi status dan alur sengketa |
+| G-19 | ERD tidak menggambar relasi `BookingStatusHistory → User` (`changed_by`) dan `Dispute → User` (`opened_by`, `against_user_id`, `resolved_by`), padahal keduanya ada di DDL | `DESAIN/ERD - SewaKampus.drawio` (15 relasi) vs `001_init.sql` (22 foreign key, 17 pasangan) | Fazha | Butir Gate 1 nomor 3 belum bisa disebut cocok |
+| G-20 | UC-06 menulis akun `REJECTED`, sedangkan `users.account_status` hanya `PENDING_VERIFICATION`/`ACTIVE`/`SUSPENDED` | `01_Business/P13-Use-Cases.md` UC-06 vs `001_init.sql` | Fharel, Fazha | Teks use case dan skema berbeda saat ditanya dosen data |
 
 **Gap yang sudah tertutup:**
 

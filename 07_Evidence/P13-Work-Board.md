@@ -46,7 +46,7 @@ Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggo
 |---|---|---|---|
 | Perbaiki kontrak foto kondisi | P13-13 | Ada, menunggu review | `03_Application/openapi.yaml` (SK-014) |
 | Kamus data 14 entitas | P13-08 | Ada, menunggu review | `02_Data/P13-Data-Dictionary.md` |
-| Bukti 3NF dan kecocokan ERD | P13-07 | Sebagian | `02_Data/P13-3NF-Proof.md`; ERD belum dicocokkan dengan use case |
+| Bukti 3NF dan kecocokan ERD | P13-07 | Sebagian | `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md`; 2 relasi ERD belum digambar |
 | DDL dan seed | PR14-04, PR14-05 | Sebagian | `08_Source/database/sql/001_init.sql`, `seed.sql` |
 | Jalankan DDL di database kosong | PR14-04 | Belum | belum ada MySQL |
 | Struktur aplikasi dan ADR | P13-09 | Ada, menunggu review | `03_Application/P13-App-Structure.md`, `06_Governance/ADR-002-application-structure.md` |
