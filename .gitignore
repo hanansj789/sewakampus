@@ -23,3 +23,6 @@ Thumbs.db
 # Data pribadi dan berkas KTM
 *.ktm
 data-pribadi/
+
+# PHPUnit local cache
+.phpunit.result.cache
