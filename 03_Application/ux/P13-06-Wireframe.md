@@ -24,9 +24,9 @@ Low-fi abu-abu: latar putih, panel `#F2F2F2`, foto `#E6E6E6`, garis `#D9D9D9`, t
 
 | Page | Isi |
 |---|---|
-| Desktop | Enam layar: Katalog, Detail & Kalender, Pengajuan, Persetujuan, Serah terima & foto kondisi, Rating. Tiap layar tepat 1440 × 900 dengan blok anotasi di bawahnya |
-| States | Contoh empty, loading, error data, dan error form |
-| Flow | Diagram alur: MULAI, kotak layar, panah, catatan perulangan dan cabang |
+| Desktop | Tujuh layar: Buat listing, Katalog, Detail & Kalender, Pengajuan, Persetujuan, Serah terima & foto kondisi, Rating. Tiap layar 1440 × 1140 (area layar 900 px + blok anotasi 200 px) |
+| States | Contoh empty, loading, error data, error form, dan lima state form Buat listing (kosong, terisi, validasi gagal, unggah berhasil, unggah gagal) |
+| Flow | Diagram alur: MULAI, kotak layar (Buat listing → Katalog → … → Rating), panah, catatan perulangan dan cabang |
 
 Setiap layar desktop 1440 × 1140: area layar 900 px dan blok anotasi 200 px.
 
@@ -36,7 +36,7 @@ Setiap layar memuat: Pertanyaan, Primary, Blok, Data, dan State. Contoh untuk De
 
 ## 5. Kaitan dengan lima Must
 
-Katalog (M1), Detail & Kalender (M2), Pengajuan dan Persetujuan (M3), Serah terima & foto kondisi (M4), Rating (M5). Verifikasi KTM dan sengketa menjadi kontrol alur yang dicatat di Flow.
+Buat listing (M1), Katalog (M1), Detail & Kalender (M2), Pengajuan dan Persetujuan (M3), Serah terima & foto kondisi (M4), Rating (M5). Verifikasi KTM dan sengketa menjadi kontrol alur yang dicatat di Flow.
 
 ## 6. Catatan
 

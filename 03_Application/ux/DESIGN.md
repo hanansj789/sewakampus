@@ -53,14 +53,15 @@ Kontras terukur: tinta 16,47:1 di kanvas; muted 4,81:1; perunggu 5,26:1 di kanva
 
 | Urutan | Layar | Must | Yang dituntaskan |
 |---|---|---|---|
-| 1 | 01 Katalog | M1 | Listing tampil dengan foto, harga, kondisi |
-| 2 | 02 Detail & Kalender | M1, M2 | Detail barang + kalender ketersediaan |
-| 3 | 03 Pengajuan sewa | M3 | Rentang, biaya, privasi, ajukan |
-| 4 | 04 Persetujuan pemilik | M3 | Setujui/Tolak dengan alasan |
-| 5 | 05 Serah terima & foto kondisi | M4 | Foto OUT dan RETURN wajib |
-| 6 | 06 Rating | M5 | Rating dan komentar |
+| 1 | 01 Buat listing | M1 | Form listing: judul, kategori, harga, deskripsi, lokasi, ungah foto |
+| 2 | 02 Katalog | M1 | Listing tampil dengan foto, harga, kondisi |
+| 3 | 03 Detail & Kalender | M1, M2 | Detail barang + kalender ketersediaan |
+| 4 | 04 Pengajuan sewa | M3 | Rentang, biaya, privasi, ajukan |
+| 5 | 05 Persetujuan pemilik | M3 | Setujui/Tolak dengan alasan |
+| 6 | 06 Serah terima & foto kondisi | M4 | Foto OUT dan RETURN wajib |
+| 7 | 07 Rating | M5 | Rating dan komentar |
 
-Interaksi klik menghubungkan 01 → 02 → 03 → 04 → 05 → 06.
+Interaksi klik menghubungkan 01 → 02 → 03 → 04 → 05 → 06 → 07.
 
 ## 7. Komponen dan state
 

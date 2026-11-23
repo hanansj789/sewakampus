@@ -21,7 +21,7 @@ Nama tabel dari `02_Data/P13-Data-Dictionary.md`, 14 entitas. Pemeriksaan 3NF ad
 
 Nama layar mengikuti `01_Business/P13-Use-Cases.md` dan `03_Application/ux/DESIGN.md`: S-01 form listing, S-02 daftar listing saya, S-03 detail barang dan kalender, S-04 pengajuan sewa, S-05 persetujuan pemilik, S-06 serah terima dan foto, S-07 rating, S-08 antrean verifikasi, S-09 sengketa.
 
-**Prototipe dan wireframe sudah ada (desktop).** Prototipe hi-fi `03_Application/ux/SewaKampus-High-Fidelity.figcraft` berisi enam layar 1440 × 900 dalam satu alur terhubung, memetakan lima Must: Katalog (M1/UC-01), Detail & Kalender (M2/UC-02), Pengajuan dan Persetujuan (M3/UC-03), Serah terima & foto kondisi (M4/UC-04), Rating (M5/UC-05). Wireframe desktop terpisah ada di `03_Application/ux/SewaKampus-Wireframe.figcraft` dengan anotasi, States, dan Flow. Ekspor PNG/PDF ada di `03_Application/ux/exports/`.
+**Prototipe dan wireframe sudah ada (desktop).** Prototipe hi-fi `03_Application/ux/SewaKampus-High-Fidelity.figcraft` berisi tujuh layar 1440 × 900 dalam satu alur terhubung, memetakan lima Must: Buat listing (S-01/M1/UC-01), Katalog (S-02/M1/UC-01), Detail & Kalender (S-03/M2/UC-02), Pengajuan dan Persetujuan (S-04, S-05/M3/UC-03), Serah terima & foto kondisi (S-06/M4/UC-04), Rating (S-07/M5/UC-05). Wireframe desktop terpisah ada di `03_Application/ux/SewaKampus-Wireframe.figcraft` dengan anotasi, States, dan Flow. Ekspor PNG/PDF ada di `03_Application/ux/exports/`.
 
 Mobile tidak digambar pada versi ini; desktop ditargetkan lebih dulu sesuai arahan pemilik. S-08 (verifikasi) dan S-09 (sengketa) adalah kontrol alur yang dicatat di Flow dan States wireframe, bukan layar hi-fi terpisah; keduanya bukan Must baru.
 

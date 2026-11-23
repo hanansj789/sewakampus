@@ -19,22 +19,23 @@ Wireframe desktop terpisah ada di `P13-06-Wireframe.md` dan `SewaKampus-Wirefram
 | `03_Application/ux/exports/L-01-katalog.png` sampai `L-06-rating.png` | Enam layar alur |
 | `03_Application/ux/exports/SewaKampus-Prototype-Flow.pdf` | PDF alur |
 
-## 2. Alur enam layar
+## 2. Alur tujuh layar
 
 | Layar | Must | Isi |
 |---|---|---|
-| 01 Katalog | M1 | Header, hero serif, pencarian, tiga kartu barang |
-| 02 Detail & Kalender | M1, M2 | Galeri foto, harga, pemilik, deskripsi, kalender, CTA |
-| 03 Pengajuan sewa | M3 | Ringkasan barang, tanggal, rincian biaya, privasi, syarat |
-| 04 Persetujuan pemilik | M3 | Dua pengajuan, profil penyewa, Setujui/Tolak |
-| 05 Serah terima & foto kondisi | M4 | Foto OUT terunggah, RETURN kosong, konfirmasi dua pihak |
-| 06 Rating | M5 | Ringkasan, rating 1–5, aspek, komentar |
+| 01 Buat listing | M1 | Form judul, kategori, harga, deskripsi, lokasi, unggah foto |
+| 02 Katalog | M1 | Hero serif, pencarian, tiga kartu barang |
+| 03 Detail & Kalender | M1, M2 | Galeri foto, harga, pemilik, deskripsi, kalender, CTA |
+| 04 Pengajuan sewa | M3 | Ringkasan barang, tanggal, rincian biaya, privasi, syarat |
+| 05 Persetujuan pemilik | M3 | Dua pengajuan, profil penyewa, Setujui/Tolak |
+| 06 Serah terima & foto kondisi | M4 | Foto OUT terunggah, RETURN kosong, konfirmasi dua pihak |
+| 07 Rating | M5 | Ringkasan, rating 1–5, aspek, komentar |
 
-Keenam layar 1440 × 900 disusun satu baris pada page Desktop dengan nomor langkah dan panah penghubung, sehingga alur terbaca sekaligus.
+Tujuh layar 1440 × 900 disusun satu baris pada page Desktop dengan nomor langkah dan panah penghubung, sehingga alur terbaca sekaligus.
 
 ## 3. Interaksi
 
-01 Cari → 02; 02 Pilih tanggal → 03; 03 Ajukan sewa → 04; 04 Setujui → 05; 05 Kirim catatan kondisi → 06. Semua dengan transisi dissolve 180 ms.
+01 Simpan listing → 02; 02 Cari → 03; 03 Pilih tanggal → 04; 04 Ajukan sewa → 05; 05 Setujui → 06; 06 Kirim catatan kondisi → 07. Semua dengan transisi dissolve 180 ms.
 
 ## 4. Membuka preview
 
