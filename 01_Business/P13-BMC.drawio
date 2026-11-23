@@ -1,0 +1,52 @@
+<mxfile host="localhost">
+  <diagram id="bmc" name="BMC SewaKampus">
+    <mxGraphModel dx="1793" dy="1640" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="900" background="#ECECEC" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;align=left;verticalAlign=middle;fontSize=30;fontStyle=1;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="Business Model Canvas" vertex="1">
+          <mxGeometry height="50" width="520" x="30" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="m0" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Designed for:&lt;/b&gt;&lt;br&gt;SewaKampus (Kelompok 1, R001)" vertex="1">
+          <mxGeometry height="46" width="220" x="600" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Designed by:&lt;/b&gt;&lt;br&gt;Hanan, CEO/PO" vertex="1">
+          <mxGeometry height="46" width="220" x="1000" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Date:&lt;/b&gt;&lt;br&gt;24 Nov 2026" vertex="1">
+          <mxGeometry height="46" width="140" x="1260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=middle;spacingLeft=8;fontSize=10;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Version:&lt;/b&gt;&lt;br&gt;Draf 0.1" vertex="1">
+          <mxGeometry height="46" width="120" x="1400" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kp" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Key Partners&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Pihak kampus: verifikasi KTM dan titik serah terima&lt;br&gt;&lt;br&gt;• Admin/verifikator kampus&lt;br&gt;&lt;br&gt;• Penyedia VPS (opsi A/B, harga publik 23 Nov 2026)&lt;br&gt;&lt;br&gt;• Cloudflare: DNS, WAF, TLS&lt;br&gt;&lt;br&gt;• Object storage untuk foto barang dan KTM&lt;br&gt;&lt;br&gt;• Email transaksional&lt;br&gt;&lt;br&gt;• Mitra UAT belum dikonfirmasi" vertex="1">
+          <mxGeometry height="530" width="250" x="30" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ka" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Key Activities&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Verifikasi mahasiswa (KTM)&lt;br&gt;&lt;br&gt;• Kurasi dan moderasi listing&lt;br&gt;&lt;br&gt;• Pencocokan ketersediaan per tanggal&lt;br&gt;&lt;br&gt;• Persetujuan sewa oleh pemilik&lt;br&gt;&lt;br&gt;• Serah terima dan pengembalian dengan foto&lt;br&gt;&lt;br&gt;• Penanganan sengketa" vertex="1">
+          <mxGeometry height="260" width="270" x="290" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="kr" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Key Resources&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Aplikasi Laravel modular monolith&lt;br&gt;&lt;br&gt;• MySQL 14 entitas, Redis, MinIO&lt;br&gt;&lt;br&gt;• Foto barang dan KTM di penyimpanan privat&lt;br&gt;&lt;br&gt;• Data reputasi dan riwayat transaksi&lt;br&gt;&lt;br&gt;• Tim 4 orang" vertex="1">
+          <mxGeometry height="260" width="270" x="290" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="vp" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Value Propositions&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Penyewa: barang kampus tanpa membeli, harga per hari dan deposit jelas, ketersediaan per tanggal, bukti foto kondisi&lt;br&gt;&lt;br&gt;• Pemilik: barang menganggur menghasilkan, penyewa terverifikasi, pemilik memegang persetujuan&lt;br&gt;&lt;br&gt;• Kampus: aktivitas mahasiswa terverifikasi dan tercatat&lt;br&gt;&lt;br&gt;• Rasa aman: deposit simulasi, foto OUT dan RETURN, review dua arah" vertex="1">
+          <mxGeometry height="530" width="290" x="570" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cr" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Customer Relationship&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Layanan mandiri untuk katalog dan pengajuan&lt;br&gt;&lt;br&gt;• Verifikasi manual oleh admin&lt;br&gt;&lt;br&gt;• Persetujuan per transaksi oleh pemilik&lt;br&gt;&lt;br&gt;• Review dua arah setelah selesai&lt;br&gt;&lt;br&gt;• Sengketa ditangani admin" vertex="1">
+          <mxGeometry height="260" width="270" x="870" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ch" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Channel&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Web app responsif (desktop lebih dulu)&lt;br&gt;&lt;br&gt;• Email transaksional&lt;br&gt;&lt;br&gt;• Notifikasi in-app&lt;br&gt;&lt;br&gt;• Titik serah terima fisik di kampus" vertex="1">
+          <mxGeometry height="260" width="270" x="870" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="cs" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Customer Segments&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Mahasiswa penyewa&lt;br&gt;&lt;br&gt;• Mahasiswa pemilik barang&lt;br&gt;&lt;br&gt;• Satu orang bisa menjadi keduanya&lt;br&gt;&lt;br&gt;• Admin platform sebagai pengguna internal&lt;br&gt;&lt;br&gt;• Pihak kampus sebagai pemangku kepentingan" vertex="1">
+          <mxGeometry height="530" width="250" x="1150" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cost" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Cost Structure&lt;/b&gt;&lt;br&gt;&lt;br&gt;• VPS 4 vCPU / 8 GB / 160 GB: EUR 30,49-49,49 per bulan (Hetzner) atau Rp269.000 per bulan (Biznet Gio, promo)&lt;br&gt;&lt;br&gt;• Cloudflare Free: USD 0&lt;br&gt;&lt;br&gt;• Domain: harga .id belum diverifikasi&lt;br&gt;&lt;br&gt;• Object storage: di dalam VPS (MinIO), tanpa biaya tambahan&lt;br&gt;&lt;br&gt;• Biaya tenaga kerja: tim sendiri, belum dihitung sebagai kas keluar&lt;br&gt;&lt;br&gt;• TCO 12 bulan belum final; enam butir biaya masih belum diverifikasi" vertex="1">
+          <mxGeometry height="220" width="690" x="30" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="rev" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#C9C9C9;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=10;fontSize=11;fontColor=#2B2B2B;whiteSpace=wrap;html=1;" value="&lt;b&gt;Revenue Stream&lt;/b&gt;&lt;br&gt;&lt;br&gt;• MVP: gratis, belum ada pendapatan&lt;br&gt;&lt;br&gt;• Rencana setelah validasi: komisi 5-10% per transaksi&lt;br&gt;&lt;br&gt;• Rencana: badge verifikasi, featured listing, kerja sama kampus&lt;br&gt;&lt;br&gt;• Simulasi deposit, bukan pendapatan&lt;br&gt;&lt;br&gt;• Semua angka di blok ini adalah rencana, bukan realisasi" vertex="1">
+          <mxGeometry height="220" width="670" x="730" y="650" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

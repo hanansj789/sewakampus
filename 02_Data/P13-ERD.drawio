@@ -1,0 +1,149 @@
+<mxfile host="localhost">
+  <diagram id="erd" name="ERD SewaKampus">
+    <mxGraphModel dx="1793" dy="2790" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1340" pageHeight="1150" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ttl" parent="1" style="text;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;whiteSpace=wrap;html=1;" value="ERD SewaKampus — 14 entitas, 17 relasi" vertex="1">
+          <mxGeometry height="34" width="600" x="40" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sv" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;StudentVerification&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id&lt;br&gt;FK user_id&lt;br&gt;FK reviewed_by&lt;br&gt;status PENDING/APPROVED/REJECTED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_user" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;User&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id · UQ public_id&lt;br&gt;email, role&lt;br&gt;account_status&lt;br&gt;full_name&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="40" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="e_notif" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;Notification&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id&lt;br&gt;FK user_id&lt;br&gt;channel, status&lt;br&gt;entity_public_id&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="40" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="e_audit" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;AuditLog&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id&lt;br&gt;FK actor_id&lt;br&gt;action, entity_type&lt;br&gt;metadata JSON&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="40" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cat" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;ItemCategory&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id · UQ public_id&lt;br&gt;UQ slug, name&lt;br&gt;is_active, sort_order&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="380" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_item" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;Item&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id · UQ public_id&lt;br&gt;FK owner_id&lt;br&gt;FK category_id&lt;br&gt;condition, daily_rate, deposit_amount&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="380" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="e_photo" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;ItemPhoto&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id&lt;br&gt;FK item_id&lt;br&gt;is_primary, sort_order&lt;br&gt;file_path&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="380" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="e_avail" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;ItemAvailability&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id&lt;br&gt;FK item_id&lt;br&gt;start_date, end_date&lt;br&gt;status AVAILABLE/BLOCKED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="380" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="e_bsh" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;BookingStatusHistory&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id&lt;br&gt;FK booking_id&lt;br&gt;FK changed_by&lt;br&gt;from_status, to_status&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="720" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_book" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;Booking&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id · UQ public_id&lt;br&gt;FK item_id, renter_id, owner_id&lt;br&gt;status 8 nilai&lt;br&gt;tanggal, snapshot harga&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="720" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dep" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;Deposit&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id · UQ booking_id&lt;br&gt;amount, status&lt;br&gt;forfeited_amount&lt;br&gt;method SIMULATED&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="720" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="e_hand" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;Handover&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id&lt;br&gt;FK booking_id&lt;br&gt;direction OUT/RETURN&lt;br&gt;photo_path NOT NULL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="720" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="e_rev" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;Review&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id · UQ public_id&lt;br&gt;FK booking_id&lt;br&gt;FK reviewer_id, reviewee_id&lt;br&gt;rating 1-5, status&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="1060" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_disp" parent="1" style="rounded=0;fillColor=#FFFFFF;strokeColor=#333333;align=center;verticalAlign=top;spacingTop=8;spacingLeft=6;spacingRight=6;fontSize=12;whiteSpace=wrap;html=1;" value="&lt;b&gt;Dispute&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;PK id · UQ public_id&lt;br&gt;FK booking_id&lt;br&gt;FK opened_by, resolved_by&lt;br&gt;category, status&lt;/font&gt;" vertex="1">
+          <mxGeometry height="150" width="220" x="1060" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="r1" edge="1" parent="1" source="e_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.5;exitY=0;entryX=0.5;entryY=1;html=1;" target="e_sv" value="user_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" edge="1" parent="1" source="e_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;html=1;" target="e_item" value="owner_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r3" edge="1" parent="1" source="e_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.3;exitY=1;entryX=0.5;entryY=1;html=1;" target="e_book" value="renter_id / owner_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="106" y="560" />
+              <mxPoint x="830" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r4" edge="1" parent="1" source="e_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.3;exitY=0;entryX=0.5;entryY=1;html=1;" target="e_bsh" value="changed_by">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="106" y="250" />
+              <mxPoint x="830" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r5" edge="1" parent="1" source="e_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.6;exitY=0;entryX=0.5;entryY=1;html=1;" target="e_rev" value="reviewer_id / reviewee_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="172" y="290" />
+              <mxPoint x="1170" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r6" edge="1" parent="1" source="e_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.6;exitY=1;entryX=0.5;entryY=1;html=1;" target="e_disp" value="opened_by / resolved_by">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="172" y="530" />
+              <mxPoint x="1170" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r7" edge="1" parent="1" source="e_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;" target="e_notif" value="user_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" edge="1" parent="1" source="e_user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=1;exitY=0.7;entryX=1;entryY=0.5;html=1;" target="e_audit" value="actor_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="445" />
+              <mxPoint x="300" y="1015" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r9" edge="1" parent="1" source="e_cat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;" target="e_item" value="category_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r10" edge="1" parent="1" source="e_item" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;html=1;labelBackgroundColor=default;" target="e_photo" value="item_id">
+          <mxGeometry relative="1" x="0.213" as="geometry" />
+        </mxCell>
+        <mxCell id="r11" edge="1" parent="1" source="e_item" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=1;exitY=0.7;entryX=1;entryY=0.5;html=1;" target="e_avail" value="item_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="445" />
+              <mxPoint x="640" y="1015" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r12" edge="1" parent="1" source="e_item" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;html=1;" target="e_book" value="item_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r13" edge="1" parent="1" source="e_book" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=0.5;exitY=0;entryX=0.5;entryY=1;html=1;" target="e_bsh" value="booking_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r14" edge="1" parent="1" source="e_book" style="rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;html=1;labelBackgroundColor=default;edgeStyle=orthogonalEdgeStyle;exitX=0.54545;exitY=1;exitDx=0;exitDy=0;entryX=0.54545;entryY=0;entryDx=0;entryDy=0;" target="e_dep" value="booking_id">
+          <mxGeometry relative="1" x="0.107" as="geometry" />
+        </mxCell>
+        <mxCell id="r15" edge="1" parent="1" source="e_book" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=1;exitY=0.3;entryX=1;entryY=0.5;html=1;" target="e_hand" value="booking_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="385" />
+              <mxPoint x="980" y="1015" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r16" edge="1" parent="1" source="e_book" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=1;exitY=0.2;entryX=0;entryY=0.5;html=1;" target="e_rev" value="booking_id">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="370" />
+              <mxPoint x="1000" y="115" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r17" edge="1" parent="1" source="e_book" style="edgeStyle=orthogonalEdgeStyle;rounded=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#444444;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;html=1;" target="e_disp" value="booking_id">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="text;align=left;verticalAlign=middle;fontSize=10;fontColor=#666666;whiteSpace=wrap;html=1;" value="Crow&#39;s Foot. Sisi banyak menempel pada entitas anak. Rincian atribut di 02_Data/P13-Data-Dictionary.md." vertex="1">
+          <mxGeometry height="24" width="900" x="40" y="1100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
