@@ -45,7 +45,7 @@ Angka 90%, 80%, dan 24 jam adalah **target perencanaan**, bukan temuan mitra ata
 
 ## Ketelusuran dan penanganan aset lama
 
-Laporan Progres 12 dipakai sebagai baseline, bukan disalin ke repository. `P13-Asset-Map.md` menunjuk bagian laporan dan aset desain untuk setiap deliverable. Setiap status harus menyebut path yang benar-benar ada. Target path tidak dihitung sebagai bukti.
+Laporan Progres 12 dipakai sebagai baseline, bukan disalin ke repository. `P13-ASSET-MAP.md` menunjuk bagian laporan dan aset desain untuk setiap deliverable. Setiap status harus menyebut path yang benar-benar ada. Target path tidak dihitung sebagai bukti.
 
 Traceability awal memakai lima baris, satu per Must, dengan kolom masalah → kebutuhan → use case → tabel → layar → endpoint → status verifikasi. Penamaan use case/layar yang belum ada ditulis **Belum**; tidak mengarang diagram atau tampilan. Gate 1 menuntut matriks minimal lima baris yang betul-betul tersambung; baris yang masih Belum membuat gate tetap bersyarat.
 

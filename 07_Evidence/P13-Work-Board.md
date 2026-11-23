@@ -11,7 +11,7 @@ Aturan: satu kartu satu orang. Perpindahan status hanya boleh dilakukan setelah 
 |---|---|---|---|
 | Hanan | CEO/PO + Analyst formal | K-01 | 2 selesai, 2 berjalan, 2 belum |
 | Fharel | Analyst/UI/UX pelaksana | K-02 | 0 selesai, 0 berjalan, 4 belum |
-| Fazha | Programmer + Database Architect | K-03 | 0 selesai, 1 berjalan, 4 belum |
+| Fazha | Programmer + Database Architect | K-03 | 0 selesai, 0 berjalan, 5 belum |
 | Mahesa | Network/DevOps + QA/notulis | K-04 | 0 selesai, 0 berjalan, 4 belum |
 
 ## K-01 — Hanan: visi, prioritas, dan keputusan
