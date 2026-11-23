@@ -12,9 +12,9 @@ Session 3 membangun prototipe hi-fi SewaKampus di FigCraft sesuai `DESIGN.md`.
 
 - Sistem desain: 40 variable, 23 style, 17 komponen pada halaman Foundations and Components.
 - Sembilan layar S-01 sampai S-09 pada mobile 390 × 844 dan desktop 1440 × 900.
-- Varian S-06 OUT dan RETURN pada kedua ukuran, total dua puluh frame utama.
-- Sembilan state penting dan empat flow prototype.
-- Dua puluh dua interaksi klik yang menghubungkan alur lima Must.
+- Delapan belas frame utama (S-01 sampai S-09 pada dua ukuran) ditambah dua varian S-06 RETURN.
+- Dua belas state penting dan empat flow prototype.
+- Dua puluh satu interaksi klik yang menghubungkan alur lima Must.
 - Ekspor dua puluh PNG dan satu PDF alur.
 - Lima belas test case black-box dan rencana UAT dengan SUS.
 
@@ -33,7 +33,7 @@ Session 3 membangun prototipe hi-fi SewaKampus di FigCraft sesuai `DESIGN.md`.
 
 - Frame utama tepat 390 × 844 dan 1440 × 900.
 - Sepuluh halaman, empat puluh variable, dua puluh tiga style, tujuh belas komponen.
-- Empat flow dan dua puluh dua interaksi dengan tujuan yang valid.
+- Empat flow dan dua puluh satu interaksi dengan tujuan yang valid.
 - Kontras teks utama dan sekunder memenuhi 4,5:1 dari nilai token.
 - Dua puluh PNG memiliki header PNG valid dan PDF berawal `%PDF`.
 - Tidak ada placeholder, lorem, atau hasil UAT fiktif.

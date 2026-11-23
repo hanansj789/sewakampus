@@ -285,7 +285,7 @@ Komponen dibuat sebagai component FigCraft. Layar memakai instance. Perbedaan la
 | Error | Galat tampil pada blok atau field yang gagal, menjelaskan masalah dan cara memperbaiki. Data lama dipertahankan bila aman |
 | Success | Perubahan terlihat pada status layar dan diumumkan melalui pesan singkat. Toast tidak menggantikan perubahan status |
 
-State yang wajib digambar pada page `States and Prototype` adalah form invalid, tanggal bentrok, pengajuan ditolak, unggah foto gagal, handover menunggu konfirmasi, sengketa terbuka, verifikasi ditolak, loading, dan empty state.
+State yang wajib digambar pada page `States and Prototype` adalah form invalid, tanggal bentrok, pengajuan ditolak, alasan penolakan, unggah foto gagal, unggah sedang berlangsung, akun belum terverifikasi, handover menunggu konfirmasi, sengketa terbuka, verifikasi ditolak, loading, dan empty state.
 
 ## 12. Aksesibilitas
 

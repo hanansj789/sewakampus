@@ -32,7 +32,7 @@
 | S-08 | Antrean verifikasi admin | UC-06 | M1, kontrol prasyarat |
 | S-09 | Sengketa admin | UC-07 | M4, cabang pengecualian |
 
-Setiap layar dibuat pada dua ukuran: mobile 390 × 844 dan desktop 1440 × 900. S-06 memiliki varian OUT dan RETURN pada kedua ukuran, sehingga total frame utama berjumlah dua puluh.
+Setiap layar dibuat pada dua ukuran: mobile 390 × 844 dan desktop 1440 × 900. S-06 memiliki varian OUT dan RETURN pada kedua ukuran, sehingga total ada delapan belas frame utama ditambah dua varian RETURN.
 
 ## 3. Peta interaksi
 
@@ -47,9 +47,10 @@ Alur utama mobile dan desktop sama. Panah berikut memakai tombol utama setiap la
 7. S-06 RETURN kirim catatan ke S-07.
 8. S-07 Kirim rating mengakhiri alur.
 9. S-08 setujui verifikasi ke S-01.
-10. S-05 Tolak ke state pengajuan ditolak.
+10. S-05 Tolak ke state alasan penolakan, lalu kirim alasan ke state pengajuan ditolak.
+11. S-06 kondisi berbeda membuka sengketa ke state sengketa terbuka.
 
-Titik gagal lain diwakili state pada halaman `States and Prototype`: form invalid, tanggal bentrok, pengajuan ditolak, unggah gagal, handover menunggu konfirmasi, sengketa terbuka, verifikasi ditolak, loading, dan empty state.
+Titik gagal lain diwakili state pada halaman `States and Prototype`: form invalid, tanggal bentrok, pengajuan ditolak, alasan penolakan, unggah gagal, unggah sedang berlangsung, akun belum terverifikasi, handover menunggu konfirmasi, sengketa terbuka, verifikasi ditolak, loading, dan empty state.
 
 ## 4. Membuka preview
 
