@@ -17,6 +17,9 @@
 | `03_Application/ux/exports/S-06-mobile-return.png` | Varian RETURN mobile |
 | `03_Application/ux/exports/S-06-desktop-return.png` | Varian RETURN desktop |
 | `03_Application/ux/exports/SewaKampus-Prototype-Flow.pdf` | PDF alur utama |
+| `03_Application/ux/exports/Flow-desktop.png` | Diagram halaman Flow |
+
+Dokumen FigCraft memiliki sebelas halaman: Foundations, empat alur mobile, empat alur desktop, States and Prototype, dan Flow. Halaman Flow memuat diagram urutan layar S-08, S-01 sampai S-07 beserta cabang verifikasi dan sengketa.
 
 ## 2. Daftar layar
 
@@ -33,6 +36,8 @@
 | S-09 | Sengketa admin | UC-07 | M4, cabang pengecualian |
 
 Setiap layar dibuat pada dua ukuran: mobile 390 × 844 dan desktop 1440 × 900. S-06 memiliki varian OUT dan RETURN pada kedua ukuran, sehingga total ada delapan belas frame utama ditambah dua varian RETURN.
+
+Layar desktop dibuat padat, dengan 11 sampai 29 elemen per frame: ringkasan, kartu bukti, rincian biaya, kronologi, tabel verifikasi, dan konfirmasi dua pihak. Layar mobile menyusul lebih ringkas dan menjadi pekerjaan lanjutan bila diperlukan.
 
 ## 3. Peta interaksi
 
