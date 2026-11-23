@@ -1,7 +1,7 @@
 # Team Charter — Kelompok 1 SewaKampus
 
-**Status:** Draf. Belum ditandatangani anggota.
-**Tanggal:** 23 November 2026
+**Status:** Ada. Empat bukti tanda tangan gambar telah diberikan; tanggal tanda tangan tidak tercantum pada berkas.
+**Tanggal dokumen:** 23 November 2026; bukti tanda tangan diperiksa 24 November 2026.
 **Masa berlaku:** P13 sampai P16.
 
 ## Anggota dan peran
@@ -51,9 +51,9 @@ Pergantian peran setelah P13 hanya dengan persetujuan dosen.
 
 | Nama | Tanda tangan | Tanggal |
 |---|---|---|
-| Hanan Rizqullah | belum | — |
-| Fharel Sapvela Dwipa | belum | — |
-| Muhammad Fazha Nararya Nugraha | belum | — |
-| Mahesa Kanaka Raya | belum | — |
+| Hanan Rizqullah | Bukti gambar: `../../Tanda Tangan Kelompok/Hanan.jpeg` | Tidak tercantum |
+| Fharel Sapvela Dwipa | Bukti gambar: `../../Tanda Tangan Kelompok/Fharel.jpeg` | Tidak tercantum |
+| Muhammad Fazha Nararya Nugraha | Bukti gambar: `../../Tanda Tangan Kelompok/Faza.jpeg` (nama file yang diberikan) | Tidak tercantum |
+| Mahesa Kanaka Raya | Bukti gambar: `../../Tanda Tangan Kelompok/Mahesa.jpeg` | Tidak tercantum |
 
-Kolom tanda tangan hanya diisi setelah anggota benar-benar membaca dan menyetujui isi charter.
+Catatan bukti: empat JPEG berisi tanda tangan goresan tangan dan nama file masing-masing sesuai nama anggota. Tanggal/metadata tanda tangan tidak tersedia; waktu modifikasi file tidak dipakai sebagai tanggal tanda tangan. Identitas penanda tangan tidak dapat diverifikasi secara kriptografis dari gambar saja. Pemilik proyek meminta bukti tersebut dicatat sebagai tanda tangan anggota.

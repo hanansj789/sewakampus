@@ -1,7 +1,7 @@
 # Gate 1 Design Review — Checklist
 
 **Status:** Bersyarat. Belum siap diajukan ke dosen.
-**Tanggal penilaian internal:** 23 November 2026
+**Tanggal penilaian internal:** 24 November 2026
 **Dasar resmi:** `Skenario_Project ASP R001.txt` hlm. 17.
 
 Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat**, **Belum siap**. Kolom status resmi dosen sengaja kosong.
@@ -24,22 +24,20 @@ Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat*
 | 7 | Use case, user story, acceptance criteria | `01_Business/P13-Use-Cases.md`, `01_Business/P13-User-Stories.md` | Bersyarat | Tujuh use case dan delapan story sudah ada dengan acceptance criteria; belum direview silang |
 | 8 | Wireframe dan prototipe clickable | `03_Application/ux/exports/` (sembilan wireframe termasuk S-08/S-09, tujuh layar hi-fi), `03_Application/ux/SewaKampus-High-Fidelity.figcraft` | Siap diajukan | Sembilan layar wireframe dan tujuh layar hi-fi dengan enam interaksi klik; buka lewat FigCraft |
 | 9 | API dan NFR konsisten dengan stack | `03_Application/openapi.yaml`, `04_Technology/P13-NFR.md` | Bersyarat | Kontrak sudah menerima foto kondisi (SK-014) dan NFR sudah ada; validasi foto belum diuji karena kode belum ada |
-| 10 | Branch, CODEOWNERS, dan kartu anggota aktif | repo lokal | Bersyarat | `main` dan `dev` sejalan; `feature/*` belum ada; `CODEOWNERS` hanya komentar karena username GitHub belum ada (SK-005) |
-| 11 | Team Charter ditandatangani | `06_Governance/P13-Team-Charter.md` | Belum siap | Kolom tanda tangan masih kosong |
+| 10 | Branch, CODEOWNERS, dan kartu anggota aktif | repo lokal | Bersyarat | `main`, `dev`, dan tiga `feature/*` lokal ada; `CODEOWNERS` hanya komentar karena username GitHub belum ada (SK-005) |
+| 11 | Team Charter ditandatangani | `06_Governance/P13-Team-Charter.md`, bukti di `Tanda Tangan Kelompok/*.jpeg` | Siap diajukan | Empat gambar tanda tangan tersedia; tanggal tidak tercantum, dan identitas tidak diverifikasi secara kriptografis |
 | 12 | Berkas pengetahuan bersama | `SEWAKAMPUS/AGENTS.md`, `DECISIONS.md`, `CONTEXT-PACK.md` | Bersyarat | Isi lengkap; belum dibaca ulang empat anggota |
 
 ## C. Kesimpulan
 
 **Status resmi: belum ada keputusan dosen.**
 
-Yang bisa dikatakan jujur saat ini: fondasi dokumen dan repo lokal sudah berdiri, lima Must sudah terkunci, audit 35 butir sudah selesai, use case dan user story sudah ada, kontrak foto kondisi sudah diperbaiki, BPMN dua proses sudah dipisah, struktur aplikasi dan ADR-002 sudah ditulis, serta dua opsi hosting sudah punya harga publik bertanggal. Yang belum: wireframe dan prototipe, tanda tangan charter, review silang, serta DDL yang dijalankan di database kosong.
+Yang bisa dikatakan jujur saat ini: fondasi dokumen dan repo lokal sudah berdiri, lima Must sudah terkunci, audit 35 butir sudah selesai, use case dan user story sudah ada, kontrak foto kondisi sudah diperbaiki, BPMN dua proses sudah dipisah, struktur aplikasi dan ADR-002 sudah ditulis, opsi hosting punya harga publik bertanggal, serta charter memiliki empat file bukti tanda tangan. DDL dan seed telah diuji di MySQL 8.0.43. Yang masih belum: persetujuan Vision dan MoSCoW, review artefak, konfirmasi mitra, dan keputusan Gate 1 dari dosen.
 
-Gate 1 belum boleh disebut hijau. Jika dipresentasikan hari ini, butir 2, 3, 6, dan 8 bersifat **siap diajukan** (menunggu review silang), butir 1, 4, 5, dan 7 bersyarat, sedangkan butir 11 (tanda tangan charter) masih Belum siap.
+Gate 1 belum dinilai dosen dan tidak diberi status warna. Pemilik meminta review silang dilewati untuk kerja lokal; karena tidak ada reviewer berbeda, artefak tetap berstatus menunggu review dan tidak diklaim telah direview. Butir 11 kini siap diajukan berdasarkan empat berkas tanda tangan, dengan tanggal tidak tercantum. Sesuai `AGENTS.md`, PR14-06 (kode login + role) dan README run belum boleh dibuat sampai Gate 1 dinilai dosen.
 
 ## D. Urutan penutupan yang disarankan
 
-1. Tanda tangan Team Charter dan persetujuan Vision oleh empat anggota.
-2. Wireframe lima Must dan prototipe clickable.
-3. Cocokkan ERD dengan use case, lalu jalankan DDL di database kosong.
-4. Isi kolom layar di traceability setelah wireframe ada.
-5. Review silang seluruh artefak, lalu ajukan Gate 1 ke dosen.
+1. Minta persetujuan Vision dan MoSCoW dari empat anggota.
+2. Minta dosen menilai Gate 1; jangan mengisi status warna sebelum keputusan dosen.
+3. Setelah Gate 1 dinilai, mulai kode fitur PR14-06/07 sesuai hasil gate.
