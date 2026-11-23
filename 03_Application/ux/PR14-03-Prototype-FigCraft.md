@@ -6,6 +6,8 @@
 **Alat:** FigCraft. Bukan Figma.  
 **Pemilik:** Fharel Sapvela Dwipa (pelaksana Analyst/UI/UX), Hanan Rizqullah (pemegang formal).
 
+Wireframe desktop terpisah ada di `P13-06-Wireframe.md` dan `SewaKampus-Wireframe.figcraft`. Prototipe hi-fi ini adalah pasangan wireframe tersebut.
+
 ## 1. Berkas
 
 | Berkas | Isi |
