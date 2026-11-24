@@ -32,7 +32,7 @@ Menyiapkan Hanan untuk Gate 1 besok: satu halaman bukti, naskah lima menit, dan 
 Angka pendukung:
 
 - ERD 14 entitas, 17 relasi; bukti 3NF tersedia.
-- DDL 14 tabel + 1 view; seed 30 pengguna, 30 barang, 8 kategori; diuji di MySQL 8.0.43.
+- DDL 14 tabel + 1 view; seed 30 pengguna, 30 barang, 30 kategori; diuji di MySQL 8.0.43.
 - API 34 path, 39 operasi, 38 skema; foto kondisi wajib pada handover.
 - Wireframe 9 layar; prototipe hi-fi 7 layar; 15 test case.
 - Aplikasi lokal Laravel 11.57.1; 16 test lulus, 70 assertion; login STUDENT/ADMIN dan penolakan lintas role 403 sudah diuji.

@@ -11,12 +11,12 @@ Dihitung per baris tugas, bukan per deliverable; satu deliverable bisa muncul di
 
 | Anggota | Peran | Kartu | Selesai (internal) | Sebagian | Belum |
 |---|---|---|---|---|---|
-| Hanan | CEO/PO + Analyst formal | K-01 | 8 | 0 | 0 |
+| Hanan | CEO/PO + Analyst formal | K-01 | 9 | 0 | 0 |
 | Fharel | Analyst/UI/UX pelaksana | K-02 | 6 | 0 | 0 |
 | Fazha | Programmer + Database Architect | K-03 | 10 | 0 | 0 |
 | Mahesa | Network/DevOps + QA/notulis | K-04 | 5 | 0 | 0 |
 
-Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini bukan penilaian dosen dan bukan bukti review independen. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Selesai di sini tiga puluh, sedangkan deliverable Selesai di matriks dua puluh tiga.
+Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini bukan penilaian dosen dan bukan bukti review independen. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Selesai di sini tiga puluh satu, sedangkan deliverable Selesai di matriks dua puluh tiga.
 
 ## K-01 — Hanan: visi, prioritas, dan keputusan
 
@@ -27,6 +27,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 | DoD dan Team Charter | P13-03 | Selesai (internal) | `06_Governance/P13-Definition-of-Done.md`, `06_Governance/P13-Team-Charter.md` (tanggal 23 Nov 2026) |
 | Traceability lima baris | P13-14 | Selesai (internal) | `06_Governance/P13-Traceability-Matrix.md` |
 | Brief Gate 1 dan naskah lima menit | P13-15 | Selesai (internal) | `06_Governance/P13-Gate-1-Brief.md` |
+| Audit kesesuaian jobdesc per role | P13-01–P13-15 | Selesai (internal) | `06_Governance/P13-Role-Coverage.md` |
 | Minta persetujuan tiga anggota atas Vision dan charter | P13-01, P13-03 | Selesai (internal) | Pernyataan pemilik proyek 24 Nov 2026; tanda tangan charter 23 Nov 2026 |
 | Konfirmasi mitra UAT dan jadwal P15 | PR14-01 | Selesai (internal) | `07_Evidence/PR14-01-UAT-Partner-Plan.md` (tiga peserta proksi, jadwal P15) |
 | Business Model Canvas | PR14-02 | Selesai (internal) | `01_Business/P13-BMC.drawio` + `.png` |
