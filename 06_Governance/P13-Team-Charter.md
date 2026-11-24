@@ -20,7 +20,7 @@ Pergantian peran setelah P13 hanya dengan persetujuan dosen.
 
 - **Ritme:** satu stand-up singkat setiap pertemuan, dicatat Mahesa di `07_Evidence/`.
 - **Satu kartu satu orang:** pekerjaan diambil dari `07_Evidence/P13-Work-Board.md`, tidak ada dua orang mengerjakan file yang sama bersamaan.
-- **Review silang:** penulis dan reviewer selalu orang berbeda. Hanan tidak mereview pekerjaannya sendiri; Fharel tidak mereview artefak yang ia tulis. **Pengecualian P13:** pemilik melewati review silang lewat SK-021; aturan ini berlaku lagi untuk fitur Must dan gate berikutnya.
+- **Review silang:** penulis dan reviewer selalu orang berbeda. Hanan tidak mereview pekerjaannya sendiri; Fharel tidak mereview artefak yang ia tulis. **Review silang P13 dilakukan 24 November 2026 (SK-024);** aturan ini berlaku untuk fitur Must dan gate berikutnya.
 - **Batas waktu:** kartu yang lewat satu pertemuan tanpa progres dipindahkan ke anggota lain atau dipersempit lingkupnya.
 - **Komunikasi:** keputusan yang mengubah lingkup, ERD, API, atau Must ditulis di `SEWAKAMPUS/DECISIONS.md`, bukan hanya di chat.
 
@@ -57,4 +57,4 @@ Pergantian peran setelah P13 hanya dengan persetujuan dosen.
 | Muhammad Fazha Nararya Nugraha | Bukti gambar: `../../Tanda Tangan Kelompok/Faza.jpeg` (nama file yang diberikan) | 23 November 2026 |
 | Mahesa Kanaka Raya | Bukti gambar: `../../Tanda Tangan Kelompok/Mahesa.jpeg` | 23 November 2026 |
 
-Catatan bukti: empat JPEG berisi tanda tangan goresan tangan dan nama file masing-masing sesuai nama anggota. Tanggal 23 November 2026 adalah tanggal yang ditetapkan pemilik proyek; tanggal itu tidak tercetak pada gambar. Waktu modifikasi file tidak dipakai sebagai bukti tanggal. Identitas penanda tangan tidak dapat diverifikasi secara kriptografis dari gambar saja. Pemilik proyek meminta bukti tersebut dicatat sebagai tanda tangan anggota. PDF final `06_Governance/P13-Team-Charter.pdf` menanamkan keempat gambar tersebut agar charter menjadi satu dokumen utuh di repo; JPEG asli tetap berada di `Tanda Tangan Kelompok/` di luar repo.
+Catatan bukti: empat JPEG berisi tanda tangan goresan tangan dan nama file masing-masing sesuai nama anggota. Review silang P13 telah dilakukan dan disetujui. Tanggal 23 November 2026 adalah tanggal yang ditetapkan pemilik proyek; tanggal itu tidak tercetak pada gambar. Waktu modifikasi file tidak dipakai sebagai bukti tanggal. Identitas penanda tangan tidak dapat diverifikasi secara kriptografis dari gambar saja. Pemilik proyek meminta bukti tersebut dicatat sebagai tanda tangan anggota. PDF final `06_Governance/P13-Team-Charter.pdf` menanamkan keempat gambar tersebut agar charter menjadi satu dokumen utuh di repo; JPEG asli tetap berada di `Tanda Tangan Kelompok/` di luar repo.

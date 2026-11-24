@@ -1,4 +1,4 @@
-**Status:** Selesai (internal) — ditulis Session 2; review silang dilewati (SK-021).
+**Status:** Selesai — ditulis Session 2; review silang telah dilakukan (SK-024).
 
 # P13-09 — Struktur Aplikasi SewaKampus
 

@@ -1,6 +1,6 @@
 # Vision v1.0 — SewaKampus
 
-**Status:** Final v1.0 (internal). Dibekukan 24 November 2026 setelah empat anggota menyatakan setuju; review silang dilewati lewat SK-021. Ini bukan penilaian dosen.
+**Status:** Final v1.0 (internal). Dibekukan 24 November 2026 setelah empat anggota menyatakan setuju; review silang telah dilakukan (SK-024). Ini bukan penilaian dosen.
 **Tanggal:** 23 November 2026 (isi), dibekukan 24 November 2026
 **Dasar:** laporan Progres 12 §1.1–1.4 dan §3.2, serta `Skenario_Project ASP R001.txt` hlm. 7 dan 15.
 
@@ -84,4 +84,4 @@ Penyewa, pemilik, dan admin platform adalah mahasiswa. Admin adalah mahasiswa ya
 | Tiga KPI diterima apa adanya atau diganti dengan angka yang disepakati | **Terpenuhi** — tiga KPI diterima sebagai target perencanaan, bukan capaian |
 | Tidak ada butir "yang belum diputuskan" yang masih memengaruhi lingkup MVP | **Terpenuhi** — sisa catatan hanya soal peserta UAT dan akun GitHub, di luar lingkup MVP |
 
-**Bukti persetujuan:** belum ada tanda tangan terpisah untuk Vision. Persetujuan empat anggota dicatat berdasarkan instruksi pemilik proyek pada 24 November 2026; tanda tangan yang tersedia adalah untuk Team Charter. Karena itu dokumen ini beku secara internal, bukan hasil review independen (SK-021).
+**Bukti persetujuan:** belum ada tanda tangan terpisah untuk Vision. Persetujuan empat anggota dicatat berdasarkan instruksi pemilik proyek pada 24 November 2026; tanda tangan yang tersedia adalah untuk Team Charter. Karena itu dokumen ini beku secara internal; review silang internal telah dilakukan (SK-024), tetapi ini bukan penilaian dosen.

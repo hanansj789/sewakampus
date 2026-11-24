@@ -1,6 +1,6 @@
 # User Story dan Acceptance Criteria — SewaKampus P13
 
-**Status:** Final (internal), 24 November 2026. Delapan story, diturunkan dari lima Must. Review silang dilewati (SK-021).
+**Status:** Final (internal), 24 November 2026. Delapan story, diturunkan dari lima Must. Review silang telah dilakukan (SK-024).
 **Tanggal:** 23 November 2026
 
 Setiap story memakai format "Sebagai … saya ingin … agar …", dengan kriteria penerimaan yang bisa diuji. Kriteria ditulis sebagai daftar centang; satu kriteria yang gagal berarti story belum selesai.

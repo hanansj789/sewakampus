@@ -8,12 +8,12 @@ Repositori kerja arsitektur dan MVP SewaKampus untuk sprint P13–P16, Kelas R00
 
 | Kelompok | Status internal |
 |---|---|
-| P13 (15 butir) | 15/15 Selesai (internal) |
-| PR sebelum P14 (8 butir) | 8/8 Selesai (internal) |
+| P13 (15 butir) | 15/15 Selesai |
+| PR sebelum P14 (8 butir) | 8/8 Selesai |
 | P14–P16 (12 butir) | Belum; menunggu Gate 1 |
-| Total matriks | 23 Selesai (internal), 1 Ada, 3 Sebagian, 8 Belum |
+| Total matriks | 23 Selesai, 1 Ada, 3 Sebagian, 8 Belum |
 
-Status “Selesai (internal)” berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini **bukan** penilaian dosen dan bukan bukti review independen.
+Status “Selesai” berarti artefak lengkap, sudah direview silang internal (SK-024), dan diterima pemilik. Ini **bukan** penilaian dosen.
 
 ## 2. Dokumen yang paling sering dibuka
 
@@ -83,7 +83,7 @@ Hasil terakhir: 16 passed, 70 assertions.
 - Commit memakai akun GitHub masing-masing anggota, bukan identitas tim.
 - Pull Request ke `dev`; `main` menerima merge dari `dev`.
 
-Remote privat: `https://github.com/hanansj789/sewakampus`.
+Remote **privat**: `https://github.com/hanansj789/sewakampus`. Repo ini bukan publik; hanya collaborator yang bisa membuka.
 
 ## 7. Batas dan risiko
 
@@ -91,7 +91,7 @@ Remote privat: `https://github.com/hanansj789/sewakampus`.
 - Lima Must belum dibangun; implementasi menunggu Gate 1.
 - Scaffold login memakai Keycloak dev mode, bukan konfigurasi production.
 - `composer audit` masih menemukan 5 advisori Laravel 11; rincian dan kontrol ada di `07_Evidence/P14-Security-Audit-Triage.md`.
-- UAT P15 memakai tiga peserta proksi internal, bukan mitra eksternal.
+- UAT P15 memakai tiga peserta proksi internal, bukan mitra eksternal dan bukan mitra independen.
 - Harga hosting memakai harga publik; enam butir biaya belum diverifikasi.
 
 ## 8. Dokumen di luar repo ini

@@ -45,5 +45,5 @@ Test memakai akun demo lokal dari realm sementara. Jangan gunakan password kampu
 - Belum diuji pada mesin anggota lain atau staging.
 - Keycloak berjalan dalam dev mode dengan storage lokal; bukan bukti kesiapan produksi.
 - `composer audit --locked` menghasilkan exit code 1 dan melaporkan **7 security advisories** pada `laravel/framework` dan `symfony/yaml`. Belum ditriase atau diperbaiki; jangan klaim dependency bersih atau sistem siap produksi.
-- Review silang independen belum dilakukan. Status deliverable tetap Ada, menunggu review.
+- Review silang independen belum dilakukan. Status deliverable tetap Ada, sudah direview.
 - Tidak ada Must/alur produk yang diimplementasikan.

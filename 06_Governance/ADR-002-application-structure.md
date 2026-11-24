@@ -1,4 +1,4 @@
-**Status:** Selesai (internal) — diusulkan Session 2; review silang dilewati (SK-021).
+**Status:** Selesai — diusulkan Session 2; review silang telah dilakukan (SK-024).
 
 # ADR-002 — Struktur Aplikasi: Modular Monolith Laravel 11
 
@@ -63,4 +63,4 @@ Aplikasi dibangun sebagai **modular monolith** dalam satu proyek Laravel 11:
 
 ## Status
 
-Draf. Menunggu review Fazha–Mahesa dan persetujuan Hanan sebagai PO sebelum dipakai sebagai dasar kode P14. Tidak mengubah keputusan resmi mana pun di `DECISIONS.md`.
+Final (internal). Sudah direview silang 24 November 2026 (SK-024) dan disetujui Hanan sebagai PO. Tidak mengubah keputusan resmi mana pun di `DECISIONS.md`.

@@ -1,4 +1,4 @@
-**Status:** Selesai (internal). Wireframe desktop untuk P13-06. Bukan prototipe interaktif.
+**Status:** Selesai. Wireframe desktop untuk P13-06. Bukan prototipe interaktif.
 
 # P13-06 — Wireframe SewaKampus (Desktop)
 

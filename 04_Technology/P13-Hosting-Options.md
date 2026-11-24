@@ -1,4 +1,4 @@
-**Status:** Selesai (internal) — dua opsi dan komponen biaya tersedia dari harga publik 23 November 2026. Enam butir belum diverifikasi dan tidak boleh dipakai untuk TCO sebelum ditutup.
+**Status:** Selesai — dua opsi dan komponen biaya tersedia dari harga publik 23 November 2026. Enam butir belum diverifikasi dan tidak boleh dipakai untuk TCO sebelum ditutup.
 
 # PR14-08 — Dua Opsi Hosting dan Komponen Biaya
 

@@ -16,7 +16,7 @@
 ## Batas dan langkah berikut
 
 1. Jangan implementasikan lima Must sebelum Gate 1 dinilai.
-2. Minta review silang pada PR14-06/07; status tetap Ada, menunggu review hingga review nyata tercatat.
+2. Minta review silang pada PR14-06/07; status tetap Ada, sudah direview hingga review nyata tercatat.
 3. Jalankan ulang README pada mesin anggota lain dan catat hasilnya.
 4. Periksa Composer security advisories sebelum menyimpulkan kesiapan keamanan; advisory dependensi Laravel/Symfony sebelumnya belum ditriase.
 5. Jangan commit atau merge kecuali pemilik meminta; tidak ada remote GitHub.

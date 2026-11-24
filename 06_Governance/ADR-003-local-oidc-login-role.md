@@ -1,4 +1,4 @@
-**Status:** Draf, menunggu review.
+**Status:** Final (internal), sudah direview silang 24 November 2026.
 
 # ADR-003 — Scaffold login OIDC dan role lokal
 
@@ -23,5 +23,5 @@ PR14-06 meminta aplikasi lokal berjalan dengan login dan role sebelum P14. CR-00
 
 - User Keycloak lokal harus dibuat terpisah dan emailnya cocok dengan seed lokal.
 - Lingkungan lokal memakai Keycloak dev mode; bukan konfigurasi deployment production.
-- Verifikasi otomatis 16 test/70 assertion dan smoke test browser lokal STUDENT/ADMIN tercatat pada `P13-STATUS.md`; review silang tetap belum dilakukan.
+- Verifikasi otomatis 16 test/70 assertion dan smoke test browser lokal STUDENT/ADMIN tercatat pada `P13-STATUS.md`; review silang telah dilakukan 24 November 2026.
 - Gate 1 tetap belum dinilai. Perubahan ini hanya untuk PR14-06/07.

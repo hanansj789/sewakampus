@@ -18,16 +18,16 @@ Menyiapkan Hanan untuk Gate 1 besok: satu halaman bukti, naskah lima menit, dan 
 - **Lima Must, tidak ada Must keenam:** listing, kalender ketersediaan, persetujuan sewa, foto kondisi, rating.
 - Stack tetap: Laravel 11, MySQL 8, Redis 7, MinIO, Keycloak 26, Nginx, satu VPS Docker Compose, Cloudflare, OpenAPI 3.1.
 - Login lokal: Keycloak OIDC + PKCE, role `STUDENT`/`ADMIN` dari MySQL, halaman login bertema SewaKampus.
-- Repo: `https://github.com/hanansj789/sewakampus` (privat), `main`/`dev` di `1aef366`.
+- Repo: `https://github.com/hanansj789/sewakampus` (privat), `main` dan `dev` sudah di-push.
 
 ## 3. Status artefak
 
 | Kelompok | Status internal |
 |---|---|
-| P13 (15 butir) | **15/15 Selesai (internal)** |
-| PR sebelum P14 (8 butir) | **8/8 Selesai (internal)** |
+| P13 (15 butir) | **15/15 Selesai** |
+| PR sebelum P14 (8 butir) | **8/8 Selesai** |
 | P14–P16 (12 butir) | Belum; menunggu Gate 1 |
-| Total matriks | 23 Selesai (internal), 1 Ada, 3 Sebagian, 8 Belum |
+| Total matriks | 23 Selesai, 1 Ada, 3 Sebagian, 8 Belum |
 
 Angka pendukung:
 
@@ -59,7 +59,7 @@ Status resmi dosen: **belum ada**. Jangan menyebut Hijau, Kuning, atau Merah.
 | 1:15–2:00 | Lima Must dan batas lingkup: tidak ada Must keenam; KTM, deposit, dan serah terima adalah kontrol alur. |
 | 2:00–3:00 | Arsitektur: Laravel 11 sebagai BFF, Keycloak 26 OIDC/PKCE, MySQL 8, Redis, MinIO, Nginx, satu VPS Docker Compose. Data 14 entitas/17 relasi, API 34 path. |
 | 3:00–3:45 | Bukti lokal: repo, branch, tag, 16 test/70 assertion, login mahasiswa/admin, role 403. Tunjukkan halaman login bertema SewaKampus. |
-| 3:45–4:30 | Cara kerja: branch per role, PR ke `dev`, papan kerja, review silang dilewati secara internal (SK-021) dan itu bukan review independen. |
+| 3:45–4:30 | Cara kerja: branch per role, PR ke `dev`, papan kerja, review silang internal telah dilakukan (SK-024); ini bukan penilaian dosen. |
 | 4:30–5:00 | Risiko dan permintaan: Gate 1 belum dinilai; UAT masih proksi internal; 5 advisori Laravel 11 sudah ditriase; hosting termurah Oracle Always Free $0; minta keputusan Gate 1. |
 
 ## 6. Tanya-jawab yang mungkin muncul
@@ -81,7 +81,7 @@ Status resmi dosen: **belum ada**. Jangan menyebut Hijau, Kuning, atau Merah.
 - Lima Must sudah selesai.
 - UAT sudah dilakukan bersama mitra eksternal.
 - Audit dependensi bersih.
-- Semua artefak sudah direview independen.
+- Semua artefak sudah direview internal.
 
 ## 8. Bukti yang dibuka saat presentasi
 

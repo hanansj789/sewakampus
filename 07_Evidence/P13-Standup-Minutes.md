@@ -61,7 +61,7 @@ Isi di bawah diambil dari artefak yang bisa dibuka dan riwayat commit repository
 | 23 Nov 2026 | Dua Must pertama untuk P14 | SK-003 |
 | 23 Nov 2026 | Pembagian peran empat anggota | SK-004 |
 | 24 Nov 2026 | Scaffold login sebelum penilaian Gate 1 | SK-020, CR-003 |
-| 24 Nov 2026 | Review silang P13 dilewati, status Selesai (internal), mitra UAT mahasiswa | SK-021, CR-004 |
+| 24 Nov 2026 | Review silang P13 dilakukan, status Selesai, mitra UAT mahasiswa | SK-024, CR-007 |
 
 ## 4. Hambatan yang masih terbuka
 
@@ -75,4 +75,4 @@ Isi di bawah diambil dari artefak yang bisa dibuka dan riwayat commit repository
 
 - Catatan ini **bukan** bukti rapat. Tidak ada tanggal rapat, daftar hadir, atau notula sidang yang dikarang.
 - Setiap baris menunjuk file yang bisa dibuka.
-- Status P13-12 adalah Selesai (internal) sebagai catatan progres, sesuai SK-021.
+- Status P13-12 adalah Selesai sebagai catatan progres, sesuai SK-021.
