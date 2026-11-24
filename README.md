@@ -2,72 +2,100 @@
 
 Repositori kerja arsitektur dan MVP SewaKampus untuk sprint P13–P16, Kelas R001, Kelompok 1.
 
-## Sumber aturan
+**Status:** 24 November 2026. P13 dan PR sebelum P14 selesai secara internal; Gate 1 belum dinilai dosen. Lima Must belum diimplementasikan.
 
-Urutan kekuatan aturan, dari tertinggi:
+## 1. Ringkasan status
 
-1. `PROYEK/GROWPATH/Skenario_Project ASP R001.txt` — tugas dosen. Jika ada dokumen lain yang berbeda, file ini yang menang.
-2. `PROYEK/SEWAKAMPUS/DECISIONS.md` — keputusan resmi yang disetujui pemilik proyek.
-3. `PROYEK/SEWAKAMPUS/HANDOFF-PROMPT-P13-P16.md` — turunan aturan dan pembagian session.
-4. Laporan `Progres Pertemuan 12` — baseline rancangan Phase A–F, bukan aturan.
-
-Konflik yang belum diputuskan dicatat di `06_Governance/P13-GAP-DECISIONS.md` dan tidak diselesaikan diam-diam.
-
-## Berkas pengetahuan bersama
-
-Session tidak berbagi ingatan, jadi konteks dibagi lewat file di luar repo ini:
-
-| File | Isi |
+| Kelompok | Status internal |
 |---|---|
-| `../AGENTS.md` | Aturan baca, urutan sumber, larangan, protokol update |
-| `../DECISIONS.md` | Keputusan resmi SK-001 dan seterusnya |
-| `../CONTEXT-PACK.md` | Ringkasan proyek, lima Must, stack, status, peta file |
-| `../P13-DELIVERABLE-MATRIX.md` | Status 35 deliverable dan buktinya |
-| `../00 - KONTEKS PROYEK.md` | Konteks panjang |
+| P13 (15 butir) | 15/15 Selesai (internal) |
+| PR sebelum P14 (8 butir) | 8/8 Selesai (internal) |
+| P14–P16 (12 butir) | Belum; menunggu Gate 1 |
+| Total matriks | 23 Selesai (internal), 1 Ada, 3 Sebagian, 8 Belum |
 
-Urutan kekuatan: TXT dosen, lalu `DECISIONS.md`, lalu PRD/TRD (belum ada), lalu konteks proyek, lalu laporan dan diagram lama, lalu status di matrix. `06_Governance/P13-GAP-DECISIONS.md` hanya analisis; keputusan resminya di `DECISIONS.md`.
+Status “Selesai (internal)” berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini **bukan** penilaian dosen dan bukan bukti review independen.
 
-## Struktur
+## 2. Dokumen yang paling sering dibuka
 
-| Folder | Isi | Status Session 1 |
-|---|---|---|
-| `00_Vision/` | Vision v1.0, MoSCoW | Draf, menunggu persetujuan |
-| `01_Business/` | BPMN to-be, use case, user story, BMC | Kosong |
-| `02_Data/` | ERD 3NF, kamus data, bukti normalisasi | Kosong |
-| `03_Application/` | struktur aplikasi, OpenAPI, wireframe, prototipe | Kosong |
-| `04_Technology/` | topologi, NFR, security baseline, hosting, TCO | Kosong |
-| `05_Opportunities/` | roadmap dan migration plan | Kosong |
-| `06_Governance/` | audit, keputusan, DoD, charter, traceability, checklist gate | Terisi sebagian |
-| `07_Evidence/` | papan kerja, notulen, bukti uji | Papan kerja |
-| `08_Source/` | kode aplikasi Laravel 11 | Belum ada kode |
-| `09_Pitch/` | deck presentasi | Kosong |
+| Kebutuhan | File |
+|---|---|
+| Brief dan naskah Gate 1 | `06_Governance/P13-Gate-1-Brief.md` |
+| Checklist Gate 1 | `06_Governance/P13-Gate-1-Checklist.md` |
+| Papan kerja dan bukti | `07_Evidence/P13-Work-Board.md` |
+| Bukti login dan role | `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md` |
+| Triage keamanan | `07_Evidence/P14-Security-Audit-Triage.md` |
+| Verifikasi database | `07_Evidence/PR14-04-DB-Verification-Run.md` |
+| Handoff programmer | `08_Source/docs/PROGRAMMER-HANDOFF.md` |
+| Cara menjalankan aplikasi | `08_Source/README.md` |
+| Runbook stack lokal | `04_Technology/P13-Local-Stack-Runbook.md` |
+| Diagram use case | `01_Business/P13-Use-Case-Diagram.png` |
 
-Laporan Word 44 halaman dan PDF lama tetap di `SEWAKAMPUS/LAPORAN`, tidak disalin ke sini.
+## 3. Stack
 
-## Status artefak
+Laravel 11, MySQL 8, Redis 7, MinIO, Keycloak 26 (OIDC + PKCE, Laravel sebagai BFF), Nginx, satu VPS Ubuntu dengan Docker Compose, Cloudflare, OpenAPI 3.1.
 
-Setiap artefak wajib memakai salah satu label ini di baris pertamanya:
+Lokal saat ini: Laravel 11.57.1, MySQL 8.0.43, Keycloak 26.4.0. Redis, MinIO, dan Nginx belum dijalankan pada scaffold.
 
-- **Ada** — file lengkap dan bisa dipakai.
-- **Draf** — isinya ada, tetapi belum disetujui atau belum lengkap.
-- **Belum** — belum dibuat.
-- **Belum diverifikasi** — bergantung pada pihak luar atau data yang tidak ada di repo.
+## 4. Struktur repo
 
-Path tujuan di dokumen perencanaan bukan bukti. Klaim "Ada" hanya sah jika filenya ada di repo ini.
+| Folder | Isi |
+|---|---|
+| `00_Vision/` | Vision v1.0 dan MoSCoW |
+| `01_Business/` | BPMN, use case, user story, diagram use case, BMC |
+| `02_Data/` | ERD, kamus data, bukti 3NF |
+| `03_Application/` | struktur aplikasi, OpenAPI, wireframe, prototipe |
+| `04_Technology/` | topologi, NFR, security baseline, hosting, runbook |
+| `05_Opportunities/` | roadmap dan migration plan |
+| `06_Governance/` | audit, keputusan, DoD, charter, traceability, Gate 1 |
+| `07_Evidence/` | papan kerja, bukti uji, triage, notulen progres |
+| `08_Source/` | aplikasi Laravel 11, database SQL, tema Keycloak |
+| `09_Pitch/` | deck presentasi |
 
-## Cara kerja
+## 5. Menjalankan aplikasi
 
-1. Baca `SEWAKAMPUS/AGENTS.md` dan `SEWAKAMPUS/DECISIONS.md`, lalu `00 - KONTEKS PROYEK.md`.
-2. Ambil satu kartu di `07_Evidence/P13-Work-Board.md`.
-3. Kerjakan artefak, tulis label status di baris pertama.
-4. Minta review anggota lain sebelum menyatakan selesai.
-5. Catat keputusan baru di `SEWAKAMPUS/DECISIONS.md`, analisis gap di `06_Governance/P13-GAP-DECISIONS.md`.
+Panduan lengkap ada di `08_Source/README.md`. Ringkasnya:
 
-Aturan branch, commit, dan review ada di `CONTRIBUTING.md`.
+```bash
+cd 08_Source
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan serve --host=127.0.0.1 --port=8000
+```
 
-## Keadaan repo saat ini
+Butuh MySQL 8, Keycloak 26, dan realm `sewakampus`. Test:
 
-- Git lokal aktif, branch `main` dan `dev`, **tanpa remote**. GitHub ditunda sampai artefak P13 dan PR sebelum P14 selesai.
-- `CODEOWNERS` sengaja kosong karena username GitHub belum ditetapkan.
-- Belum ada kode aplikasi. `08_Source/` masih kerangka folder.
-- Gate 1 belum dinilai dosen. Lihat `06_Governance/P13-Gate-1-Checklist.md`.
+```bash
+DB_PORT=3311 php artisan test
+```
+
+Hasil terakhir: 16 passed, 70 assertions.
+
+## 6. Alur branch
+
+- `main` dan `dev` adalah branch tetap.
+- Pekerjaan baru lewat branch role:
+  - `feature/ceo-governance`
+  - `feature/analyst-usecase`
+  - `feature/database-model`
+  - `feature/programmer-app`
+  - `feature/network-devops`
+- Commit memakai akun GitHub masing-masing anggota, bukan identitas tim.
+- Pull Request ke `dev`; `main` menerima merge dari `dev`.
+
+Remote privat: `https://github.com/hanansj789/sewakampus`.
+
+## 7. Batas dan risiko
+
+- Gate 1 belum dinilai dosen; jangan mengisi status Hijau/Kuning/Merah.
+- Lima Must belum dibangun; implementasi menunggu Gate 1.
+- Scaffold login memakai Keycloak dev mode, bukan konfigurasi production.
+- `composer audit` masih menemukan 5 advisori Laravel 11; rincian dan kontrol ada di `07_Evidence/P14-Security-Audit-Triage.md`.
+- UAT P15 memakai tiga peserta proksi internal, bukan mitra eksternal.
+- Harga hosting memakai harga publik; enam butir biaya belum diverifikasi.
+
+## 8. Dokumen di luar repo ini
+
+`AGENTS.md`, `DECISIONS.md`, `P13-STATUS.md`, `P13-DELIVERABLE-MATRIX.md`, `CONTEXT-PACK.md`, `LAPORAN/`, `DESAIN/`, dan `Tanda Tangan Kelompok/` berada di folder induk `SEWAKAMPUS`, **tidak** ikut di repo GitHub ini. Tautan ke file tersebut tidak dapat dibuka dari GitHub.
+
+Jika dokumen induk perlu ikut terlihat di GitHub, salin ke folder `00_Project/` dan perbarui tautannya. Jangan mengubah folder induk secara diam-diam.
