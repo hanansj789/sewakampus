@@ -61,7 +61,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 | Security baseline | P13-11 | Selesai (internal) | `04_Technology/P13-Security-Baseline.md` |
 | Topologi as-is dan to-be | P13-11 | Selesai (internal) | `04_Technology/P13-Topology-As-Is.md` (as-is kualitatif lingkungan mahasiswa), `DESAIN/Phase D - SewaKampus.drawio` (to-be) |
 | Notulen dan progres jobdesc | P13-12 | Selesai (internal) | `07_Evidence/P13-Standup-Minutes.md` (catatan progres asinkron, bukan risalah rapat) |
-| Dua opsi hosting dan biaya | PR14-08 | Selesai (internal) | `04_Technology/P13-Hosting-Options.md`; enam butir biaya belum diverifikasi untuk TCO |
+| Opsi hosting dan biaya | PR14-08 | Selesai (internal) | `04_Technology/P13-Hosting-Options.md` (empat opsi, termasuk Oracle Always Free $0); enam butir biaya belum diverifikasi untuk TCO |
 
 ## Catatan
 

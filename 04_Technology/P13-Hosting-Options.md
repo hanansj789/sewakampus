@@ -45,6 +45,28 @@
 
 **Catatan:** VPS MM 8.4 hanya menyediakan 60 GB SSD, sedangkan kebutuhan acuan 160 GB. Selisih 100 GB harus dibeli sebagai tambahan atau ditutup dengan object storage terpisah, dan biayanya belum bisa dipastikan hari ini.
 
+## 3b. Opsi C — Oracle Cloud Always Free (gratis)
+
+| Komponen | Spesifikasi | Harga publik | Sumber (diambil 24 Nov 2026) |
+|---|---|---|---|
+| VM Ampere A1 Flex | 2 OCPU ARM, 12 GB RAM, hingga 200 GB block storage | **$0/bulan** pada Always Free | https://docs.oracle.com/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm |
+| Region | Singapura, jika kapasitas tersedia | termasuk | idem |
+| Cloudflare (DNS, WAF, TLS, cache) | paket Free | **$0/bulan** | https://www.cloudflare.com/plans/network-cdn |
+| Domain | registrar mana pun | tetap berbayar; bukan bagian free tier | — |
+
+**Catatan penting:**
+
+- Oracle memangkas Always Free Ampere A1 dari 4 OCPU/24 GB menjadi **2 OCPU/12 GB** pada Juni 2026. Angka 2/12 adalah batas resmi saat ini.
+- Akun tetap memerlukan kartu kredit/debit untuk verifikasi, meskipun pemakaian dalam batas Always Free tidak ditagih.
+- Kapasitas ARM di region tertentu sering penuh; pembuatan instance bisa gagal dan perlu dicoba lagi.
+- Kebijakan reclaim untuk instance idle perlu dicek sebelum dipakai jangka panjang; jangan anggap ini SLA produksi.
+- 2 core ARM cukup untuk demo/UAT satu kampus, tetapi Keycloak, MySQL, Redis, MinIO, dan Laravel sekaligus akan terasa berat. Uji beban sebelum memakai untuk staging.
+- Semua image Docker (Laravel/PHP, MySQL, Redis, MinIO, Keycloak) harus tersedia untuk `linux/arm64`.
+
+## 3c. Opsi D — Laptop + Cloudflare Quick Tunnel (gratis, demo saja)
+
+Laptop yang sudah menjalankan stack lokal diekspos lewat Cloudflare Quick Tunnel. Biaya **Rp0**, tetapi laptop harus menyala, URL berubah, dan tidak ada jaminan ketersediaan. Hanya untuk demo atau UAT singkat, bukan staging.
+
 ## 4. Perbandingan
 
 | Kriteria | Opsi A — Hetzner CPX32 | Opsi B — Biznet Gio MM 8.4 |
@@ -59,11 +81,18 @@
 | Kepatuhan data | GDPR, sertifikasi ISO 27001 pada data center EU | penyedia Indonesia, sertifikasi ISO 27001/27017/27018/27701 tercantum di halaman produk |
 | Risiko utama | latensi ke pengguna kampus dari EU; pembayaran valas | disk kurang 100 GB; harga promo dapat berubah |
 
-## 5. Rekomendasi untuk dibahas (bukan keputusan)
+## 5. Rekomendasi
 
-Dua opsi sama-sama bisa menjalankan Docker Compose dengan Keycloak, MySQL, Redis, dan MinIO pada 4 vCPU/8 GB. Perbedaan yang menentukan bukan harga, melainkan (a) disk 160 GB yang sudah termasuk di Opsi A, dan (b) latensi serta kemudahan pembayaran di Opsi B.
+Jika target utama adalah biaya paling murah, urutannya:
 
-Usulan Mahesa untuk dibawa ke Hanan: **Opsi B** bila kampus mengutamakan latensi dan pembayaran lokal sambil menerima tambahan biaya SSD; **Opsi A lokasi Singapura** bila anggaran dihitung dalam valas dan disk 160 GB harus tersedia tanpa tambahan. Keputusan ini belum dibuat dan tidak tercatat di `DECISIONS.md`.
+1. **Opsi C — Oracle Cloud Always Free ($0)** untuk staging/UAT, selama kartu verifikasi diterima dan kapasitas ARM tersedia. Ini satu-satunya opsi yang benar-benar gratis untuk stack penuh.
+2. **Opsi D — laptop + Cloudflare Quick Tunnel (Rp0)** untuk demo singkat; bukan staging.
+3. **Opsi B — Biznet Gio Rp269.000/bulan** bila ingin latensi Indonesia dan pembayaran lokal, dengan tambahan SSD.
+4. **Opsi A — Hetzner CPX32** bila disk 160 GB dan RAM 8 GB harus tersedia tanpa tambahan; harga €30,49–49,49/bulan.
+
+Opsi A dan B sama-sama bisa menjalankan Docker Compose dengan Keycloak, MySQL, Redis, dan MinIO pada 4 vCPU/8 GB. Perbedaan yang menentukan bukan harga, melainkan disk 160 GB di Opsi A dan latensi/pembayaran lokal di Opsi B.
+
+Usulan Mahesa: **coba Opsi C lebih dulu** karena gratis; jika provisioning ARM gagal atau performa tidak memadai, jatuh ke Opsi B untuk latensi lokal atau Opsi A untuk disk dan RAM. Keputusan akhir tetap di Hanan dan belum dicatat di `DECISIONS.md`.
 
 ## 6. Yang belum diverifikasi
 
