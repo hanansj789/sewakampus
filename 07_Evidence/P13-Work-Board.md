@@ -12,11 +12,11 @@ Dihitung per baris tugas, bukan per deliverable; satu deliverable bisa muncul di
 | Anggota | Peran | Kartu | Selesai (internal) | Sebagian | Belum |
 |---|---|---|---|---|---|
 | Hanan | CEO/PO + Analyst formal | K-01 | 8 | 0 | 0 |
-| Fharel | Analyst/UI/UX pelaksana | K-02 | 5 | 0 | 0 |
+| Fharel | Analyst/UI/UX pelaksana | K-02 | 6 | 0 | 0 |
 | Fazha | Programmer + Database Architect | K-03 | 10 | 0 | 0 |
 | Mahesa | Network/DevOps + QA/notulis | K-04 | 5 | 0 | 0 |
 
-Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini bukan penilaian dosen dan bukan bukti review independen. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Selesai di sini dua puluh sembilan, sedangkan deliverable Selesai di matriks dua puluh tiga.
+Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini bukan penilaian dosen dan bukan bukti review independen. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Selesai di sini tiga puluh, sedangkan deliverable Selesai di matriks dua puluh tiga.
 
 ## K-01 — Hanan: visi, prioritas, dan keputusan
 
@@ -40,6 +40,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 | Pisahkan BPMN to-be: booking dan handover–return | P13-04 | Selesai (internal) | `01_Business/P13-BPMN-To-Be-Booking.drawio` + `.png`, `01_Business/P13-BPMN-To-Be-Handover.drawio` + `.png` |
 | Wireframe lima Must | P13-06 | Selesai (internal) | `03_Application/ux/SewaKampus-Wireframe.figcraft`, `03_Application/ux/P13-06-Wireframe.md`, `03_Application/ux/exports/WF-01` sampai `WF-09` |
 | Prototipe clickable | PR14-03 | Selesai (internal) | `03_Application/ux/SewaKampus-High-Fidelity.figcraft`, `03_Application/ux/PR14-03-Prototype-FigCraft.md`, `03_Application/ux/exports/L-01` sampai `L-07` |
+| Review UI halaman auth | P14-03 | Selesai (internal) | `07_Evidence/P14-03-UI-Review-Auth.md` (3 temuan, 4 lolos; screenshot 320/390) |
 
 ## K-03 — Fazha: data, kontrak, dan kode
 
