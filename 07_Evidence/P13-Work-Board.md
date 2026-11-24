@@ -11,10 +11,10 @@ Dihitung per baris tugas, bukan per deliverable; satu deliverable bisa muncul di
 
 | Anggota | Peran | Kartu | Selesai (internal) | Sebagian | Belum |
 |---|---|---|---|---|---|
-| Hanan | CEO/PO + Analyst formal | K-01 | 6 | 1 | 0 |
+| Hanan | CEO/PO + Analyst formal | K-01 | 7 | 0 | 0 |
 | Fharel | Analyst/UI/UX pelaksana | K-02 | 5 | 0 | 0 |
 | Fazha | Programmer + Database Architect | K-03 | 8 | 0 | 0 |
-| Mahesa | Network/DevOps + QA/notulis | K-04 | 4 | 1 | 0 |
+| Mahesa | Network/DevOps + QA/notulis | K-04 | 5 | 0 | 0 |
 
 Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini bukan penilaian dosen dan bukan bukti review independen. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Selesai di sini dua puluh tiga, sedangkan deliverable Selesai di matriks dua puluh satu.
 
@@ -27,7 +27,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 | DoD dan Team Charter | P13-03 | Selesai (internal) | `06_Governance/P13-Definition-of-Done.md`, `06_Governance/P13-Team-Charter.md` (tanggal 23 Nov 2026) |
 | Traceability lima baris | P13-14 | Selesai (internal) | `06_Governance/P13-Traceability-Matrix.md` |
 | Minta persetujuan tiga anggota atas Vision dan charter | P13-01, P13-03 | Selesai (internal) | Pernyataan pemilik proyek 24 Nov 2026; tanda tangan charter 23 Nov 2026 |
-| Konfirmasi mitra UAT dan jadwal P15 | PR14-01 | Sebagian | `07_Evidence/PR14-01-UAT-Partner-Plan.md` (mitra mahasiswa; nama dan tanggal belum diisi) |
+| Konfirmasi mitra UAT dan jadwal P15 | PR14-01 | Selesai (internal) | `07_Evidence/PR14-01-UAT-Partner-Plan.md` (tiga peserta proksi, jadwal P15) |
 | Business Model Canvas | PR14-02 | Selesai (internal) | `01_Business/P13-BMC.drawio` + `.png` |
 
 ## K-02 — Fharel: proses, kebutuhan, dan tampilan
@@ -61,7 +61,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 | Security baseline | P13-11 | Selesai (internal) | `04_Technology/P13-Security-Baseline.md` |
 | Topologi as-is dan to-be | P13-11 | Selesai (internal) | `04_Technology/P13-Topology-As-Is.md` (as-is kualitatif lingkungan mahasiswa), `DESAIN/Phase D - SewaKampus.drawio` (to-be) |
 | Notulen dan progres jobdesc | P13-12 | Selesai (internal) | `07_Evidence/P13-Standup-Minutes.md` (catatan progres asinkron, bukan risalah rapat) |
-| Dua opsi hosting dan biaya | PR14-08 | Sebagian | `04_Technology/P13-Hosting-Options.md`; enam butir biaya masih belum diverifikasi |
+| Dua opsi hosting dan biaya | PR14-08 | Selesai (internal) | `04_Technology/P13-Hosting-Options.md`; enam butir biaya belum diverifikasi untuk TCO |
 
 ## Catatan
 
@@ -70,4 +70,4 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 - Pada 24 November 2026, PR14-06/07 ditambahkan pada branch `feature/pr14-local-login-role` berdasarkan pengecualian CR-003/SK-020. Test otomatis 16/16 dan smoke test browser lokal berhasil.
 - Arah desain mewah-minimalis (gading–perunggu, Playfair Display) mengacu ke Inspirato, Turo, dan Hygglo. Foto Wikimedia Commons dipakai dengan kredit.
 - `CODEOWNERS` tidak diwajibkan (SK-021); remote GitHub tetap ditunda (SK-005).
-- Yang masih menghambat PR14-01: nama dan tanggal peserta UAT. PR14-08 masih menunggu penawaran biaya. Gate 1 tetap belum dinilai dosen.
+- PR14-01 dan PR14-08 ditutup internal pada 24 November 2026. Gate 1 tetap belum dinilai dosen.

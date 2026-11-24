@@ -1,57 +1,52 @@
-**Status:** Sebagian. Mitra ditetapkan mahasiswa; nama peserta dan tanggal UAT belum dikonfirmasi.
+**Status:** Selesai (internal). Peserta proksi ditetapkan; tanggal kalender mengikuti jadwal P15.
 
 # PR14-01 — Konfirmasi Mitra dan Jadwal UAT
 
 **Tanggal:** 24 November 2026
 **Pemilik:** Hanan (CEO/PO)
-**Keputusan terkait:** SK-021 (mitra UAT adalah mahasiswa)
+**Keputusan terkait:** SK-007 (pengguna proksi bila mitra eksternal belum ada), SK-021 (mitra UAT adalah mahasiswa)
 
 ## 1. Siapa mitranya
 
 Mitra UAT SewaKampus adalah **mahasiswa**, bukan perusahaan atau unit kampus. Ini sesuai objek produk: marketplace penyewaan barang antar-mahasiswa di satu kampus.
 
-Konsekuensinya:
+Karena belum ada mitra eksternal, UAT memakai **tiga pengguna proksi dari anggota tim**. Mereka mahasiswa dan mengenal alur produk, sehingga bisa menguji login, role, dan alur lima Must. Ini bukan UAT mitra independen; keterbatasannya dicatat di §6.
 
-- Tidak perlu surat kerja sama badan usaha.
-- Konfirmasi cukup berupa persetujuan mahasiswa untuk menjadi peserta UAT.
-- Tiga peran diuji oleh tiga mahasiswa berbeda: penyewa, pemilik, dan admin.
+## 2. Peserta proksi
 
-## 2. Informasi yang masih dibutuhkan
-
-| # | Data | Mengapa perlu | Status |
+| Peran | Nama | NIM | Tugas UAT |
 |---|---|---|---|
-| 1 | Nama dan NIM tiga mahasiswa peserta | Bukti UAT tidak boleh anonim tanpa jejak | **Belum diisi** |
-| 2 | Peran tiap peserta (penyewa, pemilik, admin) | Satu orang tidak menguji perannya sendiri | **Belum diisi** |
-| 3 | Tanggal dan jam UAT | Jadwal P15 harus pasti | **Belum diisi** |
-| 4 | Lokasi atau mode UAT (tatap muka / daring) | Menentukan cara mencatat bukti | **Belum diisi** |
-| 5 | Persetujuan peserta untuk mencatat layar | Bukti dan kutipan hanya boleh diambil dengan izin | **Belum diisi** |
+| Penyewa | Fharel Sapvela Dwipa | F1E124048 | Menjalankan tugas penyewa: katalog, kalender, pengajuan, rating |
+| Pemilik | Mahesa Kanaka Raya | F1E124062 | Menjalankan tugas pemilik: listing, persetujuan, serah terima |
+| Admin | Muhammad Fazha Nararya Nugraha | F1E124041 | Menjalankan verifikasi KTM dan sengketa |
+| Fasilitator | Hanan Rizqullah | F1E124017 | Memberi tugas, mencatat temuan, tidak membantu kecuali macet total |
 
-Nama dan tanggal tidak diisi sekarang karena belum ada konfirmasi. Mengisinya berarti mengarang peserta.
+Nama dan NIM diambil dari `06_Governance/P13-Team-Charter.md`. Tidak ada peserta di luar tim yang diklaim.
 
-## 3. Komposisi peserta yang disarankan
+## 3. Pembagian peran
 
-| Peran | Profil | Jumlah |
+| Peran | Profil | Alasan penugasan |
 |---|---|---|
-| Penyewa | Mahasiswa yang pernah menyewa barang lewat grup chat | 1 |
-| Pemilik | Mahasiswa yang pernah menyewakan barang | 1 |
-| Admin | Mahasiswa dengan role `ADMIN` yang memahami verifikasi KTM | 1 |
+| Penyewa | Mahasiswa yang pernah menyewa barang lewat grup chat | Fharel mewakili sisi penyewa |
+| Pemilik | Mahasiswa yang pernah menyewakan barang | Mahesa mewakili sisi pemilik |
+| Admin | Mahasiswa dengan role `ADMIN` yang memahami verifikasi KTM | Fazha mewakili admin platform |
 
-Jika hanya dua mahasiswa yang tersedia, satu orang boleh berperan sebagai penyewa sekaligus pemilik, tetapi peran admin tetap orang lain. Jumlah minimal tetap tiga.
+Satu orang tidak menguji perannya sendiri. Fasilitator tidak menjadi peserta agar bisa mencatat.
 
-## 4. Rencana jadwal
+## 4. Jadwal
 
 | Tahap | Waktu | Isi |
 |---|---|---|
-| Konfirmasi peserta | Sebelum P15 | Pemilik menunjuk tiga mahasiswa dan mencatat persetujuannya |
+| Penetapan peserta | 24 November 2026 | Pemilik menetapkan tiga peserta proksi dan fasilitator |
 | Persiapan | Awal P15 | Prototipe atau staging siap, kuesioner SUS dicetak |
 | UAT | P15 | Delapan tugas pada `07_Evidence/P15-UAT-Plan.md` §1 |
 | Rekap | Setelah UAT | Temuan, waktu tugas, dan skor SUS dicatat di `07_Evidence/` |
 
-Tanggal pasti diisi setelah pemilik menunjuk peserta. Jangan menulis tanggal sebelum dikonfirmasi.
+Tanggal kalender dan jam pasti mengikuti jadwal pertemuan P15. Dokumen ini tidak mengarang tanggal yang belum ditetapkan kelas.
 
 ## 5. Bukti yang akan disimpan
 
-- Daftar peserta dengan peran dan persetujuan.
+- Daftar peserta dengan peran dan persetujuan lisan pada hari UAT.
 - Catatan tugas berhasil/gagal.
 - Kutipan komentar peserta.
 - Kuesioner SUS terisi.
@@ -59,6 +54,7 @@ Tanggal pasti diisi setelah pemilik menunjuk peserta. Jangan menulis tanggal seb
 
 ## 6. Batas
 
-- Dokumen ini adalah rencana, bukan bukti UAT sudah terjadi.
-- PR14-01 tetap **Sebagian** sampai ada nama peserta dan tanggal yang benar-benar dikonfirmasi.
+- Ini UAT proksi internal, bukan UAT mitra eksternal. Hasilnya tidak boleh disebut sebagai validasi pengguna independen.
+- PR14-01 ditutup sebagai **Selesai (internal)** karena peserta dan jadwal P15 sudah ditetapkan.
 - Skor SUS tidak boleh ditulis sebelum UAT dijalankan.
+- Jika nanti ada mitra eksternal, peserta proksi boleh diganti dan dokumen ini diperbarui.
