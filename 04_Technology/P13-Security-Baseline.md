@@ -1,6 +1,8 @@
 # Security Baseline — SewaKampus
 
 **Status:** Final (internal). Kontrol yang direncanakan, belum diuji.
+
+**Audit dependensi 24 November 2026:** 2 advisori Symfony ditutup dengan `symfony/yaml` 7.4.23; 5 advisori Laravel 11 tersisa dan diterima sementara dengan kontrol. Rincian di `07_Evidence/P14-Security-Audit-Triage.md`.
 **Tanggal:** 23 November 2026
 **Rujukan:** OWASP API Security Top 10 (2023), OWASP ASVS ringkas, dan tag `x-owasp-api-top10` pada `03_Application/openapi.yaml`.
 

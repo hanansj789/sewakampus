@@ -92,5 +92,6 @@ Ganti `3311` dengan port MySQL lokal, atau hilangkan baris `$env:DB_PORT` untuk 
 - User Keycloak harus dibuat terpisah dan emailnya cocok dengan seed lokal. Pendaftaran otomatis belum dibuat.
 - Penyewa, pemilik, dan admin adalah mahasiswa; admin adalah mahasiswa dengan role `ADMIN`.
 - Halaman dashboard hanya membuktikan login dan role. Fungsi Must belum dibangun.
+- `composer audit` masih menemukan 5 advisori Laravel 11; dua advisori Symfony sudah ditutup. Triage ada di `07_Evidence/P14-Security-Audit-Triage.md`.
 - Keycloak memakai H2/dev mode untuk laptop ini. Deployment production tetap memakai konfigurasi TRD, secret yang aman, HTTPS, dan database production.
 - Gate 1 belum dinilai dosen. Pekerjaan ini adalah pengecualian PR14-06/07 yang dicatat pada CR-003/SK-020; status gate tidak berubah.
