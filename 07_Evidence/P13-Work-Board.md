@@ -49,7 +49,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 | Perbaiki kontrak foto kondisi | P13-13 | Selesai (internal) | `03_Application/openapi.yaml` (SK-014) |
 | Kamus data 14 entitas | P13-08 | Selesai (internal) | `02_Data/P13-Data-Dictionary.md` |
 | Bukti 3NF dan kecocokan ERD | P13-07 | Selesai (internal) | `02_Data/P13-ERD.drawio` (17 relasi), `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md` |
-| DDL dan seed | PR14-04, PR14-05 | Selesai (internal) | `08_Source/database/sql/001_init.sql`, `seed.sql`, `07_Evidence/PR14-04-DDL-Run-Log.md` |
+| DDL dan seed | PR14-04, PR14-05 | Selesai (internal) | `08_Source/database/sql/001_init.sql`, `seed.sql` (30 kategori/30 pengguna/30 barang), `07_Evidence/PR14-04-DDL-Run-Log.md` |
 | Jalankan DDL di database kosong | PR14-04 | Selesai (internal) | `07_Evidence/PR14-04-DDL-Run-Log.md` (MySQL 8.0.43) |
 | Verifikasi ulang skema dan seed | PR14-04 | Selesai (internal) | `08_Source/database/sql/002_verify.sql`, `07_Evidence/PR14-04-DB-Verification-Run.md` (16 pemeriksaan PASS) |
 | Struktur aplikasi dan ADR | P13-09 | Selesai (internal) | `03_Application/P13-App-Structure.md`, `06_Governance/ADR-002-application-structure.md` |

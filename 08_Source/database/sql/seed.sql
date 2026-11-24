@@ -8,7 +8,7 @@
 USE sewakampus;
 SET NAMES utf8mb4;
 
--- Kategori (tabel master, 8 baris)
+-- Kategori (tabel master, 30 baris)
 INSERT INTO item_categories (public_id, name, slug, is_active, sort_order) VALUES
   ('01J0000000000000000000000Z', 'Kamera dan Lensa', 'kamera-lensa', TRUE, 1),
   ('01J00000000000000000000010', 'Proyektor dan Layar', 'proyektor-layar', TRUE, 2),
@@ -17,7 +17,29 @@ INSERT INTO item_categories (public_id, name, slug, is_active, sort_order) VALUE
   ('01J00000000000000000000013', 'Alat Laboratorium', 'alat-laboratorium', TRUE, 5),
   ('01J00000000000000000000014', 'Kostum dan Atribut', 'kostum-atribut', TRUE, 6),
   ('01J00000000000000000000015', 'Elektronik', 'elektronik', TRUE, 7),
-  ('01J00000000000000000000016', 'Perlengkapan Acara', 'perlengkapan-acara', TRUE, 8);
+  ('01J00000000000000000000016', 'Perlengkapan Acara', 'perlengkapan-acara', TRUE, 8),
+  ('01J00000000000000000000017', 'Buku dan Modul', 'buku-modul', TRUE, 9),
+  ('01J00000000000000000000018', 'Alat Tulis dan Presentasi', 'alat-tulis-presentasi', TRUE, 10),
+  ('01J00000000000000000000019', 'Olahraga dan Outdoor', 'olahraga-outdoor', TRUE, 11),
+  ('01J0000000000000000000001A', 'Sepeda dan Skuter', 'sepeda-skuter', TRUE, 12),
+  ('01J0000000000000000000001B', 'Alat Musik', 'alat-musik', TRUE, 13),
+  ('01J0000000000000000000001C', 'Konsol dan Gim', 'konsol-gim', TRUE, 14),
+  ('01J0000000000000000000001D', 'Drone dan Aksesori', 'drone-aksesori', TRUE, 15),
+  ('01J0000000000000000000001E', 'Tripod dan Stabilizer', 'tripod-stabilizer', TRUE, 16),
+  ('01J0000000000000000000001F', 'Mikrofon dan Recorder', 'mikrofon-recorder', TRUE, 17),
+  ('01J00000000000000000000020', 'Printer dan Scanner', 'printer-scanner', TRUE, 18),
+  ('01J00000000000000000000021', 'Router dan Jaringan', 'router-jaringan', TRUE, 19),
+  ('01J00000000000000000000022', 'Powerbank dan Charger', 'powerbank-charger', TRUE, 20),
+  ('01J00000000000000000000023', 'Kipas dan Pendingin', 'kipas-pendingin', TRUE, 21),
+  ('01J00000000000000000000024', 'Meja dan Kursi Lipat', 'meja-kursi-lipat', TRUE, 22),
+  ('01J00000000000000000000025', 'Perkakas Tangan', 'perkakas-tangan', TRUE, 23),
+  ('01J00000000000000000000026', 'Perkakas Listrik', 'perkakas-listrik', TRUE, 24),
+  ('01J00000000000000000000027', 'Perlengkapan Memasak', 'perlengkapan-memasak', TRUE, 25),
+  ('01J00000000000000000000028', 'Perlengkapan Hiking', 'perlengkapan-hiking', TRUE, 26),
+  ('01J00000000000000000000029', 'Perlengkapan Fotografi', 'perlengkapan-fotografi', TRUE, 27),
+  ('01J0000000000000000000002A', 'Perlengkapan Videografi', 'perlengkapan-videografi', TRUE, 28),
+  ('01J0000000000000000000002B', 'Perlengkapan Tidur', 'perlengkapan-tidur', TRUE, 29),
+  ('01J0000000000000000000002C', 'Penyimpanan dan Hard Disk', 'penyimpanan-harddisk', TRUE, 30);
 
 -- Pengguna (tabel master, 30 baris)
 INSERT INTO users (public_id, full_name, email, password_hash, phone, role, account_status) VALUES
@@ -246,4 +268,4 @@ INSERT INTO notifications (public_id, user_id, type, title, body, channel, statu
   ('01J0000000000000000000003R', 7, 'HANDOVER_REMINDER', 'Ingat serah terima', 'Serah terima dijadwalkan besok.', 'IN_APP', 'QUEUED', 'BOOKING', '01J000000000000000000000B', NULL),
   ('01J0000000000000000000003S', 3, 'REVIEW_RECEIVED', 'Ulasan baru', 'Penyewa memberi ulasan untuk proyektor Anda.', 'IN_APP', 'READ', 'REVIEW', '01J000000000000000000000C', '2026-11-25 10:00:00');
 
--- Selesai: 8 kategori, 30 pengguna, 28 verifikasi, 30 barang, 30 foto, 10 blokir, 10 booking, 6 deposit, 3 handover, 4 review, 4 notifikasi, 23 riwayat status, 2 sengketa, 3 audit log.
+-- Selesai: 30 kategori, 30 pengguna, 28 verifikasi, 30 barang, 30 foto, 10 blokir, 10 booking, 6 deposit, 3 handover, 4 review, 4 notifikasi, 23 riwayat status, 2 sengketa, 3 audit log.
