@@ -13,10 +13,10 @@ Dihitung per baris tugas, bukan per deliverable; satu deliverable bisa muncul di
 |---|---|---|---|---|---|
 | Hanan | CEO/PO + Analyst formal | K-01 | 8 | 0 | 0 |
 | Fharel | Analyst/UI/UX pelaksana | K-02 | 5 | 0 | 0 |
-| Fazha | Programmer + Database Architect | K-03 | 8 | 0 | 0 |
+| Fazha | Programmer + Database Architect | K-03 | 9 | 0 | 0 |
 | Mahesa | Network/DevOps + QA/notulis | K-04 | 5 | 0 | 0 |
 
-Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini bukan penilaian dosen dan bukan bukti review independen. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Selesai di sini dua puluh enam, sedangkan deliverable Selesai di matriks dua puluh tiga.
+Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini bukan penilaian dosen dan bukan bukti review independen. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Selesai di sini dua puluh delapan, sedangkan deliverable Selesai di matriks dua puluh tiga.
 
 ## K-01 — Hanan: visi, prioritas, dan keputusan
 
@@ -50,6 +50,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 | Bukti 3NF dan kecocokan ERD | P13-07 | Selesai (internal) | `02_Data/P13-ERD.drawio` (17 relasi), `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md` |
 | DDL dan seed | PR14-04, PR14-05 | Selesai (internal) | `08_Source/database/sql/001_init.sql`, `seed.sql`, `07_Evidence/PR14-04-DDL-Run-Log.md` |
 | Jalankan DDL di database kosong | PR14-04 | Selesai (internal) | `07_Evidence/PR14-04-DDL-Run-Log.md` (MySQL 8.0.43) |
+| Verifikasi ulang skema dan seed | PR14-04 | Selesai (internal) | `08_Source/database/sql/002_verify.sql`, `07_Evidence/PR14-04-DB-Verification-Run.md` (16 pemeriksaan PASS) |
 | Struktur aplikasi dan ADR | P13-09 | Selesai (internal) | `03_Application/P13-App-Structure.md`, `06_Governance/ADR-002-application-structure.md` |
 | Login lokal dan role | PR14-06 | Selesai (internal) | `08_Source/` (Laravel + Keycloak OIDC/PKCE + middleware role); `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md` (16 test/70 assertion dan smoke test browser lokal STUDENT/ADMIN) |
 | README aplikasi lokal | PR14-07 | Selesai (internal) | `08_Source/README.md`; bukti run di `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md` |
