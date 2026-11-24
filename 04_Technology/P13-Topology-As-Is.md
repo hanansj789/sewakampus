@@ -1,46 +1,78 @@
-**Status:** Draf — kerangka pengamatan. Isi lapangan **belum diverifikasi** karena mitra belum dikonfirmasi.
+**Status:** Final (internal), 24 November 2026. Topologi as-is bersifat kualitatif; angka bandwidth dan latensi tidak diukur.
 
-# P13-11 — Topologi As-Is Lokasi Mitra
+# P13-11 — Topologi As-Is Lingkungan Mitra Mahasiswa
 
 **Tanggal:** 24 November 2026
 **Pemilik:** Mahesa (Network/DevOps)
 **Menjawab:** G-05 — "topologi as-is lokasi mitra belum ada".
 
-## 1. Keadaan sebenarnya
+## 1. Siapa mitranya
 
-Sampai 24 November 2026 belum ada mitra yang dikonfirmasi (G-07, PR14-01). Karena itu dokumen ini **tidak** memuat nama lokasi, nama jaringan, alamat IP, atau angka bandwidth. Mengisinya sekarang berarti mengarang.
+Mitra SewaKampus adalah **mahasiswa di satu kampus**, bukan organisasi atau badan usaha. Karena itu tidak ada jaringan kantor, server mitra, atau kontrak internet atas nama mitra yang bisa diaudit. Yang ada adalah lingkungan pemakaian mahasiswa: perangkat pribadi, Wi-Fi kampus, dan data seluler.
 
-Yang bisa dikerjakan tanpa mitra: menetapkan **apa yang harus diamati** dan **format pencatatannya**, supaya begitu mitra ada, pengambilan data selesai dalam satu kunjungan.
+Keputusan ini dicatat pada SK-021 (CR-004).
 
-## 2. Daftar periksa kunjungan
+## 2. Topologi as-is
 
-| # | Yang diamati | Cara mengambil | Satuan | Terisi? |
-|---|---|---|---|---|
-| 1 | Penyedia internet kampus/mitra | Lihat kontrak atau tanya admin | nama | **belum diverifikasi** |
-| 2 | Jenis sambungan | Fiber, DSL, seluler, campuran | — | **belum diverifikasi** |
-| 3 | Bandwidth unduh/unggah | Uji kecepatan di 3 titik, jam sibuk dan sepi | Mbps | **belum diverifikasi** |
-| 4 | Latensi ke server target | `ping` dan `traceroute` dari lokasi | ms, jumlah hop | **belum diverifikasi** |
-| 5 | Perangkat yang dipakai pengguna | Hitung laptop dan ponsel yang benar-benar dipakai | jumlah | **belum diverifikasi** |
-| 6 | Jaringan nirkabel | SSID, jumlah titik akses, luas jangkauan | jumlah titik | **belum diverifikasi** |
-| 7 | Titik serah terima fisik | Foto lokasi, jam operasional, siapa yang menjaga | foto + catatan | **belum diverifikasi** |
-| 8 | Daya dan ruang | Ketersediaan stopkontak, apakah ada ruang terkunci | — | **belum diverifikasi** |
-| 9 | Kebijakan jaringan | Apakah port masuk dibatasi, apakah ada firewall kampus | catatan | **belum diverifikasi** |
-| 10 | Kontak teknis | Nama dan saluran hubungi admin jaringan | catatan | **belum diverifikasi** |
+Alur yang benar-benar berjalan sekarang, tanpa sistem SewaKampus:
 
-## 3. Format yang dipakai setelah data masuk
+```text
+Mahasiswa pemilik                     Mahasiswa penyewa
+laptop / ponsel                       laptop / ponsel
+      |                                     |
+      +-------- Wi-Fi kampus / data seluler -+
+                          |
+                 Grup WhatsApp kelas
+        (foto barang, tanya harga, tawar, chat)
+                          |
+              Kesepakatan manual di chat
+                          |
+          Transfer / e-wallet pribadi (di luar sistem)
+                          |
+              Serah terima tatap muka di kampus
+                          |
+        Tidak ada kalender, foto kondisi, atau rating
+```
 
-Setelah kunjungan, dokumen ini diubah menjadi tiga bagian:
+| Lapisan | Keadaan as-is | Bukti |
+|---|---|---|
+| Perangkat pengguna | Laptop dan ponsel pribadi mahasiswa; aplikasi utama browser dan WhatsApp | Lingkup produk satu kampus, web responsif (Vision) |
+| Jaringan | Wi-Fi kampus dan data seluler; tidak dikelola tim | Tidak ada infrastruktur mitra yang bisa diukur |
+| Katalog | Grup WhatsApp; tidak ada pencarian atau filter | Vision §Masalah |
+| Ketersediaan | Ditanyakan manual di chat; tidak ada kalender | Vision §Masalah |
+| Pembayaran | Transfer atau e-wallet pribadi; deposit tidak tercatat sistem | Deposit simulasi di MVP, payment gateway di luar MVP |
+| Serah terima | Tatap muka di kampus; tidak ada foto kondisi baku | Vision §Masalah |
+| Reputasi | Tidak ada rating atau riwayat transaksi | Vision §Masalah |
+| Admin | Mahasiswa dengan role `ADMIN`; verifikasi KTM dan moderasi belum berjalan | UC-06 dan UC-07 masih rancangan |
 
-1. **Topologi as-is** — gambar sederhana: internet → perangkat kampus → pengguna, dengan angka bandwidth dan latensi yang benar-benar diukur.
-2. **Kesenjangan** — apa yang tidak memadai untuk lima Must, misalnya latensi unggah foto di jam sibuk.
-3. **Topologi to-be** — satu VPS dengan Cloudflare di depan, sesuai `04_Technology/P13-Hosting-Options.md`.
+## 3. Yang belum diukur dan mengapa
 
-## 4. Alasan dokumen ini tetap berguna walau kosong
+Angka berikut **tidak diisi** karena belum ada pengukuran, bukan karena terlewat:
 
-- Butir P13-11 menuntut "topologi as-is & to-be". Bagian to-be sudah ada (laporan §3.5, `P13-Hosting-Options.md`); bagian as-is belum bisa diisi tanpa lokasi.
-- Dosen dapat melihat bahwa yang kurang adalah **data lapangan**, bukan pemahaman. Daftar periksa ini buktinya.
-- Saat mitra dikonfirmasi, pekerjaan tinggal eksekusi, bukan mulai dari nol.
+| Data | Status | Cara mengisi |
+|---|---|---|
+| Kecepatan unduh/unggah Wi-Fi kampus | **Belum diukur** | Uji kecepatan di 3 titik pada jam sibuk dan sepi |
+| Latensi ke VPS target | **Belum diukur** | `ping` dan `traceroute` dari jaringan kampus |
+| Komposisi perangkat | **Belum diukur** | Hitung laptop vs Android vs iOS pada peserta UAT |
+| Jam sibuk pemakaian | **Belum diukur** | Catat dari peserta UAT selama satu minggu |
+| Titik serah terima | **Belum ditetapkan** | Pilih 1–2 lokasi kampus dan foto lokasinya |
 
-## 5. Batas
+Untuk mitra perorangan, angka ini dipakai sebagai **konteks UAT**, bukan sebagai audit jaringan mitra. Jika nanti ada mitra institusi (misalnya unit kampus), dokumen ini harus diperluas.
 
-Dokumen ini **tidak boleh** dipakai sebagai klaim bahwa topologi as-is sudah ada. Status di matriks tetap **Sebagian** sampai ada hasil kunjungan atau pengukuran jarak jauh atas izin mitra.
+## 4. Kesenjangan terhadap lima Must
+
+| Must | Kesenjangan as-is |
+|---|---|
+| M1 Listing | Tidak ada katalog terstruktur; foto dan harga tersebar di chat |
+| M2 Kalender | Tidak ada kalender; bentrok tanggal baru ketahuan saat chat |
+| M3 Persetujuan | Persetujuan lisan di chat, tidak tercatat |
+| M4 Foto kondisi | Tidak ada foto kondisi wajib saat OUT dan RETURN |
+| M5 Rating | Tidak ada reputasi yang bisa diperiksa |
+
+## 5. Topologi to-be
+
+To-be tetap mengikuti `04_Technology/P13-Hosting-Options.md` dan `DESAIN/Phase D - SewaKampus.drawio`: satu VPS Ubuntu dengan Docker Compose, Cloudflare di depan, Nginx sebagai gateway, Laravel, MySQL, Redis, MinIO, dan Keycloak. Perangkat mahasiswa tetap laptop/ponsel melalui browser.
+
+## 6. Batas
+
+Dokumen ini menyatakan topologi as-is **secara kualitatif**. Angka jaringan yang belum diukur tidak boleh dikarang. Status internal P13-11 adalah Selesai (internal) untuk kelengkapan dokumen; pengukuran lapangan menjadi bahan UAT P15, bukan syarat Gate 1.

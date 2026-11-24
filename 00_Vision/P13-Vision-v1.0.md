@@ -1,7 +1,7 @@
 # Vision v1.0 — SewaKampus
 
-**Status:** Draf v1.0. Menunggu persetujuan Hanan Rizqullah sebagai CEO/PO dan tiga anggota lain sebelum dinyatakan beku di Gate 1.
-**Tanggal:** 23 November 2026
+**Status:** Final v1.0 (internal). Dibekukan 24 November 2026 setelah empat anggota menyatakan setuju; review silang dilewati lewat SK-021. Ini bukan penilaian dosen.
+**Tanggal:** 23 November 2026 (isi), dibekukan 24 November 2026
 **Dasar:** laporan Progres 12 §1.1–1.4 dan §3.2, serta `Skenario_Project ASP R001.txt` hlm. 7 dan 15.
 
 ## Masalah
@@ -52,12 +52,14 @@ Belum ada baseline. Ketiga angka baru bisa dinilai setelah ada data pilot, sehin
 
 ## Pemangku kepentingan
 
+Penyewa, pemilik, dan admin platform adalah mahasiswa. Admin adalah mahasiswa yang diberi role `ADMIN`, bukan staf kampus atau sistem eksternal.
+
 | Pemangku kepentingan | Kepentingan utama | Peran dalam MVP |
 |---|---|---|
 | Mahasiswa penyewa | Barang murah, tersedia, terpercaya | Pengguna utama |
 | Mahasiswa pemilik | Barang menghasilkan uang dan aman | Pengguna utama |
-| Admin platform | Transaksi aman, listing rapi, sengketa tertangani | Verifikasi, moderasi |
-| Pihak kampus | Mahasiswa terverifikasi, aktivitas terkendali | Verifikasi KTM, izin titik serah terima |
+| Admin platform (mahasiswa dengan role `ADMIN`) | Transaksi aman, listing rapi, sengketa tertangani | Verifikasi, moderasi |
+| Pihak kampus | Mahasiswa terverifikasi, aktivitas terkendali | Kebijakan verifikasi KTM dan izin titik serah terima |
 | Mitra pembayaran | Transaksi dan deposit berjalan | Fase lanjutan, belum ada |
 | Regulator | Perlindungan data dan konsumen | Kepatuhan, bukan aktor sistem |
 
@@ -67,16 +69,19 @@ Belum ada baseline. Ketiga angka baru bisa dinilai setelah ada data pilot, sehin
 - Zona waktu Asia/Jakarta.
 - Deposit simulasi, tanpa uang sungguhan berpindah.
 - Verifikasi KTM disimulasikan: unggah berkas, admin menyetujui.
-- Produk belum dibangun. Belum ada kode produksi, belum ada mitra yang menandatangani.
+- Produk belum memiliki fitur Must. Scaffold login lokal PR14-06/07 sudah ada, tetapi alur listing sampai rating belum dibangun. Belum ada mitra yang menandatangani surat.
 
-## Yang belum diputuskan
+## Catatan di luar lingkup Vision
 
-1. Tiga KPI di atas belum disetujui tim. Jika berubah, Vision tetap draf.
-2. Mitra UAT dan jadwal P15 belum ada.
-3. Nama akun GitHub pemilik repo belum ditetapkan, karena fase GitHub ditunda.
+1. Mitra UAT adalah mahasiswa; nama peserta dan tanggal UAT P15 diisi pada rencana `07_Evidence/PR14-01-UAT-Partner-Plan.md` setelah pemilik menunjuk orangnya.
+2. Nama akun GitHub pemilik repo belum ditetapkan, karena fase GitHub ditunda.
 
-## Kriteria Vision dianggap beku
+## Kriteria beku dan statusnya
 
-- Hanan dan tiga anggota lain menyatakan setuju pada isi dokumen ini.
-- Tiga KPI diterima apa adanya atau diganti dengan angka yang disepakati.
-- Tidak ada butir "yang belum diputuskan" yang masih memengaruhi lingkup MVP.
+| Kriteria | Status |
+|---|---|
+| Hanan dan tiga anggota lain menyatakan setuju pada isi dokumen ini | **Terpenuhi** — pernyataan pemilik proyek 24 November 2026 |
+| Tiga KPI diterima apa adanya atau diganti dengan angka yang disepakati | **Terpenuhi** — tiga KPI diterima sebagai target perencanaan, bukan capaian |
+| Tidak ada butir "yang belum diputuskan" yang masih memengaruhi lingkup MVP | **Terpenuhi** — sisa catatan hanya soal peserta UAT dan akun GitHub, di luar lingkup MVP |
+
+**Bukti persetujuan:** belum ada tanda tangan terpisah untuk Vision. Persetujuan empat anggota dicatat berdasarkan instruksi pemilik proyek pada 24 November 2026; tanda tangan yang tersedia adalah untuk Team Charter. Karena itu dokumen ini beku secara internal, bukan hasil review independen (SK-021).

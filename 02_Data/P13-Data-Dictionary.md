@@ -1,6 +1,6 @@
 # Data Dictionary — SewaKampus
 
-**Status:** Draf. Disusun dari tabel 3.6, 3.7, dan 3.8 laporan Progres 12, lalu diperiksa terhadap kontrak API.
+**Status:** Final (internal), 24 November 2026. Disusun dari tabel 3.6, 3.7, dan 3.8 laporan Progres 12, lalu diperiksa terhadap kontrak API.
 **Tanggal:** 23 November 2026
 **Sumber asli:** `LAPORAN/Progres Pertemuan 12 - Kelompok 1 - SewaKampus.docx` bagian 3.4.1.4.
 

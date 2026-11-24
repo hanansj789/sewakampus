@@ -1,6 +1,6 @@
 # Security Baseline — SewaKampus
 
-**Status:** Draf. Kontrol yang direncanakan, belum diuji.
+**Status:** Final (internal). Kontrol yang direncanakan, belum diuji.
 **Tanggal:** 23 November 2026
 **Rujukan:** OWASP API Security Top 10 (2023), OWASP ASVS ringkas, dan tag `x-owasp-api-top10` pada `03_Application/openapi.yaml`.
 
@@ -9,7 +9,7 @@
 - Keycloak 26 sebagai identity provider, protokol OpenID Connect Authorization Code Flow dengan PKCE.
 - Laravel menjadi Backend for Frontend: menyimpan sesi, tidak menyimpan token di browser.
 - Nginx memvalidasi JWT memakai JWKS sebelum meneruskan permintaan.
-- Admin wajib MFA. Mahasiswa boleh tanpa MFA pada MVP.
+- Admin (mahasiswa dengan role `ADMIN`) wajib MFA. Mahasiswa biasa boleh tanpa MFA pada MVP.
 - KTM tetap menjadi fallback bila IdP kampus belum tersedia.
 - Sesi berakhir setelah 30 menit tanpa aktivitas; refresh token dirotasi.
 - Login gagal 5 kali per IP per menit dibatasi.

@@ -1,25 +1,28 @@
 # Use Case — SewaKampus P13
 
-**Status:** Draf. Diturunkan dari lima Must dan TXT hlm. 16.
+**Status:** Final (internal), 24 November 2026. Review silang dilewati lewat SK-021.
 **Tanggal:** 23 November 2026
+**Diagram:** `01_Business/P13-Use-Case-Diagram.drawio` + `.png` (aktor Penyewa, Pemilik, dan Admin; tujuh use case; tanpa aktor Sistem)
 
 ## Aktor
 
+Penyewa, Pemilik, dan Admin adalah **mahasiswa**. Admin adalah mahasiswa yang diberi role `ADMIN`; bukan staf kampus dan bukan sistem eksternal. Sistem tidak dihitung sebagai aktor: notifikasi, validasi, dan penyimpanan adalah perilaku sistem di dalam use case.
+
 | Aktor | Deskripsi |
 |---|---|
-| Mahasiswa | Pengguna terverifikasi; bisa menjadi penyewa, pemilik, atau keduanya |
-| Admin | Verifikasi KTM, moderasi listing, menangani sengketa |
-| Sistem | Penjadwal status, pengirim email, penyimpan berkas di object storage |
+| Penyewa | Mahasiswa terverifikasi yang menyewa barang |
+| Pemilik | Mahasiswa terverifikasi yang menyewakan barang |
+| Admin | Mahasiswa dengan role `ADMIN`; memverifikasi KTM, memoderasi listing, dan menangani sengketa |
 
 ## Daftar use case
 
 | ID | Nama | Must terkait | Aktor utama |
 |---|---|---|---|
-| UC-01 | Menawarkan barang (listing) | M1 | Mahasiswa pemilik |
-| UC-02 | Memeriksa ketersediaan barang | M2 | Mahasiswa penyewa |
-| UC-03 | Mengajukan dan menyetujui sewa | M3 | Penyewa dan pemilik |
-| UC-04 | Mencatat serah terima dan pengembalian | M4 | Penyewa dan pemilik |
-| UC-05 | Memberi rating dan ulasan | M5 | Penyewa dan pemilik |
+| UC-01 | Menawarkan barang (listing) | M1 | Pemilik |
+| UC-02 | Memeriksa ketersediaan barang | M2 | Penyewa |
+| UC-03 | Mengajukan dan menyetujui sewa | M3 | Penyewa dan Pemilik |
+| UC-04 | Mencatat serah terima dan pengembalian | M4 | Penyewa dan Pemilik |
+| UC-05 | Memberi rating dan ulasan | M5 | Penyewa dan Pemilik |
 | UC-06 | Memverifikasi mahasiswa | Kontrol alur | Admin |
 | UC-07 | Menyelesaikan sengketa | Kontrol alur | Admin |
 
@@ -27,7 +30,7 @@
 
 ## UC-01 Menawarkan barang
 
-**Aktor:** mahasiswa pemilik.
+**Aktor:** Pemilik (mahasiswa).
 **Prakondisi:** akun aktif dan sudah terverifikasi (UC-06).
 **Pascakondisi:** listing berstatus `ACTIVE` dan bisa ditemukan penyewa.
 
@@ -50,7 +53,7 @@
 
 ## UC-02 Memeriksa ketersediaan
 
-**Aktor:** mahasiswa penyewa.
+**Aktor:** Penyewa (mahasiswa).
 **Prakondisi:** listing berstatus `ACTIVE`.
 **Pascakondisi:** penyewa tahu tanggal yang kosong dan bisa mengajukan sewa.
 
@@ -70,7 +73,7 @@
 
 ## UC-03 Mengajukan dan menyetujui sewa
 
-**Aktor:** penyewa (mengajukan), pemilik (memutuskan).
+**Aktor:** Penyewa (mengajukan) dan Pemilik (memutuskan); keduanya mahasiswa.
 **Prakondisi:** penyewa terverifikasi, rentang tanggal kosong.
 **Pascakondisi:** booking berstatus `APPROVED` atau `REJECTED`, dan riwayat status tercatat.
 
@@ -96,7 +99,7 @@
 
 ## UC-04 Mencatat serah terima dan pengembalian
 
-**Aktor:** penyewa dan pemilik.
+**Aktor:** Penyewa dan Pemilik; keduanya mahasiswa.
 **Prakondisi:** booking `APPROVED` untuk OUT, atau `HANDED_OVER` untuk RETURN.
 **Pascakondisi:** dua catatan handover tersimpan dengan foto, booking berlanjut ke `RETURNED` lalu `COMPLETED`.
 
@@ -120,7 +123,7 @@
 
 ## UC-05 Memberi rating dan ulasan
 
-**Aktor:** penyewa dan pemilik.
+**Aktor:** Penyewa dan Pemilik; keduanya mahasiswa.
 **Prakondisi:** booking `COMPLETED`.
 **Pascakondisi:** rating tersimpan, rata-rata barang dan pengguna diperbarui.
 
@@ -142,7 +145,7 @@
 
 ## UC-06 Memverifikasi mahasiswa
 
-**Aktor:** admin.
+**Aktor:** Admin (mahasiswa dengan role `ADMIN`).
 **Prakondisi:** mahasiswa mengunggah KTM.
 **Pascakondisi:** pengajuan verifikasi berstatus `APPROVED` (akun menjadi `ACTIVE`) atau `REJECTED` dengan alasan wajib (akun tetap `PENDING_VERIFICATION` dan boleh mengajukan ulang).
 
@@ -163,7 +166,7 @@
 
 ## UC-07 Menyelesaikan sengketa
 
-**Aktor:** admin.
+**Aktor:** Admin (mahasiswa dengan role `ADMIN`).
 **Prakondisi:** ada booking dengan masalah kerusakan, keterlambatan, atau barang tidak sesuai.
 **Pascakondisi:** sengketa `RESOLVED` atau `REJECTED`, deposit diputuskan.
 

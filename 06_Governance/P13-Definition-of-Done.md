@@ -1,6 +1,6 @@
 # Definition of Done — SewaKampus
 
-**Status:** Draf. Belum disetujui empat anggota.
+**Status:** Final (internal), 23 November 2026. Disetujui tim; review silang formal dilewati lewat SK-021.
 **Tanggal:** 23 November 2026
 
 "DoD" di sini dipakai pada tiga tingkat: artefak, fitur, dan gate.
@@ -14,7 +14,7 @@ Sebuah artefak dianggap selesai jika seluruh butir berikut terpenuhi.
 - [ ] Isinya bisa dipakai orang lain tanpa bertanya ke penulis.
 - [ ] Setiap angka, nama, tanggal, atau kutipan punya sumber yang bisa dibuka.
 - [ ] Tidak ada placeholder seperti `TBD`, `Lorem`, atau `nama-mitra`.
-- [ ] Sudah direview minimal satu anggota lain, dan nama reviewer tercatat.
+- [ ] Sudah direview minimal satu anggota lain, dan nama reviewer tercatat. **Pengecualian P13:** pemilik melewati review silang lewat SK-021; status "Selesai (internal)" tidak berarti sudah direview orang lain.
 - [ ] Tautan relatif di dalam repo tidak rusak.
 
 ## 2. Definition of Done untuk fitur Must

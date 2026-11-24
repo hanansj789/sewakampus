@@ -1,0 +1,227 @@
+@font-face {
+    font-family: "Playfair Display";
+    src: url("../fonts/PlayfairDisplay-Variable.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+}
+
+:root {
+    --sk-canvas: #F5F2EA;
+    --sk-surface: #FFFFFF;
+    --sk-ink: #141414;
+    --sk-muted: #6E6A63;
+    --sk-bronze: #7E5F33;
+    --sk-border: #E4DFD4;
+    --sk-border-strong: #CFC7B8;
+    --sk-soft: #EDE6D8;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body,
+#keycloak-bg {
+    background: var(--sk-canvas) !important;
+    color: var(--sk-ink);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#keycloak-bg {
+    background-image:
+        radial-gradient(circle at 15% 0%, rgba(126, 95, 51, 0.08), transparent 45%),
+        radial-gradient(circle at 85% 100%, rgba(126, 95, 51, 0.06), transparent 40%) !important;
+}
+
+.pf-v5-c-login {
+    padding: 2rem 1.25rem;
+}
+
+.pf-v5-c-login__container {
+    max-width: 30rem;
+}
+
+.pf-v5-c-login__header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#kc-header-wrapper {
+    color: var(--sk-ink) !important;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.25rem, 7vw, 3rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-transform: none;
+}
+
+#kc-header-wrapper::after {
+    color: var(--sk-muted);
+    content: "Marketplace sewa barang antar-mahasiswa";
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin-top: 0.75rem;
+}
+
+.pf-v5-c-login__main {
+    background: var(--sk-surface);
+    border: 1px solid var(--sk-border);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(20, 20, 20, 0.05);
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.pf-v5-c-login__main-header {
+    border-top: 0 !important;
+    padding: 0;
+}
+
+.pf-v5-c-title {
+    color: var(--sk-ink);
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.pf-v5-c-login__main-body {
+    padding-bottom: 0;
+}
+
+.pf-v5-c-form__group {
+    margin-bottom: 1.25rem;
+}
+
+.pf-v5-c-form__label-text,
+.pf-v5-c-form__label {
+    color: var(--sk-ink);
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.pf-v5-c-form-control {
+    background: var(--sk-surface);
+    border: 1px solid var(--sk-border-strong);
+    border-radius: 0.65rem;
+    min-height: 3rem;
+}
+
+.pf-v5-c-form-control:focus-within {
+    border-color: var(--sk-bronze);
+    box-shadow: 0 0 0 3px rgba(126, 95, 51, 0.15);
+    outline: none;
+}
+
+.pf-v5-c-form-control::after {
+    border-bottom-color: var(--sk-bronze) !important;
+}
+
+.pf-v5-c-form-control input:focus,
+.pf-v5-c-form-control input:focus-visible,
+.pf-v5-c-form-control select:focus,
+.pf-v5-c-form-control select:focus-visible {
+    outline: none;
+}
+
+.pf-v5-c-form-control input {
+    color: var(--sk-ink);
+    font-size: 1rem;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.875rem;
+}
+
+.pf-v5-c-form-control input::placeholder {
+    color: var(--sk-muted);
+}
+
+.pf-v5-c-button.pf-m-primary {
+    background: var(--sk-ink);
+    border: 1px solid var(--sk-ink);
+    border-radius: 999px;
+    color: var(--sk-surface);
+    font-size: 1rem;
+    font-weight: 600;
+    min-height: 3.25rem;
+    transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.pf-v5-c-button.pf-m-primary:hover {
+    background: var(--sk-bronze);
+    border-color: var(--sk-bronze);
+}
+
+.pf-v5-c-button.pf-m-primary:active {
+    background: #5F4726;
+    border-color: #5F4726;
+}
+
+.pf-v5-c-button.pf-m-control {
+    border-color: var(--sk-border-strong);
+    border-radius: 0.65rem;
+    color: var(--sk-ink);
+    min-height: 3rem;
+}
+
+.pf-v5-c-button.pf-m-control:hover {
+    background: var(--sk-soft);
+}
+
+a {
+    color: var(--sk-bronze);
+    font-weight: 600;
+}
+
+a:hover {
+    color: #5F4726;
+}
+
+.pf-v5-c-alert {
+    border-radius: 0.75rem;
+}
+
+.pf-v5-c-alert.pf-m-danger {
+    border-color: #9F2D20;
+}
+
+.pf-v5-c-login__main-footer,
+.pf-v5-c-login__main-footer-band {
+    border-top-color: var(--sk-border);
+    color: var(--sk-muted);
+}
+
+.pf-v5-c-login__main-footer-band {
+    padding: 1rem 0 0;
+}
+
+.pf-v5-c-login__main-footer-band-item {
+    color: var(--sk-muted);
+    font-size: 0.8125rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--sk-surface) inset;
+    -webkit-text-fill-color: var(--sk-ink);
+}
+
+@media (max-width: 40rem) {
+    .pf-v5-c-login {
+        padding: 1.5rem 1rem;
+    }
+
+    .pf-v5-c-login__main {
+        padding: 1.5rem;
+    }
+
+    #kc-header-wrapper {
+        font-size: 2rem;
+    }
+}

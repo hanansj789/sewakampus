@@ -1,7 +1,7 @@
 # Papan Kerja P13 — SewaKampus
 
 **Status:** Ada. Empat kartu, satu per anggota.
-**Diperbarui:** 23 November 2026 (setelah langkah 1–4 Session 2)
+**Diperbarui:** 24 November 2026 (review silang dilewati lewat SK-021)
 
 Aturan: satu kartu satu orang. Perpindahan status hanya boleh dilakukan setelah bukti file ada. Status per butir yang berlaku ada di `P13-DELIVERABLE-MATRIX.md`; papan ini mencatat kepemilikan kartu, bukan menggantikan matriks.
 
@@ -9,64 +9,65 @@ Aturan: satu kartu satu orang. Perpindahan status hanya boleh dilakukan setelah 
 
 Dihitung per baris tugas, bukan per deliverable; satu deliverable bisa muncul di dua baris. Status per deliverable ada di matriks.
 
-| Anggota | Peran | Kartu | Ada menunggu review | Sebagian | Belum |
+| Anggota | Peran | Kartu | Selesai (internal) | Sebagian | Belum |
 |---|---|---|---|---|---|
-| Hanan | CEO/PO + Analyst formal | K-01 | 2 | 3 | 2 |
+| Hanan | CEO/PO + Analyst formal | K-01 | 7 | 0 | 0 |
 | Fharel | Analyst/UI/UX pelaksana | K-02 | 5 | 0 | 0 |
-| Fazha | Programmer + Database Architect | K-03 | 6 | 0 | 1 |
-| Mahesa | Network/DevOps + QA/notulis | K-04 | 1 | 3 | 1 |
+| Fazha | Programmer + Database Architect | K-03 | 8 | 0 | 0 |
+| Mahesa | Network/DevOps + QA/notulis | K-04 | 5 | 0 | 0 |
 
-Status **Ada, menunggu review** berarti file lengkap tetapi belum direview anggota lain. Belum ada kartu yang berstatus **Selesai** karena belum ada review silang. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Ada di sini empat belas, sedangkan deliverable Ada di matriks tiga belas.
+Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; review silang dilewati lewat SK-021. Ini bukan penilaian dosen dan bukan bukti review independen. P13-05 muncul di dua baris (use case dan user story), jadi jumlah baris Selesai di sini dua puluh tiga, sedangkan deliverable Selesai di matriks dua puluh satu.
 
 ## K-01 — Hanan: visi, prioritas, dan keputusan
 
 | Tugas | Deliverable | Status | Bukti |
 |---|---|---|---|
-| Susun Vision v1.0 | P13-01 | Sebagian | `00_Vision/P13-Vision-v1.0.md` |
-| Kunci lima Must dan MoSCoW | P13-02 | Sebagian | `00_Vision/P13-MoSCoW-Backlog.md` |
-| DoD dan Team Charter | P13-03 | Sebagian | `06_Governance/P13-Definition-of-Done.md`, `06_Governance/P13-Team-Charter.md` |
-| Traceability lima baris | P13-14 | Sebagian | `06_Governance/P13-Traceability-Matrix.md` |
-| Minta persetujuan tiga anggota atas Vision dan charter | P13-01, P13-03 | Belum | belum ada |
-| Konfirmasi mitra UAT dan jadwal P15 | PR14-01 | Belum | belum ada |
-| Business Model Canvas | PR14-02 | Ada, menunggu review | `01_Business/P13-BMC.drawio` + `.png` |
+| Susun Vision v1.0 | P13-01 | Selesai (internal) | `00_Vision/P13-Vision-v1.0.md` (final, disetujui 24 Nov 2026) |
+| Kunci lima Must dan MoSCoW | P13-02 | Selesai (internal) | `00_Vision/P13-MoSCoW-Backlog.md` (final) |
+| DoD dan Team Charter | P13-03 | Selesai (internal) | `06_Governance/P13-Definition-of-Done.md`, `06_Governance/P13-Team-Charter.md` (tanggal 23 Nov 2026) |
+| Traceability lima baris | P13-14 | Selesai (internal) | `06_Governance/P13-Traceability-Matrix.md` |
+| Minta persetujuan tiga anggota atas Vision dan charter | P13-01, P13-03 | Selesai (internal) | Pernyataan pemilik proyek 24 Nov 2026; tanda tangan charter 23 Nov 2026 |
+| Konfirmasi mitra UAT dan jadwal P15 | PR14-01 | Selesai (internal) | `07_Evidence/PR14-01-UAT-Partner-Plan.md` (tiga peserta proksi, jadwal P15) |
+| Business Model Canvas | PR14-02 | Selesai (internal) | `01_Business/P13-BMC.drawio` + `.png` |
 
 ## K-02 — Fharel: proses, kebutuhan, dan tampilan
 
 | Tugas | Deliverable | Status | Bukti |
 |---|---|---|---|
-| Use case tujuh alur | P13-05 | Ada, menunggu review | `01_Business/P13-Use-Cases.md` |
-| Delapan user story dan acceptance criteria | P13-05 | Ada, menunggu review | `01_Business/P13-User-Stories.md` |
-| Pisahkan BPMN to-be: booking dan handover–return | P13-04 | Ada, menunggu review | `01_Business/P13-BPMN-To-Be-Booking.drawio` + `.png`, `01_Business/P13-BPMN-To-Be-Handover.drawio` + `.png` |
-| Wireframe lima Must | P13-06 | Ada, menunggu review | `03_Application/ux/SewaKampus-Wireframe.figcraft`, `03_Application/ux/P13-06-Wireframe.md`, `03_Application/ux/exports/WF-*.png` |
-| Prototipe clickable | PR14-03 | Ada, menunggu review | `03_Application/ux/SewaKampus-High-Fidelity.figcraft`, `03_Application/ux/PR14-03-Prototype-FigCraft.md`, `03_Application/ux/exports/L-*.png` |
+| Use case tujuh alur | P13-05 | Selesai (internal) | `01_Business/P13-Use-Cases.md`, `01_Business/P13-Use-Case-Diagram.drawio` + `.png` |
+| Delapan user story dan acceptance criteria | P13-05 | Selesai (internal) | `01_Business/P13-User-Stories.md` |
+| Pisahkan BPMN to-be: booking dan handover–return | P13-04 | Selesai (internal) | `01_Business/P13-BPMN-To-Be-Booking.drawio` + `.png`, `01_Business/P13-BPMN-To-Be-Handover.drawio` + `.png` |
+| Wireframe lima Must | P13-06 | Selesai (internal) | `03_Application/ux/SewaKampus-Wireframe.figcraft`, `03_Application/ux/P13-06-Wireframe.md`, `03_Application/ux/exports/WF-01` sampai `WF-09` |
+| Prototipe clickable | PR14-03 | Selesai (internal) | `03_Application/ux/SewaKampus-High-Fidelity.figcraft`, `03_Application/ux/PR14-03-Prototype-FigCraft.md`, `03_Application/ux/exports/L-01` sampai `L-07` |
 
 ## K-03 — Fazha: data, kontrak, dan kode
 
 | Tugas | Deliverable | Status | Bukti |
 |---|---|---|---|
-| Perbaiki kontrak foto kondisi | P13-13 | Ada, menunggu review | `03_Application/openapi.yaml` (SK-014) |
-| Kamus data 14 entitas | P13-08 | Ada, menunggu review | `02_Data/P13-Data-Dictionary.md` |
-| Bukti 3NF dan kecocokan ERD | P13-07 | Ada, menunggu review | `02_Data/P13-ERD.drawio` (17 relasi), `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md` |
-| DDL dan seed | PR14-04, PR14-05 | Ada, menunggu review | `08_Source/database/sql/001_init.sql`, `seed.sql`, `07_Evidence/PR14-04-DDL-Run-Log.md` |
-| Jalankan DDL di database kosong | PR14-04 | Ada, menunggu review | `07_Evidence/PR14-04-DDL-Run-Log.md` (MySQL 8.0.43) |
-| Struktur aplikasi dan ADR | P13-09 | Ada, menunggu review | `03_Application/P13-App-Structure.md`, `06_Governance/ADR-002-application-structure.md` |
-| Login lokal dan README aplikasi | PR14-06, PR14-07 | Belum | belum ada |
+| Perbaiki kontrak foto kondisi | P13-13 | Selesai (internal) | `03_Application/openapi.yaml` (SK-014) |
+| Kamus data 14 entitas | P13-08 | Selesai (internal) | `02_Data/P13-Data-Dictionary.md` |
+| Bukti 3NF dan kecocokan ERD | P13-07 | Selesai (internal) | `02_Data/P13-ERD.drawio` (17 relasi), `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md` |
+| DDL dan seed | PR14-04, PR14-05 | Selesai (internal) | `08_Source/database/sql/001_init.sql`, `seed.sql`, `07_Evidence/PR14-04-DDL-Run-Log.md` |
+| Jalankan DDL di database kosong | PR14-04 | Selesai (internal) | `07_Evidence/PR14-04-DDL-Run-Log.md` (MySQL 8.0.43) |
+| Struktur aplikasi dan ADR | P13-09 | Selesai (internal) | `03_Application/P13-App-Structure.md`, `06_Governance/ADR-002-application-structure.md` |
+| Login lokal dan role | PR14-06 | Selesai (internal) | `08_Source/` (Laravel + Keycloak OIDC/PKCE + middleware role); `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md` (16 test/70 assertion dan smoke test browser lokal STUDENT/ADMIN) |
+| README aplikasi lokal | PR14-07 | Selesai (internal) | `08_Source/README.md`; bukti run di `07_Evidence/PR14-06-Local-Login-Role-Run-Log.md` |
 
 ## K-04 — Mahesa: teknologi, risiko, dan catatan
 
 | Tugas | Deliverable | Status | Bukti |
 |---|---|---|---|
-| NFR | P13-11 | Sebagian | `04_Technology/P13-NFR.md` |
-| Security baseline | P13-11 | Sebagian | `04_Technology/P13-Security-Baseline.md` |
-| Topologi as-is dan to-be | P13-11 | Sebagian | `DESAIN/Phase D - SewaKampus.drawio` baru rancangan target |
-| Notulen stand-up P13 | P13-12 | Belum | `07_Evidence/P13-Standup-Minutes.md` baru format; belum ada rapat |
-| Dua opsi hosting dan biaya | PR14-08 | Ada, menunggu review | `04_Technology/P13-Hosting-Options.md`; enam butir biaya masih belum diverifikasi |
+| NFR | P13-11 | Selesai (internal) | `04_Technology/P13-NFR.md` |
+| Security baseline | P13-11 | Selesai (internal) | `04_Technology/P13-Security-Baseline.md` |
+| Topologi as-is dan to-be | P13-11 | Selesai (internal) | `04_Technology/P13-Topology-As-Is.md` (as-is kualitatif lingkungan mahasiswa), `DESAIN/Phase D - SewaKampus.drawio` (to-be) |
+| Notulen dan progres jobdesc | P13-12 | Selesai (internal) | `07_Evidence/P13-Standup-Minutes.md` (catatan progres asinkron, bukan risalah rapat) |
+| Dua opsi hosting dan biaya | PR14-08 | Selesai (internal) | `04_Technology/P13-Hosting-Options.md`; enam butir biaya belum diverifikasi untuk TCO |
 
 ## Catatan
 
-- Pekerjaan Session 1 dan 2 dikerjakan sebagai kerja tim, bukan kartu pribadi, sehingga tidak ada kartu yang diklaim selesai.
-- Session 3 menambah `03_Application/ux/DESIGN.md,` prototipe hi-fi desktop tujuh layar dalam satu alur terhubung (Buat listing, Katalog, Detail & Kalender, Pengajuan, Persetujuan, Serah terima & foto kondisi, Rating), wireframe desktop terpisah dengan anotasi/States/Flow, dokumentasi, test case, dan rencana UAT. Kartu P13-06 dan PR14-03 naik ke **Ada, menunggu review**.
-- Arah desain berubah dari hangat-hijau Growlio menjadi mewah-minimalis (gading-perunggu, Playfair Display), mengacu ke Inspirato, Turo, dan Hygglo yang dibuka dan diukur langsung. Tiga foto berlisensi Wikimedia Commons dipakai dengan kredit. Versi sebelumnya tetap ada di riwayat git.
-- Berkas pengetahuan bersama ada di `SEWAKAMPUS/AGENTS.md`, `DECISIONS.md`, dan `CONTEXT-PACK.md`. Branch `main` dan `dev` sejalan; `CODEOWNERS` masih berupa komentar karena username GitHub belum ditetapkan (SK-005).
-- Yang paling menghambat Gate 1 sekarang: uji DDL di database kosong, tanda tangan charter, dan review silang seluruh artefak.
-- Tiga baris kartu naik ke **Ada, menunggu review** pada 23 November 2026 lewat commit `55e9fca`. Dua baris kartu Session 3 naik pada commit `8f7d620`. Semuanya belum direview anggota lain.
+- Review silang P13 dilewati lewat SK-021/CR-004. Status **Selesai (internal)** hanya menyatakan artefak lengkap dan diterima pemilik; bukan penilaian dosen dan bukan bukti review independen.
+- Session 3 menambah `03_Application/ux/DESIGN.md`, prototipe hi-fi desktop tujuh layar, wireframe sembilan layar, dokumentasi, test case, dan rencana UAT.
+- Pada 24 November 2026, PR14-06/07 ditambahkan pada branch `feature/pr14-local-login-role` berdasarkan pengecualian CR-003/SK-020. Test otomatis 16/16 dan smoke test browser lokal berhasil.
+- Arah desain mewah-minimalis (gading–perunggu, Playfair Display) mengacu ke Inspirato, Turo, dan Hygglo. Foto Wikimedia Commons dipakai dengan kredit.
+- `CODEOWNERS` tidak diwajibkan (SK-021); remote GitHub tetap ditunda (SK-005).
+- PR14-01 dan PR14-08 ditutup internal pada 24 November 2026. Gate 1 tetap belum dinilai dosen.

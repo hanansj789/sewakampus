@@ -1,4 +1,4 @@
-**Status:** Draf — diusulkan Session 2, belum direview anggota lain.
+**Status:** Selesai (internal) — diusulkan Session 2; review silang dilewati (SK-021).
 
 # ADR-002 — Struktur Aplikasi: Modular Monolith Laravel 11
 
