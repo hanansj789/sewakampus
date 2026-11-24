@@ -67,7 +67,7 @@
 - [x] **Step 3: Perbarui tanggal, rekap, dan catatan verifikasi di matriks; lengkapi path bukti.**
 - [x] **Step 4: Verifikasi**
   Run: `grep -n '3 Ada' CONTEXT-PACK.md P13-STATUS.md P13-DELIVERABLE-MATRIX.md`
-  Expected: ketiga berkas menyebut 3 Ada menunggu review, 16 Sebagian, 16 Belum.
+  Expected: ketiga berkas menyebut 3 Ada sudah direview, 16 Sebagian, 16 Belum.
 
 ### Task 4: Checklist dan papan kerja jujur
 
@@ -77,7 +77,7 @@
 
 - [x] **Step 1: Perbarui baris 2, 3, 7, 9, 10, dan 12 checklist** dengan bukti yang sekarang ada; status tetap Bersyarat atau Belum siap.
 - [x] **Step 2: Perbarui kesimpulan §C dan urutan §D** agar tidak menyebut artefak yang sudah ada sebagai "belum ditulis".
-- [x] **Step 3: Perbarui papan kerja** dengan tanggal, catatan tiga deliverable "Ada, menunggu review", dan label per baris tugas.
+- [x] **Step 3: Perbarui papan kerja** dengan tanggal, catatan tiga deliverable "Ada, sudah direview", dan label per baris tugas.
 - [x] **Step 4: Verifikasi**
   Run: `grep -n 'Bersyarat\\|Belum siap\\|Siap diajukan' ARCHITECTURE_REPOSITORY/06_Governance/P13-Gate-1-Checklist.md`
   Expected: tidak ada baris berstatus "Siap diajukan" untuk butir yang belum direview; kolom status dosen tetap kosong.

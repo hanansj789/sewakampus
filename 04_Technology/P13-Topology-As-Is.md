@@ -75,4 +75,4 @@ To-be tetap mengikuti `04_Technology/P13-Hosting-Options.md` dan `DESAIN/Phase D
 
 ## 6. Batas
 
-Dokumen ini menyatakan topologi as-is **secara kualitatif**. Angka jaringan yang belum diukur tidak boleh dikarang. Status internal P13-11 adalah Selesai (internal) untuk kelengkapan dokumen; pengukuran lapangan menjadi bahan UAT P15, bukan syarat Gate 1.
+Dokumen ini menyatakan topologi as-is **secara kualitatif**. Angka jaringan yang belum diukur tidak boleh dikarang. Status internal P13-11 adalah Selesai untuk kelengkapan dokumen; pengukuran lapangan menjadi bahan UAT P15, bukan syarat Gate 1.

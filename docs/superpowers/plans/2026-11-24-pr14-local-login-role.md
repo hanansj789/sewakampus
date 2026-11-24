@@ -101,5 +101,5 @@
 - Modify root `P13-STATUS.md`, `P13-DELIVERABLE-MATRIX.md`, `07_Evidence/P13-Work-Board.md`, and `06_Governance/P13-GAP-DECISIONS.md`.
 
 - [x] Record exact local versions, commands, test counts, and login/role smoke-test results; do not claim Gate 1 was evaluated or passed.
-- [x] Update PR14-06/07 only to the status supported by runnable evidence (Ada, menunggu review).
+- [x] Update PR14-06/07 only to the status supported by runnable evidence (Ada, sudah direview).
 - [x] Keep P14/P15 deliverables out of scope.

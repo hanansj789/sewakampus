@@ -1,4 +1,4 @@
-**Status:** Selesai (internal). Dokumentasi prototipe FigCraft SewaKampus versi mewah-minimalis (desktop). Bukan bukti kelulusan gate.
+**Status:** Selesai. Dokumentasi prototipe FigCraft SewaKampus versi mewah-minimalis (desktop). Bukan bukti kelulusan gate.
 
 # PR14-03 — Prototipe FigCraft SewaKampus (Desktop)
 

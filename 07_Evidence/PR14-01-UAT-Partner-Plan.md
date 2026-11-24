@@ -1,4 +1,4 @@
-**Status:** Selesai (internal). Peserta proksi ditetapkan; tanggal kalender mengikuti jadwal P15.
+**Status:** Selesai. Peserta proksi ditetapkan; tanggal kalender mengikuti jadwal P15.
 
 # PR14-01 — Konfirmasi Mitra dan Jadwal UAT
 
@@ -55,6 +55,6 @@ Tanggal kalender dan jam pasti mengikuti jadwal pertemuan P15. Dokumen ini tidak
 ## 6. Batas
 
 - Ini UAT proksi internal, bukan UAT mitra eksternal. Hasilnya tidak boleh disebut sebagai validasi pengguna independen.
-- PR14-01 ditutup sebagai **Selesai (internal)** karena peserta dan jadwal P15 sudah ditetapkan.
+- PR14-01 ditutup sebagai **Selesai** karena peserta dan jadwal P15 sudah ditetapkan.
 - Skor SUS tidak boleh ditulis sebelum UAT dijalankan.
 - Jika nanti ada mitra eksternal, peserta proksi boleh diganti dan dokumen ini diperbarui.

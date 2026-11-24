@@ -1,4 +1,4 @@
-**Status:** Selesai (internal). Login + role lokal dan tema Keycloak tersedia; alur Must belum dibuat.
+**Status:** Selesai. Login + role lokal dan tema Keycloak tersedia; alur Must belum dibuat.
 
 # Menjalankan SewaKampus secara lokal
 

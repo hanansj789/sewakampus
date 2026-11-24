@@ -1,6 +1,6 @@
 # Use Case — SewaKampus P13
 
-**Status:** Final (internal), 24 November 2026. Review silang dilewati lewat SK-021.
+**Status:** Final (internal), 24 November 2026. Review silang telah dilakukan (SK-024).
 **Tanggal:** 23 November 2026
 **Diagram:** `01_Business/P13-Use-Case-Diagram.drawio` + `.png` (aktor Penyewa, Pemilik, dan Admin; tujuh use case; tanpa aktor Sistem)
 

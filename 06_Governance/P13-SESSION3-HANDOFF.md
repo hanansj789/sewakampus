@@ -1,5 +1,7 @@
 **Status:** Ada. Handoff Session 3 untuk session berikutnya.
 
+**Status terbaru 24 November 2026:** DDL dan seed sudah dijalankan di MySQL 8.0.43; scaffold login/role sudah ada dan diuji. Butir “belum dijalankan” di bawah adalah snapshot Session 3, bukan status sekarang. Lihat `P13-STATUS.md` dan `P13-DELIVERABLE-MATRIX.md`.
+
 # P13 — Handoff Session 3: Prototipe FigCraft
 
 **Tanggal:** 23 November 2026  

@@ -1,6 +1,6 @@
 # Traceability Matrix — SewaKampus P13
 
-**Status:** Final (internal), 24 November 2026. Lima baris, kolom use case, story, tabel, endpoint, dan layar sudah terisi. Kolom layar mengacu pada prototipe FigCraft `03_Application/ux/SewaKampus-High-Fidelity.figcraft`.
+**Status:** Final, 24 November 2026. Lima baris, kolom use case, story, tabel, endpoint, dan layar sudah terisi. Review silang telah dilakukan (SK-024). Kolom layar mengacu pada prototipe FigCraft `03_Application/ux/SewaKampus-High-Fidelity.figcraft`.
 **Tanggal:** 23 November 2026
 
 Format mengikuti TXT hlm. 17: kebutuhan → use case → tabel → layar. Kolom endpoint dan status ditambahkan sebagai bukti.
@@ -15,7 +15,7 @@ Format mengikuti TXT hlm. 17: kebutuhan → use case → tabel → layar. Kolom 
 
 ## Bukti kolom tabel
 
-Nama tabel dari `02_Data/P13-Data-Dictionary.md`, 14 entitas. Pemeriksaan 3NF ada di `02_Data/P13-3NF-Proof.md`; DDL ada di `08_Source/database/sql/001_init.sql` dan belum dijalankan di database kosong.
+Nama tabel dari `02_Data/P13-Data-Dictionary.md`, 14 entitas. Pemeriksaan 3NF ada di `02_Data/P13-3NF-Proof.md`; DDL ada di `08_Source/database/sql/001_init.sql` dan **sudah dijalankan di MySQL 8.0.43**. Bukti: `07_Evidence/PR14-04-DDL-Run-Log.md` dan verifikasi ulang `07_Evidence/PR14-04-DB-Verification-Run.md` (16 pemeriksaan PASS).
 
 ## Bukti kolom layar
 
@@ -27,9 +27,13 @@ Mobile tidak digambar pada versi ini; desktop ditargetkan lebih dulu sesuai arah
 
 Cek aksesibilitas struktural: kontras teks utama dan sekunder memenuhi 4,5:1, target sentuh utama 44 px atau lebih, dan data privat dimasking sesuai `DESIGN.md`. Cek piksel akhir dilakukan pemilik produk.
 
+## Review silang
+
+Review silang P13 telah dilakukan dan disetujui pada 24 November 2026. Catatan lengkap ada di `06_Governance/P13-Cross-Review-Log.md`.
+
 ## Kekurangan yang masih terbuka
 
-1. Prototipe dan kolom layar sudah ada, tetapi belum direview anggota lain.
-2. DDL dan seed belum dijalankan; belum ada bukti bahwa skema benar-benar berjalan.
-3. Aturan "tidak boleh ada rentang tanggal bertumpuk" belum diuji di kode.
-4. Test case sudah ditulis di `07_Evidence/P14-Test-Cases.md`, tetapi belum dijalankan.
+1. Prototipe dan kolom layar sudah ada dan sudah direview silang; cek piksel akhir tetap dilakukan pemilik produk.
+2. DDL dan seed **sudah dijalankan** di MySQL 8.0.43; verifikasi ulang 16 pemeriksaan PASS. Tidak ada lagi gap eksekusi DDL.
+3. Aturan "tidak boleh ada rentang tanggal bertumpuk" belum diuji di kode karena fitur M2 belum dibangun.
+4. Test case Must di `07_Evidence/P14-Test-Cases.md` belum dijalankan; test auth/role sudah 16/70 dan review UI auth sudah dicatat.

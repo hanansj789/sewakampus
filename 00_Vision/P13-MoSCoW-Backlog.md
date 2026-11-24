@@ -1,6 +1,6 @@
 # MoSCoW Backlog — SewaKampus P13
 
-**Status:** Final (internal). Sudah direview tim dan diterima 24 November 2026; review silang formal dilewati lewat SK-021.
+**Status:** Final (internal). Sudah direview tim dan diterima 24 November 2026; review silang telah dilakukan (SK-024).
 **Tanggal:** 23 November 2026 (isi), ditutup 24 November 2026
 
 ## Must (maksimal lima, terkunci)
@@ -61,4 +61,4 @@ M1 dan M2 dipilih lebih dulu karena keduanya satu alur dan bisa diuji tanpa memb
 | Lima Must | Tetap M1–M5, tidak ada Must keenam |
 | Should, Could, Won't | Diterima tanpa perubahan isi |
 | Reviewer | Empat anggota, dinyatakan lewat instruksi pemilik proyek 24 November 2026 |
-| Batas | Tidak ada tanda tangan terpisah dan tidak ada review independen; status final bersifat internal (SK-021) |
+| Batas | Tidak ada tanda tangan terpisah; review silang internal telah dilakukan (SK-024); status final bersifat internal |
