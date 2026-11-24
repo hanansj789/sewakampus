@@ -1,6 +1,7 @@
 # Team Charter — Kelompok 1 SewaKampus
 
 **Status:** Final (internal). Empat tanda tangan tercatat; tanggal tanda tangan ditetapkan 23 November 2026 oleh pemilik proyek.
+**PDF final:** `06_Governance/P13-Team-Charter.pdf` — charter lengkap dengan empat tanda tangan tertanam.
 **Tanggal dokumen:** 23 November 2026; tanggal tanda tangan 23 November 2026; bukti gambar diperiksa 24 November 2026.
 **Masa berlaku:** P13 sampai P16.
 
@@ -56,4 +57,4 @@ Pergantian peran setelah P13 hanya dengan persetujuan dosen.
 | Muhammad Fazha Nararya Nugraha | Bukti gambar: `../../Tanda Tangan Kelompok/Faza.jpeg` (nama file yang diberikan) | 23 November 2026 |
 | Mahesa Kanaka Raya | Bukti gambar: `../../Tanda Tangan Kelompok/Mahesa.jpeg` | 23 November 2026 |
 
-Catatan bukti: empat JPEG berisi tanda tangan goresan tangan dan nama file masing-masing sesuai nama anggota. Tanggal 23 November 2026 adalah tanggal yang ditetapkan pemilik proyek; tanggal itu tidak tercetak pada gambar. Waktu modifikasi file tidak dipakai sebagai bukti tanggal. Identitas penanda tangan tidak dapat diverifikasi secara kriptografis dari gambar saja. Pemilik proyek meminta bukti tersebut dicatat sebagai tanda tangan anggota.
+Catatan bukti: empat JPEG berisi tanda tangan goresan tangan dan nama file masing-masing sesuai nama anggota. Tanggal 23 November 2026 adalah tanggal yang ditetapkan pemilik proyek; tanggal itu tidak tercetak pada gambar. Waktu modifikasi file tidak dipakai sebagai bukti tanggal. Identitas penanda tangan tidak dapat diverifikasi secara kriptografis dari gambar saja. Pemilik proyek meminta bukti tersebut dicatat sebagai tanda tangan anggota. PDF final `06_Governance/P13-Team-Charter.pdf` menanamkan keempat gambar tersebut agar charter menjadi satu dokumen utuh di repo; JPEG asli tetap berada di `Tanda Tangan Kelompok/` di luar repo.

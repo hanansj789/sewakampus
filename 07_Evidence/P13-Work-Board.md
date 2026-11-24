@@ -24,7 +24,7 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 |---|---|---|---|
 | Susun Vision v1.0 | P13-01 | Selesai (internal) | `00_Vision/P13-Vision-v1.0.md` (final, disetujui 24 Nov 2026) |
 | Kunci lima Must dan MoSCoW | P13-02 | Selesai (internal) | `00_Vision/P13-MoSCoW-Backlog.md` (final) |
-| DoD dan Team Charter | P13-03 | Selesai (internal) | `06_Governance/P13-Definition-of-Done.md`, `06_Governance/P13-Team-Charter.md` (tanggal 23 Nov 2026) |
+| DoD dan Team Charter | P13-03 | Selesai (internal) | `06_Governance/P13-Definition-of-Done.md`, `06_Governance/P13-Team-Charter.md`, `P13-Team-Charter.pdf` (tanda tangan tertanam) |
 | Traceability lima baris | P13-14 | Selesai (internal) | `06_Governance/P13-Traceability-Matrix.md` |
 | Brief Gate 1 dan naskah lima menit | P13-15 | Selesai (internal) | `06_Governance/P13-Gate-1-Brief.md` |
 | Audit kesesuaian jobdesc per role | P13-01–P13-15 | Selesai (internal) | `06_Governance/P13-Role-Coverage.md` |
