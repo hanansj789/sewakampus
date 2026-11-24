@@ -34,8 +34,8 @@ FROM items
 
 UNION ALL
 
-SELECT 'categories_min_8',
-       CASE WHEN COUNT(*) >= 8 THEN 'PASS' ELSE 'FAIL' END,
+SELECT 'categories_min_30',
+       CASE WHEN COUNT(*) >= 30 THEN 'PASS' ELSE 'FAIL' END,
        CONCAT('count=', COUNT(*))
 FROM item_categories
 

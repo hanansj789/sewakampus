@@ -84,4 +84,4 @@ Artinya `CHECK`, foreign key, dan unique key benar-benar aktif, bukan hanya tert
 
 ## 5. Kesimpulan
 
-PR14-04 (DDL jalan) dan PR14-05 (seed ≥30 baris pada tabel master) **terbukti** pada database kosong. Skema bisa dibuat, constraint menolak data salah, dan seed memuat 30 pengguna, 30 barang, 8 kategori sesuai SK-016. Yang belum: kualitas data demo untuk demonstrasi alur status (G-18) dan penyelarasan angka rating (G-21).
+PR14-04 (DDL jalan) dan PR14-05 (seed ≥30 baris pada tabel master) **terbukti** pada database kosong. Skema bisa dibuat, constraint menolak data salah, dan seed memuat 30 pengguna, 30 barang, 30 kategori (SK-023; kategori tidak lagi dikecualikan). Yang belum: kualitas data demo untuk demonstrasi alur status (G-18) dan penyelarasan angka rating (G-21).

@@ -22,7 +22,7 @@ mysql -h 127.0.0.1 -P 3311 -u root sewakampus \
 | Jumlah view | PASS | 1 |
 | Pengguna minimal 30 | PASS | 30 |
 | Barang minimal 30 | PASS | 30 |
-| Kategori minimal 8 | PASS | 8 |
+| Kategori minimal 30 | PASS | 30 |
 | Booking minimal 10 | PASS | 10 |
 | Riwayat status minimal 20 | PASS | 23 |
 | Booking tanpa item | PASS | 0 |
