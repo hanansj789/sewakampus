@@ -14,7 +14,7 @@ Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat*
 | 2 | Matriks ketelusuran ≥5 baris: kebutuhan → use case → tabel → layar | `06_Governance/P13-Traceability-Matrix.md` | Siap diajukan | Lima baris, kolom layar kini menunjuk layar yang benar-benar ada (S-01..S-09); menunggu review silang |
 | 3 | ERD 3NF konsisten dengan use case | `02_Data/P13-ERD.drawio` (14 entitas, 17 relasi), `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md`, `07_Evidence/PR14-04-DDL-Run-Log.md` | Siap diajukan | ERD sudah memuat 17 relasi, pemeriksaan per use case selesai, DDL terbukti jalan di MySQL 8.0.43; menunggu review silang |
 | 4 | Backlog MoSCoW, fitur Must maksimal 5 | `00_Vision/P13-MoSCoW-Backlog.md` | Siap diajukan | Lima Must dikunci dan backlog ditutup 24 Nov 2026 |
-| 5 | Repo dan papan kerja aktif; tiap anggota punya kartu atau commit | `README.md`, `07_Evidence/P13-Work-Board.md` | Siap diajukan | Repo lokal aktif dengan `main`, `dev`, dan tiga `feature/*`; empat kartu terisi. Commit per anggota belum ada, tetapi kartu memenuhi syarat. Remote dan CODEOWNERS tidak diwajibkan |
+| 5 | Repo dan papan kerja aktif; tiap anggota punya kartu atau commit | `README.md`, `07_Evidence/P13-Work-Board.md`, remote privat | Siap diajukan | Repo aktif dengan `main`, `dev`, lima branch role, dan remote privat `hanansj789/sewakampus`; empat kartu terisi. Commit per anggota menyusul dari akun masing-masing |
 
 ## B. Tambahan internal sebelum P14
 
@@ -24,8 +24,8 @@ Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat*
 | 7 | Use case, user story, acceptance criteria | `01_Business/P13-Use-Cases.md`, `01_Business/P13-User-Stories.md`, `01_Business/P13-Use-Case-Diagram.drawio` + `.png` | Siap diajukan | Tujuh use case, delapan story, dan diagram use case dengan aktor, batas sistem, «include», dan «extend» |
 | 8 | Wireframe dan prototipe clickable | `03_Application/ux/exports/` (sembilan wireframe termasuk S-08/S-09, tujuh layar hi-fi), `03_Application/ux/SewaKampus-High-Fidelity.figcraft` | Siap diajukan | Sembilan layar wireframe dan tujuh layar hi-fi dengan enam interaksi klik; buka lewat FigCraft |
 | 9 | API dan NFR konsisten dengan stack | `03_Application/openapi.yaml`, `04_Technology/P13-NFR.md` | Siap diajukan | Kontrak menerima foto kondisi (SK-014), NFR dan security baseline ada; validasi foto menunggu fitur M4 di P15 |
-| 10 | Branch dan kartu anggota aktif | repo lokal | Siap diajukan | `main`, `dev`, dan tiga `feature/*` lokal ada; `CODEOWNERS` tidak diwajibkan (SK-021); remote ditunda (SK-005) |
-| 11 | Team Charter ditandatangani | `06_Governance/P13-Team-Charter.md`, bukti di `Tanda Tangan Kelompok/*.jpeg` | Siap diajukan | Empat gambar tanda tangan tersedia; tanggal tidak tercantum, dan identitas tidak diverifikasi secara kriptografis |
+| 10 | Branch dan kartu anggota aktif | repo lokal dan remote | Siap diajukan | `main`, `dev`, dan lima branch role sudah di-push; `CODEOWNERS` tidak diwajibkan (SK-021); collaborator menunggu username (T-01) |
+| 11 | Team Charter ditandatangani | `06_Governance/P13-Team-Charter.md`, bukti di `Tanda Tangan Kelompok/*.jpeg` | Siap diajukan | Empat gambar tanda tangan tersedia; tanggal 23 November 2026 ditetapkan pemilik, tidak tercetak pada gambar; identitas tidak diverifikasi secara kriptografis |
 | 12 | Berkas pengetahuan bersama | `SEWAKAMPUS/AGENTS.md`, `DECISIONS.md`, `CONTEXT-PACK.md` | Siap diajukan | Isi lengkap dan diselaraskan 24 Nov 2026 |
 
 ## C. Kesimpulan

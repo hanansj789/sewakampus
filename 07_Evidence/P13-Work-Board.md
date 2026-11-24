@@ -66,8 +66,9 @@ Status **Selesai (internal)** berarti artefak lengkap dan diterima pemilik; revi
 ## Catatan
 
 - Review silang P13 dilewati lewat SK-021/CR-004. Status **Selesai (internal)** hanya menyatakan artefak lengkap dan diterima pemilik; bukan penilaian dosen dan bukan bukti review independen.
+- Remote privat `https://github.com/hanansj789/sewakampus` aktif (SK-022/CR-005). `main` dan `dev` sudah di-push; branch per role: `feature/ceo-governance`, `feature/analyst-usecase`, `feature/database-model`, `feature/programmer-app`, `feature/network-devops`.
 - Session 3 menambah `03_Application/ux/DESIGN.md`, prototipe hi-fi desktop tujuh layar, wireframe sembilan layar, dokumentasi, test case, dan rencana UAT.
 - Pada 24 November 2026, PR14-06/07 ditambahkan pada branch `feature/pr14-local-login-role` berdasarkan pengecualian CR-003/SK-020. Test otomatis 16/16 dan smoke test browser lokal berhasil.
 - Arah desain mewah-minimalis (gading–perunggu, Playfair Display) mengacu ke Inspirato, Turo, dan Hygglo. Foto Wikimedia Commons dipakai dengan kredit.
-- `CODEOWNERS` tidak diwajibkan (SK-021); remote GitHub tetap ditunda (SK-005).
+- `CODEOWNERS` tidak diwajibkan (SK-021). Remote privat dan lima branch role sudah ada (SK-022); collaborator menunggu username GitHub tiga anggota (T-01).
 - PR14-01 dan PR14-08 ditutup internal pada 24 November 2026. Gate 1 tetap belum dinilai dosen.
