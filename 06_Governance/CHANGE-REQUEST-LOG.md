@@ -1,4 +1,4 @@
-**Status:** Ada. Tujuh CR tercatat (CR-001 sampai CR-007). Belum ada CR yang berasal dari mitra.
+**Status:** Ada. Delapan CR tercatat (CR-001 sampai CR-008). Belum ada CR yang berasal dari mitra.
 
 # Change Request Log — SewaKampus
 
@@ -6,6 +6,7 @@ Setelah Gate 1, perubahan lingkup, ERD, API, atau lima Must hanya boleh lewat ca
 
 | CR | Tanggal | Pengusul | Perubahan yang diminta | Alasan | Dampak | Keputusan |
 |---|---|---|---|---|---|---|
+| CR-008 | 25 Nov 2026 | Pemilik proyek melalui instruksi sesi | Perbarui fakta visibilitas repo `hanansj789/sewakampus` dari privat menjadi publik pada dokumen dan deck yang masih menyebut privat | Pemilik mengonfirmasi repo sudah publik; `gh repo view` menunjukkan `isPrivate: false` dan `visibility: PUBLIC` | Dokumen operasional, Word, dan deck memakai "repo publik"; rahasia tetap diabaikan Git; Gate 1 tidak berubah | Diterima pemilik pada instruksi sesi 25 Nov 2026 |
 | CR-002 | 24 Nov 2026 | Fazha (audit repo) | Menambah endpoint `POST /bookings/{bookingId}/disputes` ke kontrak API | UC-07 langkah 1 tidak bisa dijalankan lewat API karena hanya sisi admin yang ada (G-10) | Path 33 menjadi 34, operasi 38 menjadi 39, tag 10 menjadi 11; tidak ada perubahan pada lima Must | Diterima sebagai penutupan gap G-10 |
 | CR-007 | 24 Nov 2026 | Pemilik proyek melalui instruksi sesi | Nyatakan review silang P13 telah dilakukan dan disetujui; ubah status artefak P13/PR14 dari "Selesai (internal)" menjadi "Selesai"; perbarui PDF charter dan dokumen terkait | Pemilik menyatakan review silang sudah dilakukan; catatan "dilewati" di beberapa dokumen sudah tidak sesuai | Cross-review dicatat di `06_Governance/P13-Cross-Review-Log.md`; status matriks menjadi Selesai; tidak ada klaim penilaian dosen | Diterima pemilik pada instruksi sesi 24 Nov 2026 |
 | CR-006 | 24 Nov 2026 | Pemilik proyek melalui instruksi sesi | Perluas `item_categories` dari 8 menjadi 30 baris agar seed memenuhi TXT hlm. 15 "≥30 baris per tabel master" | SK-016 mengecualikan kategori, padahal TXT meminta minimal 30 baris per tabel master; TXT adalah sumber tertinggi | Seed menjadi 30 kategori, 30 pengguna, 30 barang; `002_verify.sql` memeriksa minimal 30 kategori; tidak ada perubahan skema atau API | Diterima pemilik pada instruksi sesi 24 Nov 2026 |

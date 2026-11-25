@@ -18,7 +18,7 @@ Menyiapkan Hanan untuk Gate 1 besok: satu halaman bukti, naskah lima menit, dan 
 - **Lima Must, tidak ada Must keenam:** listing, kalender ketersediaan, persetujuan sewa, foto kondisi, rating.
 - Stack tetap: Laravel 11, MySQL 8, Redis 7, MinIO, Keycloak 26, Nginx, satu VPS Docker Compose, Cloudflare, OpenAPI 3.1.
 - Login lokal: Keycloak OIDC + PKCE, role `STUDENT`/`ADMIN` dari MySQL, halaman login bertema SewaKampus.
-- Repo: `https://github.com/hanansj789/sewakampus` (privat), `main` dan `dev` sudah di-push.
+- Repo: `https://github.com/hanansj789/sewakampus` (publik), `main` dan `dev` sudah di-push.
 
 ## 3. Status artefak
 

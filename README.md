@@ -83,7 +83,7 @@ Hasil terakhir: 16 passed, 70 assertions.
 - Commit memakai akun GitHub masing-masing anggota, bukan identitas tim.
 - Pull Request ke `dev`; `main` menerima merge dari `dev`.
 
-Remote **privat**: `https://github.com/hanansj789/sewakampus`. Repo ini bukan publik; hanya collaborator yang bisa membuka.
+Remote **publik**: `https://github.com/hanansj789/sewakampus`. Repo ini bisa dibuka siapa saja; jangan commit rahasia atau data pribadi.
 
 ## 7. Batas dan risiko
 
