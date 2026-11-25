@@ -14,7 +14,7 @@ Status internal yang dipakai di sini hanya tiga: **Siap diajukan**, **Bersyarat*
 | 2 | Matriks ketelusuran ≥5 baris: kebutuhan → use case → tabel → layar | `06_Governance/P13-Traceability-Matrix.md` | Siap diajukan | Lima baris, kolom layar kini menunjuk layar yang benar-benar ada (S-01..S-09); sudah direview silang |
 | 3 | ERD 3NF konsisten dengan use case | `02_Data/P13-ERD.drawio` (14 entitas, 17 relasi), `02_Data/P13-3NF-Proof.md`, `02_Data/P13-ERD-Use-Case-Check.md`, `07_Evidence/PR14-04-DDL-Run-Log.md` | Siap diajukan | ERD sudah memuat 17 relasi, pemeriksaan per use case selesai, DDL terbukti jalan di MySQL 8.0.43; sudah direview silang |
 | 4 | Backlog MoSCoW, fitur Must maksimal 5 | `00_Vision/P13-MoSCoW-Backlog.md` | Siap diajukan | Lima Must dikunci dan backlog ditutup 24 Nov 2026 |
-| 5 | Repo dan papan kerja aktif; tiap anggota punya kartu atau commit | `README.md`, `07_Evidence/P13-Work-Board.md`, remote privat | Siap diajukan | Repo aktif dengan `main`, `dev`, lima branch role, dan remote privat `hanansj789/sewakampus`; empat kartu terisi. Commit per anggota sudah ada di branch role masing-masing |
+| 5 | Repo dan papan kerja aktif; tiap anggota punya kartu atau commit | `README.md`, `07_Evidence/P13-Work-Board.md`, remote publik | Siap diajukan | Repo aktif dengan `main`, `dev`, lima branch role, dan remote publik `hanansj789/sewakampus`; empat kartu terisi. Commit per anggota sudah ada di branch role masing-masing |
 
 ## B. Tambahan internal sebelum P14
 
