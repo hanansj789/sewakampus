@@ -46,7 +46,9 @@
                                 @endif
                             </p>
 
-                            <h2 class="item-title">{{ $item->title }}</h2>
+                            <h2 class="item-title">
+                                <a href="{{ route('items.show', $item) }}">{{ $item->title }}</a>
+                            </h2>
 
                             <p class="item-price">
                                 Rp{{ number_format((float) $item->daily_rate, 0, ',', '.') }} / hari

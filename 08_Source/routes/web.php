@@ -19,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/items/{item}', [ItemController::class, 'update'])->name('items.update');
     Route::post('/items/{item}/pause', [ItemController::class, 'pause'])->name('items.pause');
     Route::post('/items/{item}/photos', [ItemController::class, 'storePhoto'])->name('items.photos.store');
+    Route::get('/items/{item}/availability', [ItemController::class, 'availability'])->name('items.availability');
+    Route::get('/items/{item}', [ItemController::class, 'show'])->name('items.show');
     Route::get('/items/{item}/photos/{photo}', [ItemController::class, 'showPhoto'])->name('items.photos.show');
 });
 

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\ItemCategory;
 use App\Models\ItemPhoto;
+use App\Services\ItemAvailabilityService;
+use Carbon\CarbonImmutable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -30,6 +33,68 @@ class ItemController extends Controller
         return view('items.index', [
             'items' => $query->paginate(12)->withQueryString(),
             'mine' => $mine,
+        ]);
+    }
+
+    public function show(Request $request, Item $item, ItemAvailabilityService $availability): View
+    {
+        if ($item->status !== 'ACTIVE' && $item->owner_id !== $request->user()->id) {
+            abort(404);
+        }
+
+        $month = $request->query('month');
+        $monthStart = is_string($month) && preg_match('/^\d{4}-\d{2}$/', $month) === 1
+            ? CarbonImmutable::createFromFormat('Y-m-d', $month.'-01')->startOfMonth()
+            : CarbonImmutable::now()->startOfMonth();
+
+        $unavailable = $availability->unavailableDates($item, $monthStart);
+
+        $days = [];
+        $leading = $monthStart->dayOfWeekIso - 1;
+        for ($i = 0; $i < $leading; $i++) {
+            $days[] = null;
+        }
+
+        $cursor = $monthStart;
+        while ($cursor->month === $monthStart->month) {
+            $days[] = [
+                'date' => $cursor->toDateString(),
+                'day' => $cursor->day,
+                'unavailable' => in_array($cursor->toDateString(), $unavailable, true),
+                'today' => $cursor->isToday(),
+            ];
+            $cursor = $cursor->addDay();
+        }
+
+        while (count($days) % 7 !== 0) {
+            $days[] = null;
+        }
+
+        return view('items.show', [
+            'item' => $item->load('category', 'owner', 'photos'),
+            'month' => $monthStart,
+            'weeks' => array_chunk($days, 7),
+            'previousMonth' => $monthStart->subMonth()->format('Y-m'),
+            'nextMonth' => $monthStart->addMonth()->format('Y-m'),
+            'isOwner' => $item->owner_id === $request->user()->id,
+        ]);
+    }
+
+    public function availability(Request $request, Item $item, ItemAvailabilityService $availability): JsonResponse
+    {
+        $data = $request->validate([
+            'start_date' => ['required', 'date_format:Y-m-d'],
+            'end_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:start_date'],
+        ]);
+
+        $conflicts = $availability->conflicts($item, $data['start_date'], $data['end_date']);
+
+        return response()->json([
+            'item_public_id' => $item->public_id,
+            'start_date' => $data['start_date'],
+            'end_date' => $data['end_date'],
+            'available' => $conflicts->isEmpty(),
+            'conflicts' => $conflicts,
         ]);
     }
 
