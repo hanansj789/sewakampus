@@ -15,7 +15,9 @@
             <div class="field">
                 <label for="photo">Foto barang</label>
                 <input id="photo" name="photo" type="file" accept="image/jpeg,image/png"
+                       data-photo-input data-photo-preview="#photo-preview-create"
                        @error('photo') aria-invalid="true" aria-describedby="photo-error" @enderror>
+                <img id="photo-preview-create" class="photo-preview" alt="Pratinjau foto yang dipilih" hidden>
                 <p class="field-hint">JPG atau PNG, maksimal 5 MB. Foto pertama menjadi foto utama.</p>
                 @error('photo')<p class="field-error" id="photo-error">{{ $message }}</p>@enderror
             </div>

@@ -231,4 +231,21 @@ class BookingTest extends TestCase
             ->getJson("/items/{$item->id}/availability?start_date=2027-01-10&end_date=2027-01-11")
             ->assertJson(['available' => false]);
     }
+
+    public function test_owner_sees_masked_nim_not_full_nim(): void
+    {
+        $item = $this->item();
+        $renter = $this->renter();
+
+        $this->actingAs($renter)->post("/items/{$item->id}/bookings", $this->payload());
+
+        $nim = $renter->verification?->nim;
+        $this->assertNotNull($nim, 'Data seed verifikasi harus tersedia.');
+
+        $this->actingAs($this->owner())
+            ->get('/bookings')
+            ->assertOk()
+            ->assertSee('NIM ******'.substr($nim, -4))
+            ->assertDontSee($nim);
+    }
 }
