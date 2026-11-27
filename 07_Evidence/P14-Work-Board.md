@@ -18,7 +18,7 @@
 | K-M3 | Persetujuan sewa | Fazha | Menunggu review |
 | K-M4 | Foto kondisi serah terima | Fazha | Menunggu review |
 | K-M5 | Rating dan ulasan | Fazha | Menunggu review |
-| K-DB | Prosedur transaksi dan backup | Fazha | Belum |
+| K-DB | Prosedur transaksi dan backup | Fazha | Menunggu review |
 | K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Belum |
 | K-GAP | Gap analysis per domain | Hanan | Belum |
 | K-UAT | Finalisasi skenario UAT dan SUS | Fharel | Belum |
@@ -127,12 +127,13 @@
 
 **Pemilik:** Fazha. **Branch:** `feature/database-transactions`. **Reviewer:** Mahesa.
 
-- [ ] Prosedur atau transaksi perubahan status booking.
-- [ ] Skrip backup dan perintah restore.
-- [ ] Uji restore ke database baru, catat durasi.
-- [ ] Hasil ditulis apa adanya.
+- [x] Prosedur perubahan status booking (`sp_transition_booking`) dengan validasi transisi dan riwayat.
+- [x] View laporan `v_booking_status_summary`.
+- [x] Skrip backup dan perintah restore.
+- [x] Uji restore ke database baru: 2 detik, 14 tabel, jumlah baris identik.
+- [x] Hasil ditulis apa adanya, termasuk batas (belum offsite, belum terjadwal, Keycloak tidak termasuk).
 
-**Bukti:** `07_Evidence/P15-Restore-Test.md`.
+**Status:** Menunggu review. Bukti: `07_Evidence/P15-DB-Procedures.md`, `07_Evidence/P15-Restore-Test.md`.
 
 ## K-TCO — Biaya infrastruktur 12 bulan
 
