@@ -22,7 +22,7 @@
 | K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Menunggu review |
 | K-GAP | Gap analysis per domain | Hanan | Menunggu review |
 | K-RM | Roadmap dan migration plan per gate | Hanan | Menunggu review |
-| K-UAT | Finalisasi skenario UAT dan SUS | Fharel | Belum |
+| K-UAT | Finalisasi skenario UAT dan SUS | Fharel | Siap dijalankan |
 
 ## K-M1 — Listing end-to-end
 
@@ -175,12 +175,14 @@
 
 **Pemilik:** Fharel. **Branch:** `docs/analyst-uat`. **Reviewer:** Hanan.
 
-- [ ] Skenario tugas disesuaikan dengan fitur yang benar-benar ada.
-- [ ] Kuesioner SUS 10 butir final.
-- [ ] Rencana peserta: mitra atau minimal tiga pengguna proksi.
-- [ ] Cara mencatat bukti: waktu, kesalahan, komentar, foto.
+- [x] Skenario tugas disesuaikan dengan fitur yang benar-benar ada (U1–U11).
+- [x] Kuesioner SUS 10 butir final dengan lembar hitung otomatis.
+- [x] Rencana peserta: tiga pengguna proksi dengan profil jelas.
+- [x] Cara mencatat bukti: waktu, kesalahan, kutipan, izin rekaman.
+- [x] Lembar observasi dan ringkasan hasil tersedia.
+- [ ] Jalankan sesi UAT dan isi hasil (belum terjadi).
 
-**Bukti:** `07_Evidence/P15-UAT-Plan.md` versi final.
+**Status:** Siap dijalankan, hasil belum ada. Bukti: `07_Evidence/P15-UAT-Plan.md`, `07_Evidence/P15-SUS-Template.xlsx`.
 
 ## Catatan
 

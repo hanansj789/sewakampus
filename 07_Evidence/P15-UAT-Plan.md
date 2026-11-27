@@ -1,39 +1,85 @@
-**Status:** Draf. Rencana UAT untuk P15. Belum ada UAT yang dijalankan dan belum ada skor SUS.
+**Status:** Ada. Rencana UAT siap dijalankan, 27 November 2026.
+**Catatan:** belum ada UAT yang dijalankan dan belum ada skor SUS. Dokumen ini hanya alat; hasil diisi setelah sesi.
 
-# P15 — Rencana UAT SewaKampus
+# P15 — Rencana dan Perangkat UAT SewaKampus
 
-**Tanggal:** 23 November 2026  
-**Mitra:** belum dikonfirmasi. Rencana memakai minimal tiga pengguna proksi bila mitra tetap belum tersedia.  
-**Prinsip:** pengguna diberi tugas, bukan ditunjukkan caranya. Kebingungan dicatat sebagai temuan.
+**Pemilik:** Fharel Sapvela Dwipa (System Analyst & UI/UX)
+**Fasilitator:** Fharel. **Pencatat:** Hanan. **Operator teknis:** Fazha.
+**Lingkungan:** staging `https://cakes-clicks-berlin-alan.trycloudflare.com` (periksa ulang sebelum sesi).
+**Berkas pendukung:** `07_Evidence/P15-SUS-Template.xlsx`.
 
-## 1. Skenario tugas
+## 1. Tujuan
 
-Pengguna menjalankan alur lima Must tanpa bantuan.
+Menguji apakah lima fitur Must dapat diselesaikan pengguna tanpa diarahkan, lalu mengukur kepuasan dengan SUS. Yang dicari bukan pujian, tetapi titik bingung.
 
-| Tugas | Tindakan | Kriteria berhasil |
+## 2. Peserta
+
+Minimal tiga pengguna proksi bila mitra tidak tersedia. Setiap peserta diberi kode, bukan nama asli, di laporan.
+
+| Kode | Profil yang dicari | Peran dalam sesi |
 |---|---|---|
-| T1 | Membuat listing dengan foto | Listing aktif muncul di katalog |
-| T2 | Menjeda dan melanjutkan listing | Status berubah dan tercermin di katalog |
-| T3 | Melihat kalender dan memilih rentang kosong | Tanggal terpilih tanpa bentrok |
-| T4 | Mengajukan sewa dan meninjau biaya | Pengajuan tersimpan dengan total biaya benar |
-| T5 | Menyetujui dan menolak pengajuan | Status berubah sesuai keputusan, penolakan memuat alasan |
-| T6 | Mencatat serah terima OUT dengan foto | Foto wajib terunggah dan catatan tersimpan |
-| T7 | Mencatat pengembalian RETURN dengan foto | Foto wajib terunggah dan keterlambatan tercatat bila ada |
-| T8 | Memberi rating setelah transaksi selesai | Rating 1 sampai 5 tersimpan |
+| P1 | Mahasiswa yang pernah menyewa barang | Penyewa |
+| P2 | Mahasiswa yang punya barang untuk disewakan | Pemilik |
+| P3 | Mahasiswa non-teknis yang belum pernah memakai aplikasi sewa | Penyewa kedua dan penilai |
 
-## 2. Skenario kegagalan yang diamati
+Peserta tidak boleh anggota tim yang membangun fitur yang diujinya. Bila terpaksa memakai anggota tim, catat sebagai **proksi internal** dan jangan sebut sebagai mitra.
 
-Fasilitator mencatat apa yang terjadi, bukan membantu.
+## 3. Skenario tugas
 
-- Akun belum terverifikasi mencoba membuat listing.
-- Unggah foto dibatalkan di tengah proses.
-- Rentang tanggal yang dipilih ternyata bertabrakan.
-- Pemilik mencoba menolak tanpa alasan.
-- Pengguna mencoba memberi rating sebelum transaksi selesai.
+Tugas dibacakan apa adanya. Fasilitator tidak menunjukkan tombol atau langkah.
 
-## 3. Kuesioner SUS
+| Kode | Untuk | Tugas | Berhasil bila |
+|---|---|---|---|
+| U1 | P1, P3 | Masuk ke SewaKampus dengan akun yang diberikan | Sampai halaman katalog |
+| U2 | P2 | Tawarkan satu barang dengan foto, harga, dan titik serah terima | Listing aktif muncul di katalog |
+| U3 | P2 | Hentikan sementara barang itu, lalu aktifkan lagi | Status berubah dan katalog mengikuti |
+| U4 | P1, P3 | Cari barang dan tentukan tanggal yang masih kosong | Memilih rentang tanpa bentrok |
+| U5 | P1 | Ajukan sewa untuk tiga hari | Pengajuan tersimpan dengan total benar |
+| U6 | P2 | Setujui satu pengajuan, tolak satu pengajuan dengan alasan | Status berubah; alasan tercatat |
+| U7 | P1, P2 | Catat serah terima dengan foto | Foto terunggah, status menunggu konfirmasi |
+| U8 | P2 | Konfirmasi serah terima dari pihak lain | Status menjadi diserahkan |
+| U9 | P1, P2 | Catat dan konfirmasi pengembalian dengan foto | Status menjadi dikembalikan |
+| U10 | P2 | Selesaikan transaksi | Status selesai, deposit simulasi dikembalikan |
+| U11 | P1, P3 | Beri rating dan ulasan setelah transaksi selesai | Rating tampil di halaman barang |
 
-Sepuluh butir standar, skala 1 sampai 5. Skor dihitung setelah semua pengguna menjawab.
+## 4. Skenario negatif yang diamati
+
+Fasilitator mencatat reaksi pengguna, bukan membantu:
+
+- Menyimpan listing tanpa judul.
+- Mengunggah berkas bukan gambar.
+- Memilih tanggal yang bertabrakan.
+- Menolak pengajuan tanpa alasan.
+- Memberi rating sebelum transaksi selesai.
+
+## 5. Jalannya sesi (60 menit)
+
+| Menit | Kegiatan |
+|---|---|
+| 0–5 | Sambutan, izin rekaman, penjelasan bahwa yang diuji aplikasi bukan peserta |
+| 5–10 | P1 dan P3 masuk, P2 menyiapkan listing (U1–U3) |
+| 10–25 | P1 mencari dan mengajukan sewa; P2 memutuskan (U4–U6) |
+| 25–40 | Serah terima, pengembalian, penyelesaian (U7–U10) |
+| 40–50 | Rating, ulasan, dan penjelajahan bebas (U11) |
+| 50–60 | Kuesioner SUS dan wawancara singkat |
+
+Aturan: satu peserta satu perangkat. Jangan membantu kecuali peserta benar-benar berhenti lebih dari dua menit; bantuan dicatat sebagai temuan.
+
+## 6. Yang dicatat
+
+| Data | Cara |
+|---|---|
+| Keberhasilan tugas | Berhasil, berhasil dengan bantuan, gagal |
+| Waktu | Detik, dari tugas dibacakan sampai selesai |
+| Kesalahan | Salah klik, salah paham, kembali berulang |
+| Kutipan | Kalimat peserta apa adanya |
+| Ekspektasi | Apa yang peserta cari tetapi tidak ada |
+
+Lembar observasi ada di `P15-SUS-Template.xlsx` sheet `Tugas`.
+
+## 7. Kuesioner SUS
+
+Sepuluh pernyataan, skala 1 (sangat tidak setuju) sampai 5 (sangat setuju).
 
 | # | Pernyataan |
 |---|---|
@@ -48,27 +94,34 @@ Sepuluh butir standar, skala 1 sampai 5. Skor dihitung setelah semua pengguna me
 | 9 | Saya percaya diri saat memakai sistem ini. |
 | 10 | Saya perlu belajar banyak hal sebelum memakainya. |
 
-Cara hitung: butir ganjil memakai skor dikurangi 1, butir genap memakai 5 dikurangi skor. Jumlahnya dikali 2,5.
+Perhitungan: butir ganjil = skor − 1; butir genap = 5 − skor; jumlah × 2,5. Rentang 0–100. Rata-rata tiga peserta menjadi skor SUS.
 
-## 4. Cara mencatat bukti
+Pembanding, bukan target yang dikarang: SUS di atas 68 dianggap di atas rata-rata pada literatur umum. Tim boleh memakai 68 sebagai garis pembanding, tetapi hasil nyata tetap apa adanya.
 
-- Waktu penyelesaian setiap tugas.
-- Kesalahan, jalan buntu, dan komentar pengguna apa adanya.
-- Foto atau rekaman layar bila pengguna mengizinkan.
-- Kuesioner SUS yang sudah diisi.
-- Tidak ada skor, nama responden, atau hasil yang ditulis sebelum UAT benar-benar terjadi.
+## 8. Etika dan bukti
 
-## 5. Rencana pengguna proksi
+- Minta izin tertulis atau lisan sebelum merekam layar atau suara.
+- Jangan menyimpan nama, nomor telepon, atau berkas KTM peserta.
+- Rekaman disimpan di folder privat, tidak di repo.
+- Peserta boleh berhenti kapan saja.
+- Laporan memakai kode P1–P3, bukan nama.
 
-Minimal tiga pengguna dengan profil jelas, identitas dicatat saat UAT berlangsung.
+## 9. Kerangka laporan hasil
 
-| Peran | Profil yang dibutuhkan |
+Diisi setelah sesi, bukan sebelumnya:
+
+| Bagian | Isi |
 |---|---|
-| Penyewa | Mahasiswa yang pernah menyewa barang lewat grup chat |
-| Pemilik | Mahasiswa yang pernah menyewakan barangnya |
-| Admin | Mahasiswa yang memahami proses verifikasi KTM |
+| Tanggal dan tempat | |
+| Peserta | P1, P2, P3 beserta profil singkat |
+| Keberhasilan tugas | x dari 11 per peserta |
+| Rata-rata waktu | per tugas |
+| Kesalahan terbanyak | |
+| Kutipan penting | |
+| Skor SUS | per peserta dan rata-rata |
+| Temuan prioritas | dampak × kemudahan perbaikan |
+| Tindak lanjut | siapa, kapan |
 
-## 6. Batasan
+## 10. Batas
 
-- UAT memakai prototipe atau build staging, bukan data produksi.
-- Hasil UAT dan skor SUS dicatat pada P15 setelah pengujian nyata.
+Rencana ini belum dijalankan. Tidak ada skor, kutipan, atau temuan yang boleh ditulis sebelum sesi benar-benar terjadi. Mitra eksternal belum dikonfirmasi; bila tetap tidak ada, laporan harus menyebut peserta sebagai proksi.
