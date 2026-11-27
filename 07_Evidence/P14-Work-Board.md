@@ -15,7 +15,7 @@
 | K-TEST | Jalankan 15 test case dan cek UI | Fharel | Sebagian |
 | K-STG | IP plan, deployment, staging | Mahesa | Belum |
 | K-GATE2 | Paket Gate 2 | Hanan | Belum |
-| K-M3 | Persetujuan sewa | Fazha | Belum |
+| K-M3 | Persetujuan sewa | Fazha | Menunggu review |
 | K-M4 | Foto kondisi serah terima | Fazha | Belum |
 | K-DB | Prosedur transaksi dan backup | Fazha | Belum |
 | K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Belum |
@@ -88,13 +88,14 @@
 
 **Pemilik:** Fazha. **Branch:** `feature/programmer-m3-booking`. **Reviewer:** Fharel.
 
-- [ ] Pengajuan sewa tersimpan dengan snapshot harga.
-- [ ] Setujui dan tolak mengubah status berurutan, tercatat di `booking_status_histories`.
-- [ ] Tolak mewajibkan alasan.
-- [ ] Notifikasi minimal tercatat di tabel.
-- [ ] Test transisi status: tidak boleh melompat.
+- [x] Pengajuan sewa tersimpan dengan snapshot harga.
+- [x] Setujui dan tolak mengubah status berurutan, tercatat di `booking_status_histories`.
+- [x] Tolak mewajibkan alasan.
+- [x] Notifikasi minimal tercatat di tabel.
+- [x] Test transisi status: tidak boleh melompat.
+- [x] Kunci baris item saat booking dibuat (dipindah dari K-M2).
 
-**Bukti:** `07_Evidence/P15-M3-Run.md` dan PR.
+**Status:** Menunggu review. Bukti: `07_Evidence/P14-M3-Run.md`, 12 tes lulus (40 assertion), total suite 51 lulus (172 assertion), plus uji peramban dua akun.
 
 ## K-M4 — Foto kondisi serah terima
 
