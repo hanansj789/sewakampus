@@ -89,7 +89,44 @@
 
         <p class="field-hint">
             Tanggal terisi berasal dari booking yang masih berjalan dan blokir pemilik.
-            Pengajuan sewa belum dibuka pada tahap ini.
         </p>
     </section>
+
+    @if (! $isOwner && $item->status === 'ACTIVE')
+        <section class="booking-panel" aria-labelledby="booking-title">
+            <h2 id="booking-title">Ajukan sewa</h2>
+            <p class="field-hint">Pilih rentang tanggal. Pengajuan diteruskan ke pemilik untuk diputuskan.</p>
+
+            <form method="POST" action="{{ route('bookings.store', $item) }}" class="item-form">
+                @csrf
+
+                <div class="field-row">
+                    <div class="field">
+                        <label for="start_date">Tanggal mulai</label>
+                        <input id="start_date" name="start_date" type="date" required
+                               value="{{ old('start_date') }}"
+                               @error('start_date') aria-invalid="true" aria-describedby="start-error" @enderror>
+                        @error('start_date')<p class="field-error" id="start-error">{{ $message }}</p>@enderror
+                    </div>
+
+                    <div class="field">
+                        <label for="end_date">Tanggal selesai</label>
+                        <input id="end_date" name="end_date" type="date" required
+                               value="{{ old('end_date') }}"
+                               @error('end_date') aria-invalid="true" aria-describedby="end-error" @enderror>
+                        @error('end_date')<p class="field-error" id="end-error">{{ $message }}</p>@enderror
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="renter_note">Catatan untuk pemilik (opsional)</label>
+                    <textarea id="renter_note" name="renter_note" rows="2" maxlength="500"
+                              @error('renter_note') aria-invalid="true" aria-describedby="note-error" @enderror>{{ old('renter_note') }}</textarea>
+                    @error('renter_note')<p class="field-error" id="note-error">{{ $message }}</p>@enderror
+                </div>
+
+                <button class="primary-action" type="submit">Kirim pengajuan</button>
+            </form>
+        </section>
+    @endif
 @endsection
