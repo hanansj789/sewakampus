@@ -16,7 +16,7 @@
 | K-STG | IP plan, deployment, staging | Mahesa | Belum |
 | K-GATE2 | Paket Gate 2 | Hanan | Belum |
 | K-M3 | Persetujuan sewa | Fazha | Menunggu review |
-| K-M4 | Foto kondisi serah terima | Fazha | Belum |
+| K-M4 | Foto kondisi serah terima | Fazha | Menunggu review |
 | K-DB | Prosedur transaksi dan backup | Fazha | Belum |
 | K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Belum |
 | K-GAP | Gap analysis per domain | Hanan | Belum |
@@ -101,12 +101,13 @@
 
 **Pemilik:** Fazha. **Branch:** `feature/programmer-m4-handover`. **Reviewer:** Mahesa.
 
-- [ ] Handover OUT dan RETURN, foto wajib (kontrak sudah multipart).
-- [ ] Konfirmasi dua pihak.
-- [ ] Status booking berubah sesuai aturan.
-- [ ] Test: permintaan tanpa foto ditolak 422.
+- [x] Handover OUT dan RETURN, foto wajib (kontrak sudah multipart).
+- [x] Konfirmasi dua pihak.
+- [x] Status booking berubah sesuai aturan, termasuk catatan keterlambatan.
+- [x] Test: permintaan tanpa foto ditolak 422.
+- [x] Tombol selesaikan transaksi setelah RETURNED, deposit simulasi dikembalikan.
 
-**Bukti:** `07_Evidence/P15-M4-Run.md` dan PR.
+**Status:** Menunggu review. Bukti: `07_Evidence/P14-M4-Run.md`, 15 tes lulus, total suite 66 lulus (207 assertion).
 
 ## K-DB — Prosedur transaksi dan backup
 

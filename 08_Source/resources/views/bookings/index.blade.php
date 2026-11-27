@@ -35,6 +35,10 @@
                             @endif
                         </div>
 
+                        @if (in_array($booking->status, ['APPROVED', 'HANDED_OVER', 'RETURNED'], true))
+                            <a class="secondary-action" href="{{ route('bookings.handover', $booking) }}">Serah terima</a>
+                        @endif
+
                         @if ($booking->status === 'PENDING')
                             <div class="booking-actions">
                                 <form method="POST" action="{{ route('bookings.approve', $booking) }}">
@@ -79,6 +83,10 @@
                                 Total Rp{{ number_format((float) $booking->total_amount, 0, ',', '.') }}
                             </p>
                         </div>
+
+                        @if (in_array($booking->status, ['APPROVED', 'HANDED_OVER', 'RETURNED'], true))
+                            <a class="secondary-action" href="{{ route('bookings.handover', $booking) }}">Serah terima</a>
+                        @endif
 
                         @if ($booking->status === 'PENDING')
                             <form method="POST" action="{{ route('bookings.cancel', $booking) }}">
