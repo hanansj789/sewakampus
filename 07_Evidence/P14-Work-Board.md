@@ -60,7 +60,7 @@
 - [x] Hasil: 12 Pass, 0 Fail, 3 Blocked (alur KTM dan sengketa belum dibangun).
 - [x] Dua cacat ditemukan dan diperbaiki: pesan validasi bahasa Inggris, foto seed hilang.
 - [x] Setiap kasus menautkan bukti tes otomatis atau tangkapan layar.
-- [ ] Cek UI membandingkan layar nyata dengan prototipe S-01 sampai S-05.
+- [x] Cek UI membandingkan layar nyata dengan prototipe S-01 sampai S-05 (`07_Evidence/P14-UI-Comparison.md`).
 
 **Status:** Menunggu review. Bukti: `07_Evidence/P14-Test-Run.xlsx`, `07_Evidence/P14-Test-Run.md`, 76 tes otomatis lulus.
 
@@ -75,6 +75,17 @@
 - [x] Catat batas staging: single node, bukan produksi, mati bila laptop mati.
 
 **Status:** Menunggu review. Bukti: `07_Evidence/P14-Staging-Deploy.md`, `04_Technology/P14-IP-Plan.md`, `04_Technology/P14-Deployment-Final.md`, `04_Technology/P14-Security-Checklist.md`.
+
+## K-QA — Uji dua fitur pertama
+
+**Pemilik:** Hanan (QA P14). **Branch:** `docs/ceo-qa-first-features`. **Reviewer:** Mahesa.
+
+- [x] M1 listing diuji di staging: buat, tampil, jeda, hilang dari katalog.
+- [x] M2 kalender diuji: tanggal terpakai dan kosong.
+- [x] Delapan kasus QA, semua lulus.
+- [x] Bukti tangkapan layar kalender.
+
+**Status:** Menunggu review. Bukti: `07_Evidence/P14-QA-First-Features.md`.
 
 ## K-GATE2 — Paket Gate 2
 
