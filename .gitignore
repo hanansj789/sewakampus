@@ -26,3 +26,6 @@ data-pribadi/
 
 # PHPUnit local cache
 .phpunit.result.cache
+
+# Alat pemeriksaan peramban
+.playwright-mcp/

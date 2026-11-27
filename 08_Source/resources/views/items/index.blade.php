@@ -30,8 +30,9 @@
                 @foreach ($items as $item)
                     <li class="item-card">
                         <div class="item-photo">
-                            @if ($item->primaryPhoto)
-                                <img src="{{ route('items.photos.show', [$item, $item->primaryPhoto]) }}"
+                            @php($primary = $item->primaryPhoto)
+                            @if ($primary && \Illuminate\Support\Facades\Storage::disk('local')->exists($primary->file_path))
+                                <img src="{{ route('items.photos.show', [$item, $primary]) }}"
                                      alt="Foto {{ $item->title }}" width="640" height="420" loading="lazy">
                             @else
                                 <span class="photo-placeholder">Belum ada foto</span>

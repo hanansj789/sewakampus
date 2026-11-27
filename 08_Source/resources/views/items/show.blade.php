@@ -28,15 +28,18 @@
 
         <p class="detail-description">{{ $item->description }}</p>
 
-        @if ($item->photos->isNotEmpty())
+        @php($visiblePhotos = $item->photos->filter(fn ($photo) => \Illuminate\Support\Facades\Storage::disk('local')->exists($photo->file_path)))
+        @if ($visiblePhotos->isNotEmpty())
             <ul class="detail-gallery">
-                @foreach ($item->photos as $photo)
+                @foreach ($visiblePhotos as $photo)
                     <li>
                         <img src="{{ route('items.photos.show', [$item, $photo]) }}"
                              alt="Foto {{ $item->title }}" width="480" height="320" loading="lazy">
                     </li>
                 @endforeach
             </ul>
+        @else
+            <p class="field-hint">Foto belum tersedia untuk listing ini.</p>
         @endif
     </section>
 

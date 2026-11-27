@@ -12,7 +12,7 @@
 |---|---|---|---|
 | K-M1 | Listing end-to-end | Fazha | Menunggu review |
 | K-M2 | Kalender ketersediaan | Fazha | Menunggu review |
-| K-TEST | Jalankan 15 test case dan cek UI | Fharel | Belum |
+| K-TEST | Jalankan 15 test case dan cek UI | Fharel | Sebagian |
 | K-STG | IP plan, deployment, staging | Mahesa | Belum |
 | K-GATE2 | Paket Gate 2 | Hanan | Belum |
 | K-M3 | Persetujuan sewa | Fazha | Belum |
@@ -52,13 +52,14 @@
 
 **Pemilik:** Fharel. **Branch:** `docs/analyst-test-run`. **Reviewer:** Hanan.
 
-- [ ] 15 kasus dijalankan pada M1 dan M2.
-- [ ] Setiap kasus berstatus lulus atau gagal apa adanya.
-- [ ] Kasus gagal menjadi tugas perbaikan, bukan dihapus.
+- [x] TC-01 sampai TC-05 dijalankan pada M1 dan M2 lewat peramban (pemeriksaan awal).
+- [ ] TC-06 sampai TC-15 menunggu M3, M4, dan M5.
+- [x] Dua cacat ditemukan dan diperbaiki: pesan validasi bahasa Inggris, foto seed hilang.
+- [ ] Uji formal 15 kasus oleh Analyst.
 - [ ] Cek UI membandingkan layar nyata dengan prototipe S-01, S-02, S-03.
 - [ ] Selisih UI dicatat per layar.
 
-**Bukti:** `07_Evidence/P14-Test-Run.md`, `07_Evidence/P14-03-UI-Review.md`.
+**Status:** Sebagian. Bukti awal: `07_Evidence/P14-M1M2-Precheck.md` dan dua tangkapan layar di `07_Evidence/screenshots/`.
 
 ## K-STG — IP plan, deployment, staging
 
