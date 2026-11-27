@@ -28,11 +28,12 @@
     <section class="form-panel" aria-labelledby="photos-title">
         <h2 id="photos-title">Foto barang</h2>
 
-        @if ($item->photos->isEmpty())
+        @php($visiblePhotos = $item->photos->filter(fn ($photo) => \Illuminate\Support\Facades\Storage::disk('local')->exists($photo->file_path)))
+        @if ($visiblePhotos->isEmpty())
             <p class="field-hint">Belum ada foto. Listing berstatus draf sampai foto pertama ditambahkan.</p>
         @else
             <ul class="photo-list">
-                @foreach ($item->photos as $photo)
+                @foreach ($visiblePhotos as $photo)
                     <li>
                         <img src="{{ route('items.photos.show', [$item, $photo]) }}"
                              alt="Foto {{ $item->title }}" width="240" height="160" loading="lazy">
