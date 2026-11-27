@@ -15,6 +15,18 @@
 | Redis | belum dijalankan | 6379 | belum diperlukan scaffold login |
 | MinIO | belum dijalankan | 9000 | belum diperlukan scaffold login |
 
+## 1.1 Lokasi instalasi di mesin pengembangan
+
+| Komponen | Path | Catatan |
+|---|---|---|
+| MySQL 8.0.43 | `C:/Users/ASUS/tools/mysql8/mysql-8.0.43-winx64/bin` | zip portable, bukan layanan |
+| Data MySQL | `C:/Users/ASUS/tools/mysql8/data` | jangan dihapus tanpa backup |
+| Keycloak 26.4.0 | `C:/Users/ASUS/tools/keycloak/keycloak-26.4.0` | mode dev, data H2 di dalam folder |
+| JRE 21 | `C:/Users/ASUS/tools/jre21/jdk-21.0.13.1+2-jre` | dipakai lewat JAVA_HOME, tidak masuk PATH |
+| Realm JSON | `C:/Users/ASUS/tools/keycloak/realm-sewakampus.json` | berisi client secret, jangan di-commit |
+
+Bukti pemeriksaan: `07_Evidence/P14-Phase0-Env-Check.md`.
+
 ## 2. Urutan menyalakan
 
 1. **MySQL** — pastikan menerima koneksi:
