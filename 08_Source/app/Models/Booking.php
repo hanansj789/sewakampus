@@ -39,6 +39,11 @@ class Booking extends Model
         return $this->hasMany(Handover::class);
     }
 
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function statusHistory(): HasMany
     {
         return $this->hasMany(BookingStatusHistory::class);

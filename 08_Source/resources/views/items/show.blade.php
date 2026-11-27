@@ -129,4 +129,27 @@
             </form>
         </section>
     @endif
+
+    @if ($item->reviews->isNotEmpty())
+        <section class="booking-panel" aria-labelledby="reviews-title">
+            <h2 id="reviews-title">Ulasan</h2>
+            <p class="field-hint">
+                Rata-rata {{ number_format((float) $item->average_rating, 1, ',', '.') }} dari {{ $item->review_count }} ulasan.
+            </p>
+
+            <ul class="review-list">
+                @foreach ($item->reviews as $review)
+                    <li class="review-card">
+                        <p class="item-meta">
+                            {{ str_repeat('★', $review->rating) }}{{ str_repeat('☆', 5 - $review->rating) }}
+                            <span class="item-detail">{{ $review->reviewer?->full_name ?? 'Pengguna' }}</span>
+                        </p>
+                        @if ($review->comment)
+                            <p>{{ $review->comment }}</p>
+                        @endif
+                    </li>
+                @endforeach
+            </ul>
+        </section>
+    @endif
 @endsection

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\KeycloakAuthController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\HandoverController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ItemController;
 
 Route::view('/login', 'auth.login')->name('login');
@@ -35,6 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/bookings/{booking}/handovers/{handover}/confirm', [HandoverController::class, 'confirm'])->name('bookings.handovers.confirm');
     Route::get('/bookings/{booking}/handovers/{handover}/photo', [HandoverController::class, 'showPhoto'])->name('bookings.handovers.photo');
     Route::post('/bookings/{booking}/complete', [HandoverController::class, 'complete'])->name('bookings.complete');
+
+    Route::get('/bookings/{booking}/review', [ReviewController::class, 'create'])->name('bookings.reviews.create');
+    Route::post('/bookings/{booking}/reviews', [ReviewController::class, 'store'])->name('bookings.reviews.store');
     Route::get('/items/{item}/photos/{photo}', [ItemController::class, 'showPhoto'])->name('items.photos.show');
 });
 

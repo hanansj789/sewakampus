@@ -17,6 +17,7 @@
 | K-GATE2 | Paket Gate 2 | Hanan | Belum |
 | K-M3 | Persetujuan sewa | Fazha | Menunggu review |
 | K-M4 | Foto kondisi serah terima | Fazha | Menunggu review |
+| K-M5 | Rating dan ulasan | Fazha | Menunggu review |
 | K-DB | Prosedur transaksi dan backup | Fazha | Belum |
 | K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Belum |
 | K-GAP | Gap analysis per domain | Hanan | Belum |
@@ -108,6 +109,18 @@
 - [x] Tombol selesaikan transaksi setelah RETURNED, deposit simulasi dikembalikan.
 
 **Status:** Menunggu review. Bukti: `07_Evidence/P14-M4-Run.md`, 15 tes lulus, total suite 66 lulus (207 assertion).
+
+## K-M5 — Rating dan ulasan
+
+**Pemilik:** Fazha. **Branch:** `feature/programmer-m5-rating`. **Reviewer:** Fharel.
+
+- [x] Rating hanya setelah transaksi `COMPLETED`.
+- [x] Satu rating per peran per booking.
+- [x] Rata-rata barang dihitung ulang dari review `PUBLISHED`.
+- [x] Ulasan tampil di halaman barang.
+- [x] Halaman rating dan tautan "Beri rating".
+
+**Status:** Menunggu review. Bukti: `07_Evidence/P15-M5-Run.md`, 10 tes lulus, total suite 76 lulus (235 assertion).
 
 ## K-DB — Prosedur transaksi dan backup
 

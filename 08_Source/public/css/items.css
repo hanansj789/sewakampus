@@ -577,3 +577,22 @@ h2 { font-size: 1.25rem; }
     color: var(--color-muted);
     font-size: 0.9rem;
 }
+
+.review-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.review-card {
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 0.85rem 1rem;
+    background: #fff;
+}
+
+.review-card p {
+    margin: 0.25rem 0 0;
+}
