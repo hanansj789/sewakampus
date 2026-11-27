@@ -21,6 +21,7 @@
 | K-DB | Prosedur transaksi dan backup | Fazha | Menunggu review |
 | K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Menunggu review |
 | K-GAP | Gap analysis per domain | Hanan | Menunggu review |
+| K-RM | Roadmap dan migration plan per gate | Hanan | Menunggu review |
 | K-UAT | Finalisasi skenario UAT dan SUS | Fharel | Belum |
 
 ## K-M1 — Listing end-to-end
@@ -157,6 +158,18 @@
 - [x] Daftar "bukan gap" ditulis agar tidak ada klaim berlebih.
 
 **Status:** Menunggu review. Bukti: `05_Opportunities/P15-Gap-Analysis.md`.
+
+## K-RM — Roadmap dan migration plan
+
+**Pemilik:** Hanan. **Branch:** `docs/ceo-roadmap`. **Reviewer:** Mahesa.
+
+- [x] Plateau baseline, transisi 1, transisi 2, dan fase 2.
+- [x] Tujuh work package dengan pemilik, prasyarat, dan estimasi.
+- [x] Migration plan untuk data mitra, aplikasi ke VPS, dan identitas.
+- [x] Milestone per gate dan risiko.
+- [x] Roadmap lama M1–M6 dinyatakan historis.
+
+**Status:** Menunggu review. Bukti: `05_Opportunities/P15-Roadmap-Migration.md`.
 
 ## K-UAT — Finalisasi skenario UAT dan SUS
 
