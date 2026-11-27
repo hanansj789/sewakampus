@@ -33,6 +33,17 @@ class Item extends Model
         return $this->hasOne(ItemPhoto::class)->where('is_primary', true);
     }
 
+
+    public function availabilities(): HasMany
+    {
+        return $this->hasMany(ItemAvailability::class);
+    }
+
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class);
+    }
+
     public function scopeActive($query)
     {
         return $query->where('status', 'ACTIVE')->whereNull('deleted_at');

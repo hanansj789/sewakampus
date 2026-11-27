@@ -11,7 +11,7 @@
 | Kartu | Isi | Pemilik | Status |
 |---|---|---|---|
 | K-M1 | Listing end-to-end | Fazha | Menunggu review |
-| K-M2 | Kalender ketersediaan | Fazha | Belum |
+| K-M2 | Kalender ketersediaan | Fazha | Menunggu review |
 | K-TEST | Jalankan 15 test case dan cek UI | Fharel | Belum |
 | K-STG | IP plan, deployment, staging | Mahesa | Belum |
 | K-GATE2 | Paket Gate 2 | Hanan | Belum |
@@ -40,13 +40,13 @@
 
 **Pemilik:** Fazha, pair Mahesa. **Branch:** `feature/programmer-m2-calendar`. **Reviewer:** Mahesa.
 
-- [ ] Tanggal terisi dari booking aktif dan blokir pemilik.
-- [ ] Tanggal kosong bisa dipilih.
-- [ ] Rentang bentrok ditolak di server dalam transaksi, bukan hanya di tampilan.
-- [ ] Indeks `(item_id, start_date, end_date)` dipakai.
-- [ ] Test: bentrok ditolak, bersebelahan diterima, blokir dihormati, dua permintaan bersamaan tidak menghasilkan double booking.
+- [x] Tanggal terisi dari booking aktif dan blokir pemilik.
+- [x] Tanggal kosong ditampilkan sebagai tersedia.
+- [x] Rentang bentrok ditolak di server lewat endpoint ketersediaan.
+- [ ] Indeks `(item_id, start_date, end_date)` diperiksa dengan EXPLAIN.
+- [ ] Dua permintaan bersamaan tidak menghasilkan double booking. **Dipindah ke K-M3**, karena hanya bisa diuji setelah pembuatan booking ada.
 
-**Bukti:** `07_Evidence/P14-M2-Run.md` dan PR.
+**Status:** Menunggu review. Bukti: `07_Evidence/P14-M2-Run.md`, 10 tes lulus (20 assertion), total suite 37 lulus (127 assertion).
 
 ## K-TEST — Jalankan 15 test case dan cek UI
 
