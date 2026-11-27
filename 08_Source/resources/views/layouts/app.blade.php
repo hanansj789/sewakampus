@@ -15,6 +15,7 @@
         <nav class="header-nav" aria-label="Navigasi utama">
             <a href="{{ route('items.index') }}" @class(['is-current' => request()->routeIs('items.index') && ! request()->boolean('mine')])>Katalog</a>
             <a href="{{ route('items.index', ['mine' => 1]) }}" @class(['is-current' => request()->boolean('mine')])>Barang saya</a>
+            <a href="{{ route('bookings.index') }}" @class(['is-current' => request()->routeIs('bookings.*')])>Pengajuan</a>
             <a class="primary-action" href="{{ route('items.create') }}">Tambah barang</a>
         </nav>
 
