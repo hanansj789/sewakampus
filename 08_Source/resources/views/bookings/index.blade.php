@@ -39,6 +39,10 @@
                             <a class="secondary-action" href="{{ route('bookings.handover', $booking) }}">Serah terima</a>
                         @endif
 
+                        @if ($booking->status === 'COMPLETED' && ! $booking->reviews->contains('reviewer_role', 'OWNER'))
+                            <a class="secondary-action" href="{{ route('bookings.reviews.create', $booking) }}">Beri rating</a>
+                        @endif
+
                         @if ($booking->status === 'PENDING')
                             <div class="booking-actions">
                                 <form method="POST" action="{{ route('bookings.approve', $booking) }}">
@@ -86,6 +90,10 @@
 
                         @if (in_array($booking->status, ['APPROVED', 'HANDED_OVER', 'RETURNED'], true))
                             <a class="secondary-action" href="{{ route('bookings.handover', $booking) }}">Serah terima</a>
+                        @endif
+
+                        @if ($booking->status === 'COMPLETED' && ! $booking->reviews->contains('reviewer_role', 'RENTER'))
+                            <a class="secondary-action" href="{{ route('bookings.reviews.create', $booking) }}">Beri rating</a>
                         @endif
 
                         @if ($booking->status === 'PENDING')
