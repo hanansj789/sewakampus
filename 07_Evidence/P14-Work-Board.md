@@ -19,7 +19,7 @@
 | K-M4 | Foto kondisi serah terima | Fazha | Menunggu review |
 | K-M5 | Rating dan ulasan | Fazha | Menunggu review |
 | K-DB | Prosedur transaksi dan backup | Fazha | Menunggu review |
-| K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Belum |
+| K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Menunggu review |
 | K-GAP | Gap analysis per domain | Hanan | Belum |
 | K-UAT | Finalisasi skenario UAT dan SUS | Fharel | Belum |
 
@@ -139,12 +139,13 @@
 
 **Pemilik:** Mahesa. **Branch:** `docs/network-tco`. **Reviewer:** Hanan.
 
-- [ ] Komponen biaya: VPS, domain, Cloudflare, monitoring, penyimpanan.
-- [ ] Setiap angka punya sumber dan tanggal.
-- [ ] Komponen belum pasti ditandai belum diverifikasi.
-- [ ] Total 12 bulan dengan skenario hemat dan aman.
+- [x] Komponen biaya: VPS, domain, Cloudflare, monitoring, penyimpanan.
+- [x] Setiap angka punya sumber dan tanggal; asumsi ditandai terpisah.
+- [x] Komponen belum pasti ditandai belum diverifikasi (enam butir).
+- [x] Tiga skenario 12 bulan: Biznet Gio Rp5,81 juta, Hetzner Rp7,91 juta, Oracle Rp0,94 juta.
+- [x] Rekomendasi dan sensitivitas (promo berakhir, Cloudflare Pro).
 
-**Bukti:** `04_Technology/P15-TCO.md`.
+**Status:** Menunggu review. Bukti: `04_Technology/P15-TCO.md`.
 
 ## K-GAP — Gap analysis per domain
 
