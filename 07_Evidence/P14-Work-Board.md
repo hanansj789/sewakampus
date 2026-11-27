@@ -76,6 +76,17 @@
 
 **Status:** Menunggu review. Bukti: `07_Evidence/P14-Staging-Deploy.md`, `04_Technology/P14-IP-Plan.md`, `04_Technology/P14-Deployment-Final.md`, `04_Technology/P14-Security-Checklist.md`.
 
+## K-QA — Uji dua fitur pertama
+
+**Pemilik:** Hanan (QA P14). **Branch:** `docs/ceo-qa-first-features`. **Reviewer:** Mahesa.
+
+- [x] M1 listing diuji di staging: buat, tampil, jeda, hilang dari katalog.
+- [x] M2 kalender diuji: tanggal terpakai dan kosong.
+- [x] Delapan kasus QA, semua lulus.
+- [x] Bukti tangkapan layar kalender.
+
+**Status:** Menunggu review. Bukti: `07_Evidence/P14-QA-First-Features.md`.
+
 ## K-GATE2 — Paket Gate 2
 
 **Pemilik:** Hanan. **Branch:** `docs/ceo-gate2`. **Reviewer:** Mahesa.
