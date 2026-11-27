@@ -33,7 +33,7 @@ Dokumen ini menjawab satu hal: dari tabel jobdesc P14 dan PR sebelum P15, mana y
 | Database | Transaksi/stored procedure proses kritis | **Selesai** | `003_procedures.sql`, `P15-DB-Procedures.md` | Prosedur belum dipanggil aplikasi |
 | Database | Skrip backup | **Selesai** | `database/backup/backup.sh`, `P15-Restore-Test.md` | Backup belum terjadwal dan belum offsite |
 | Programmer | Fitur Must ke-3 dan ke-4 | **Selesai** | `P14-M3-Run.md`, `P14-M4-Run.md`, PR #26, #28 | — |
-| Programmer | Dokumentasi route/endpoint | **Sedang dikerjakan** | `03_Application/Route-Endpoint.md` | — |
+| Programmer | Dokumentasi route/endpoint | **Selesai** | `03_Application/Route-Endpoint.md` (30 route fitur, 15 padanan kontrak, 19 belum dibangun) | — |
 | Network | Estimasi TCO 12 bulan | **Selesai** | `04_Technology/P15-TCO.md` | Enam komponen belum diverifikasi |
 
 ## 3. DoD Gate 2
@@ -50,10 +50,9 @@ Dokumen ini menjawab satu hal: dari tabel jobdesc P14 dan PR sebelum P15, mana y
 
 | # | Pekerjaan | Pemilik | Ukuran |
 |---|---|---|---|
-| 1 | Dokumentasi route/endpoint | Fazha | sedang, dikerjakan sekarang |
-| 2 | Catatan QA CEO untuk M1 dan M2 | Hanan | kecil |
-| 3 | Perbandingan UI S-01 sampai S-05 dengan prototipe | Fharel | sedang |
-| 4 | Konfirmasi tanggal dan peserta UAT | Hanan | butuh pihak luar |
-| 5 | Isi CR Kartu Kejutan saat kelas | Hanan | kecil, saat briefing |
+| 1 | Catatan QA CEO untuk M1 dan M2 | Hanan | kecil |
+| 2 | Perbandingan UI S-01 sampai S-05 dengan prototipe | Fharel | sedang |
+| 3 | Konfirmasi tanggal dan peserta UAT | Hanan | butuh pihak luar |
+| 4 | Isi CR Kartu Kejutan saat kelas | Hanan | kecil, saat briefing |
 
 Setelah lima ini, P14 dan PR sebelum P15 selesai secara internal. Gate 2 tetap menunggu penilaian dosen.
