@@ -12,9 +12,9 @@
 |---|---|---|---|
 | K-M1 | Listing end-to-end | Fazha | Menunggu review |
 | K-M2 | Kalender ketersediaan | Fazha | Menunggu review |
-| K-TEST | Jalankan 15 test case dan cek UI | Fharel | Sebagian |
+| K-TEST | Jalankan 15 test case dan cek UI | Fharel | Menunggu review |
 | K-STG | IP plan, deployment, staging | Mahesa | Menunggu review |
-| K-GATE2 | Paket Gate 2 | Hanan | Belum |
+| K-GATE2 | Paket Gate 2 | Hanan | Bersyarat |
 | K-M3 | Persetujuan sewa | Fazha | Menunggu review |
 | K-M4 | Foto kondisi serah terima | Fazha | Menunggu review |
 | K-M5 | Rating dan ulasan | Fazha | Menunggu review |
@@ -53,14 +53,13 @@
 
 **Pemilik:** Fharel. **Branch:** `docs/analyst-test-run`. **Reviewer:** Hanan.
 
-- [x] TC-01 sampai TC-05 dijalankan pada M1 dan M2 lewat peramban (pemeriksaan awal).
-- [ ] TC-06 sampai TC-15 menunggu M3, M4, dan M5.
+- [x] 15 kasus dijalankan dan dicatat dalam format template Test Case Design.
+- [x] Hasil: 12 Pass, 0 Fail, 3 Blocked (alur KTM dan sengketa belum dibangun).
 - [x] Dua cacat ditemukan dan diperbaiki: pesan validasi bahasa Inggris, foto seed hilang.
-- [ ] Uji formal 15 kasus oleh Analyst.
-- [ ] Cek UI membandingkan layar nyata dengan prototipe S-01, S-02, S-03.
-- [ ] Selisih UI dicatat per layar.
+- [x] Setiap kasus menautkan bukti tes otomatis atau tangkapan layar.
+- [ ] Cek UI membandingkan layar nyata dengan prototipe S-01 sampai S-05.
 
-**Status:** Sebagian. Bukti awal: `07_Evidence/P14-M1M2-Precheck.md` dan dua tangkapan layar di `07_Evidence/screenshots/`.
+**Status:** Menunggu review. Bukti: `07_Evidence/P14-Test-Run.xlsx`, `07_Evidence/P14-Test-Run.md`, 76 tes otomatis lulus.
 
 ## K-STG — IP plan, deployment, staging
 
@@ -78,12 +77,14 @@
 
 **Pemilik:** Hanan. **Branch:** `docs/ceo-gate2`. **Reviewer:** Mahesa.
 
-- [ ] ADR-001 diberi baris persetujuan CEO bertanggal.
-- [ ] CR Kartu Kejutan diisi lengkap: permintaan, dampak, keputusan, komunikasi.
-- [ ] Bukti demo dua fitur dari database nyata.
-- [ ] Ringkasan Gate 2: apa yang bisa dan belum bisa didemokan.
+- [x] ADR-001 diberi baris persetujuan CEO bertanggal.
+- [ ] CR Kartu Kejutan diisi lengkap: permintaan, dampak, keputusan, komunikasi. **Menunggu kartu di kelas.**
+- [x] Bukti demo dua fitur dari database nyata.
+- [x] Ringkasan Gate 2: apa yang bisa dan belum bisa didemokan.
+- [x] Naskah demo lima menit dan rencana cadangan.
+- [ ] Fharel menambah kontribusi (PR uji 15 kasus) sebelum gate.
 
-**Bukti:** `07_Evidence/P14-Gate-2.md`.
+**Status:** Bersyarat. Bukti: `07_Evidence/P14-Gate-2.md`, `06_Governance/P14-Demo-Script.md`, `06_Governance/P14-Kartu-Kejutan-Worksheet.md`.
 
 ## K-M3 — Persetujuan sewa
 
