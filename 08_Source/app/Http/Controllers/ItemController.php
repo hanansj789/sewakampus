@@ -71,7 +71,7 @@ class ItemController extends Controller
         }
 
         return view('items.show', [
-            'item' => $item->load('category', 'owner', 'photos'),
+            'item' => $item->load('category', 'owner', 'photos', 'reviews.reviewer'),
             'month' => $monthStart,
             'weeks' => array_chunk($days, 7),
             'previousMonth' => $monthStart->subMonth()->format('Y-m'),
