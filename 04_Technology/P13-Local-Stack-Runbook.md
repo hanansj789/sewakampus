@@ -105,3 +105,15 @@ Tema ada di `08_Source/keycloak/themes/sewakampus/`. Jika halaman login kembali 
 - Redis, MinIO, Nginx, Cloudflare, dan Docker Compose belum dijalankan pada scaffold ini.
 - Jangan menaruh kata sandi, client secret, atau token di runbook atau Git. `.env` diabaikan.
 - Angka 16 test/70 assertion adalah hasil 24 November 2026; perbarui jika suite berubah.
+
+## 9. Backup dan restore
+
+Skrip ada di `08_Source/database/backup/`.
+
+```bash
+cd ARCHITECTURE_REPOSITORY/08_Source
+bash database/backup/backup.sh                                  # membuat .sql.gz di ~/sewakampus-backups
+bash database/backup/restore.sh <berkas>.sql.gz sewakampus_restore
+```
+
+Hasil uji 27 November 2026: backup 1 detik, restore 2 detik, jumlah baris identik. Bukti di `07_Evidence/P15-Restore-Test.md`.
