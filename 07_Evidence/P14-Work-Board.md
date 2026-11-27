@@ -23,6 +23,7 @@
 | K-GAP | Gap analysis per domain | Hanan | Menunggu review |
 | K-RM | Roadmap dan migration plan per gate | Hanan | Menunggu review |
 | K-PITCH | Naskah pitch 7 menit dan peer review | Hanan | Siap dilatih |
+| K-GUIDE | Panduan pengguna singkat | Fharel | Menunggu review |
 | K-UAT | Finalisasi skenario UAT dan SUS | Fharel | Siap dijalankan |
 
 ## K-M1 — Listing end-to-end
@@ -171,6 +172,17 @@
 - [x] Roadmap lama M1–M6 dinyatakan historis.
 
 **Status:** Menunggu review. Bukti: `05_Opportunities/P15-Roadmap-Migration.md`.
+
+## K-GUIDE — Panduan pengguna
+
+**Pemilik:** Fharel. **Branch:** `docs/analyst-user-guide`. **Reviewer:** Hanan.
+
+- [x] Alur penyewa, pemilik, serah terima, dan rating.
+- [x] Arti status dan penanganan masalah umum.
+- [x] Daftar fitur yang belum tersedia agar tidak menyesatkan.
+- [x] Bahasa Indonesia, tanpa istilah teknis yang tidak perlu.
+
+**Status:** Menunggu review. Bukti: `08_Source/docs/panduan-pengguna.md`.
 
 ## K-PITCH — Naskah pitch dan peer review
 
