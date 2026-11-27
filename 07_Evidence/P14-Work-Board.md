@@ -20,7 +20,7 @@
 | K-M5 | Rating dan ulasan | Fazha | Menunggu review |
 | K-DB | Prosedur transaksi dan backup | Fazha | Menunggu review |
 | K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Menunggu review |
-| K-GAP | Gap analysis per domain | Hanan | Belum |
+| K-GAP | Gap analysis per domain | Hanan | Menunggu review |
 | K-UAT | Finalisasi skenario UAT dan SUS | Fharel | Belum |
 
 ## K-M1 — Listing end-to-end
@@ -151,11 +151,12 @@
 
 **Pemilik:** Hanan. **Branch:** `docs/ceo-gap-analysis`. **Reviewer:** Fazha.
 
-- [ ] Gap bisnis, data, aplikasi, teknologi.
-- [ ] Setiap gap punya dampak dan tindakan.
-- [ ] Tidak ada gap yang ditutup dengan asumsi.
+- [x] Gap bisnis, data, aplikasi, teknologi (20 butir).
+- [x] Setiap gap punya dampak, tindakan, pemilik, dan target gate.
+- [x] Prioritas dibagi tinggi/sedang/rendah dengan alasan.
+- [x] Daftar "bukan gap" ditulis agar tidak ada klaim berlebih.
 
-**Bukti:** `05_Opportunities/P15-Gap-Analysis.md`.
+**Status:** Menunggu review. Bukti: `05_Opportunities/P15-Gap-Analysis.md`.
 
 ## K-UAT — Finalisasi skenario UAT dan SUS
 
