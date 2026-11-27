@@ -180,4 +180,24 @@ class ItemListingTest extends TestCase
             ->assertSee('Kelola listing')
             ->assertSee('Utama');
     }
+
+    public function test_validation_message_uses_indonesian(): void
+    {
+        $student = $this->student();
+
+        $this->actingAs($student)
+            ->post('/items', $this->payload(['title' => '']))
+            ->assertSessionHasErrors('title');
+
+        $this->assertStringContainsString('wajib diisi', (string) session('errors')->first('title'));
+    }
+
+    public function test_catalog_shows_placeholder_when_photo_file_is_missing(): void
+    {
+        // Baris foto seed menunjuk berkas yang tidak ada di disk lokal.
+        $this->actingAs($this->student())
+            ->get('/items')
+            ->assertOk()
+            ->assertSee('Belum ada foto');
+    }
 }
