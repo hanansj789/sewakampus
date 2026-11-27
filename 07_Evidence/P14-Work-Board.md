@@ -22,6 +22,7 @@
 | K-TCO | Biaya infrastruktur 12 bulan | Mahesa | Menunggu review |
 | K-GAP | Gap analysis per domain | Hanan | Menunggu review |
 | K-RM | Roadmap dan migration plan per gate | Hanan | Menunggu review |
+| K-PITCH | Naskah pitch 7 menit dan peer review | Hanan | Siap dilatih |
 | K-UAT | Finalisasi skenario UAT dan SUS | Fharel | Siap dijalankan |
 
 ## K-M1 — Listing end-to-end
@@ -170,6 +171,19 @@
 - [x] Roadmap lama M1–M6 dinyatakan historis.
 
 **Status:** Menunggu review. Bukti: `05_Opportunities/P15-Roadmap-Migration.md`.
+
+## K-PITCH — Naskah pitch dan peer review
+
+**Pemilik:** Hanan. **Branch:** `docs/ceo-pitch`. **Reviewer:** Mahesa.
+
+- [x] Struktur 10 slide dengan pembawa dan durasi.
+- [x] Naskah per slide dan alur demo.
+- [x] Bank pertanyaan dan rencana cadangan.
+- [x] Lembar peer review sesuai format kelas.
+- [ ] Latihan dua kali dengan pengatur waktu.
+- [ ] Slide UAT diisi setelah sesi nyata.
+
+**Status:** Siap dilatih. Bukti: `09_Pitch/P15-Dry-Run-Pitch.md`, `07_Evidence/P15-Peer-Review-Template.md`.
 
 ## K-UAT — Finalisasi skenario UAT dan SUS
 
