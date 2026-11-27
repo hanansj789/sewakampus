@@ -13,7 +13,7 @@
 | K-M1 | Listing end-to-end | Fazha | Menunggu review |
 | K-M2 | Kalender ketersediaan | Fazha | Menunggu review |
 | K-TEST | Jalankan 15 test case dan cek UI | Fharel | Sebagian |
-| K-STG | IP plan, deployment, staging | Mahesa | Belum |
+| K-STG | IP plan, deployment, staging | Mahesa | Menunggu review |
 | K-GATE2 | Paket Gate 2 | Hanan | Belum |
 | K-M3 | Persetujuan sewa | Fazha | Menunggu review |
 | K-M4 | Foto kondisi serah terima | Fazha | Menunggu review |
@@ -66,13 +66,13 @@
 
 **Pemilik:** Mahesa. **Branch:** `feature/network-staging`. **Reviewer:** Fazha.
 
-- [ ] IP plan: segmen, port yang dibuka, alasan tiap port.
-- [ ] Deployment diagram final: node, artefak, protokol, port.
-- [ ] Checklist keamanan dijalankan pada aplikasi hidup.
-- [ ] Staging diakses lewat tunnel dari laptop (keputusan SK-026), bukan VPS.
-- [ ] Catat batas staging: single node, bukan produksi, mati bila laptop mati.
+- [x] IP plan: segmen, port yang dibuka, alasan tiap port.
+- [x] Deployment diagram final: node, artefak, protokol, port.
+- [x] Checklist keamanan dijalankan pada aplikasi hidup (9 lulus, 5 belum).
+- [x] Staging diakses lewat tunnel dari laptop (keputusan SK-026), bukan VPS.
+- [x] Catat batas staging: single node, bukan produksi, mati bila laptop mati.
 
-**Bukti:** `07_Evidence/P14-Staging-Deploy.md` dan `04_Technology/P14-Deployment-Diagram.png`.
+**Status:** Menunggu review. Bukti: `07_Evidence/P14-Staging-Deploy.md`, `04_Technology/P14-IP-Plan.md`, `04_Technology/P14-Deployment-Final.md`, `04_Technology/P14-Security-Checklist.md`.
 
 ## K-GATE2 — Paket Gate 2
 
