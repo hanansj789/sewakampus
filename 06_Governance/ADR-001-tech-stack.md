@@ -65,4 +65,12 @@ Detail struktur kode ada di `03_Application/P13-App-Structure.md` dan `ADR-002`.
 
 ## Status
 
-Draf. Perlu pengesahan Hanan sebagai CEO pada P14 sebelum dipakai sebagai dasar implementasi, sesuai tuntutan Gate 2 "ADR tech stack tertulis dan disetujui CEO".
+**Disahkan** pada 27 November 2026 sebagai dasar implementasi P14, sesuai tuntutan Gate 2 "ADR tech stack tertulis dan disetujui CEO".
+
+| Peran | Nama | Tindakan | Tanggal |
+|---|---|---|---|
+| CEO / Product Owner | Hanan Rizqullah | Menyetujui | 27 November 2026 |
+| Programmer | Muhammad Fazha Nararya Nugraha | Menyusun | 24 November 2026 |
+| Network / DevOps | Mahesa Kanaka Raya | Meninjau | 24 November 2026 |
+
+Catatan: pengesahan ini adalah keputusan internal tim. Penilaian Gate 2 tetap milik dosen.
