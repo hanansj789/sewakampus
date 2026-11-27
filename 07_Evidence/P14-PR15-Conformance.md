@@ -13,7 +13,7 @@ Dokumen ini menjawab satu hal: dari tabel jobdesc P14 dan PR sebelum P15, mana y
 | CEO (+QA) | Ubah Kartu Kejutan menjadi CR | **Menunggu kelas** | `06_Governance/P14-Kartu-Kejutan-Worksheet.md` | Kartu baru dibagikan saat briefing |
 | CEO (+QA) | Uji 2 fitur pertama | **Selesai** | `07_Evidence/P14-QA-First-Features.md` (8 kasus, semua lulus di staging) | — |
 | Analyst | ≥15 test case black-box | **Selesai** | `07_Evidence/P14-Test-Run.xlsx` (15 kasus) | — |
-| Analyst | Cek UI implementasi vs prototipe | **Belum** | prototipe ada di `03_Application/ux/`, tangkapan staging ada | Perbandingan S-01 sampai S-05 |
+| Analyst | Cek UI implementasi vs prototipe | **Selesai** | `07_Evidence/P14-UI-Comparison.md` (S-01 sampai S-05, 10 selisih, 6 perbaikan) | — |
 | Database | Implementasi DB: PK, FK, unique, check, indeks, view | **Selesai** | `001_init.sql`, `PR14-04-DDL-Run-Log.md`, `003_procedures.sql` | — |
 | Database | Pair dengan Programmer | **Selesai secara peran** | SK-004: Database dan Programmer dipegang anggota yang sama (Fazha), sehingga pairing berlangsung dalam satu orang dan direview Mahesa | Catatan sesi pair tertulis |
 | Programmer | 2 fitur Must end-to-end | **Selesai** | `P14-M1-Run.md`, `P14-M2-Run.md` | — |
@@ -50,8 +50,7 @@ Dokumen ini menjawab satu hal: dari tabel jobdesc P14 dan PR sebelum P15, mana y
 
 | # | Pekerjaan | Pemilik | Ukuran |
 |---|---|---|---|
-| 1 | Perbandingan UI S-01 sampai S-05 dengan prototipe | Fharel | sedang |
-| 2 | Konfirmasi tanggal dan peserta UAT | Hanan | butuh pihak luar |
-| 3 | Isi CR Kartu Kejutan saat kelas | Hanan | kecil, saat briefing |
+| 1 | Konfirmasi tanggal dan peserta UAT | Hanan | butuh pihak luar |
+| 2 | Isi CR Kartu Kejutan saat kelas | Hanan | kecil, saat briefing |
 
 Setelah lima ini, P14 dan PR sebelum P15 selesai secara internal. Gate 2 tetap menunggu penilaian dosen.

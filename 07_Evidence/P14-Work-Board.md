@@ -60,7 +60,7 @@
 - [x] Hasil: 12 Pass, 0 Fail, 3 Blocked (alur KTM dan sengketa belum dibangun).
 - [x] Dua cacat ditemukan dan diperbaiki: pesan validasi bahasa Inggris, foto seed hilang.
 - [x] Setiap kasus menautkan bukti tes otomatis atau tangkapan layar.
-- [ ] Cek UI membandingkan layar nyata dengan prototipe S-01 sampai S-05.
+- [x] Cek UI membandingkan layar nyata dengan prototipe S-01 sampai S-05 (`07_Evidence/P14-UI-Comparison.md`).
 
 **Status:** Menunggu review. Bukti: `07_Evidence/P14-Test-Run.xlsx`, `07_Evidence/P14-Test-Run.md`, 76 tes otomatis lulus.
 
