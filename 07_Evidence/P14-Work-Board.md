@@ -14,7 +14,7 @@
 | K-M2 | Kalender ketersediaan | Fazha | Menunggu review |
 | K-TEST | Jalankan 15 test case dan cek UI | Fharel | Sebagian |
 | K-STG | IP plan, deployment, staging | Mahesa | Menunggu review |
-| K-GATE2 | Paket Gate 2 | Hanan | Belum |
+| K-GATE2 | Paket Gate 2 | Hanan | Bersyarat |
 | K-M3 | Persetujuan sewa | Fazha | Menunggu review |
 | K-M4 | Foto kondisi serah terima | Fazha | Menunggu review |
 | K-M5 | Rating dan ulasan | Fazha | Menunggu review |
@@ -78,12 +78,14 @@
 
 **Pemilik:** Hanan. **Branch:** `docs/ceo-gate2`. **Reviewer:** Mahesa.
 
-- [ ] ADR-001 diberi baris persetujuan CEO bertanggal.
-- [ ] CR Kartu Kejutan diisi lengkap: permintaan, dampak, keputusan, komunikasi.
-- [ ] Bukti demo dua fitur dari database nyata.
-- [ ] Ringkasan Gate 2: apa yang bisa dan belum bisa didemokan.
+- [x] ADR-001 diberi baris persetujuan CEO bertanggal.
+- [ ] CR Kartu Kejutan diisi lengkap: permintaan, dampak, keputusan, komunikasi. **Menunggu kartu di kelas.**
+- [x] Bukti demo dua fitur dari database nyata.
+- [x] Ringkasan Gate 2: apa yang bisa dan belum bisa didemokan.
+- [x] Naskah demo lima menit dan rencana cadangan.
+- [ ] Fharel menambah kontribusi (PR uji 15 kasus) sebelum gate.
 
-**Bukti:** `07_Evidence/P14-Gate-2.md`.
+**Status:** Bersyarat. Bukti: `07_Evidence/P14-Gate-2.md`, `06_Governance/P14-Demo-Script.md`, `06_Governance/P14-Kartu-Kejutan-Worksheet.md`.
 
 ## K-M3 — Persetujuan sewa
 
