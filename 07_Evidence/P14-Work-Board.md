@@ -10,7 +10,7 @@
 
 | Kartu | Isi | Pemilik | Status |
 |---|---|---|---|
-| K-M1 | Listing end-to-end | Fazha | Belum |
+| K-M1 | Listing end-to-end | Fazha | Menunggu review |
 | K-M2 | Kalender ketersediaan | Fazha | Belum |
 | K-TEST | Jalankan 15 test case dan cek UI | Fharel | Belum |
 | K-STG | IP plan, deployment, staging | Mahesa | Belum |
@@ -26,15 +26,15 @@
 
 **Pemilik:** Fazha. **Branch:** `feature/programmer-m1-listing`. **Reviewer:** Fharel.
 
-- [ ] Model dan relasi `Item`, `ItemCategory`, `ItemPhoto`.
-- [ ] Rute katalog, form buat, simpan, ubah, jeda.
-- [ ] Validasi server: judul ≤120, harga ≥0, kondisi salah satu dari tiga nilai, kategori wajib ada.
-- [ ] Otorisasi: hanya pemilik yang bisa mengubah atau menjeda.
-- [ ] Unggah foto ke disk privat, satu foto utama, path tersimpan di `item_photos`.
-- [ ] Listing tampil di katalog dan tetap ada setelah aplikasi dinyalakan ulang.
-- [ ] Test: buat valid, tolak tidak valid, tolak pengguna lain, tolak berkas bukan gambar.
+- [x] Model dan relasi `Item`, `ItemCategory`, `ItemPhoto`.
+- [x] Rute katalog, form buat, simpan, ubah, jeda.
+- [x] Validasi server: judul ≤120, harga ≥0, kondisi salah satu dari tiga nilai, kategori wajib ada.
+- [x] Otorisasi: hanya pemilik yang bisa mengubah atau menjeda.
+- [x] Unggah foto ke disk privat, satu foto utama, path tersimpan di `item_photos`.
+- [x] Listing tampil di katalog dan tetap ada setelah aplikasi dinyalakan ulang.
+- [x] Test: buat valid, tolak tidak valid, tolak pengguna lain, tolak berkas bukan gambar.
 
-**Bukti:** `07_Evidence/P14-M1-Run.md` dan PR.
+**Status:** Menunggu review. Bukti: `07_Evidence/P14-M1-Run.md`, 11 tes lulus (37 assertion), total suite 27 lulus (107 assertion).
 
 ## K-M2 — Kalender ketersediaan
 

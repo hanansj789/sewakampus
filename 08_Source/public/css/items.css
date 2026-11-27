@@ -1,0 +1,294 @@
+/* Halaman listing SewaKampus. Memakai variabel warna dari auth.css. */
+
+.page-main {
+    place-items: start stretch;
+    align-content: start;
+    gap: 1.5rem;
+}
+
+.page-main > * {
+    width: min(100%, 72rem);
+    margin-inline: auto;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-inline-start: auto;
+}
+
+.header-nav a {
+    min-block-size: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding-inline: 0.5rem;
+    text-decoration: none;
+    border-block-end: 2px solid transparent;
+}
+
+.header-nav a.is-current,
+.header-nav a:hover {
+    border-block-end-color: var(--color-accent);
+}
+
+.page-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-block-end: 1.5rem;
+}
+
+h1,
+h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+}
+
+h1 { font-size: clamp(1.75rem, 3vw, 2.5rem); }
+h2 { font-size: 1.25rem; }
+
+.flash {
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--color-border);
+    border-inline-start: 4px solid var(--color-accent);
+    background: var(--color-bg-surface);
+    border-radius: 0.5rem;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-tabs a {
+    min-block-size: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding-inline: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    text-decoration: none;
+    background: var(--color-bg-surface);
+}
+
+.filter-tabs a.is-current {
+    background: var(--color-ink);
+    color: #fff;
+    border-color: var(--color-ink);
+}
+
+.item-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: 1.25rem;
+}
+
+.item-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+.item-photo {
+    aspect-ratio: 3 / 2;
+    background: var(--color-accent-soft);
+    display: grid;
+    place-items: center;
+}
+
+.item-photo img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-placeholder {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.item-body {
+    padding: 1rem;
+    display: grid;
+    gap: 0.35rem;
+}
+
+.item-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.item-title {
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+.item-price {
+    margin: 0;
+    font-weight: 700;
+}
+
+.item-price .deposit {
+    display: block;
+    font-weight: 400;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.item-detail {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--color-border);
+    background: var(--color-accent-soft);
+    color: var(--color-ink);
+}
+
+.status-active { background: #E4EFE1; border-color: #C7DCC1; }
+.status-paused { background: #F3E7D2; border-color: #E2D2B4; }
+.status-draft { background: #EDEBE6; border-color: #DAD5CA; }
+
+.empty-state {
+    border: 1px dashed var(--color-border);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    text-align: center;
+    background: var(--color-bg-surface);
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+}
+
+.form-panel {
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-block-end: 1.5rem;
+}
+
+.item-form {
+    display: grid;
+    gap: 1rem;
+    margin-block-start: 1rem;
+}
+
+.field {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.field label {
+    font-weight: 700;
+}
+
+.field input,
+.field select,
+.field textarea {
+    min-block-size: 44px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: #fff;
+    font: inherit;
+    color: inherit;
+}
+
+.field textarea {
+    min-block-size: 6rem;
+    resize: vertical;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.field-row {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.field-hint {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.field-error {
+    margin: 0;
+    color: var(--color-error);
+    font-size: 0.9rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-block-start: 0.5rem;
+}
+
+.photo-list {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.photo-list li {
+    display: grid;
+    gap: 0.35rem;
+    justify-items: start;
+}
+
+.photo-list img {
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    object-fit: cover;
+}
+
+.pagination-wrap {
+    margin-block-start: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .header-nav {
+        order: 3;
+        width: 100%;
+    }
+
+    .page-heading {
+        align-items: start;
+    }
+}
