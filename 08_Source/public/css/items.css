@@ -566,3 +566,14 @@ h2 { font-size: 1.25rem; }
         min-inline-size: 100%;
     }
 }
+
+.confirm-list {
+    list-style: none;
+    margin: 0.75rem 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}

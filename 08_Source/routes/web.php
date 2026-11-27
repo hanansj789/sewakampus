@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\KeycloakAuthController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\HandoverController;
 use App\Http\Controllers\ItemController;
 
 Route::view('/login', 'auth.login')->name('login');
@@ -28,6 +29,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/bookings/{booking}/approve', [BookingController::class, 'approve'])->name('bookings.approve');
     Route::post('/bookings/{booking}/reject', [BookingController::class, 'reject'])->name('bookings.reject');
     Route::post('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
+
+    Route::get('/bookings/{booking}/handover', [HandoverController::class, 'show'])->name('bookings.handover');
+    Route::post('/bookings/{booking}/handovers', [HandoverController::class, 'store'])->name('bookings.handovers.store');
+    Route::post('/bookings/{booking}/handovers/{handover}/confirm', [HandoverController::class, 'confirm'])->name('bookings.handovers.confirm');
+    Route::get('/bookings/{booking}/handovers/{handover}/photo', [HandoverController::class, 'showPhoto'])->name('bookings.handovers.photo');
+    Route::post('/bookings/{booking}/complete', [HandoverController::class, 'complete'])->name('bookings.complete');
     Route::get('/items/{item}/photos/{photo}', [ItemController::class, 'showPhoto'])->name('items.photos.show');
 });
 

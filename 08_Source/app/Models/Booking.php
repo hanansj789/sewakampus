@@ -34,6 +34,11 @@ class Booking extends Model
         return $this->belongsTo(User::class, 'owner_id');
     }
 
+    public function handovers(): HasMany
+    {
+        return $this->hasMany(Handover::class);
+    }
+
     public function statusHistory(): HasMany
     {
         return $this->hasMany(BookingStatusHistory::class);
