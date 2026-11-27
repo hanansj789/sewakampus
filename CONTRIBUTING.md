@@ -45,14 +45,6 @@ Fase GitHub belum dimulai. Saat nanti dijalankan:
 
 Nama di commit (author) dan akun yang melakukan push adalah dua hal berbeda. Jangan memakai token orang lain, dan jangan mengaku-ngaku commit orang lain sebagai kontribusi sendiri.
 
-Jika `git push` ditolak dengan 403 padahal `gh auth status` sudah benar, Windows Credential Manager masih menyimpan akun lain. Arahkan repo ini memakai token `gh`:
-
-```bash
-git config --local credential.https://github.com.helper "!gh auth git-credential"
-```
-
-Periksa dengan `git config --local --get credential.https://github.com.helper`. Pengaturan ini hanya berlaku untuk repo ini, bukan global.
-
 ## Review
 
 - Penulis dan reviewer harus orang berbeda.
