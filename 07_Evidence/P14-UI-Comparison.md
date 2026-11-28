@@ -87,8 +87,8 @@ Kesimpulan: fungsi setujui/tolak lengkap. Masking NIM dan profil penyewa belum a
 
 | Prioritas | Perbaikan | Layar | Usaha |
 |---|---|---|---|
-| Tinggi | Masking NIM pada kartu pengajuan | S-05 | kecil |
-| Tinggi | Pratinjau foto sebelum simpan | S-01 | sedang |
+| ~~Tinggi~~ **Selesai** | Masking NIM pada kartu pengajuan | S-05 | kecil |
+| ~~Tinggi~~ **Selesai** | Pratinjau foto sebelum simpan | S-01 | sedang |
 | Sedang | Ringkasan biaya sebelum kirim pengajuan | S-04 | kecil |
 | Sedang | Kartu pemilik dengan rating di detail | S-03 | sedang |
 | Rendah | Label kondisi pada kartu katalog | S-02 | kecil |
@@ -97,3 +97,8 @@ Kesimpulan: fungsi setujui/tolak lengkap. Masking NIM dan profil penyewa belum a
 ## 8. Yang tidak diperbaiki sekarang
 
 Hero katalog, pencarian tanggal, sidebar profil penyewa, dan galeri thumbnail ditunda. Tidak satu pun menghambat lima Must, dan menambahkannya sekarang berisiko mengganggu demo Gate 2.
+
+
+## 9. Tindak lanjut
+
+Dua butir prioritas tinggi sudah dikerjakan pada 28 November 2026. Bukti: `07_Evidence/P14-UI-Fixes.md`. Empat butir lain tetap ditunda dengan alasan yang sama.
