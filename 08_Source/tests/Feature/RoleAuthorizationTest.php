@@ -37,4 +37,15 @@ class RoleAuthorizationTest extends TestCase
 
         $this->actingAs($admin)->get('/dashboard')->assertRedirect('/admin/dashboard');
     }
+
+    public function test_dashboard_shows_catalog_navigation(): void
+    {
+        $student = User::query()->where('role', 'STUDENT')->where('account_status', 'ACTIVE')->firstOrFail();
+
+        $this->actingAs($student)
+            ->get('/student/dashboard')
+            ->assertOk()
+            ->assertSee('Buka katalog')
+            ->assertSee('Katalog');
+    }
 }

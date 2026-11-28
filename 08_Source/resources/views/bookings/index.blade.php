@@ -22,7 +22,12 @@
                                 {{ $booking->item?->title }}
                                 <span class="status-badge status-{{ strtolower($booking->status) }}">{{ $booking->status }}</span>
                             </p>
-                            <p class="item-detail">Penyewa: {{ $booking->renter?->full_name }}</p>
+                            <p class="item-detail">
+                                Penyewa: {{ $booking->renter?->full_name }}
+                                @if ($booking->renter?->maskedNim())
+                                    · NIM {{ $booking->renter->maskedNim() }}
+                                @endif
+                            </p>
                             <p class="item-detail">
                                 {{ $booking->start_date->format('d-m-Y') }} sampai {{ $booking->end_date->format('d-m-Y') }}
                             </p>
@@ -79,7 +84,12 @@
                                 {{ $booking->item?->title }}
                                 <span class="status-badge status-{{ strtolower($booking->status) }}">{{ $booking->status }}</span>
                             </p>
-                            <p class="item-detail">Pemilik: {{ $booking->owner?->full_name }}</p>
+                            <p class="item-detail">
+                                Pemilik: {{ $booking->owner?->full_name }}
+                                @if ($booking->owner?->maskedNim())
+                                    · NIM {{ $booking->owner->maskedNim() }}
+                                @endif
+                            </p>
                             <p class="item-detail">
                                 {{ $booking->start_date->format('d-m-Y') }} sampai {{ $booking->end_date->format('d-m-Y') }}
                             </p>

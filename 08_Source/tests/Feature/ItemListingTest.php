@@ -200,4 +200,13 @@ class ItemListingTest extends TestCase
             ->assertOk()
             ->assertSee('Belum ada foto');
     }
+
+    public function test_create_form_has_photo_preview_hook(): void
+    {
+        $this->actingAs($this->student())
+            ->get('/items/create')
+            ->assertOk()
+            ->assertSee('data-photo-input', false)
+            ->assertSee('photo-preview-create', false);
+    }
 }

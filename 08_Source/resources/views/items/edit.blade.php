@@ -50,7 +50,9 @@
             <div class="field">
                 <label for="photo">Tambah foto</label>
                 <input id="photo" name="photo" type="file" accept="image/jpeg,image/png" required
+                       data-photo-input data-photo-preview="#photo-preview-edit"
                        @error('photo') aria-invalid="true" aria-describedby="photo-error" @enderror>
+                <img id="photo-preview-edit" class="photo-preview" alt="Pratinjau foto yang dipilih" hidden>
                 @error('photo')<p class="field-error" id="photo-error">{{ $message }}</p>@enderror
             </div>
             <button class="secondary-action" type="submit">Unggah foto</button>
